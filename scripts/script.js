@@ -2,7 +2,11 @@
 //=============================================================================================================================================//
 
 if (window.location.pathname.includes("index.html")){
- const form_login = document.getElementById("form-login") //A revisar
+
+    localStorage.setItem("email", "admin@gmail.com");
+    localStorage.setItem("password", "123");
+
+ const form_login = document.getElementById("form-login");
 
 if (form_login) {
     form_login.onsubmit = (e) => {
@@ -26,13 +30,13 @@ if (form_login) {
 
         if (email !== localStorage.getItem('email')) {
             valido = false;
-            msg.innerHTML = "<div><p id='erro' class='text-danger d-flex justify-content-center'> Usuário Inválido </p></div>";
+            msg.innerHTML = "<div><p id='erro' class='text-danger d-flex justify-content-center'> Email Inválido </p></div>";
         }
 
         if (valido == true) {
             console.log("Validado");
             localStorage.setItem("logado", "true");
-            window.location.replace("forum.html"); //A trocar
+            window.location.replace("home.html");
         } else {
             console.log("Inválido");
         }

@@ -1,11 +1,15 @@
 :root{
     --cor-fundo: #f9f9ee;
     --submit-button-color: #ff3131;
+    --cor-home:#392d29;
 }
 
 
 body{
     background-color: var(--cor-fundo) !important;
+}
+#home{
+    background-color: var(--cor-home) !important;
 }
 
 #div-login-screen{
