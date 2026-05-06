@@ -37,6 +37,7 @@ body{
 
 #img-login-screen{
     max-height: 500px !important;
+    caret-color: transparent;
 }
 
 .div-inputs{
@@ -72,9 +73,15 @@ body{
     max-height: 45px;
     position: absolute;
     left: 50%;
-    top: 94%;
+    top: 95%;
     transform: translate(-50%, -50%);
 }
+
+.footer{
+    margin: 10px;
+}
+
+
 #mensagem {
     margin: 0;
     padding: 0;
@@ -90,15 +97,15 @@ body{
 
 @font-face {
   font-family: 'brixton';
-  src: url(assets/fonts/brixton-sans-rg.ttf) format(ttf)
+  src: url('assets/fonts/brixton-sans-rg.ttf') format('ttf')
 }
 
 @font-face {
   font-family: 'Cagliostro';
-  src: url(assets/fonts/Cagliostro-Regular.ttf) format(ttf)
+  src: url('assets/fonts/Cagliostro-Regular.ttf') format('ttf')
 }
 
 @font-face {
   font-family: 'Sawarabi';
-  src: url(assets/fonts/SawarabiMincho-Regular.ttf) format(ttf)
+  src: url('assets/fonts/SawarabiMincho-Regular.ttf') format('ttf')
 }
