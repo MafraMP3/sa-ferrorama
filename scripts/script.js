@@ -36,7 +36,7 @@ if (form_login) {
         if (valido == true) {
             console.log("Validado");
             localStorage.setItem("logado", "true");
-            window.location.replace("home.html");
+            window.location.assign("home.html");
         } else {
             console.log("Inválido");
         }
