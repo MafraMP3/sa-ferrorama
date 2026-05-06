@@ -1,50 +1,75 @@
-
+if (!window.location.pathname.includes("index.html")) {
+    if (localStorage.getItem("logado") !== "true") {
+        window.location.replace("index.html");
+        alert("LOGUE ANTES DE USAR");
+    }
+}
 //=============================================================================================================================================//
 
-if (window.location.pathname.includes("index.html")){
+if (window.location.pathname.includes("index.html")) {
 
     localStorage.setItem("email", "admin@gmail.com");
     localStorage.setItem("password", "123");
 
- const form_login = document.getElementById("form-login");
+    const form_login = document.getElementById("form-login");
 
-if (form_login) {
-    form_login.onsubmit = (e) => {
+    if (form_login) {
+        form_login.onsubmit = (e) => {
 
-        e.preventDefault();
+            e.preventDefault();
 
-        console.log("OI");
+            console.log("OI");
 
-        let email = document.getElementById('email').value;
-        let senha = document.getElementById('senha').value;
-        let msg = document.getElementById('mensagem');
+            let email = document.getElementById('email').value;
+            let senha = document.getElementById('senha').value;
+            let msg = document.getElementById('mensagem');
 
-        msg.innerHTML = "";
+            msg.innerHTML = "";
 
-        let valido = true;
+            let valido = true;
 
-        if (senha !== localStorage.getItem('password')) {
-            valido = false;
-            msg.innerHTML = "<div><p id='erro' class='text-danger d-flex justify-content-center'> Senha Inválida </p></div>";
-        }
+            if (senha !== localStorage.getItem('password')) {
+                valido = false;
+                msg.innerHTML = "<div><p id='erro' class='text-danger d-flex justify-content-center'> Senha Inválida </p></div>";
+            }
 
-        if (email !== localStorage.getItem('email')) {
-            valido = false;
-            msg.innerHTML = "<div><p id='erro' class='text-danger d-flex justify-content-center'> Email Inválido </p></div>";
-        }
+            if (email !== localStorage.getItem('email')) {
+                valido = false;
+                msg.innerHTML = "<div><p id='erro' class='text-danger d-flex justify-content-center'> Email Inválido </p></div>";
+            }
 
-        if (valido == true) {
-            console.log("Validado");
-            localStorage.setItem("logado", "true");
-            window.location.assign("home.html");
-        } else {
-            console.log("Inválido");
+            if (valido == true) {
+                console.log("Validado");
+                localStorage.setItem("logado", "true");
+                window.location.assign("home.html");
+            } else {
+                console.log("Inválido");
+            }
         }
     }
-}   
 }
 
 
 //=============================================================================================================================================//
 
+<<<<<<< HEAD
 
+=======
+if (window.location.pathname.includes("home.html")) {
+
+    localStorage.setItem("email", "admin@gmail.com");
+    localStorage.setItem("password", "123");
+
+    const logout = document.querySelector('.logout');
+
+    if (logout) {
+        logout.onclick = (e) => {
+
+            e.preventDefault();
+
+            localStorage.clear();
+            window.location.replace("home.html");
+        }
+    }
+}
+>>>>>>> 98e177e9305d396b4a67a2e8760a72f28443a80b
