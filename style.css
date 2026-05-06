@@ -1,12 +1,19 @@
 :root{
     --cor-fundo: #f9f9ee;
     --submit-button-color: #ff3131;
+<<<<<<< HEAD
     --label-login-color: #2c2c2c;
+=======
+    --cor-home:#392d29;
+>>>>>>> 86fcccc7c56d7ecaa22a101169327d9d88603cd3
 }
 
 
 body{
     background-color: var(--cor-fundo) !important;
+}
+#home{
+    background-color: var(--cor-home) !important;
 }
 
 
@@ -54,4 +61,20 @@ body{
     background-color: var(--submit-button-color) !important;
     padding: 2px;
     font-size: 30px;
+    margin-top: 18px !important;
+}
+
+@font-face {
+  font-family: 'brixton';
+  src: url(assets/fonts/brixton-sans-rg.ttf) format(ttf)
+}
+
+@font-face {
+  font-family: 'Cagliostro';
+  src: url(assets/fonts/Cagliostro-Regular.ttf) format(ttf)
+}
+
+@font-face {
+  font-family: 'Sawarabi';
+  src: url(assets/fonts/SawarabiMincho-Regular.ttf) format(ttf)
 }
