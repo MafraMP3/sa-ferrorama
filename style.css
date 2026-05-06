@@ -104,6 +104,12 @@ body{
     max-height: 45px !important;
 }
 
+.div-text-1 h4{
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+
 /*--------------------------------------------------------------*/
 
 @font-face {
