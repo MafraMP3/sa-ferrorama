@@ -97,15 +97,68 @@ body{
 
 @font-face {
   font-family: 'brixton';
-  src: url('assets/fonts/brixton-sans-rg.ttf') format('ttf')
+  src: url('assets/fonts/brixton-sans-rg.ttf') format('truetype')
 }
 
 @font-face {
   font-family: 'Cagliostro';
-  src: url('assets/fonts/Cagliostro-Regular.ttf') format('ttf')
+  src: url('assets/fonts/Cagliostro-Regular.ttf') format('truetype')
 }
 
 @font-face {
   font-family: 'Sawarabi';
-  src: url('assets/fonts/SawarabiMincho-Regular.ttf') format('ttf')
+  src: url('assets/fonts/SawarabiMincho-Regular.ttf') format('truetype')
 }
+
+    .sidebar {
+      width: 250px;
+      height: 100vh;
+      position: fixed;
+      background-color: var(--cor-home);
+      color: white;
+      padding: 20px;
+    }
+
+    .sidebar img {
+      width: 100%;
+      border-radius: 10px;
+   
+    }
+
+    .sidebar a {
+      display: block;
+      color: #ddd;
+      padding: 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+
+    .sidebar a.active,
+    .sidebar a:hover {
+      background-color: #ff2c2c;
+      color: white;
+    }
+
+    .logout {
+      position: absolute;
+      bottom: 20px;
+      width: 80%;
+      border: 2px solid red;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+    }
+
+
+    .content {
+      margin-left: 270px;
+      padding: 30px;
+    }
+
+    #logocontainer{
+        background-color: var(--cor-fundo);
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
