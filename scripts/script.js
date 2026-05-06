@@ -1,7 +1,8 @@
 
 //=============================================================================================================================================//
 
-const form_login = document.getElementById("form-login") //A revisar
+if (window.location.pathname.includes("index.html")){
+ const form_login = document.getElementById("form-login") //A revisar
 
 if (form_login) {
     form_login.onsubmit = (e) => {
@@ -36,6 +37,8 @@ if (form_login) {
             console.log("Inválido");
         }
     }
+}   
 }
+
 
 //=============================================================================================================================================//
