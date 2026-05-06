@@ -15,23 +15,34 @@
 </head>
 
 <body>
-  <div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<!--==================================================Sidebar=====================================================//-->
+    <div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
     <button class="hamburger" onclick="toggleSidebar()">
-      <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-bars"></i>
     </button>
 
     <div class="sidebar container">
-      <div id="logocontainer">
-    <img src="assets/images/logo-quadrada.png "alt="logo">
+        <div id="logocontainer">
+            <img src="assets/images/logo-quadrada.png " alt="logo">
+        </div>
+
+        <a href="home.html"  id="linkDashboard">
+            <i class="fa-solid fa-house" style="color: #fff;"></i> Dashboard
+        </a>
+
+        <a href="#" class="active" id="linkSensores">
+            <i class="fa-solid fa-satellite-dish" style="color: #fff;"></i> Sensores
+        </a>
+
+      
+        <a href="monitoramento.html" id="linkMonitoramento">
+            <i class="fa-solid fa-chart-line" style="color: #fff;"></i> Monitoramento
+        </a>
+
+        <a href="#" class="logout" id="linkSair">SAIR</a>
     </div>
-
-    <a href="home.html"  id="linkDeshboard">
-      <i class="fa-solid fa-house" style="color: rgb(255, 255, 255);"></i> Dashboard</a>
-    <a href="#" id="linkSensores" class="active">
-      <i class="fa-solid fa-signal" style="color: rgb(255, 255, 255);"></i> Sensores</a>
-
-    <a href="#" class="logout" id="linkSair">SAIR</a>
-  </div>
+<!--==================================================Sidebar=====================================================//-->
 
       <div class="container  align-items-center">
 
