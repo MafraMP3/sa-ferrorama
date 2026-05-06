@@ -55,6 +55,10 @@ if (window.location.pathname.includes("home.html")) {
     localStorage.setItem("email", "admin@gmail.com");
     localStorage.setItem("password", "123");
 
+    let welcome = document.getElementById("saudacao");
+    let nomeAdmin = "Admin";
+
+    welcome.textContent = `Bem-vindo, ${nomeAdmin}`;
     const logout = document.querySelector('.logout');
 
     if (logout) {
@@ -63,7 +67,7 @@ if (window.location.pathname.includes("home.html")) {
             e.preventDefault();
 
             localStorage.clear();
-            window.location.replace("home.html");
+            window.location.replace("index.html");
         }
     }
 }
