@@ -67,7 +67,7 @@ if (window.location.pathname.includes("home.html")) {
             e.preventDefault();
 
             localStorage.clear();
-            window.location.replace("home.html");
+            window.location.replace("index.html");
         }
     }
 }
