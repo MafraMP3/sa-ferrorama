@@ -104,6 +104,14 @@ body{
     max-height: 45px !important;
 }
 
+.text-cadastrar-novo-sensor{
+    color: var(--submit-button-color);
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 3px;
+    margin-left: 10px;
+}
+
 .icone-olho{
   height: 50px;
   width: 70px;
