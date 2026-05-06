@@ -65,6 +65,18 @@ body{
     font-size: 30px;
     margin-top: 18px !important;
 }
+#mensagem {
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+    height: 0;
+}
+
+#erro {
+    margin: 0;
+    padding: 0;
+    visibility: visible;
+}
 
 @font-face {
   font-family: 'brixton';
