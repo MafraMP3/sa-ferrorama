@@ -1,6 +1,7 @@
 :root{
     --cor-fundo: #f9f9ee;
     --submit-button-color: #ff3131;
+    --label-login-color: #2c2c2c;
 }
 
 
@@ -8,15 +9,49 @@ body{
     background-color: var(--cor-fundo) !important;
 }
 
+
+/*----------------------loggin screen------------------------*/
+
+#section-login{
+    margin-top: 60px;
+}
+
 #div-login-screen{
-    max-width: 400px !important;
+    max-width: 440px !important;
+}
+
+.div-flex-collum{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #img-login-screen{
-    max-width: 400px !important;
+    max-height: 520px !important;
+}
+
+.div-inputs{
+    margin-top: 15px;
+    margin-bottom: 30px !important;
+}
+
+.label-login{
+    margin-left: 6px;
+    color: var(--label-login-color) !important;
+    font-size: 20px !important;
+    font-weight: 670;
+}
+
+.input-login{
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--label-login-color) !important;
+    color: #2c2c2c;
+    font-weight: 600;
 }
 
 .submit-button{
     background-color: var(--submit-button-color) !important;
-    margin-top: 18px !important;
+    padding: 2px;
+    font-size: 30px;
 }
