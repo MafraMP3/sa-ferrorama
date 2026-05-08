@@ -8,6 +8,7 @@
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/images/icon.png">
 
   <title>Sensores</title>
 
@@ -70,7 +71,12 @@
               </div>
               <div class="div-inputs-label-sensors">
                 <label class=" label-form-sensors" for="">TIPO DE DADO</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="Selecione o tipo">
+                <select class="form-select input-form-sensors" aria-label="Default select example">
+                  <option selected>Selecione o tipo</option>
+                  <option value="1">Velocidade</option>
+                  <option value="2">Temperatura</option>
+                  <option value="3">Energia</option>
+                </select>
               </div>
               <div id="div-button-sensors">
                 <button class="d-block btn btn-primary button-form-sensors" type="submit">Cadastrar</button>
