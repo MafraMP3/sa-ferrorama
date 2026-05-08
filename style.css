@@ -69,7 +69,9 @@ body {
   font-size: 30px;
   margin-top: 18px !important;
   border-radius: 10px !important;
+  border: 0px;
 }
+
 
 #img-footer-login-screen {
   max-height: 45px;
