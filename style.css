@@ -161,6 +161,17 @@ body{
     outline: inherit;      
   }
 
+.div-tabela-sensors{
+    border: 2px solid var(--label-login-color);
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 100px;
+    margin-right: 10px;
+}
+
+#tabelaSensores{
+  margin-top: 20px;
+}
 
 
 /*--------------------------------------------------------------*/
