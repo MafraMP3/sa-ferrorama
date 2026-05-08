@@ -121,11 +121,26 @@ body{
 }
 
 .label-form-sensors{
-  font-size: 26px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.input-form-sensors{
+  border: 2px solid var(--label-login-color);
+  padding: 10px 0px;
+    border-radius: 10px;
+    background-color: var(--cor-fundo);
+    font-size: 30px;
+}
+
+.button-form-sensors{
+  background-color: var(--submit-button-color);
+  font-size: 30px;
+  padding: 10px 55px;
 }
 
 #div-forms-sensors{
-  margin: 10px;
+  margin: 27px;
   margin-top: 40px;
   margin-bottom: 30px;
 }
@@ -139,6 +154,8 @@ body{
     flex-direction: column;
     justify-content: flex-end;
 }
+
+
 
 
 
