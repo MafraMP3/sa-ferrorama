@@ -1,99 +1,100 @@
-:root{
-    --cor-fundo: #f9f9ee;
-    --submit-button-color: #ff3131;
-    --label-login-color: #2c2c2c;
-    --cor-home:#392d29;
+:root {
+  --cor-fundo: #f9f9ee;
+  --submit-button-color: #ff3131;
+  --label-login-color: #2c2c2c;
+  --cor-home: #392d29;
 }
 
 
-body{
-    background-color: var(--cor-fundo) !important;
-    align-items: center;
-    display: block;
+body {
+  background-color: var(--cor-fundo) !important;
+  align-items: center;
+  display: block;
 }
-#home{
-    background-color: var(--cor-home) !important;
+
+#home {
+  background-color: var(--cor-home) !important;
 }
 
 
 /*----------------------login screen------------------------*/
 
-#section-login{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+#section-login {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
-#div-login-screen{
-    max-width: 420px !important;
+#div-login-screen {
+  max-width: 420px !important;
 }
 
-.div-flex-collum{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.div-flex-collum {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-#img-login-screen{
-    max-height: 500px !important;
-    caret-color: transparent;
+#img-login-screen {
+  max-height: 500px !important;
+  caret-color: transparent;
 }
 
-.div-inputs{
-    margin-top: 15px;
-    margin-bottom: 10px !important;
+.div-inputs {
+  margin-top: 15px;
+  margin-bottom: 10px !important;
 }
 
-.label-login{
-    font-family: 'brixton', sans-serif;
-    margin-left: 6px;
-    color: var(--label-login-color) !important;
-    font-size: 19px !important;
-    font-weight: 670;
+.label-login {
+  font-family: 'brixton', sans-serif;
+  margin-left: 6px;
+  color: var(--label-login-color) !important;
+  font-size: 19px !important;
+  font-weight: 670;
 }
 
-.input-login{
-    padding: 10px;
-    border-radius: 10px;
-    border: 2px solid var(--label-login-color) !important;
-    color: #2c2c2c;
-    font-weight: 580;
+.input-login {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--label-login-color) !important;
+  color: #2c2c2c;
+  font-weight: 580;
 }
 
-.submit-button{
-   font-family: 'Gatwick' , 'sans-serif';
-    background-color: var(--submit-button-color) !important;
-    padding: 2px;
-    font-size: 30px;
-    margin-top: 18px !important;
-    border-radius: 10px !important;
+.submit-button {
+  font-family: 'Gatwick', 'sans-serif';
+  background-color: var(--submit-button-color) !important;
+  padding: 2px;
+  font-size: 30px;
+  margin-top: 18px !important;
+  border-radius: 10px !important;
 }
 
-#img-footer-login-screen{
-    max-height: 45px;
-    position: absolute;
-    left: 50%;
-    top: 95%;
-    transform: translate(-50%, -50%);
+#img-footer-login-screen {
+  max-height: 45px;
+  position: absolute;
+  left: 50%;
+  top: 95%;
+  transform: translate(-50%, -50%);
 }
 
-.footer{
-    margin: 10px;
+.footer {
+  margin: 10px;
 }
 
 
 #mensagem {
-    margin: 0;
-    padding: 0;
-    visibility: hidden;
-    height: 0;
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
+  height: 0;
 }
 
 #erro {
-    margin: 0;
-    padding: 0;
-    visibility: visible;
+  margin: 0;
+  padding: 0;
+  visibility: visible;
 }
 
 /*--------------------------------------------------------------*/
@@ -101,92 +102,119 @@ body{
 /*------------------------------sensores--------------------------------*/
 
 
-.div-top-sensors{
-    border: 2px solid var(--label-login-color);
-    border-radius: 10px;
-    margin-top: 10px;
-    padding: 10px;
+.div-top-sensors {
+  border: 2px solid var(--label-login-color);
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px;
 }
 
-.img-sensor-icon{
-    max-height: 45px !important;
+.img-sensor-icon {
+  max-height: 45px !important;
 }
 
-.text-cadastrar-novo-sensor{
-    color: var(--submit-button-color);
-    margin: 0px;
-    padding: 0px;
-    margin-bottom: 3px;
-    margin-left: 10px;
+.text-cadastrar-novo-sensor {
+  color: var(--submit-button-color);
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 3px;
+  margin-left: 10px;
 }
 
 .label-form-sensors{
-  font-size: 30px;
-  font-weight: 500;
+    font-size: clamp(20px, 6vw, 30px);
+    font-weight: 400;
+    white-space: nowrap;
 }
 
-.input-form-sensors{
+.input-form-sensors {
   border: 2px solid var(--label-login-color);
   padding: 10px 0px;
-    border-radius: 10px;
-    background-color: var(--cor-fundo);
-    font-size: 30px;
+  border-radius: 10px;
+  background-color: var(--cor-fundo);
+  font-size: clamp(20px, 6vw, 28px);
 }
 
-.button-form-sensors{
+.button-form-sensors {
   background-color: var(--submit-button-color);
   font-size: 30px;
   padding: 10px 55px;
 }
 
-#div-forms-sensors{
+#div-forms-sensors {
   margin: 27px;
   margin-top: 40px;
   margin-bottom: 30px;
 }
 
-#div-form-cadastrarsensor{
+#div-form-cadastrarsensor {
   justify-content: space-between !important;
 }
 
-#div-button-sensors{
+#div-button-sensors {
   display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+@media (max-width: 1216px) {
+
+  .div-top-sensors {
+  border: 2px solid var(--label-login-color);
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+#div-forms-sensors {
+  margin: 7px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.input-form-sensors {
+  border: 2px solid var(--label-login-color);
+  padding: 10px 0px;
+  border-radius: 10px;
+  background-color: var(--cor-fundo);
+  font-size: 24px;
+}
+
+  #div-form-cadastrarsensor {
+    flex-direction: column !important;
+    gap: 15px;
+  }
 }
 
 
 
-
-
-
-.icone-olho{
+.icone-olho {
   height: 50px;
   width: 70px;
 }
 
-.icone-lixo{
+.icone-lixo {
   height: 50px;
   width: 50px;
 }
 
 .botao-imagem {
-    background: none;      
-    border: none;          
-    padding: 0;            
-    cursor: pointer;       
-    outline: inherit;      
-  }
-
-.div-tabela-sensors{
-    border: 2px solid var(--label-login-color);
-    border-radius: 10px;
-    margin-top: 10px;
-    padding: 100px;
-    margin-right: 10px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
 }
 
-#tabelaSensores{
+.div-tabela-sensors {
+  border: 2px solid var(--label-login-color);
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 100px;
+  margin-right: 10px;
+}
+
+#tabelaSensores {
   margin-top: 20px;
 }
 
@@ -222,52 +250,52 @@ body{
   padding: 20px;
 }
 
-  .content {
-    margin-left: 260px;
-    padding: 10px;
-    display: block;
-    }
+.content {
+  margin-left: 260px;
+  padding: 10px;
+  display: block;
+}
 
 
 
-    .sidebar img {
-      width: 100%;
-      border-radius: 10px;
-   
-    }
+.sidebar img {
+  width: 100%;
+  border-radius: 10px;
 
-    .sidebar a {
-      display: block;
-      color: #ddd;
-      padding: 12px;
-      border-radius: 10px;
-      text-decoration: none;
-      margin-bottom: 10px;
-    }
+}
 
-    .sidebar a.active,
-    .sidebar a:hover {
-      background-color: #ff2c2c;
-      color: white;
-    }
+.sidebar a {
+  display: block;
+  color: #ddd;
+  padding: 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
 
-    .logout {
-      display: block;
-      border: 2px solid red;
-      border-radius: 10px;
-      padding: 10px;
-      text-align: center;
-    }
+.sidebar a.active,
+.sidebar a:hover {
+  background-color: #ff2c2c;
+  color: white;
+}
 
-
+.logout {
+  display: block;
+  border: 2px solid red;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
 
 
-    #logocontainer{
-        background-color: var(--cor-fundo);
-        border-radius: 10px;
-        padding: 10px;
-        margin-bottom: 10px;
-    }
+
+
+#logocontainer {
+  background-color: var(--cor-fundo);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
 
 
 .hamburger {
@@ -294,7 +322,7 @@ body{
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
 
@@ -320,10 +348,10 @@ body{
   .content {
     margin-left: 0 !important;
     padding: 20px;
-    padding-top: 60px; 
+    padding-top: 60px;
   }
 }
 
-#cadastrartext{
+#cadastrartext {
   margin: 0 !important;
 }
