@@ -129,7 +129,7 @@ body {
 .input-form-sensors {
   padding: 10px;
   border-radius: 10px;
-  background-color: white
+  background-color: white;
   font-size: clamp(20px, 6vw, 28px);
 }
 
