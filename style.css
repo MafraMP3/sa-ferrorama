@@ -296,7 +296,7 @@ body {
   display: block;
   border: 2px solid red;
   border-radius: 10px;
-  padding: 10px;
+  padding: 2px !important;
   text-align: center;
 }
 
@@ -378,4 +378,14 @@ body {
 .text-cadastrar-novo-sensor{
   font-family: 'Rasputin' , sans-serif;
   font-weight: bold;
+}
+
+.btn{
+  transition: all 0.2s ease; 
+}
+
+.btn:active {
+
+  transform: scale(0.95); 
+  background-color: rgb(0, 0, 0) !important;
 }
