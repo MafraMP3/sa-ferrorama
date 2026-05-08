@@ -250,11 +250,12 @@ body {
   padding: 20px;
 }
 
-.content {
-  margin-left: 260px;
-  padding: 10px;
-  display: block;
-}
+  .content {
+    margin-left: 260px;
+    padding: 10px;
+    display: block;
+    margin-right: 0  !important;
+    }
 
 
 
@@ -354,4 +355,15 @@ body {
 
 #cadastrartext {
   margin: 0 !important;
+<<<<<<< HEAD
+=======
+}
+
+
+
+.imagem-analise{
+
+  width: 25%;
+
+>>>>>>> f9451bb635981bd902f0b8fea2b40cfdbf8e3e92
 }

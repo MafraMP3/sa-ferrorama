@@ -1,8 +1,8 @@
 //======================================================TODAS AS PÁGINAS=======================================================================================//
-  function toggleSidebar() {
+function toggleSidebar() {
     document.querySelector('.sidebar').classList.toggle('open');
     document.getElementById('overlay').classList.toggle('active');
-  }
+}
 
 if (!window.location.pathname.includes("index.html")) {
     if (localStorage.getItem("logado") !== "true") {
@@ -69,12 +69,57 @@ if (window.location.pathname.includes("index.html")) {
 
 if (window.location.pathname.includes("home.html")) {
 
-    localStorage.setItem("email", "admin@gmail.com");
-    localStorage.setItem("password", "123");
-
     let welcome = document.getElementById("saudacao");
     let nomeAdmin = "Admin";
 
     welcome.textContent = `Bem-vindo, ${nomeAdmin}`;
-    
+
+}
+//======================================================SENSORES.HTML=======================================================================================//
+if (window.location.pathname.includes("sensores.html")) {
+
+    let formSensor = document.getElementById("formSensor");
+
+    if (formSensor) {
+        formSensor.onsubmit = (e) => {
+
+            e.preventDefault();
+
+            let idSensor = document.getElementById('nomeSensor').value;
+            let localSensor = document.getElementById('localSensor').value;
+
+            let Tabela = document.getElementById("tabelaSensores");
+
+            let linhasTabela = Tabela.rows.length;
+            console.log(linhasTabela);
+            let ultimaLinha = Tabela.rows[linhasTabela - 1];
+            let alterarLinha;
+
+            if (ultimaLinha.cells[0].textContent === "" || ultimaLinha.cells[0].textContent === "?") {
+                
+                alterarLinha = ultimaLinha;
+
+            } else {
+
+                alterarLinha = Tabela.insertRow(-1);
+                alterarLinha.insertCell(0);
+                alterarLinha.insertCell(1);
+                alterarLinha.insertCell(2);
+                alterarLinha.insertCell(3);
+                alterarLinha.insertCell(4);
+
+            }
+
+            alterarLinha.cells[0].textContent = idSensor;
+            alterarLinha.cells[1].textContent = localSensor;
+            alterarLinha.cells[2].textContent = 'Velocidade'
+            
+            alterarLinha.cells[3].innerHTML = `<td><button class="botao-imagem"><img src="assets/images/Olho.png" class="icone-olho"></button></td>`
+            alterarLinha.cells[4].innerHTML = `<td><button class="botao-imagem"><img src="assets/images/Lixo.png" class="icone-lixo"></button></td>`
+
+            formSensor.reset();
+        }
+    }
+
+
 }
