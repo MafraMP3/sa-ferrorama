@@ -80,6 +80,12 @@ if (window.location.pathname.includes("sensores.html")) {
 
     let formSensor = document.getElementById("formSensor");
 
+    let Tabela = document.getElementById("tabelaSensores");
+
+    function excluirLinha(botao) {
+        botao.closest('tr').remove();
+    }
+
     if (formSensor) {
         formSensor.onsubmit = (e) => {
 
@@ -88,15 +94,13 @@ if (window.location.pathname.includes("sensores.html")) {
             let idSensor = document.getElementById('nomeSensor').value;
             let localSensor = document.getElementById('localSensor').value;
 
-            let Tabela = document.getElementById("tabelaSensores");
-
             let linhasTabela = Tabela.rows.length;
             console.log(linhasTabela);
             let ultimaLinha = Tabela.rows[linhasTabela - 1];
             let alterarLinha;
 
             if (ultimaLinha.cells[0].textContent === "" || ultimaLinha.cells[0].textContent === "?") {
-                
+
                 alterarLinha = ultimaLinha;
 
             } else {
@@ -110,20 +114,20 @@ if (window.location.pathname.includes("sensores.html")) {
 
             }
 
-            if(idSensor.trim() === '' || localSensor.trim() === '' || idSensor.length > 10 || localSensor.length > 10){
-                alert("os campos devem ser preenchidos com no máximo 10 caracteres");
-            }else{
-             alterarLinha.cells[0].textContent = idSensor;
-            alterarLinha.cells[1].textContent = localSensor;
-            alterarLinha.cells[2].textContent = 'Velocidade'
+            if (idSensor.trim() === '' || localSensor.trim() === '' || idSensor.length > 20 || localSensor.length > 20) {
+                alert("os campos devem ser preenchidos com no máximo 20 caracteres");
+            } else {
+                alterarLinha.cells[0].textContent = idSensor;
+                alterarLinha.cells[1].textContent = localSensor;
+                alterarLinha.cells[2].textContent = 'Velocidade'
 
-            alterarLinha.cells[3].innerHTML = `<td><button class="botao-imagem"><img src="assets/images/Olho.png" class="icone-olho"></button></td>`
-            alterarLinha.cells[4].innerHTML = `<td><button class="botao-imagem"><img src="assets/images/Lixo.png" class="icone-lixo"></button></td>`
+                alterarLinha.cells[3].innerHTML = `<td><button class="botao-imagem"><img src="assets/images/Olho.png" class="icone-olho"></button></td>`
+                alterarLinha.cells[4].innerHTML = `<td><button class="botao-imagem" onclick="exluirLinha(this)"><img src="assets/images/Lixo.png" class="icone-lixo"></button></td>`
 
-            formSensor.reset();   
+                formSensor.reset();
             }
 
-            
+
         }
     }
 
