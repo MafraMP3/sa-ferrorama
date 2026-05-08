@@ -69,12 +69,23 @@ if (window.location.pathname.includes("index.html")) {
 
 if (window.location.pathname.includes("home.html")) {
 
-    localStorage.setItem("email", "admin@gmail.com");
-    localStorage.setItem("password", "123");
-
     let welcome = document.getElementById("saudacao");
     let nomeAdmin = "Admin";
 
     welcome.textContent = `Bem-vindo, ${nomeAdmin}`;
     
 }
+//======================================================SENSORES.HTML=======================================================================================//
+if (window.location.pathname.includes("sensores.html")) {
+
+   let Tabela = document.getElementById("tabelaSensor");
+
+   linhasTabela = Tabela.rows.length;
+   console.log(linhasTabela);
+
+   alterarLinha = Tabela.rows[linhasTabela - 1];    
+
+   alterarLinha.cells[0].textContent = 'QD-730'
+   alterarLinha.cells[1].textContent = 'Jaburanga'
+   alterarLinha.cells[2].textContent = 'Velocidade'
+   }
