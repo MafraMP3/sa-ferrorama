@@ -93,8 +93,8 @@
         <div>
           <h4>Deseja Excluir o sensor?</h4>
           <div class="d-flex">
-            <button>sim</button>
-            <button>não</button>
+            <button onclick="excluirLinha()">sim</button>
+            <button onclick="tirarTela()">não</button>
           </div>
         </div>
       </div>
@@ -127,7 +127,7 @@
                 <td>?</td>
                 <td>?</td>
                 <td class="img-tabela" style="width: 200px;" ><button class="botao-imagem"><img src="assets/images/Olho.png" class="icone-olho"></button></td>
-                <td class="img-tabela" style="width: 200px;"><button class="botao-imagem"><img src="assets/images/Lixo.png"
+                <td class="img-tabela" style="width: 200px;"><button class="botao-imagem" onclick="telaApagar(this)"><img src="assets/images/Lixo.png"
                       class="icone-lixo"></button></td>
               </tr>
         </div>

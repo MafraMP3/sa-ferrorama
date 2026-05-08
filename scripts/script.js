@@ -82,8 +82,26 @@ if (window.location.pathname.includes("sensores.html")) {
 
     let Tabela = document.getElementById("tabelaSensores");
 
-    function excluirLinha(botao) {
-        botao.closest('tr').remove();
+
+
+    let telaExcluir = document.getElementById('delete-sensor-part');
+
+    let linhaSelecionada; 
+
+    function telaApagar(botao) {
+        telaExcluir.style.display = "flex";
+        linhaSelecionada = botao.closest('tr');
+    }
+
+    function tirarTela(){
+       telaExcluir.style.display = "none"; 
+    }
+
+    function excluirLinha() {
+        if (linhaSelecionada) {
+            linhaSelecionada.remove(); 
+            tirarTela(); 
+        }
     }
 
     if (formSensor) {
@@ -122,7 +140,7 @@ if (window.location.pathname.includes("sensores.html")) {
                 alterarLinha.cells[2].textContent = 'Velocidade'
 
                 alterarLinha.cells[3].innerHTML = `<td><button class="botao-imagem"><img src="assets/images/Olho.png" class="icone-olho"></button></td>`
-                alterarLinha.cells[4].innerHTML = `<td><button class="botao-imagem" onclick="exluirLinha(this)"><img src="assets/images/Lixo.png" class="icone-lixo"></button></td>`
+                alterarLinha.cells[4].innerHTML = `<td><button class="botao-imagem" onclick="telaApagar(this)"><img src="assets/images/Lixo.png" class="icone-lixo"></button></td>`
 
                 formSensor.reset();
             }
