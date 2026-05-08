@@ -122,8 +122,8 @@ body {
 }
 
 .label-form-sensors{
-    font-size: clamp(20px, 6vw, 30px);
-    font-weight: 400;
+    font-size: clamp(20px, 6vw, 25px);
+    font-weight: 600;
     white-space: nowrap;
 }
 
@@ -151,13 +151,17 @@ body {
   justify-content: space-between !important;
 }
 
+.div-inputs-label-sensors{
+  margin: 0px 10px;
+}
+
 #div-button-sensors {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
-@media (max-width: 1216px) {
+@media (max-width: 1292px) {
 
   .div-top-sensors {
   border: 2px solid var(--label-login-color);
@@ -199,6 +203,19 @@ body {
 }
 
 .botao-imagem {
+    background: none;      
+    border: none;          
+    padding: 0;            
+    cursor: pointer;       
+    outline: inherit;      
+  }
+
+.div-tabela-sensors{
+    border: 2px solid var(--label-login-color);
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+   margin-left: 10px;
   background: none;
   border: none;
   padding: 0;
@@ -216,6 +233,11 @@ body {
 
 #tabelaSensores {
   margin-top: 20px;
+  border-radius: 15px;
+}
+
+.img-tabela{
+  justify-content: center;
 }
 
 
