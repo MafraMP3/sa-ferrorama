@@ -49,7 +49,7 @@
 
     <div class="content">
 
-      <div class="div-top-sensors">
+      <div class="card div-top-sensors">
 
         <div class="d-flex align-items-center">
           <img class="img-sensor-icon" src="assets/images/icon-sensor-logo.png" alt="">
@@ -71,11 +71,11 @@
               </div>
               <div class="div-inputs-label-sensors">
                 <label class=" label-form-sensors" for="">TIPO DE DADO</label>
-                <select class="form-select input-form-sensors" aria-label="Default select example">
-                  <option selected>Selecione o tipo</option>
-                  <option value="1">Velocidade</option>
-                  <option value="2">Temperatura</option>
-                  <option value="3">Energia</option>
+                <select class="form-select input-form-sensors" aria-label="Default select example" id="tipoSensor">
+                  <option selected disabled value="">Selecione o tipo</option>
+                  <option value="Velocidade">Velocidade</option>
+                  <option value="Temperatura">Temperatura</option>
+                  <option value="Energia">Energia</option>
                 </select>
               </div>
               <div id="div-button-sensors">
@@ -109,7 +109,7 @@
 
 
     <div class="content">
-      <div class="div-tabela-sensors ">
+      <div class="card div-tabela-sensors ">
 
         <div class="d-flex align-items-center">
           <img class="img-sensor-icon" src="assets/images/icone-tabela-sensor.png" alt="">
@@ -117,13 +117,13 @@
         </div>
 
         <div class="table-responsive">
-          <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark">
+          <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
             <thead>
               <tr class="table-dark ">
                 <th class="ths">ID sensor</th>
                 <th class="ths">Localização</th>
                 <th class="ths">Tipo Dado</th>
-                <th></th>
+                <th>Status</th>
                 <th></th>
               </tr>
             </thead>
@@ -132,9 +132,11 @@
                 <td>?</td>
                 <td>?</td>
                 <td>?</td>
-                <td class="img-tabela" style="width: 200px;" ><button class="botao-imagem"><img src="assets/images/Olho.png" class="icone-olho"></button></td>
-                <td class="img-tabela" style="width: 200px;"><button class="botao-imagem" onclick="telaApagar(this)"><img src="assets/images/Lixo.png"
-                      class="icone-lixo"></button></td>
+                <td>?</td>
+                <td class="img-tabela" style="width: 10%;">
+                  <button class="botao-imagem" ><img src="assets/images/Lixo.png" class="icone-lixo"></button>
+                  <button class="botao-imagem" ><img src="assets/images/Olho.png" class="icone-olho"></button>
+                </td>
               </tr>
         </div>
       </div>

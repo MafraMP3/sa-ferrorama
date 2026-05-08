@@ -111,6 +111,7 @@ if (window.location.pathname.includes("sensores.html")) {
 
             let idSensor = document.getElementById('nomeSensor').value;
             let localSensor = document.getElementById('localSensor').value;
+            let tipoSensor = document.getElementById("tipoSensor").value;
 
             let linhasTabela = Tabela.rows.length;
             console.log(linhasTabela);
@@ -132,12 +133,12 @@ if (window.location.pathname.includes("sensores.html")) {
 
             }
 
-            if (idSensor.trim() === '' || localSensor.trim() === '' || idSensor.length > 20 || localSensor.length > 20) {
+            if (idSensor.trim() === '' || localSensor.trim() === '' || tipoSensor === '' || idSensor.length > 20 || localSensor.length > 20) {
                 alert("os campos devem ser preenchidos com no máximo 20 caracteres");
             } else {
                 alterarLinha.cells[0].textContent = idSensor;
                 alterarLinha.cells[1].textContent = localSensor;
-                alterarLinha.cells[2].textContent = 'Velocidade'
+                alterarLinha.cells[2].textContent = tipoSensor;
 
                 alterarLinha.cells[3].innerHTML = `<td><button class="botao-imagem"><img src="assets/images/Olho.png" class="icone-olho"></button></td>`
                 alterarLinha.cells[4].innerHTML = `<td><button class="botao-imagem" onclick="telaApagar(this)"><img src="assets/images/Lixo.png" class="icone-lixo"></button></td>`
