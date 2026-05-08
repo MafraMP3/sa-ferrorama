@@ -222,6 +222,7 @@ thead {
     margin-left: 260px;
     padding: 10px;
     display: block;
+    margin-right: 0  !important;
     }
 
 
@@ -322,4 +323,12 @@ thead {
 
 #cadastrartext{
   margin: 0 !important;
+}
+
+
+
+.imagem-analise{
+
+  width: 25%;
+
 }
