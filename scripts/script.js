@@ -110,8 +110,8 @@ if (window.location.pathname.includes("sensores.html")) {
 
             }
 
-            if(idSensor.trim() === '' || localSensor.trim() === ''){
-                alert("os campos devem ser preenchidos");
+            if(idSensor.trim() === '' || localSensor.trim() === '' || idSensor.length > 10 || localSensor.length > 10){
+                alert("os campos devem ser preenchidos com no máximo 10 caracteres");
             }else{
              alterarLinha.cells[0].textContent = idSensor;
             alterarLinha.cells[1].textContent = localSensor;

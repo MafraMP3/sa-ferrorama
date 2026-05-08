@@ -16,112 +16,113 @@
 
 <body>
 
-  <!--==================================================Sidebar=====================================================//-->
-  <div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
-  <button class="hamburger" onclick="toggleSidebar()">
-    <i class="fa-solid fa-bars"></i>
-  </button>
+  <main>
 
-  <div class="sidebar container">
-    <div id="logocontainer">
-      <img src="assets/images/logo-quadrada.png " alt="logo">
-    </div>
+    <!--==================================================Sidebar=====================================================//-->
+    <div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
+    <button class="hamburger" onclick="toggleSidebar()">
+      <i class="fa-solid fa-bars"></i>
+    </button>
 
-    <a href="home.html" id="linkDashboard">
-      <i class="fa-solid fa-house" style="color: #fff;"></i> Dashboard
-    </a>
-
-    <a href="#" class="active" id="linkSensores">
-      <i class="fa-solid fa-satellite-dish" style="color: #fff;"></i> Sensores
-    </a>
-
-
-    <a href="monitoramento.html" id="linkMonitoramento">
-      <i class="fa-solid fa-chart-line" style="color: #fff;"></i> Monitoramento
-    </a>
-
-    <a href="#" class="logout" id="linkSair">SAIR</a>
-  </div>
-  <!--==================================================Sidebar=====================================================//-->
-
-  <div class="content">
-
-    <div class="div-top-sensors">
-
-      <div class="d-flex align-items-center">
-        <img class="img-sensor-icon" src="assets/images/icon-sensor-logo.png" alt="">
-        <h4 class="text-cadastrar-novo-sensor">CADASTRAR NOVO SENSOR</h4>
+    <div class="sidebar container">
+      <div id="logocontainer">
+        <img src="assets/images/logo-quadrada.png " alt="logo">
       </div>
 
-      <div id="div-forms-sensors">
-        <form action="" id="formSensor">
-          <div id="div-form-cadastrarsensor" class="d-flex">
-            <div class="div-inputs-label-sensors">
-              <label class="d-block label-form-sensors" for="">NOME DO SENSOR</label>
-              <input class="form-control input-form-sensors" type="text" placeholder="EX: Sensor KL-I32" id="nomeSensor" required>
+      <a href="home.html" id="linkDashboard">
+        <i class="fa-solid fa-house" style="color: #fff;"></i> Dashboard
+      </a>
+
+      <a href="#" class="active" id="linkSensores">
+        <i class="fa-solid fa-satellite-dish" style="color: #fff;"></i> Sensores
+      </a>
+
+
+      <a href="monitoramento.html" id="linkMonitoramento">
+        <i class="fa-solid fa-chart-line" style="color: #fff;"></i> Monitoramento
+      </a>
+
+      <a href="#" class="logout" id="linkSair">SAIR</a>
+    </div>
+    <!--==================================================Sidebar=====================================================//-->
+
+    <div class="content">
+
+      <div class="div-top-sensors">
+
+        <div class="d-flex align-items-center">
+          <img class="img-sensor-icon" src="assets/images/icon-sensor-logo.png" alt="">
+          <h4 class="text-cadastrar-novo-sensor">CADASTRAR NOVO SENSOR</h4>
+        </div>
+
+        <div id="div-forms-sensors">
+          <form action="" id="formSensor">
+            <div id="div-form-cadastrarsensor" class="d-flex">
+              <div class="div-inputs-label-sensors">
+                <label class="d-block label-form-sensors" for="">NOME DO SENSOR</label>
+                <input class="form-control input-form-sensors" type="text" placeholder="EX: Sensor KL-I32"
+                  id="nomeSensor" required>
+              </div>
+              <div class="div-inputs-label-sensors">
+                <label class="d-block label-form-sensors" for="">LOCALIZAÇÃO</label>
+                <input class="form-control input-form-sensors" type="text" placeholder="EX: Km 67" id="localSensor"
+                  required>
+              </div>
+              <div class="div-inputs-label-sensors">
+                <label class=" label-form-sensors" for="">TIPO DE DADO</label>
+                <input class="form-control input-form-sensors" type="text" placeholder="Selecione o tipo">
+              </div>
+              <div id="div-button-sensors">
+                <button class="d-block btn btn-primary button-form-sensors" type="submit">Cadastrar</button>
+              </div>
             </div>
-            <div class="div-inputs-label-sensors">
-              <label class="d-block label-form-sensors" for="">LOCALIZAÇÃO</label>
-              <input class="form-control input-form-sensors" type="text" placeholder="EX: Km 67" id="localSensor" required>
-            </div>
-            <div class="div-inputs-label-sensors">
-              <label class=" label-form-sensors" for="">TIPO DE DADO</label>
-              <input class="form-control input-form-sensors" type="text" placeholder="Selecione o tipo">
-            </div>
-            <div id="div-button-sensors">
-              <button class="d-block btn btn-primary button-form-sensors" type="submit">Cadastrar</button>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
+
       </div>
-        
 
     </div>
 
-  </div>
-
-
-
-
-  <div class="contaner content div-tabela-sensors">
-
-    <div class="d-flex align-items-center">
-        <img class="img-sensor-icon" src="assets/images/icone-tabela-sensor.png" alt="">
-        <h4 class="text-cadastrar-novo-sensor">SENSORES CADASTRADOS</h4>
-      </div>
-    <div>
-
-      <table id="tabelaSensores" class="table table-bordered">
-        <thead>
-          <tr class="table-dark" >
-            <th>ID sensor</th>
-            <th>Localização</th>
-            <th>Tipo Dado</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>?</td>
-            <td>?</td>
-            <td>?</td>
-            <td><button class="botao-imagem"><img src="assets/images/Olho.png" class="icone-olho"></button></td>
-            <td><button class="botao-imagem"><img src="assets/images/Lixo.png" class="icone-lixo"></button></td>
-          </tr>
     </div>
-   </div>
-  
-</main>
 
+    <div class="content">
+      <div class="div-tabela-sensors">
 
+        <div class="d-flex align-items-center">
+          <img class="img-sensor-icon" src="assets/images/icone-tabela-sensor.png" alt="">
+          <h4 class="text-cadastrar-novo-sensor">SENSORES CADASTRADOS</h4>
+        </div>
 
+        <div class="table-responsive">
+          <table id="tabelaSensores" class="table table-bordered align-middle">
+            <thead>
+              <tr class="table-dark ">
+                <th>ID sensor</th>
+                <th>Localização</th>
+                <th>Tipo Dado</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>?</td>
+                <td>?</td>
+                <td>?</td>
+                <td class="img-tabela"><button class="botao-imagem"><img src="assets/images/Olho.png"
+                      class="icone-olho"></button></td>
+                <td class="img-tabela"><button class="botao-imagem"><img src="assets/images/Lixo.png"
+                      class="icone-lixo"></button></td>
+              </tr>
+        </div>
+      </div>
 
+  </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"></script>
-    <script src="scripts/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script src="scripts/script.js"></script>
 </body>
 
 </html>
