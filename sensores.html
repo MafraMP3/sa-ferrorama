@@ -71,7 +71,12 @@
               </div>
               <div class="div-inputs-label-sensors">
                 <label class=" label-form-sensors" for="">TIPO DE DADO</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="Selecione o tipo">
+                <select class="form-select input-form-sensors" aria-label="Default select example">
+                  <option selected>Selecione o tipo</option>
+                  <option value="1">Velocidade</option>
+                  <option value="2">Temperatura</option>
+                  <option value="3">Energia</option>
+                </select>
               </div>
               <div id="div-button-sensors">
                 <button class="d-block btn btn-primary button-form-sensors" type="submit">Cadastrar</button>
@@ -94,8 +99,8 @@
         <div>
           <h4>Deseja Excluir o sensor?</h4>
           <div class="d-flex">
-            <button>sim</button>
-            <button>não</button>
+            <button onclick="excluirLinha()">sim</button>
+            <button onclick="tirarTela()">não</button>
           </div>
         </div>
       </div>

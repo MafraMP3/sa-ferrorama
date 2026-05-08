@@ -49,64 +49,143 @@
         <p>Gerencie tudo por aqui</p>
 
     
-        <div class="row g-4">
+<div class="container-fluid">
+
+ <div class="row g-4 mb-4">
 
             <div class="col-12 col-md-6 col-xl-4">
-                <div class="card p-4 h-100">
-    
-                <div class="d-flex align-items-center gap-3">
+                <div class="card dashboard-card p-4 h-100">
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="assets/images/icon-sensores.png"
+                            alt="icone sensores"
+                            class="imagem-analise">
+                        <div>
+                            <p class="h5 mb-1">
+                                Sensores ativos
+                            </p>
 
-                    <img src="assets/images/icon-sensores.png"
-                        alt="icone sensores"
-                        class="imagem-analise">
+                            <p class="lead mb-0">
+                                24 sensores online
+                            </p>
 
-                    <div>
-                        <p class="h5 mb-1">Sensores ativos</p>
-                        <p class="lead mb-0">teste</p>
-                    </div>
-
-                </div>
-
-            </div>
-            </div>
-
-           <div class="col-12 col-md-6 col-xl-4">
-                <div class="card p-4 h-100">
-    
-                <div class="d-flex align-items-center gap-3">
-                    <img src="assets/images/icon-velocidade.png" alt="imagem velocimetro"class="img-fluid imagem-analise">
-                    
-                    <div>
-                        <p class="h3">velocidade atual</p>
-                        <p class="lead"> teeste</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+
 
             <div class="col-12 col-md-6 col-xl-4">
-                <div class="card p-4 h-100">
-    
-                <div class="d-flex align-items-center gap-3">
-                    <img src="assets/images/icon-status.png" alt="imagem status" class="img-fluid imagem-analise">
-                    
-                    <div>
-                        <p class="h3">Status atual</p>
-                        <p class="lead"> teeste</p>
+                <div class="card dashboard-card p-4 h-100">
+                    <div class="d-flex align-items-center gap-3">
+
+                        <img src="assets/images/icon-velocidade.png"
+                            alt="imagem velocimetro"
+                            class="imagem-analise">
+                        <div>
+                            <p class="h5 mb-1">
+                                Velocidade atual
+                            </p>
+
+                            <p class="lead mb-0">
+                                78 km/h
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="card dashboard-card p-4 h-100">
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="assets/images/icon-status.png"
+                            alt="imagem status"
+                            class="imagem-analise">
+                        <div>
+
+                            <p class="h5 mb-1">
+                                Status atual
+                            </p>
+
+                            <p class="lead mb-0">
+                                Operando normalmente
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="d-flex">
-            <div class="card">tes</div>
-        <div>
-            <div class="card"> que</div>
-            <div class="card">ahn</div>
+
+        <div class="row g-4 dashboard-bottom">
+            <div class="col-12 col-xl-8">
+                <div class="card dashboard-card p-4 h-100">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4>
+                            Monitoramento Geral
+                        </h4>
+                        <i class="fa-solid fa-chart-line fa-xl"></i>
+                    </div>
+                    <div class="monitoramento-area">
+                        <div class="text-center">
+                            <i class="fa-solid fa-train fa-3x mb-3"></i>
+
+                            <h5>
+                                Área de gráficos e monitoramento
+                            </h5>
+
+                            <p>
+                                Dados em tempo real dos sensores ferroviários
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    
+            <div class="col-12 col-xl-4">
+                <div class="d-flex flex-column gap-4 h-100">
+                    <div class="card dashboard-card p-4 flex-fill">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5>
+                                Status do Sistema
+                            </h5>
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <div class="status-area">
+                            <h2>
+                                ONLINE
+                            </h2>
+                            <p>
+                                Todos os sistemas funcionando normalmente
+                            </p>
+
+                        </div>
+
+                    </div>
+                    <div class="card dashboard-card p-4 flex-fill">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+
+                            <h5>
+                                Alertas
+                            </h5>
+
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+
+                        </div>
+                        <div class="alerta-area">
+                            <h2>
+                                0
+                            </h2>
+
+                            <p>
+                                Nenhum alerta crítico detectado
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        </div>
-        
-    </div>
 
 
     </div>

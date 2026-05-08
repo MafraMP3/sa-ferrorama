@@ -415,8 +415,10 @@ body {
   margin: 0 !important;
 }
 
-.imagem-analise {
-  width: 25%;
+.imagem-analise{
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
 }
 
 .text-cadastrar-novo-sensor {
@@ -432,4 +434,21 @@ body {
 
   transform: scale(0.95); 
   background-color: rgb(0, 0, 0) !important;
+}
+
+.card-grande{
+    min-height: 500px;
+}
+
+.monitoramento-area{
+    height: 100%;
+    min-height: 350px;
+
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(255,255,255,0.05);
 }
