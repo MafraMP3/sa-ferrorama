@@ -221,10 +221,6 @@ body {
   margin-top: 20px;
 }
 
-.linha-horizontal-tabela > * {
-    background-color: var(--cor-fundo) !important;
-}
-
 .table-bordered th,
 .table-bordered td {
   border-width: 2px !important; 
