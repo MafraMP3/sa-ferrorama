@@ -101,7 +101,7 @@ if (window.location.pathname.includes("sensores.html")) {
 
             } else {
 
-                alterarLinha = Tabela.insertRow(-1);
+                alterarLinha = Tabela.insertRow(1);
                 alterarLinha.insertCell(0);
                 alterarLinha.insertCell(1);
                 alterarLinha.insertCell(2);
@@ -110,14 +110,20 @@ if (window.location.pathname.includes("sensores.html")) {
 
             }
 
-            alterarLinha.cells[0].textContent = idSensor;
+            if(idSensor.trim() === '' || localSensor.trim() === ''){
+                alert("os campos devem ser preenchidos");
+            }else{
+             alterarLinha.cells[0].textContent = idSensor;
             alterarLinha.cells[1].textContent = localSensor;
             alterarLinha.cells[2].textContent = 'Velocidade'
-            
+
             alterarLinha.cells[3].innerHTML = `<td><button class="botao-imagem"><img src="assets/images/Olho.png" class="icone-olho"></button></td>`
             alterarLinha.cells[4].innerHTML = `<td><button class="botao-imagem"><img src="assets/images/Lixo.png" class="icone-lixo"></button></td>`
 
-            formSensor.reset();
+            formSensor.reset();   
+            }
+
+            
         }
     }
 
