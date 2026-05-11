@@ -14,6 +14,8 @@
 </head>
 <body>
 
+    <main>
+
     <!--==================================================Sidebar=====================================================//-->
     <div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
     <button class="hamburger" onclick="toggleSidebar()" >
@@ -44,8 +46,70 @@
       <a href="#" class="logout" id="linkSair">SAIR</a>
     </div>
     <!--==================================================Sidebar=====================================================//-->
-    <main>
-        <div class="  content" id="nenhumUsuario">
+
+    <div class="content">
+
+      <div class="card div-top-sensors">
+
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-circle-plus fa-2x" style="color: rgb(255, 49, 49);"></i>
+          <p class="text-cadastrar-novo-sensor h4">ADICIONAR NOVO USUÁRIO</p>
+        </div>
+
+        <div id="div-forms-sensors">
+          <form action="" id="formUsuarios">
+            <div id="div-form-cadastrarsensor" class="d-flex">
+              <div class="div-inputs-label-sensors">
+                <label class="d-block label-form-sensors" for="">NOME COMPLETO</label>
+                <input class="form-control input-form-sensors" type="text" placeholder="EX: Carlos"
+                  id="nomeUsuario" required>
+              </div>
+              <div class="div-inputs-label-sensors">
+                <label class="d-block label-form-sensors" for="">EMAIL</label>
+                <input class="form-control input-form-sensors" type="text" placeholder="EX: Carlos@gmail.com" id="emailUsuario"
+                  required>
+              </div>
+              <div class="div-inputs-label-sensors">
+                <label class="d-block label-form-sensors" for="">FUNÇÃO / CARGO</label>
+                <input class="form-control input-form-sensors" type="text" placeholder="EX: Marceneiro" id="cargoUsuario"
+                  required>
+              </div>
+              <div class="div-inputs-label-sensors">
+                <label class="d-block label-form-sensors" for="">SENHA</label>
+                <input class="form-control input-form-sensors" type="password" placeholder="EX: 1234" id="senhaUsuario"
+                  required>
+              </div>
+              <div id="div-button-sensors">
+                <button class="d-block btn btn-primary button-form-sensors" type="submit">Cadastrar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+    
+
+    <!---------Tela de deletar Sensor--------->
+    <div class="container" id="delete-sensor-part">
+      <div class="d-flex">
+        <div id="div-img-delete-sensors">
+          <img id="img-delete-sensors" src="assets/images/Lixo.png" alt="">
+        </div>
+        <div id="div-context-delete-sensor">
+          <h4 id="text-delete-sensor" >Deseja Excluir o sensor?</h4>
+          <div class="d-flex">
+            <button class="button-delete-sensor" onclick="excluirLinha()">Sim</button>
+            <button class="button-delete-sensor" onclick="tirarTela()">Não</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="content" id="nenhumUsuario">
         <div class="container-fluid user-card card  mt-4 d-flex  align-items-center justify-content-center ">
             <i class="fa-solid fa-users-slash fa-10x m-4 text-danger opacity-50"></i>
             <h4 class="text-secondary">
@@ -53,6 +117,8 @@
             </h4>
         </div>
       </div>
+
+  </main>
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
