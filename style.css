@@ -297,11 +297,12 @@ body {
 }
 
 .button-delete-sensor{
-  margin: 0px 40px;
+  margin: 20px 40px;
   padding: 0px 20px;
-  border: 1px solid rgba(0, 0, 0, 0.349);
+  border: 2px solid rgba(0, 0, 0, 0.781);
   background-color: white;
   font-size: 34px;
+  font-weight: 600;
   padding-bottom: 6px;
   border-radius: 10px;
   color: var(--submit-button-color);
