@@ -184,10 +184,60 @@ body {
     gap: 15px;
   }
 
-  .cont2 {
-    margin-left: 0 !important;
-    padding-top: 0px !important;
-  }
+  
+  
+
+
+
+
+    #tabelaSensores td{
+    display: block;
+    width: 100%;
+}
+
+#tabelaSensores thead{
+    display: none;
+}
+
+#tabelaSensores td{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#tabelaSensores td::before{
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#tabelaSensores td:nth-child(1)::before{
+    content: "ID sensor";
+}
+
+#tabelaSensores td:nth-child(2)::before{
+    content: "Localização";
+}
+
+#tabelaSensores td:nth-child(3)::before{
+    content: "Tipo Dado";
+}
+
+#tabelaSensores td:nth-child(4)::before{
+    content: "Status";
+}
+
+#tabelaSensores td:nth-child(5)::before{
+    content: "Ações";
+    margin-top: 15px;
+    margin-right: 50px;
+}
+
+.img-tabela{
+    display: block;
+    min-width: fit-content;
+    min-height: 80px;
+
+}
 }
 
 /*deletar sensor css*/
@@ -204,6 +254,10 @@ body {
   border-radius: 10px;
   border: 2px solid var(--label-login-color);
   box-shadow: 3px 10px 10px 3px rgba(0, 0, 0, 0.377);
+}
+#img-delete-sensors{
+  width: 160px;
+  height:160px;
 }
 
 @media (max-width: 800px) {
@@ -225,6 +279,7 @@ body {
   height:140px;
 }
 }
+
 
 /*-------------------*/
 

@@ -86,21 +86,21 @@ if (window.location.pathname.includes("sensores.html")) {
 
     let telaExcluir = document.getElementById('delete-sensor-part');
 
-    let linhaSelecionada; 
+    let linhaSelecionada;
 
     function telaApagar(botao) {
         telaExcluir.style.display = "flex";
         linhaSelecionada = botao.closest('tr');
     }
 
-    function tirarTela(){
-       telaExcluir.style.display = "none"; 
+    function tirarTela() {
+        telaExcluir.style.display = "none";
     }
 
     function excluirLinha() {
         if (linhaSelecionada) {
-            linhaSelecionada.remove(); 
-            tirarTela(); 
+            linhaSelecionada.remove();
+            tirarTela();
         }
     }
 
@@ -123,13 +123,17 @@ if (window.location.pathname.includes("sensores.html")) {
                 alterarLinha = ultimaLinha;
 
             } else {
+                if (idSensor.trim() === '' || localSensor.trim() === '' || tipoSensor === '' || idSensor.length > 20 || localSensor.length > 20) {
+                     
+                }else{
+                    alterarLinha = Tabela.insertRow(1);
+                    alterarLinha.insertCell(0);
+                    alterarLinha.insertCell(1);
+                    alterarLinha.insertCell(2);
+                    alterarLinha.insertCell(3);
+                    alterarLinha.insertCell(4);
+                }
 
-                alterarLinha = Tabela.insertRow(1);
-                alterarLinha.insertCell(0);
-                alterarLinha.insertCell(1);
-                alterarLinha.insertCell(2);
-                alterarLinha.insertCell(3);
-                alterarLinha.insertCell(4);
 
             }
 
@@ -148,7 +152,7 @@ if (window.location.pathname.includes("sensores.html")) {
                   <button class="botao-imagem" onclick="telaApagar(this)"><img src="assets/images/Lixo.png" class="icone-lixo"></button>
                   <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img src="assets/images/Olho.png" class="icone-olho"></button>
                 </td>`
-                
+
 
                 formSensor.reset();
             }

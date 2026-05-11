@@ -78,6 +78,14 @@
                   <option value="Energia">Energia</option>
                 </select>
               </div>
+              <div class="div-inputs-label-sensors">
+                <label class=" label-form-sensors" for="">SATUS</label>
+                <select class="form-select input-form-sensors" aria-label="Default select example" id="tipoSensor">
+                  <option selected disabled value="">Selecione o Status</option>
+                  <option value="Velocidade">Ativo</option>
+                  <option value="Temperatura">Sedativado</option>
+                </select>
+              </div>
               <div id="div-button-sensors">
                 <button class="d-block btn btn-primary button-form-sensors" type="submit">Cadastrar</button>
               </div>
@@ -90,7 +98,7 @@
     </div>
 
 
-
+    <!---------Tela de deletar Sensor--------->
     <div class="container" id="delete-sensor-part">
       <div class="d-flex">
         <div id="div-img-delete-sensors">
@@ -134,8 +142,10 @@
                 <td>?</td>
                 <td>?</td>
                 <td class="img-tabela" style="width: 10%;">
-                  <button class="botao-imagem" onclick="telaApagar(this)"><i class="fa-solid fa-trash fa-2xl" style="color: rgb(255, 49, 49);"></i></button>
-                  <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><i class="fa-solid fa-eye fa-flip-horizontal fa-2xl" style="color: rgb(0, 0, 0);"></i></button>
+                  <button class="botao-imagem" onclick="telaApagar(this)"><img src="assets/images/Lixo.png"
+                      class="icone-lixo"></button>
+                  <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img
+                      src="assets/images/Olho.png" class="icone-olho"></button>
                 </td>
               </tr>
         </div>
