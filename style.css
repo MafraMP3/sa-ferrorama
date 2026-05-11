@@ -175,8 +175,6 @@ body {
   .input-form-sensors {
     padding: 10px 0px;
     border-radius: 10px;
-    background-color: var(--cor-fundo);
-    font-size: 24px;
   }
 
   #div-form-cadastrarsensor {

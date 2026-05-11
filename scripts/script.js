@@ -1,4 +1,5 @@
 //======================================================TODAS AS PÁGINAS=======================================================================================//
+
 function toggleSidebar() {
     document.querySelector('.sidebar').classList.toggle('open');
     document.getElementById('overlay').classList.toggle('active');
@@ -76,17 +77,19 @@ if (window.location.pathname.includes("home.html")) {
 
 }
 //======================================================SENSORES.HTML=======================================================================================//
+
 if (window.location.pathname.includes("sensores.html")) {
 
     let formSensor = document.getElementById("formSensor");
 
     let Tabela = document.getElementById("tabelaSensores");
-
-
+    let todaTabela = document.getElementById("todaTabela");
 
     let telaExcluir = document.getElementById('delete-sensor-part');
 
     let linhaSelecionada;
+
+    let semSensor = document.getElementById("nenhumSensor");
 
     function telaApagar(botao) {
         telaExcluir.style.display = "flex";
@@ -101,11 +104,58 @@ if (window.location.pathname.includes("sensores.html")) {
         if (linhaSelecionada) {
             linhaSelecionada.remove();
             tirarTela();
+            Tabela = document.getElementById("tabelaSensores");
+            todaTabela = document.getElementById("todaTabela");
+            if(Tabela && Tabela.rows.length === 1){
+                todaTabela.remove();
+                semSensor = document.getElementById("nenhumSensor");
+                semSensor.style.display = 'block';
+            }
         }
     }
 
     if (formSensor) {
         formSensor.onsubmit = (e) => {
+
+            if (!Tabela) {
+                telaExcluir.insertAdjacentHTML('afterend', `<div class="content" id="todaTabela">
+      <div class="card div-tabela-sensors ">
+
+        <div class="d-flex align-items-center">
+          <img class="img-sensor-icon" src="assets/images/icone-tabela-sensor.png" alt="">
+          <p class="text-cadastrar-novo-sensor h4">SENSORES CADASTRADOS</p>
+        </div>
+
+        <div class="table-responsive">
+          <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
+            <thead>
+              <tr class="table-dark ">
+                <th class="ths">ID sensor</th>
+                <th class="ths">Localização</th>
+                <th class="ths">Tipo Dado</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>?</td>
+                <td>?</td>
+                <td>?</td>
+                <td>?</td>
+                <td class="img-tabela" style="width: 10%;">
+                  <button class="botao-imagem" onclick="telaApagar(this)"><img src="assets/images/Lixo.png"
+                      class="icone-lixo"></button>
+                  <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img
+                      src="assets/images/Olho.png" class="icone-olho"></button>
+                </td>
+              </tr>
+          </table>
+        </div>
+      </div>`)
+            }
+
+            Tabela = document.getElementById("tabelaSensores");
 
             e.preventDefault();
 
@@ -124,8 +174,8 @@ if (window.location.pathname.includes("sensores.html")) {
 
             } else {
                 if (idSensor.trim() === '' || localSensor.trim() === '' || tipoSensor === '' || idSensor.length > 20 || localSensor.length > 20) {
-                     
-                }else{
+
+                } else {
                     alterarLinha = Tabela.insertRow(1);
                     alterarLinha.insertCell(0);
                     alterarLinha.insertCell(1);
@@ -152,6 +202,9 @@ if (window.location.pathname.includes("sensores.html")) {
                   <button class="botao-imagem" onclick="telaApagar(this)"><img src="assets/images/Lixo.png" class="icone-lixo"></button>
                   <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img src="assets/images/Olho.png" class="icone-olho"></button>
                 </td>`
+
+                semSensor = document.getElementById("nenhumSensor");
+                semSensor.style.display = 'none';
 
 
                 formSensor.reset();
