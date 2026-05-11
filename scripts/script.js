@@ -141,7 +141,7 @@ if (window.location.pathname.includes("sensores.html")) {
                 <td>?</td>
                 <td>?</td>
                 <td>?</td>
-                <td class="img-tabela" style="width: 10%;">
+                <td class="img-tabela" style="width: 170px;">
                   <button class="botao-imagem" onclick="telaApagar(this)"><img src="assets/images/Lixo.png"
                       class="icone-lixo"></button>
                   <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img
