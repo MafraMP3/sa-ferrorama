@@ -195,21 +195,20 @@ body {
 /*deletar sensor css*/
 
 #delete-sensor-part {
-  display: none;
+  font-family: 'Cagliostro' , sans-serif;
+  display: flex;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-40%, -50%);
   z-index: 100;
-  background: white;
   padding: 30px;
   border-radius: 10px;
-  border: 2px solid var(--label-login-color);
-  box-shadow: 3px 10px 10px 3px rgba(0, 0, 0, 0.377);
   justify-content: center;
   margin: 0px 36px;
   max-width: 600px;
 }
+
 
 #img-delete-sensors{
   width: 160px;
@@ -224,11 +223,9 @@ body {
   left: 50%;
   transform: translate(-40%, -50%);
   z-index: 100;
-  background: white;
   padding: 20px 0px;
   border-radius: 10px;
-  border: 2px solid var(--label-login-color);
-  box-shadow: 3px 10px 10px 3px rgba(0, 0, 0, 0.377);
+
 }
 
 #img-delete-sensors{
@@ -236,7 +233,6 @@ body {
   height:140px;
 }
 #text-delete-sensor{
-  color: var(--submit-button-color);
   margin: 0px;
   padding: 0px;
   margin-bottom: 3px;
@@ -257,8 +253,7 @@ body {
   z-index: 100;
   padding: 20px 0px;
   border-radius: 10px;
-  border: 2px solid var(--label-login-color);
-  box-shadow: 3px 10px 10px 3px rgba(0, 0, 0, 0.377);
+
   max-width: 440px;
 }
 
@@ -270,7 +265,6 @@ body {
 }
 
 #text-delete-sensor{
-  color: var(--submit-button-color);
   margin: 0px;
   padding: 0px;
   margin-bottom: 3px;
@@ -296,17 +290,7 @@ body {
   margin-left: 20px;
 }
 
-.button-delete-sensor{
-  margin: 20px 40px;
-  padding: 0px 20px;
-  border: 2px solid rgba(0, 0, 0, 0.781);
-  background-color: white;
-  font-size: 34px;
-  font-weight: 600;
-  padding-bottom: 6px;
-  border-radius: 10px;
-  color: var(--submit-button-color);
-}
+
 
 
 /*-------------------*/
@@ -503,8 +487,10 @@ body {
   font-weight: bold;
 }
 
-.btn{
-  transition: all 0.2s ease; 
+.btn.active,
+.btn:hover {
+  background-color: #ff2c2c;
+  color: white;
 }
 
 .btn:active {
