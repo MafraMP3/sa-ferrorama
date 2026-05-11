@@ -83,12 +83,13 @@ if (window.location.pathname.includes("sensores.html")) {
     let formSensor = document.getElementById("formSensor");
 
     let Tabela = document.getElementById("tabelaSensores");
-
-
+    let todaTabela = document.getElementById("todaTabela");
 
     let telaExcluir = document.getElementById('delete-sensor-part');
 
     let linhaSelecionada;
+
+    let semSensor = document.getElementById("nenhumSensor");
 
     function telaApagar(botao) {
         telaExcluir.style.display = "flex";
@@ -103,6 +104,13 @@ if (window.location.pathname.includes("sensores.html")) {
         if (linhaSelecionada) {
             linhaSelecionada.remove();
             tirarTela();
+            Tabela = document.getElementById("tabelaSensores");
+            todaTabela = document.getElementById("todaTabela");
+            if(Tabela && Tabela.rows.length === 1){
+                todaTabela.remove();
+                semSensor = document.getElementById("nenhumSensor");
+                semSensor.style.display = 'block';
+            }
         }
     }
 
@@ -110,7 +118,7 @@ if (window.location.pathname.includes("sensores.html")) {
         formSensor.onsubmit = (e) => {
 
             if (!Tabela) {
-                telaExcluir.insertAdjacentHTML('afterend', `<div class="content">
+                telaExcluir.insertAdjacentHTML('afterend', `<div class="content" id="todaTabela">
       <div class="card div-tabela-sensors ">
 
         <div class="d-flex align-items-center">
@@ -195,7 +203,7 @@ if (window.location.pathname.includes("sensores.html")) {
                   <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img src="assets/images/Olho.png" class="icone-olho"></button>
                 </td>`
 
-                let semSensor = document.getElementById("nenhumSensor");
+                semSensor = document.getElementById("nenhumSensor");
                 semSensor.style.display = 'none';
 
 
