@@ -133,6 +133,14 @@ body {
   background-color: white;
 }
 
+.input-form-sensors-select{
+  padding: 10px 40px !important;
+  padding-left: 9px !important;
+  border-radius: 10px !important;
+  background-color: white !important;
+  color: #2c2c2c;
+}
+
 .button-form-sensors {
   background-color: var(--submit-button-color);
   font-size: 30px;
@@ -182,54 +190,6 @@ body {
     gap: 15px;
   }
 
-    #tabelaSensores td{
-    display: block;
-    width: 100%;
-}
-
-#tabelaSensores thead{
-    display: none;
-}
-
-#tabelaSensores td{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-}
-
-#tabelaSensores td::before{
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-#tabelaSensores td:nth-child(1)::before{
-    content: "ID sensor";
-}
-
-#tabelaSensores td:nth-child(2)::before{
-    content: "Localização";
-}
-
-#tabelaSensores td:nth-child(3)::before{
-    content: "Tipo Dado";
-}
-
-#tabelaSensores td:nth-child(4)::before{
-    content: "Status";
-}
-
-#tabelaSensores td:nth-child(5)::before{
-    content: "Ações";
-    margin-top: 15px;
-    margin-right: 50px;
-}
-
-.img-tabela{
-    display: block;
-    min-width: fit-content;
-    min-height: 80px;
-
-}
 }
 
 /*deletar sensor css*/
@@ -246,21 +206,26 @@ body {
   border-radius: 10px;
   border: 2px solid var(--label-login-color);
   box-shadow: 3px 10px 10px 3px rgba(0, 0, 0, 0.377);
+  justify-content: center;
+  margin: 0px 36px;
+  max-width: 600px;
 }
+
 #img-delete-sensors{
   width: 160px;
   height:160px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1292px) {
   #delete-sensor-part {
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-40%, -50%);
   z-index: 100;
-  background: var(--cor-fundo);
-  padding: 0px;
+  background: white;
+  padding: 20px 0px;
   border-radius: 10px;
   border: 2px solid var(--label-login-color);
   box-shadow: 3px 10px 10px 3px rgba(0, 0, 0, 0.377);
@@ -270,6 +235,76 @@ body {
   width: 140px;
   height:140px;
 }
+#text-delete-sensor{
+  color: var(--submit-button-color);
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 3px;
+  margin-left: 0px !important;
+  font-size: 30px;
+  margin-left: 14px !important;
+}
+}
+
+@media (max-width: 766px) {
+  #delete-sensor-part {
+  display: none;
+  position: fixed;
+  margin: 0px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  padding: 20px 0px;
+  border-radius: 10px;
+  border: 2px solid var(--label-login-color);
+  box-shadow: 3px 10px 10px 3px rgba(0, 0, 0, 0.377);
+  max-width: 440px;
+}
+
+#img-delete-sensors{
+  width: 90px;
+  height:90px;
+  margin-top: 5px;
+  align-items: center;
+}
+
+#text-delete-sensor{
+  color: var(--submit-button-color);
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 3px;
+  margin-left: 0px !important;
+  font-size: 30px;
+  margin-left: 18px !important;
+}
+}
+
+
+#div-context-delete-sensor{
+  display: flex;
+  flex-direction: column;
+}
+
+#text-delete-sensor{
+  color: var(--submit-button-color);
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 3px;
+  margin-left: 10px;
+  font-size: 30px;
+  margin-left: 20px;
+}
+
+.button-delete-sensor{
+  margin: 0px 40px;
+  padding: 0px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.349);
+  background-color: white;
+  font-size: 34px;
+  padding-bottom: 6px;
+  border-radius: 10px;
+  color: var(--submit-button-color);
 }
 
 

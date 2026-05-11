@@ -74,19 +74,11 @@
               </div>
               <div class="div-inputs-label-sensors">
                 <label class=" label-form-sensors" for="">TIPO DE DADO</label>
-                <select class="form-select input-form-sensors" aria-label="Default select example" id="tipoSensor">
+                <select class="form-select input-form-sensors-select" aria-label="Default select example" id="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
                   <option value="Velocidade">Velocidade</option>
                   <option value="Temperatura">Temperatura</option>
                   <option value="Energia">Energia</option>
-                </select>
-              </div>
-              <div class="div-inputs-label-sensors">
-                <label class=" label-form-sensors" for="">SATUS</label>
-                <select class="form-select input-form-sensors" aria-label="Default select example" id="tipoSensor">
-                  <option selected disabled value="">Selecione o Status</option>
-                  <option value="Velocidade">Ativo</option>
-                  <option value="Temperatura">Sedativado</option>
                 </select>
               </div>
               <div id="div-button-sensors">
@@ -100,6 +92,7 @@
 
     </div>
 
+    
 
     <!---------Tela de deletar Sensor--------->
     <div class="container" id="delete-sensor-part">
@@ -107,11 +100,11 @@
         <div id="div-img-delete-sensors">
           <img id="img-delete-sensors" src="assets/images/Lixo.png" alt="">
         </div>
-        <div>
-          <h4>Deseja Excluir o sensor?</h4>
+        <div id="div-context-delete-sensor">
+          <h4 id="text-delete-sensor" >Deseja Excluir o sensor?</h4>
           <div class="d-flex">
-            <button onclick="excluirLinha()">sim</button>
-            <button onclick="tirarTela()">não</button>
+            <button class="button-delete-sensor" onclick="excluirLinha()">sim</button>
+            <button class="button-delete-sensor" onclick="tirarTela()">não</button>
           </div>
         </div>
       </div>
