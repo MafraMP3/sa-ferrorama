@@ -93,21 +93,19 @@
     
 
     <!---------Tela de deletar Sensor--------->
-    <div class="content">
-    <div class="container div-top-sensors" id="delete-sensor-part">
+    <div class="container content card" id="delete-sensor-part">
       <div class="d-flex">
-        <div id="div-img-delete-sensors">
+        <div id="div-img-delete-sensors redbg">
           <img id="img-delete-sensors" src="assets/images/Lixo.png" alt="">
         </div>
-        <div id="div-context-delete-sensor">
-          <h4 id="text-delete-sensor" >Deseja Excluir o sensor?</h4>
-          <div class="d-flex">
-            <button class="button-delete-sensor" onclick="excluirLinha()">Sim</button>
-            <button class="button-delete-sensor" onclick="tirarTela()">Não</button>
+        <div class="mt-4">
+          <p class="h4" id="text-delete-sensor"> Deseja Excluir o usuário?</h4>
+          <div class="d-flex  align-items-center justify-content-center">
+            <button class="btn btn-lg" onclick="tirarTela()">Não</button>
+            <button class="btn active btn-lg" onclick="excluirLinha()">Sim</button>
           </div>
         </div>
       </div>
-    </div>
     </div>
 
 
