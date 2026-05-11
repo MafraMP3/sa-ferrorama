@@ -82,7 +82,7 @@ if (window.location.pathname.includes("sensores.html")) {
 
     let formSensor = document.getElementById("formSensor");
 
-    let Tabela = document.getElementById("tabelaSensores");
+    let tabelaSensor = document.getElementById("tabelaSensores");
     let todaTabela = document.getElementById("todaTabela");
 
     let telaExcluir = document.getElementById('delete-sensor-part');
@@ -104,9 +104,9 @@ if (window.location.pathname.includes("sensores.html")) {
         if (linhaSelecionada) {
             linhaSelecionada.remove();
             tirarTela();
-            Tabela = document.getElementById("tabelaSensores");
+            tabelaSensor = document.getElementById("tabelaSensores");
             todaTabela = document.getElementById("todaTabela");
-            if(Tabela && Tabela.rows.length === 1){
+            if (tabelaSensor && tabelaSensor.rows.length === 1) {
                 todaTabela.remove();
                 semSensor = document.getElementById("nenhumSensor");
                 semSensor.style.display = 'block';
@@ -117,7 +117,7 @@ if (window.location.pathname.includes("sensores.html")) {
     if (formSensor) {
         formSensor.onsubmit = (e) => {
 
-            if (!Tabela) {
+            if (!tabelaSensor) {
                 telaExcluir.insertAdjacentHTML('afterend', `<div class="content" id="todaTabela">
       <div class="card div-tabela-sensors ">
 
@@ -153,7 +153,7 @@ if (window.location.pathname.includes("sensores.html")) {
       </div>`)
             }
 
-            Tabela = document.getElementById("tabelaSensores");
+            tabelaSensor = document.getElementById("tabelaSensores");
 
             e.preventDefault();
 
@@ -161,9 +161,9 @@ if (window.location.pathname.includes("sensores.html")) {
             let localSensor = document.getElementById('localSensor').value;
             let tipoSensor = document.getElementById("tipoSensor").value;
 
-            let linhasTabela = Tabela.rows.length;
+            let linhasTabela = tabelaSensor.rows.length;
             console.log(linhasTabela);
-            let ultimaLinha = Tabela.rows[linhasTabela - 1];
+            let ultimaLinha = tabelaSensor.rows[linhasTabela - 1];
             let alterarLinha;
 
             if (ultimaLinha.cells[0].textContent === "" || ultimaLinha.cells[0].textContent === "?") {
@@ -174,7 +174,7 @@ if (window.location.pathname.includes("sensores.html")) {
                 if (idSensor.trim() === '' || localSensor.trim() === '' || tipoSensor === '' || idSensor.length > 20 || localSensor.length > 20) {
 
                 } else {
-                    alterarLinha = Tabela.insertRow(1);
+                    alterarLinha = tabelaSensor.insertRow(1);
                     alterarLinha.insertCell(0);
                     alterarLinha.insertCell(1);
                     alterarLinha.insertCell(2);
@@ -201,6 +201,149 @@ if (window.location.pathname.includes("sensores.html")) {
 
 
                 formSensor.reset();
+            }
+
+
+        }
+    }
+
+
+}
+
+//======================================================USUARIOS.HTML=======================================================================================//
+
+if (window.location.pathname.includes("usuarios.html")) {
+
+    let formUsuarios = document.getElementById("formUsuarios");
+
+    let tabelaUsuarios = document.getElementById("tabelaUsuarios");
+    let todaTabela = document.getElementById("todaTabela");
+
+    let telaExcluir = document.getElementById('delete-sensor-part');
+
+    let linhaSelecionada;
+
+    let semUsuario = document.getElementById("nenhumUsuario");
+
+    function telaApagar(botao) {
+        telaExcluir.style.display = "flex";
+        linhaSelecionada = botao.closest('tr');
+    }
+
+    function tirarTela() {
+        telaExcluir.style.display = "none";
+    }
+
+    function excluirLinha() {
+        if (linhaSelecionada) {
+            linhaSelecionada.remove();
+            tirarTela();
+            tabelaUsuarios = document.getElementById("tabelaUsuarios");
+            todaTabela = document.getElementById("todaTabela");
+            if (tabelaUsuarios && tabelaUsuarios.rows.length === 1) {
+                todaTabela.remove();
+                semUsuario = document.getElementById("nenhumUsuario");
+                semUsuario.style.display = 'block';
+            }
+        }
+    }
+
+    if (formUsuarios) {
+        formUsuarios.onsubmit = (e) => {
+
+            tabelaUsuarios = document.getElementById('tabelaUsuarios')
+
+            if (!tabelaUsuarios) {
+                telaExcluir.insertAdjacentHTML('afterend', `<div class="content" id="todaTabela">
+      <div class="card div-tabela-sensors ">
+
+        <div class="d-flex align-items-center">
+          <img class="img-sensor-icon" src="assets/images/icone-tabela-sensor.png" alt="">
+          <p class="text-cadastrar-novo-sensor h4">USUARIOS CADASTRADOS</p>
+        </div>
+
+        <div class="table-responsive">
+          <table id="tabelaUsuarios" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
+            <thead>
+              <tr class="table-dark ">
+                <th class="ths">Nome</th>
+                <th class="ths">Email</th>
+                <th class="ths">Cargo</th>
+                <th class="ths">Senha</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>?</td>
+                <td>?</td>
+                <td>?</td>
+                <td>?</td>
+                <td class="img-tabela" style="width: 170px;">
+                  <button class="botao-imagem" onclick="telaApagar(this)"><img src="assets/images/Lixo.png"
+                      class="icone-lixo"></button>
+                  <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img
+                      src="assets/images/Olho.png" class="icone-olho"></button>
+                </td>
+              </tr>
+          </table>
+        </div>
+      </div>`)
+            }
+
+            tabelaUsuarios = document.getElementById("tabelaUsuarios");
+
+            e.preventDefault();
+
+            let nomeUsuario = document.getElementById('nomeUsuario').value;
+            let emailUsuario = document.getElementById('emailUsuario').value;
+            let cargoUsuario = document.getElementById('cargoUsuario').value;
+            let senhaUsuario = document.getElementById("senhaUsuario").value;
+
+            let linhasTabela = tabelaUsuarios.rows.length;
+            console.log(linhasTabela);
+            let ultimaLinha = tabelaUsuarios.rows[linhasTabela - 1];
+            let alterarLinha;
+
+            if (ultimaLinha.cells[0].textContent === "" || ultimaLinha.cells[0].textContent === "?") {
+
+                alterarLinha = ultimaLinha;
+
+            } else {
+                if (nomeUsuario.trim() === '' || emailUsuario.trim() === '' || cargoUsuario === '' || senhaUsuario === '') {
+
+                } else {
+                    alterarLinha = tabelaUsuarios.insertRow(1);
+                    alterarLinha.insertCell(0);
+                    alterarLinha.insertCell(1);
+                    alterarLinha.insertCell(2);
+                    alterarLinha.insertCell(3);
+                    alterarLinha.insertCell(4);
+
+                }
+
+
+            }
+
+            if (nomeUsuario.trim() === '' || emailUsuario.trim() === '' || cargoUsuario === '' || senhaUsuario === '') {
+                alert("os campos devem ser preenchidos");
+            } else {
+                alterarLinha.cells[0].textContent = nomeUsuario;
+                alterarLinha.cells[1].textContent = emailUsuario;
+                alterarLinha.cells[2].textContent = cargoUsuario;
+                alterarLinha.cells[3].textContent = senhaUsuario;
+
+                console.log(alterarLinha);
+                alterarLinha.cells[4].innerHTML = `<td class="img-tabela" style="width: 10%;">
+                  <button class="botao-imagem" onclick="telaApagar(this)"><img src="assets/images/Lixo.png" class="icone-lixo"></button>
+                  <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img src="assets/images/Olho.png" class="icone-olho"></button>
+                </td>`
+
+                semUsuario = document.getElementById("nenhumUsuario");
+                semUsuario.style.display = 'none';
+
+
+                formUsuarios.reset();
             }
 
 
