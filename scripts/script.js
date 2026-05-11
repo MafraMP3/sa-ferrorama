@@ -133,13 +133,11 @@ if (window.location.pathname.includes("sensores.html")) {
                 <th class="ths">ID sensor</th>
                 <th class="ths">Localização</th>
                 <th class="ths">Tipo Dado</th>
-                <th>Status</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>?</td>
                 <td>?</td>
                 <td>?</td>
                 <td>?</td>
@@ -181,13 +179,10 @@ if (window.location.pathname.includes("sensores.html")) {
                     alterarLinha.insertCell(1);
                     alterarLinha.insertCell(2);
                     alterarLinha.insertCell(3);
-                    alterarLinha.insertCell(4);
                 }
 
 
             }
-
-            let Status = 'operando';
 
             if (idSensor.trim() === '' || localSensor.trim() === '' || tipoSensor === '' || idSensor.length > 20 || localSensor.length > 20) {
                 alert("os campos devem ser preenchidos com no máximo 20 caracteres");
@@ -195,10 +190,8 @@ if (window.location.pathname.includes("sensores.html")) {
                 alterarLinha.cells[0].textContent = idSensor;
                 alterarLinha.cells[1].textContent = localSensor;
                 alterarLinha.cells[2].textContent = tipoSensor;
-                alterarLinha.cells[3].textContent = Status;
 
-
-                alterarLinha.cells[4].innerHTML = `<td class="img-tabela" style="width: 10%;">
+                alterarLinha.cells[3].innerHTML = `<td class="img-tabela" style="width: 10%;">
                   <button class="botao-imagem" onclick="telaApagar(this)"><img src="assets/images/Lixo.png" class="icone-lixo"></button>
                   <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img src="assets/images/Olho.png" class="icone-olho"></button>
                 </td>`
