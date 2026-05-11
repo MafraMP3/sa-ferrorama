@@ -198,7 +198,6 @@ body {
   border-radius: 10px;
   border: 2px solid var(--label-login-color);
   box-shadow: 3px 10px 10px 3px rgba(0, 0, 0, 0.377);
-  display: flex;
   justify-content: center;
   margin: 0px 36px;
   max-width: 600px;
