@@ -21,6 +21,18 @@ if (!window.location.pathname.includes("index.html")) {
         }
     }
 }
+setInterval(function(){
+    const horaAtual = new Date();
+
+const horas = horaAtual.getHours();
+const minutos = horaAtual.getMinutes();
+const segundos = horaAtual.getSeconds();
+
+console.log(`Horário Atual: ${horas}:${minutos}:${segundos}`);
+}
+
+,1000)
+
 //======================================================INDEX.HTML=======================================================================================//
 
 if (window.location.pathname.includes("index.html")) {
