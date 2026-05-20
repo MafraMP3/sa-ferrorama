@@ -3,6 +3,10 @@
   --submit-button-color: #ff3131;
   --label-login-color: #2c2c2c;
   --cor-home: #392d29;
+  
+  
+  
+
 }
 
 
@@ -35,6 +39,8 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+
+
 
 #img-login-screen {
   max-height: 500px !important;
@@ -532,6 +538,7 @@ body {
 .div-top-monitor{
   border-radius: 10px;
   margin-top: 10px;
+
 }
 
 #section-navbar-monitor{
@@ -542,6 +549,21 @@ body {
 
 #section-contex-monitor{
   padding: 10px;
+  padding-left: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.div-section-context-monitor{
+  border: solid black 1px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.div-speed-monitors{
+  border: solid black 1px;
+  border-radius: 5px;
+  padding: 1px 5px;
 }
 
 .text-monitor-sensor{
@@ -561,6 +583,11 @@ body {
   margin-top: 18px;
   margin-left: 10px;
   text-align: center;
+}
+
+.grafico{
+  width: 1000px;
+  
 }
 
 
