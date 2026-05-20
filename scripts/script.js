@@ -368,7 +368,6 @@ if (window.location.pathname.includes("monitoramento.html")) {
                 backgroundColor: 'rgb(245, 158, 158)',
                 borderWidth: 3,
                 tension: 0.05,
-                fill: true,
             }]
         },
         options: {
@@ -376,7 +375,6 @@ if (window.location.pathname.includes("monitoramento.html")) {
             scales: {
                 x: {
                     type: 'time',
-                    bounds: 'data',
                     time: {
                         unit: 'minute',
                         displayFormats: {
@@ -409,11 +407,18 @@ if (window.location.pathname.includes("monitoramento.html")) {
         });
 
         meuGrafico.update();
+
+        if(meuGrafico.data.datasets[0].data.length > 20){
+            meuGrafico.data.datasets[0].data.shift();
+            console.log(meuGrafico.data.datasets[0].data.length);
+        }
+
+        meuGrafico.update();
     }
     for (let i = 0; i < 2; i++) {
         addDados();
     }
 
 
-    setInterval(addDados, 5000)
+    setInterval(addDados, 500)
 }
