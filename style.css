@@ -3,6 +3,10 @@
   --submit-button-color: #ff3131;
   --label-login-color: #2c2c2c;
   --cor-home: #392d29;
+  
+  
+  
+
 }
 
 
@@ -35,6 +39,8 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+
+
 
 #img-login-screen {
   max-height: 500px !important;
