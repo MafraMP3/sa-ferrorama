@@ -538,7 +538,16 @@ body {
 .div-top-monitor{
   border-radius: 10px;
   margin-top: 10px;
+}
 
+.navbar-sections-context{
+  border: solid black 1px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  p{
+    margin: 0px;
+  }
 }
 
 #section-navbar-monitor{
@@ -557,7 +566,7 @@ body {
 .div-section-context-monitor{
   border: solid black 1px;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 0px 0px 5px 5px;
 }
 
 .div-speed-monitors{
