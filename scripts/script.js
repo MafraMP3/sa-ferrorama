@@ -386,13 +386,14 @@ if (window.location.pathname.includes("monitoramento.html")) {
                 },
                 y: {
                     type: 'linear',
-                    grace: '10%'
+                    min: 0,
+                    max: 100
                 }
             }
         }
     });
 
-    function addDados(){
+    function addDados() {
         const horaAtual = new Date();
 
         const horas = String(horaAtual.getHours()).padStart(2, '0');
@@ -409,8 +410,10 @@ if (window.location.pathname.includes("monitoramento.html")) {
 
         meuGrafico.update();
     }
+    for (let i = 0; i < 2; i++) {
+        addDados();
+    }
 
-addDados();
 
-setInterval(addDados,5000)
+    setInterval(addDados, 5000)
 }
