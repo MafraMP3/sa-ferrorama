@@ -573,6 +573,7 @@ body {
   border: solid black 1px;
   border-radius: 5px;
   padding: 1px 5px;
+  justify-content: space-between !important;
 }
 
 .text-monitor-sensor{
@@ -594,9 +595,19 @@ body {
   text-align: center;
 }
 
+.div-p-speed{
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+.p-speed-monitor-data{
+  margin-top: 18px;
+  margin-left: 10px;
+  text-align: center;
+}
+
 .grafico{
   width: 1000px;
-  
 }
 
 
