@@ -21,7 +21,7 @@
 
     <!--==================================================Sidebar=====================================================//-->
     <div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
-    <button class="hamburger" onclick="toggleSidebar()" >
+    <button class="hamburger" onclick="toggleSidebar()">
       <i class="fa-solid fa-bars"></i>
     </button>
 
@@ -74,7 +74,8 @@
               </div>
               <div class="div-inputs-label-sensors">
                 <label class=" label-form-sensors" for="">TIPO DE DADO</label>
-                <select class="form-select input-form-sensors-select" aria-label="Default select example" id="tipoSensor">
+                <select class="form-select input-form-sensors-select" aria-label="Default select example"
+                  id="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
                   <option value="Velocidade">Velocidade</option>
                   <option value="Temperatura">Temperatura</option>
@@ -92,7 +93,7 @@
 
     </div>
 
-    
+
 
     <!---------Tela de deletar Sensor--------->
     <div class="container content card" id="delete-sensor-part">
@@ -103,23 +104,23 @@
         <div class="mt-4">
           <p class="h4" id="text-delete-sensor"> Deseja Excluir o sensor?</h4>
           <div class="d-flex  align-items-center justify-content-center">
-            <button class="btn btn-lg" onclick="tirarTela()">Não</button>
+            <button class="btn btn-lg" onclick="document.getElementById('delete-sensor-part').style.display = 'none'">Não</button>
             <button class="btn btn-lg" onclick="excluirLinha()">Sim</button>
           </div>
         </div>
       </div>
     </div>
-
+    <!---------Tela de deletar Sensor--------->
 
     <div class="content" id="nenhumSensor">
-     <div class="card div-top-sensors d-flex  align-items-center justify-content-center " >
+      <div class="card div-top-sensors d-flex  align-items-center justify-content-center ">
         <i class="fa-solid fa-tower-broadcast fa-5x m-4 text-danger opacity-50"></i>
         <h4 class="text-secondary">
           Nenhum sensor cadastrado ainda.
         </h4>
         <p class="text-secondary mb-4">Cadastre um novo sensor para começar.</p>
       </div>
-      </div>
+    </div>
 
   </main>
 

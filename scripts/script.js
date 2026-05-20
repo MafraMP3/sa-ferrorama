@@ -97,10 +97,6 @@ if (window.location.pathname.includes("sensores.html")) {
         linhaSelecionada = botao.closest('tr');
     }
 
-    function tirarTela() {
-        telaExcluir.style.display = "none";
-    }
-
     function excluirLinha() {
         if (linhaSelecionada) {
             linhaSelecionada.remove();
