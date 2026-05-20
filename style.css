@@ -475,6 +475,7 @@ body {
     margin-left: 0 !important;
     padding-top: 60px;
   }
+
 }
 
 #cadastrartext {
@@ -529,3 +530,60 @@ body {
 .user-card{
     width: 100%;
 }
+
+
+
+/*-----------------------------monitoramento---------------------------------*/
+
+.div-top-monitor{
+  border-radius: 10px;
+  margin-top: 10px;
+
+}
+
+#section-navbar-monitor{
+  background-color: var(--cor-home);
+  margin: 0px;
+  padding: 4px;
+}
+
+#section-contex-monitor{
+  padding: 10px;
+  padding-left: 25px;
+  display: flex;
+  gap: 20px;
+}
+
+.div-section-context-monitor{
+  border: solid black 1px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.div-speed-monitors{
+  border: solid black 1px;
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+.text-monitor-sensor{
+  color: white;
+  font-size: 39px;
+  margin: 0px;
+  margin-top: 2px;
+  margin-left: 20px;
+}
+
+.img-speed-monitor{
+  height: 60px;
+  width: 60px;
+}
+
+.p-speed-monitor{
+  margin-top: 18px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+
+/*--------------------------------------------------------------*/

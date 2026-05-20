@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" href="assets/images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/images/icon.png">
 
     <title>Monitoramento</title>
 </head>
 
 <body>
 
-<!--==================================================Sidebar=====================================================//-->
+    <!--==================================================Sidebar=====================================================//-->
     <div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
     <button class="hamburger" onclick="toggleSidebar()">
         <i class="fa-solid fa-bars"></i>
@@ -26,7 +26,7 @@
             <img src="assets/images/logo-quadrada.png " alt="logo">
         </div>
 
-        <a href="home.html"  id="linkDashboard">
+        <a href="home.html" id="linkDashboard">
             <i class="fa-solid fa-house" style="color: #fff;"></i> Dashboard
         </a>
 
@@ -34,22 +34,94 @@
             <i class="fa-solid fa-satellite-dish" style="color: #fff;"></i> Sensores
         </a>
 
-       
         <a href="#" id="linkMonitoramento" class="active">
             <i class="fa-solid fa-chart-line" style="color: #fff;"></i> Monitoramento
         </a>
 
         <a href="usuarios.html" id="linkUsuarios">
-            <i class="fa-solid fa-users" style="color: rgb(255, 255, 255);"></i></i> Usuários
+            <i class="fa-solid fa-users" style="color: rgb(255, 255, 255);"></i> Usuários
         </a>
 
         <a href="#" class="logout" id="linkSair">SAIR</a>
     </div>
-<!--==================================================Sidebar=====================================================//-->
-    <div class="container content">
-        
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
-  <script src="scripts/script.js"></script>
-    </body>
+    <!--==================================================Sidebar=====================================================//-->
+
+    <div style="width: 75%; margin-left: 22%; padding-top: 50px;">
+        <canvas id="grafico"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <div class="content">
+        <div class="card div-top-monitor">
+
+            <section id="section-navbar-monitor">
+                <div>
+                    <P class="text-monitor-sensor">Sensor 2</P>
+                </div>
+            </section>
+            <section id="section-contex-monitor">
+
+                <div class="d-flex div-section-context-monitor">
+                    <div>
+                        <div>dados</div>
+                        <div class="div-speed-monitors d-flex">
+                            <img class="img-speed-monitor" src="assets/images/icon-velocidade.png" alt="">
+                            <div>
+                                <p class="p-speed-monitor">Velocidade atual</p>
+                            </div>
+                        </div>
+                        <div class="div-speed-monitors d-flex">
+                            <img class="img-speed-monitor" src="assets/images/icon-velocidade.png" alt="">
+                            <div>
+                                <p class="p-speed-monitor">Velocidade atual</p>
+                            </div>
+                        </div>
+                        <div class="div-speed-monitors d-flex">
+                            <img class="img-speed-monitor" src="assets/images/icon-velocidade.png" alt="">
+                            <div>
+                                <p class="p-speed-monitor">Velocidade atual</p>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <img class="img-speed-monitor" src="assets/images/icon-velocidade.png" alt="">
+                            <div>
+                                <p class="p-speed-monitor">Status</p>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <img class="img-speed-monitor" src="assets/images/icon-velocidade.png" alt="">
+                            <div>
+                                <p class="p-speed-monitor">Status</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex div-section-context-monitor">
+                    oiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    <!--oiiiiiiiiiiiii-->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <script src="scripts/script.js"></script>
+
+</body>
+
+</html>
