@@ -30,7 +30,6 @@ const segundos = horaAtual.getSeconds();
 
 console.log(`Horário Atual: ${horas}:${minutos}:${segundos}`);
 }
-
 ,1000)
 
 //======================================================INDEX.HTML=======================================================================================//
@@ -363,4 +362,9 @@ if (window.location.pathname.includes("usuarios.html")) {
     }
 
 
+}
+//======================================================MONITORAMENTO.HTML=======================================================================================//
+
+if (window.location.pathname.includes("monitoramento.html")) {
+    
 }
