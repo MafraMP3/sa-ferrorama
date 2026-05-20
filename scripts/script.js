@@ -424,6 +424,10 @@ if (window.location.pathname.includes("monitoramento.html")) {
         somaDados = somaDados.reduce((total, dados) => total + dados, 0);
 
         let media = somaDados / meuGrafico.data.datasets[0].data.length //pega a soma dos dados do gráfico e divide pela quantidade de pontos no gráfico
+
+        mostrarMedia = document.getElementById('mediaSensores');
+
+        mostrarMedia.textContent = media.toFixed(2);
     }
 
     for (let i = 0; i < 2; i++) { //add 2 dados no começo
