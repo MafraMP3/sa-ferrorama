@@ -21,16 +21,6 @@ if (!window.location.pathname.includes("index.html")) {
         }
     }
 }
-setInterval(function(){
-    const horaAtual = new Date();
-
-const horas = horaAtual.getHours();
-const minutos = horaAtual.getMinutes();
-const segundos = horaAtual.getSeconds();
-
-console.log(`Horário Atual: ${horas}:${minutos}:${segundos}`);
-}
-,1000)
 
 //======================================================INDEX.HTML=======================================================================================//
 
@@ -366,5 +356,61 @@ if (window.location.pathname.includes("usuarios.html")) {
 //======================================================MONITORAMENTO.HTML=======================================================================================//
 
 if (window.location.pathname.includes("monitoramento.html")) {
-    
+    const ctx = document.getElementById('grafico').getContext('2d');
+
+    const meuGrafico = new Chart(ctx, {
+        type: 'line',
+        data: {
+            datasets: [{
+                label: 'Dados dos Sensores',
+                data: [],
+                borderColor: '#d62727',
+                backgroundColor: 'rgb(245, 158, 158)',
+                borderWidth: 3,
+                tension: 0.05,
+                fill: true,
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    type: 'time',
+                    bounds: 'data',
+                    time: {
+                        unit: 'minute',
+                        displayFormats: {
+                            minute: 'HH:mm'
+                        }
+                    }
+                },
+                y: {
+                    type: 'linear',
+                    grace: '10%'
+                }
+            }
+        }
+    });
+
+    function addDados(){
+        const horaAtual = new Date();
+
+        const horas = String(horaAtual.getHours()).padStart(2, '0');
+        const minutos = String(horaAtual.getMinutes()).padStart(2, '0');
+
+        console.log(`Horário Atual: ${horas}:${minutos}`);
+
+        const dadosSensor = Math.floor(Math.random() * 100);
+
+        meuGrafico.data.datasets[0].data.push({
+            x: horaAtual,
+            y: dadosSensor
+        });
+
+        meuGrafico.update();
+    }
+
+addDados();
+
+setInterval(addDados,5000)
 }
