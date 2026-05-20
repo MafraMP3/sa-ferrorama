@@ -352,7 +352,7 @@ if (window.location.pathname.includes("usuarios.html")) {
 //======================================================MONITORAMENTO.HTML=======================================================================================//
 
 if (window.location.pathname.includes("monitoramento.html")) {
-    const ctx = document.getElementById('grafico').getContext('2d');
+    const ctx = document.getElementById('grafico').getContext('2d'); //Gráfico de linhas
 
     const meuGrafico = new Chart(ctx, {
         type: 'line',
@@ -385,36 +385,51 @@ if (window.location.pathname.includes("monitoramento.html")) {
                 }
             }
         }
-    });
+    }); // -Gráfico de linhas
 
-    function addDados() {
+    function addDados() { //função de adicionar dados ao gráfico
         const horaAtual = new Date();
 
         const horas = String(horaAtual.getHours()).padStart(2, '0');
-        const minutos = String(horaAtual.getMinutes()).padStart(2, '0');
+        const minutos = String(horaAtual.getMinutes()).padStart(2, '0'); //pega hora atual
 
         console.log(`Horário Atual: ${horas}:${minutos}`);
 
-        const dadosSensor = Math.floor(Math.random() * 100);
+        const dadosSensor = Math.floor(Math.random() * 100); //numero aleatório de 0 a 99
 
         meuGrafico.data.datasets[0].data.push({
             x: horaAtual,
             y: dadosSensor
-        });
+        }); //insere os dados na tabela
 
-        meuGrafico.update();
+        meuGrafico.update(); //atualiza a tabela com os dados novos
 
-        if(meuGrafico.data.datasets[0].data.length > 30){
+        if (meuGrafico.data.datasets[0].data.length > 30) {
             meuGrafico.data.datasets[0].data.shift();
-            console.log(meuGrafico.data.datasets[0].data.length);
+            console.log(meuGrafico.data.datasets[0].data.length); //retira dados velhos
         }
 
-        meuGrafico.update();
-    }
-    for (let i = 0; i < 2; i++) {
-        addDados();
+        meuGrafico.update(); //atualiza o delete
     }
 
+
+    function tirarMedia() { //função para tirar a média dos dados do gráfico
+
+        let somaDados = [];
+
+        meuGrafico.data.datasets[0].data.forEach((ponto) => {
+            somaDados.push(ponto.y);
+        });
+
+        somaDados = somaDados.reduce((total, dados) => total + dados, 0);
+
+        let media = somaDados / meuGrafico.data.datasets[0].data.length //pega a soma dos dados do gráfico e divide pela quantidade de pontos no gráfico
+    }
+
+    for (let i = 0; i < 2; i++) { //add 2 dados no começo
+        addDados();
+        tirarMedia();
+    }
 
     setInterval(addDados, 60000)
 }
