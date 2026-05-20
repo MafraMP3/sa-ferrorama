@@ -408,7 +408,7 @@ if (window.location.pathname.includes("monitoramento.html")) {
 
         meuGrafico.update();
 
-        if(meuGrafico.data.datasets[0].data.length > 20){
+        if(meuGrafico.data.datasets[0].data.length > 30){
             meuGrafico.data.datasets[0].data.shift();
             console.log(meuGrafico.data.datasets[0].data.length);
         }
@@ -420,5 +420,5 @@ if (window.location.pathname.includes("monitoramento.html")) {
     }
 
 
-    setInterval(addDados, 500)
+    setInterval(addDados, 60000)
 }
