@@ -387,6 +387,8 @@ if (window.location.pathname.includes("monitoramento.html")) {
         }
     }); // -Gráfico de linhas
 
+    let dadosSensor = 0
+
     function addDados() { //função de adicionar dados ao gráfico
         const horaAtual = new Date();
 
@@ -395,7 +397,7 @@ if (window.location.pathname.includes("monitoramento.html")) {
 
         console.log(`Horário Atual: ${horas}:${minutos}`);
 
-        const dadosSensor = Math.floor(Math.random() * 100); //numero aleatório de 0 a 99
+        dadosSensor = Math.floor(Math.random() * 100); //numero aleatório de 0 a 99
 
         meuGrafico.data.datasets[0].data.push({
             x: horaAtual,
@@ -430,10 +432,43 @@ if (window.location.pathname.includes("monitoramento.html")) {
         mostrarMedia.textContent = media.toFixed(2);
     }
 
-    for (let i = 0; i < 2; i++) { //add 2 dados no começo
-        addDados();
-        tirarMedia();
+    function tirarAtual() { //pega Velocidade Atual
+        let velAtual = document.getElementById('velAtual');
+
+        velAtual.textContent = dadosSensor; //muda na tela
     }
 
-    setInterval(addDados, 60000)
+    function tirarMax() { //pega Velocidade Máxima do Array y de pontos
+
+        let velMax = document.getElementById('velMax');
+        let maiorVelocidade = 0;
+
+        meuGrafico.data.datasets[0].data.forEach((velocidade) => { //pra cada ponto do Array
+
+            if (velocidade.y > maiorVelocidade) { //pra cada y do Array
+                maiorVelocidade = velocidade.y
+            }
+        });
+
+        velMax.textContent = maiorVelocidade; //muda na tela
+    }
+
+    function atualizarGrafico() { //faz todas as funções de dados
+        addDados();
+        tirarMedia();
+        tirarAtual();
+        tirarMax();
+    }
+
+    const velAtualizacao = 60000; //velocidade padrão para melhor modificação
+
+    atualizarGrafico(); //insere o 1º dado
+
+    setTimeout(() => {
+        atualizarGrafico(); //insere o 2º 
+
+        setInterval(atualizarGrafico, velAtualizacao) //atualiza tudo a cada (velAtualizacao)
+    }, velAtualizacao / 3) //insere o 2º dado e inicia a atualização acima após 1/3 do tempo
+
+
 }
