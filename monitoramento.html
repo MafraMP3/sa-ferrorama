@@ -39,7 +39,7 @@
         </a>
 
         <a href="usuarios.html" id="linkUsuarios">
-            <i class="fa-solid fa-users" style="color: rgb(0, 0, 0);"></i> Usuários
+            <i class="fa-solid fa-users" style="color: rgb(255, 255, 255);"></i> Usuários
         </a>
 
         <a href="#" class="logout" id="linkSair">SAIR</a>
@@ -52,14 +52,14 @@
     <div class="content">
         <div class="card div-top-monitor">
 
-            <section id="section-navbar-monitor">
+           <section id="section-navbar-monitor" class="d-flex justify-content-between align-items-center px-4 py-3">
                 <div>
-                    <p class="text-monitor-sensor">Sensor 2</p>
-                    <p class="text-monitor-subtitle">Acompanhe os dados e o histórico em tempo real.</p>
+                    <p class="text-monitor-sensor mb-0">Sensor 2</p>
+                    <p class="text-muted small mb-0" style="color: rgba(255,255,255,0.5) !important;">Acompanhe os dados e o histórico em tempo real.</p>
                 </div>
-                <div class="status-online">
-                    <span class="dot"></span> ONLINE
-                </div>
+                <span class="badge rounded-pill border border-success text-success px-3 py-2">
+                    <i class="fa-solid fa-circle me-1" style="font-size: 8px;"></i> ONLINE
+                </span>
             </section>
             <section id="section-contex-monitor">
 
@@ -70,56 +70,28 @@
                     <div class="d-flex div-section-context-monitor">
                         <div>
 
-                            <div class="div-speed-monitors d-flex">
-                                <img class="img-speed-monitor" src="assets/images/icon-velocidade.png" alt="">
-                                <div class="div-p-speed d-flex">
-                                    <div>
-                                        <p class="p-speed-monitor">Velocidade Atual</p>
-                                    </div>
-                                </div>
-                                <div class="div-p-speed d-flex">
-                                    <div>
-                                        <p class="p-speed-monitor-data" id="velAtual">#</p>
-                                    </div>
+                            <div class="row g-3">
+                            <div class="col-6">
+                                <div class="card p-3">
+                                    <p class="text-muted small mb-1">Velocidade Atual</p>
+                                    <h3 class="mb-0 fw-bold" id="velAtual">—</h3>
+                                    <span class="text-muted" style="font-size: 11px;">km/h</span>
                                 </div>
                             </div>
-                            <div class="div-speed-monitors d-flex">
-                                <img class="img-speed-monitor" src="assets/images/icon-velocidade.png" alt="">
-                                <div class="div-p-speed d-flex">
-                                    <div>
-                                        <p class="p-speed-monitor">Velocidade Maxíma</p>
-                                    </div>
-                                </div>
-                                <div class="div-p-speed d-flex">
-                                    <div>
-                                        <p class="p-speed-monitor-data" id="velMax">#</p>
-                                    </div>
+                            <div class="col-6">
+                                <div class="card p-3">
+                                    <p class="text-muted small mb-1">Velocidade Máxima</p>
+                                    <h3 class="mb-0 fw-bold" id="velMax">—</h3>
+                                    <span class="text-muted" style="font-size: 11px;">km/h</span>
                                 </div>
                             </div>
-                            <div class="div-speed-monitors d-flex">
-                                <img class="img-speed-monitor" src="assets/images/icon-velocidade.png" alt="">
-                                <div class="div-p-speed d-flex">
-                                    <div>
-                                        <p class="p-speed-monitor">Velocidade Média</p>
-                                    </div>
-                                </div>
-                                <div class="div-p-speed d-flex">
-                                    <div>
-                                        <p class="p-speed-monitor-data" id="mediaSensores">#</p>
-                                    </div>
+                            <div class="col-6">
+                                <div class="card p-3">
+                                    <p class="text-muted small mb-1">Velocidade Média</p>
+                                    <h3 class="mb-0 fw-bold" id="mediaSensores">—</h3>
+                                    <span class="text-muted" style="font-size: 11px;">km/h</span>
                                 </div>
                             </div>
-                            <div class="d-flex">
-                                <img class="img-speed-monitor" src="assets/images/icon-velocidade.png" alt="">
-                                <div>
-                                    <p class="p-speed-monitor">Status</p>
-                                </div>
-                            </div>
-                            <div class="d-flex">
-                                <img class="img-speed-monitor" src="assets/images/icon-velocidade.png" alt="">
-                                <div>
-                                    <p class="p-speed-monitor">Status</p>
-                                </div>
                             </div>
                         </div>
                     </div>
