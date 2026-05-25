@@ -61,12 +61,15 @@
                     <span class="text-muted small" style="color: rgba(255,255,255,0.5) !important;">
                         <i class="fa-regular fa-clock me-1"></i> Última atualização: <span id="ultimaAtualizacao">--:--:--</span>
                     </span>
-                    <span class="badge rounded-pill border border-success text-success px-3 py-2">
+                    <div id="info-online">
+                       <span class="badge rounded-pill border border-success text-success px-3 py-2 status-online">
                         <i class="fa-solid fa-circle me-1" style="font-size: 8px;"></i> ONLINE
                     </span>
-                    <span class="badge rounded-pill border border-danger text-danger px-3 py-2">
+                    <span class="badge rounded-pill border border-danger text-danger px-3 py-2 status-offline d-none">
                         <i class="fa-solid fa-circle me-1" style="font-size: 8px;"></i> OFFLINE
-                    </span>
+                    </span> 
+                    </div>
+                    
                 </div>
             </section>
             <section id="section-contex-monitor">
@@ -105,7 +108,7 @@
                             <div class="col-6">
                                 <div class="card p-3">
                                     <p class="text-muted small mb-1">Status</p>
-                                    <div class="d-flex align-items-center gap-2 mt-1">
+                                    <div class="d-flex align-items-center gap-2 mt-1 status-online">
                                         <i class="fa-solid fa-circle-check fa-2x" style="color: #28a745;"></i>
                                         <div>
                                             <h6 class="mb-0 fw-bold" style="color: #28a745;">Operacional</h6>
@@ -114,7 +117,7 @@
                                         
                                     </div>
 
-                                    <div class="d-flex align-items-center gap-2 mt-1">
+                                    <div class="d-flex align-items-center gap-2 mt-1 status-offline d-none">
                                         <i class="fa-solid fa-circle-xmark fa-2x" style="color: #c02727;"></i>
                                         <div>
                                             <h6 class="mb-0 fw-bold" style="color: #c02727;">Desativado</h6>
