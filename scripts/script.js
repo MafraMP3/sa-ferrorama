@@ -368,6 +368,7 @@ if (window.location.pathname.includes("public/monitoramento.html")) {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 x: {
                     type: 'time',

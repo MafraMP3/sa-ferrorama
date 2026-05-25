@@ -617,7 +617,7 @@ body {
   text-align: center;
 }
 
-@media(max-width:1600px){
+@media(max-width:1579px){
 
     .div-monitor-data{
       width: 100%;
@@ -627,6 +627,10 @@ body {
   display: flex !important;
   flex-direction: column !important;
  }
+
+ .grafico{
+    height: 575px !important; /* altura que quiser */
+}
 
 }
 
@@ -640,11 +644,15 @@ body {
       padding: 5px;
     }
 
+    .grafico{
+    height: 282px !important; /* altura que quiser */
 }
 
-.responsive-grafico{
+}
+
+.grafico{
     width: 100%;
-    height: 300px; /* altura que quiser */
+    height: 282px; /* altura que quiser */
     position: relative;
 }
 
