@@ -554,12 +554,12 @@ body {
   background-color: var(--cor-home);
 }
 
-#section-contex-monitor{
-  padding: 10px;
-  padding-left: 25px;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+#section-contex-monitor {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
+    gap: 15px;
+    align-items: start;
 }
 
 .div-section-context-monitor{
@@ -612,8 +612,7 @@ body {
 }
 
 #grafico{
-  width: 800px;
-  min-width: 309px;
+    height: 250px !important;
 }
 
 @media(max-width:1090px){
