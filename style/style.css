@@ -559,6 +559,7 @@ body {
   padding-left: 25px;
   display: flex;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .div-section-context-monitor{
@@ -607,12 +608,20 @@ body {
 .grafico-container{
     position: relative; 
     width: 100%;
+    min-width: 309px;
+}
+
+#grafico{
+  width: 800px;
+  min-width: 309px;
 }
 
 @media(max-width:1090px){
 
     .grafico-container{
         height:250px;
+        min-width: 309px;
+        min-height: 154px;
     }
 
     #section-contex-monitor{
