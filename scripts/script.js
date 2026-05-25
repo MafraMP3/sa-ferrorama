@@ -368,7 +368,7 @@ if (window.location.pathname.includes("monitoramento.html")) {
         },
         options: {
             responsive: true,
-            maintainAspectRatio:false,
+            maintainAspectRatio: false,
             scales: {
                 x: {
                     type: 'time',
@@ -389,19 +389,24 @@ if (window.location.pathname.includes("monitoramento.html")) {
     }); // -Gráfico de linhas
 
     let dadosSensor = 0
-
-    function addDados() { //função de adicionar dados ao gráfico
+    function pegarHoraAtual() {
         const horaAtual = new Date();
 
         const horas = String(horaAtual.getHours()).padStart(2, '0');
-        const minutos = String(horaAtual.getMinutes()).padStart(2, '0'); //pega hora atual
+        const minutos = String(horaAtual.getMinutes()).padStart(2, '0');
+        const segundos = String(horaAtual.getSeconds()).padStart(2, '0'); //pega hora atual
+        let horario = `${horas}:${minutos}:${segundos}`;
 
-        console.log(`Horário Atual: ${horas}:${minutos}`);
+        return horaAtual;
+    }
+
+
+    function addDados() { //função de adicionar dados ao gráfico
 
         dadosSensor = Math.floor(Math.random() * 100); //numero aleatório de 0 a 99
 
         meuGrafico.data.datasets[0].data.push({
-            x: horaAtual,
+            x: pegarHoraAtual(),
             y: dadosSensor
         }); //insere os dados na tabela
 
@@ -453,17 +458,23 @@ if (window.location.pathname.includes("monitoramento.html")) {
 
         velMax.textContent = maiorVelocidade; //muda na tela
     }
+    function atualizarHorario() {
+        pegarHoraAtual();
+        document.getElementById('ultimaAtualizacao').textContent = horaAtual;
+    }
 
     function atualizarGrafico() { //faz todas as funções de dados
         addDados();
         tirarMedia();
         tirarAtual();
         tirarMax();
+        atualizarHorario();
     }
 
     const velAtualizacao = 60000; //velocidade padrão para melhor modificação
 
     atualizarGrafico(); //insere o 1º dado
+    atualizarHorario();
 
     setTimeout(() => {
         atualizarGrafico(); //insere o 2º 
@@ -476,7 +487,7 @@ if (window.location.pathname.includes("monitoramento.html")) {
     const botoesTempo = divBotoesTempo.querySelectorAll('.button-times');
 
     botoesTempo.forEach(botao => {
-        botao.addEventListener('click', function() {
+        botao.addEventListener('click', function () {
             botoesTempo.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
         })
@@ -484,11 +495,3 @@ if (window.location.pathname.includes("monitoramento.html")) {
 
 
 }
-
-        function atualizarHorario() {
-            const agora = new Date();
-            const hora = agora.toLocaleTimeString('pt-BR');
-            document.getElementById('ultimaAtualizacao').textContent = hora;
-        }
-        setInterval(atualizarHorario, 60000);
-        atualizarHorario();
