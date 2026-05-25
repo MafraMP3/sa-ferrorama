@@ -612,8 +612,7 @@ body {
 }
 
 #grafico{
-  width: 800px;
-  min-width: 309px;
+    height: 250px !important;
 }
 
 @media(max-width:1090px){
