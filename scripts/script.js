@@ -462,10 +462,30 @@ if (window.location.pathname.includes("public/monitoramento.html")) {
         velMax.textContent = maiorVelocidade; //muda na tela
     }
     function atualizarHorario() {
-        
+
         let horaAgora = tempo[1];
 
         document.getElementById('ultimaAtualizacao').textContent = horaAgora;
+    }
+
+    function alterarStatus(taOnline) { //muda as aparições de Online e Operacional dependendo de uma Booleana
+        const statusOnline = document.querySelectorAll('.status-online');
+        const statusOffline = document.querySelectorAll('.status-offline');
+
+        if (taOnline) {
+            statusOnline.forEach(e => e.classList.remove('d-none'));
+            statusOffline.forEach(e => e.classList.add('d-none'));
+        } else {
+            statusOnline.forEach(e => e.classList.add('d-none'));
+            statusOffline.forEach(e => e.classList.remove('d-none'));
+        }
+
+    }
+
+    function ALTERAR_STATUS_ALEATORIO() { //muda o Status Aleatoriamente (APAGAR DEPOIS)!!!
+        let sensor_online = Math.random() >= 0.5;
+
+        alterarStatus(sensor_online);
     }
 
     function atualizarGrafico() { //faz todas as funções de dados
@@ -474,6 +494,7 @@ if (window.location.pathname.includes("public/monitoramento.html")) {
         tirarAtual();
         tirarMax();
         atualizarHorario();
+        ALTERAR_STATUS_ALEATORIO();
     }
 
     const velAtualizacao = 60000; //velocidade padrão para melhor modificação
