@@ -559,6 +559,7 @@ body {
   padding-left: 25px;
   display: flex;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .div-section-context-monitor{
@@ -629,8 +630,6 @@ body {
       gap: 20px;
       padding: 0px;
       padding: 5px;
-      min-width: 309px;
-      min-height: 154px;
     }
 
 }
