@@ -1,23 +1,19 @@
 :root {
-  --cor-fundo: #f9f9ee;
-  --submit-button-color: #ff3131;
-  --label-login-color: #2c2c2c;
-  --cor-home: #392d29;
+  --hermes-white: #f9f9ee;
+  --hermes-red: #ff3131;
+  --hermes-grey: #392d29;
   
-  
-  
-
 }
 
 
 body {
-  background-color: var(--cor-fundo) !important;
+  background-color: var(--hermes-white) !important;
   align-items: center;
   display: block;
 }
 
 #home {
-  background-color: var(--cor-home) !important;
+  background-color: var(--hermes-grey) !important;
 }
 
 
@@ -55,7 +51,7 @@ body {
 .label-login {
   font-family: 'brixton', sans-serif;
   margin-left: 6px;
-  color: var(--label-login-color) !important;
+  color: var(--hermes-grey) !important;
   font-size: 19px !important;
   font-weight: 670;
 }
@@ -63,14 +59,14 @@ body {
 .input-login {
   padding: 10px;
   border-radius: 10px;
-  border: 2px solid var(--label-login-color) !important;
+  border: 2px solid var(--hermes-grey) !important;
   color: #2c2c2c;
   font-weight: 580;
 }
 
 .submit-button {
   font-family: 'Gatwick', 'sans-serif';
-  background-color: var(--submit-button-color) !important;
+  background-color: var(--hermes-red) !important;
   padding: 2px;
   font-size: 30px;
   margin-top: 18px !important;
@@ -111,7 +107,6 @@ body {
 
 
 .div-top-sensors {
-
   border-radius: 10px;
   margin-top: 10px;
   padding: 10px;
@@ -122,7 +117,7 @@ body {
 }
 
 .text-cadastrar-novo-sensor {
-  color: var(--submit-button-color);
+  color: var(--hermes-red);
   margin: 0px;
   padding: 0px;
   margin-bottom: 3px;
@@ -148,7 +143,7 @@ body {
 }
 
 .button-form-sensors {
-  background-color: var(--submit-button-color);
+  background-color: var(--hermes-red);
   font-size: 30px;
   padding: 10px 55px;
 }
@@ -277,6 +272,10 @@ body {
   font-size: 30px;
   margin-left: 18px !important;
 }
+
+#nenhumSensor{
+    margin-top: 0px !important;
+  }
 }
 
 
@@ -286,7 +285,7 @@ body {
 }
 
 #text-delete-sensor{
-  color: var(--submit-button-color);
+  color: var(--hermes-red);
   margin: 0px;
   padding: 0px;
   margin-bottom: 3px;
@@ -368,7 +367,7 @@ body {
   width: 250px;
   height: 100%;
   position: fixed;
-  background-color: var(--cor-home);
+  background-color: var(--hermes-grey);
   color: white;
   padding: 20px;
   font-family: 'Cagliostro', sans-serif;
@@ -417,7 +416,7 @@ body {
 
 
 #logocontainer {
-  background-color: var(--cor-fundo);
+  background-color: var(--hermes-white);
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 10px;
@@ -430,7 +429,7 @@ body {
   top: 15px;
   left: 15px;
   z-index: 1100;
-  background-color: var(--cor-home);
+  background-color: var(--hermes-grey);
   border: none;
   border-radius: 8px;
   padding: 10px 12px;
@@ -474,6 +473,21 @@ body {
   .content {
     margin-left: 0 !important;
     padding-top: 60px;
+  }
+
+  .none-sensors{
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+  }
+
+  #nenhumSensor{
+    margin-top: 10px !important;
+    padding-top: 0px !important;
+  }
+
+  #nenhumUsuario{
+    margin-top: 10px !important;
+    padding-top: 0px !important;
   }
 
 }
@@ -531,8 +545,6 @@ body {
     width: 100%;
 }
 
-
-
 /*-----------------------------monitoramento---------------------------------*/
 
 .div-top-monitor{
@@ -551,7 +563,7 @@ body {
 }
 
 #section-navbar-monitor{
-  background-color: var(--cor-home);
+  background-color: var(--hermes-grey);
 }
 
 #section-contex-monitor {
@@ -612,7 +624,7 @@ body {
 }
 
 #grafico{
-    height: 250px !important;
+    height: 260px !important;
 }
 
 @media(max-width:1090px){
