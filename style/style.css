@@ -339,27 +339,27 @@ body {
 
 @font-face {
   font-family: 'brixton';
-  src: url('assets/fonts/brixton-sans-rg.ttf') format('truetype')
+  src: url('../assets/fonts/brixton-sans-rg.ttf') format('truetype')
 }
 
 @font-face {
   font-family: 'Cagliostro';
-  src: url('assets/fonts/Cagliostro-Regular.ttf') format('truetype')
+  src: url('../assets/fonts/Cagliostro-Regular.ttf') format('truetype')
 }
 
 @font-face {
   font-family: 'Sawarabi';
-  src: url('assets/fonts/SawarabiMincho-Regular.ttf') format('truetype')
+  src: url('../assets/fonts/SawarabiMincho-Regular.ttf') format('truetype')
 }
 
 @font-face {
   font-family: 'Gatwick';
-  src: url('assets/fonts/._Gatwick-Regular.otf') format('opentype')
+  src: url('../assets/fonts/._Gatwick-Regular.otf') format('opentype')
 }
 
 @font-face {
   font-family: 'Rasputin';
-  src: url('assets/fonts/Rasputin.otf') format('opentype')
+  src: url('../assets/fonts/Rasputin.otf') format('opentype')
 }
 
 
