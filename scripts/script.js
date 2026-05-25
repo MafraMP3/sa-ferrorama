@@ -7,7 +7,7 @@ function toggleSidebar() {
 
 if (!window.location.pathname.includes("index.html")) {
     if (localStorage.getItem("logado") !== "true") {
-        window.location.replace("index.html");
+        window.location.replace("../index.html");
     }
     const logout = document.querySelector('.logout');
 
@@ -17,7 +17,7 @@ if (!window.location.pathname.includes("index.html")) {
             e.preventDefault();
 
             localStorage.clear();
-            window.location.replace("index.html");
+            window.location.replace("../index.html");
         }
     }
 }
@@ -487,16 +487,7 @@ if (window.location.pathname.includes("monitoramento.html")) {
         setInterval(atualizarGrafico, velAtualizacao) //atualiza tudo a cada (velAtualizacao)
     }, velAtualizacao / 5) //insere o 2º dado e inicia a atualização acima após 1/3 do tempo
 
-    const divBotoesTempo = document.getElementById('div-buttons-times');
 
-    const botoesTempo = divBotoesTempo.querySelectorAll('.button-times');
-
-    botoesTempo.forEach(botao => {
-        botao.addEventListener('click', function () {
-            botoesTempo.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-        })
-    })
 
 
 }
