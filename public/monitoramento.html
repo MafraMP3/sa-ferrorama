@@ -91,15 +91,22 @@
                             <div class="row g-3 div-father-monitor-data">
                             <div class="col-6 div-monitor-data">
                                 <div class="card p-3">
-                                    <p class="text-muted small mb-1">Velocidade Atual</p>
-                                    <h3 class="mb-0 fw-bold" id="velAtual">—</h3>
+                                    <p class="text-muted  mb-1">Velocidade Atual</p>
+                                    <h3 class="mb-2 fw-bold" id="velAtual">—</h3>
                                     <span class="text-muted" style="font-size: 11px;">km/h</span>
                                 </div>
                             </div>
                             <div class="col-6 div-monitor-data">
                                 <div class="card p-3">
-                                    <p class="text-muted small mb-1">Velocidade Máxima</p>
-                                    <h3 class="mb-0 fw-bold" id="velMax">—</h3>
+                                    <p class="text-muted  mb-1">Velocidade Máxima</p>
+                                    <h3 class="mb-2 fw-bold" id="velMax">—</h3>
+                                    <span class="text-muted" style="font-size: 15px;">km/h</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card p-3">
+                                    <p class="text-muted  mb-1">Velocidade Média</p>
+                                    <h3 class="mb-2 fw-bold" id="mediaSensores">—</h3>
                                     <span class="text-muted" style="font-size: 11px;">km/h</span>
                                 </div>
                             </div>
@@ -114,6 +121,8 @@
                                 <div class="card p-3">
                                     <p class="text-muted small mb-1">Status</p>
                                     <div class="d-flex align-items-center gap-2 mt-1 status-online">
+                                    <p class="text-muted  mb-1">Status</p>
+                                    <div class="d-flex align-items-center gap-2 mt-1 mb-2 status-online">
                                         <i class="fa-solid fa-circle-check fa-2x" style="color: #28a745;"></i>
                                         <div>
                                             <h6 class="mb-0 fw-bold" style="color: #28a745;">Operacional</h6>
@@ -121,7 +130,7 @@
                                         </div>
                                         
                                     </div>
-                                      <div class="d-flex align-items-center gap-2 mt-1 status-offline d-none">
+                                      <div class="d-flex align-items-center gap-2 mt-1  mb-2 status-offline d-none">
                                         <i class="fa-solid fa-circle-xmark fa-2x" style="color: #c02727;"></i>
                                         <div>
                                             <h6 class="mb-0 fw-bold" style="color: #c02727;">Desativado</h6>
@@ -134,7 +143,21 @@
                                   
                                 </div>
                             </div>
-                        </div>
+                                <div class=" mt-2 mb-2 row g-3">
+                                    <div class="col-6 col-md-4">
+                                        <p class="text-muted  mb-0">Localização</p>
+                                        <p class="mb-0 fw-bold small">Localização do sensor</p>
+                                    </div>
+                                    <div class="col-6 col-md-4">
+                                        <p class="text-muted  mb-0">Tipo</p>
+                                        <p class="mb-0 fw-bold small">Tipo do sensor</p>
+                                    </div>
+                                    <div class="col-6 col-md-4">
+                                        <p class="text-muted  mb-0">Data de Instalação</p>
+                                        <p class="mb-0 fw-bold small">00/00/0000</p>
+                                    </div>
+                                </div>
+                        </div> 
                     </div>
                 </div>
 
