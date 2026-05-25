@@ -100,7 +100,7 @@ if (window.location.pathname.includes("sensores.html")) {
     function excluirLinha() {
         if (linhaSelecionada) {
             linhaSelecionada.remove();
-            tirarTela();
+            telaExcluir.style.display = "none";
             tabelaSensor = document.getElementById("tabelaSensores");
             todaTabela = document.getElementById("todaTabela");
             if (tabelaSensor && tabelaSensor.rows.length === 1) {
@@ -468,7 +468,15 @@ if (window.location.pathname.includes("monitoramento.html")) {
         atualizarGrafico(); //insere o 2º 
 
         setInterval(atualizarGrafico, velAtualizacao) //atualiza tudo a cada (velAtualizacao)
-    }, velAtualizacao / 3) //insere o 2º dado e inicia a atualização acima após 1/3 do tempo
+    }, velAtualizacao / 5) //insere o 2º dado e inicia a atualização acima após 1/3 do tempo
 
 
 }
+
+        function atualizarHorario() {
+            const agora = new Date();
+            const hora = agora.toLocaleTimeString('pt-BR');
+            document.getElementById('ultimaAtualizacao').textContent = hora;
+        }
+        setInterval(atualizarHorario, 60000);
+        atualizarHorario();
