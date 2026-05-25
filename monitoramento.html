@@ -64,6 +64,9 @@
                     <span class="badge rounded-pill border border-success text-success px-3 py-2">
                         <i class="fa-solid fa-circle me-1" style="font-size: 8px;"></i> ONLINE
                     </span>
+                    <span class="badge rounded-pill border border-danger text-danger px-3 py-2">
+                        <i class="fa-solid fa-circle me-1" style="font-size: 8px;"></i> OFFLINE
+                    </span>
                 </div>
             </section>
             <section id="section-contex-monitor">
@@ -101,9 +104,24 @@
                             </div>
                             <div class="col-6">
                                 <div class="card p-3">
-                                    <p class="text-muted small mb-1">Velocidade Média</p>
-                                    <h3 class="mb-0 fw-bold" id="mediaSensores">—</h3>
-                                    <span class="text-muted" style="font-size: 11px;">km/h</span>
+                                    <p class="text-muted small mb-1">Status</p>
+                                    <div class="d-flex align-items-center gap-2 mt-1">
+                                        <i class="fa-solid fa-circle-check fa-2x" style="color: #28a745;"></i>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold" style="color: #28a745;">Operacional</h6>
+                                            <span style="font-size: 11px;" class="text-muted">Todos os sistemas normais</span>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="d-flex align-items-center gap-2 mt-1">
+                                        <i class="fa-solid fa-circle-xmark fa-2x" style="color: #c02727;"></i>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold" style="color: #c02727;">Desativado</h6>
+                                            <span style="font-size: 11px;" class="text-muted">O sensor não está em funcionamento</span>
+                                        </div>
+                                        
+                                    </div>
                                 </div>
                             </div>
                             </div>
@@ -122,13 +140,18 @@
                         <div class="responsive grafico">
                             <canvas id="grafico"></canvas>
                         </div>
-                        <div id="div-buttons-times">
-                            <button class="button-times" >Tudo</button>
-                            <button class="button-times" >3 Horas</button>
-                            <button class="button-times" >24 Horas</button>
-                            <button class="button-times" >3 Dias</button>
-                            <button class="button-times" >1 Semana</button>
-                        </div>
+                           <div>
+                            <div class="d-flex align-items-center gap-2 mt-2">
+                                <p class="small mb-0" style="color: rgba(0,0,0,0.5);">Visualizando:</p>
+                            </div>
+                            <select class=" d-flex form-select form-select-lg mb-3" aria-label="Large select example">
+                            <option selected value="1">Tudo</option>
+                            <option value="2">3 horas</option>
+                            <option value="3">24 horas</option>
+                            <option value="2">3 dias</option>
+                            <option value="3">1 semana</option>
+                            </select>
+                            </div>
                     </div>
                 </div>
 
