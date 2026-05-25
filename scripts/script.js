@@ -59,7 +59,7 @@ if (window.location.pathname.includes("index.html")) {
             if (valido == true) {
                 console.log("Validado");
                 localStorage.setItem("logado", "true");
-                window.location.assign("home.html");
+                window.location.assign("public/home.html");
             } else {
                 console.log("Inválido");
             }
@@ -69,7 +69,7 @@ if (window.location.pathname.includes("index.html")) {
 
 //======================================================HOME.HTML=======================================================================================//
 
-if (window.location.pathname.includes("home.html")) {
+if (window.location.pathname.includes("public/home.html")) {
 
     let welcome = document.getElementById("saudacao");
     let nomeAdmin = "Admin";
@@ -79,7 +79,7 @@ if (window.location.pathname.includes("home.html")) {
 }
 //======================================================SENSORES.HTML=======================================================================================//
 
-if (window.location.pathname.includes("sensores.html")) {
+if (window.location.pathname.includes("public/sensores.html")) {
 
     let formSensor = document.getElementById("formSensor");
 
@@ -119,7 +119,7 @@ if (window.location.pathname.includes("sensores.html")) {
       <div class="card div-tabela-sensors ">
 
         <div class="d-flex align-items-center">
-          <img class="img-sensor-icon" src="assets/images/icone-tabela-sensor.png" alt="">
+          <img class="img-sensor-icon" src="../assets/images/icone-tabela-sensor.png" alt="">
           <p class="text-cadastrar-novo-sensor h4">SENSORES CADASTRADOS</p>
         </div>
 
@@ -139,10 +139,10 @@ if (window.location.pathname.includes("sensores.html")) {
                 <td>?</td>
                 <td>?</td>
                 <td class="img-tabela" style="width: 170px;">
-                  <button class="botao-imagem" onclick="telaApagar(this)"><img src="assets/images/Lixo.png"
+                  <button class="botao-imagem" onclick="telaApagar(this)"><img src="../assets/images/Lixo.png"
                       class="icone-lixo"></button>
                   <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img
-                      src="assets/images/Olho.png" class="icone-olho"></button>
+                      src="../assets/images/Olho.png" class="icone-olho"></button>
                 </td>
               </tr>
           </table>
@@ -189,8 +189,8 @@ if (window.location.pathname.includes("sensores.html")) {
                 alterarLinha.cells[2].textContent = tipoSensor;
 
                 alterarLinha.cells[3].innerHTML = `<td class="img-tabela" style="width: 10%;">
-                  <button class="botao-imagem" onclick="telaApagar(this)"><img src="assets/images/Lixo.png" class="icone-lixo"></button>
-                  <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img src="assets/images/Olho.png" class="icone-olho"></button>
+                  <button class="botao-imagem" onclick="telaApagar(this)"><img src="../assets/images/Lixo.png" class="icone-lixo"></button>
+                  <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img src="../assets/images/Olho.png" class="icone-olho"></button>
                 </td>`
 
                 semSensor = document.getElementById("nenhumSensor");
@@ -209,7 +209,7 @@ if (window.location.pathname.includes("sensores.html")) {
 
 //======================================================USUARIOS.HTML=======================================================================================//
 
-if (window.location.pathname.includes("usuarios.html")) {
+if (window.location.pathname.includes("public/usuarios.html")) {
 
     let formUsuarios = document.getElementById("formUsuarios");
 
@@ -255,7 +255,7 @@ if (window.location.pathname.includes("usuarios.html")) {
       <div class="card div-tabela-sensors ">
 
         <div class="d-flex align-items-center">
-          <img class="img-sensor-icon" src="assets/images/icone-tabela-sensor.png" alt="">
+          <img class="img-sensor-icon" src="../assets/images/icone-tabela-sensor.png" alt="">
           <p class="text-cadastrar-novo-sensor h4">USUARIOS CADASTRADOS</p>
         </div>
 
@@ -277,10 +277,10 @@ if (window.location.pathname.includes("usuarios.html")) {
                 <td>?</td>
                 <td>?</td>
                 <td class="img-tabela" style="width: 170px;">
-                  <button class="botao-imagem" onclick="telaApagar(this)"><img src="assets/images/Lixo.png"
+                  <button class="botao-imagem" onclick="telaApagar(this)"><img src="../assets/images/Lixo.png"
                       class="icone-lixo"></button>
                   <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img
-                      src="assets/images/Olho.png" class="icone-olho"></button>
+                      src="../assets/images/Olho.png" class="icone-olho"></button>
                 </td>
               </tr>
           </table>
@@ -332,8 +332,8 @@ if (window.location.pathname.includes("usuarios.html")) {
 
                 console.log(alterarLinha);
                 alterarLinha.cells[4].innerHTML = `<td class="img-tabela" style="width: 10%;">
-                  <button class="botao-imagem" onclick="telaApagar(this)"><img src="assets/images/Lixo.png" class="icone-lixo"></button>
-                  <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img src="assets/images/Olho.png" class="icone-olho"></button>
+                  <button class="botao-imagem" onclick="telaApagar(this)"><img src="..;assets/images/Lixo.png" class="icone-lixo"></button>
+                  <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img src="../assets/images/Olho.png" class="icone-olho"></button>
                 </td>`
 
                 semUsuario = document.getElementById("nenhumUsuario");
@@ -351,7 +351,7 @@ if (window.location.pathname.includes("usuarios.html")) {
 }
 //======================================================MONITORAMENTO.HTML=======================================================================================//
 
-if (window.location.pathname.includes("monitoramento.html")) {
+if (window.location.pathname.includes("public/monitoramento.html")) {
     const ctx = document.getElementById('grafico').getContext('2d'); //Gráfico de linhas
 
     const meuGrafico = new Chart(ctx, {
