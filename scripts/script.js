@@ -368,6 +368,11 @@ if (window.location.pathname.includes("public/monitoramento.html")) {
         },
         options: {
             responsive: true,
+            interaction: {
+                mode: 'nearest',
+                intersect: false,
+                axis: 'xy'
+            },
             scales: {
                 x: {
                     type: 'time',
