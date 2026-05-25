@@ -607,12 +607,20 @@ body {
 .grafico-container{
     position: relative; 
     width: 100%;
+    min-width: 309px;
+}
+
+#grafico{
+  width: 800px;
+  min-width: 309px;
 }
 
 @media(max-width:1090px){
 
     .grafico-container{
         height:250px;
+        min-width: 309px;
+        min-height: 154px;
     }
 
     #section-contex-monitor{
@@ -621,6 +629,8 @@ body {
       gap: 20px;
       padding: 0px;
       padding: 5px;
+      min-width: 309px;
+      min-height: 154px;
     }
 
 }
