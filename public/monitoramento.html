@@ -66,12 +66,15 @@
                         <i class="fa-regular fa-clock me-1"></i> Última atualização: <span
                             id="ultimaAtualizacao">--:--:--</span>
                     </span>
-                    <span class="badge rounded-pill border border-success text-success px-3 py-2">
+                    <div id="info-online">
+                       <span class="badge rounded-pill border border-success text-success px-3 py-2 status-online">
                         <i class="fa-solid fa-circle me-1" style="font-size: 8px;"></i> ONLINE
                     </span>
-                    <span class="badge rounded-pill border border-danger text-danger px-3 py-2">
+                    <span class="badge rounded-pill border border-danger text-danger px-3 py-2 status-offline d-none">
                         <i class="fa-solid fa-circle me-1" style="font-size: 8px;"></i> OFFLINE
-                    </span>
+                    </span> 
+                    </div>
+                    
                 </div>
             </section>
             <section id="section-contex-monitor">
@@ -86,50 +89,49 @@
                         <div>
 
                             <div class="row g-3">
-                                <div class="col-6">
-                                    <div class="card p-3">
-                                        <p class="text-muted small mb-1">Velocidade Atual</p>
-                                        <h3 class="mb-0 fw-bold" id="velAtual">—</h3>
-                                        <span class="text-muted" style="font-size: 11px;">km/h</span>
-                                    </div>
+                            <div class="col-6">
+                                <div class="card p-3">
+                                    <p class="text-muted small mb-1">Velocidade Atual</p>
+                                    <h3 class="mb-0 fw-bold" id="velAtual">—</h3>
+                                    <span class="text-muted" style="font-size: 11px;">km/h</span>
                                 </div>
-                                <div class="col-6">
-                                    <div class="card p-3">
-                                        <p class="text-muted small mb-1">Velocidade Máxima</p>
-                                        <h3 class="mb-0 fw-bold" id="velMax">—</h3>
-                                        <span class="text-muted" style="font-size: 11px;">km/h</span>
-                                    </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card p-3">
+                                    <p class="text-muted small mb-1">Velocidade Máxima</p>
+                                    <h3 class="mb-0 fw-bold" id="velMax">—</h3>
+                                    <span class="text-muted" style="font-size: 11px;">km/h</span>
                                 </div>
-                                <div class="col-6">
-                                    <div class="card p-3">
-                                        <p class="text-muted small mb-1">Velocidade Média</p>
-                                        <h3 class="mb-0 fw-bold" id="mediaSensores">—</h3>
-                                        <span class="text-muted" style="font-size: 11px;">km/h</span>
-                                    </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card p-3">
+                                    <p class="text-muted small mb-1">Velocidade Média</p>
+                                    <h3 class="mb-0 fw-bold" id="mediaSensores">—</h3>
+                                    <span class="text-muted" style="font-size: 11px;">km/h</span>
                                 </div>
-                                <div class="col-6">
-                                    <div class="card p-3">
-                                        <p class="text-muted small mb-1">Status</p>
-                                        <div class="d-flex align-items-center gap-2 mt-1">
-                                            <i class="fa-solid fa-circle-check fa-2x" style="color: #28a745;"></i>
-                                            <div>
-                                                <h6 class="mb-0 fw-bold" style="color: #28a745;">Operacional</h6>
-                                                <span style="font-size: 11px;" class="text-muted">Todos os sistemas
-                                                    normais</span>
-                                            </div>
-
+                            </div>
+                            <div class="col-6">
+                                <div class="card p-3">
+                                    <p class="text-muted small mb-1">Status</p>
+                                    <div class="d-flex align-items-center gap-2 mt-1 status-online">
+                                        <i class="fa-solid fa-circle-check fa-2x" style="color: #28a745;"></i>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold" style="color: #28a745;">Operacional</h6>
+                                            <span style="font-size: 11px;" class="text-muted">Todos os sistemas normais</span>
                                         </div>
-
-                                        <div class="d-flex align-items-center gap-2 mt-1">
-                                            <i class="fa-solid fa-circle-xmark fa-2x" style="color: #c02727;"></i>
-                                            <div>
-                                                <h6 class="mb-0 fw-bold" style="color: #c02727;">Desativado</h6>
-                                                <span style="font-size: 11px;" class="text-muted">O sensor não está em
-                                                    funcionamento</span>
-                                            </div>
-
+                                        
+                                    </div>
+                                      <div class="d-flex align-items-center gap-2 mt-1 status-offline d-none">
+                                        <i class="fa-solid fa-circle-xmark fa-2x" style="color: #c02727;"></i>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold" style="color: #c02727;">Desativado</h6>
+                                            <span style="font-size: 11px;" class="text-muted">O sensor não está em funcionamento</span>
                                         </div>
                                     </div>
+                                </div>
+
+
+                                  
                                 </div>
                             </div>
                         </div>
