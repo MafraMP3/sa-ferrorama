@@ -609,4 +609,24 @@ body {
 }
 
 
+#div-buttons-times{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.button-times{
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  border-radius: 5px;
+  background-color: #dddddd42;
+}
+
+.button-times.active{
+    background-color:#df121275;
+    border:1px solid rgba(0,0,0,0.24);
+}
+
+
+
 /*--------------------------------------------------------------*/
