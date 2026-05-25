@@ -472,3 +472,11 @@ if (window.location.pathname.includes("monitoramento.html")) {
 
 
 }
+
+        function atualizarHorario() {
+            const agora = new Date();
+            const hora = agora.toLocaleTimeString('pt-BR');
+            document.getElementById('ultimaAtualizacao').textContent = hora;
+        }
+        setInterval(atualizarHorario, 1000);
+        atualizarHorario();
