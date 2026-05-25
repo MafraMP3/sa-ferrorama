@@ -617,10 +617,10 @@ body {
   text-align: center;
 }
 
-@media(max-width:1410px){
+@media(max-width:1600px){
 
     .div-monitor-data{
-  min-width: none !important;
+      width: 100%;
  }
 
  .div-father-monitor-data{
@@ -630,13 +630,7 @@ body {
 
 }
 
-#div-context-grafic-data{
-      display: flex;
-    }
-
-
-
-@media(max-width:1000px){
+@media(max-width:1260px){
 
     #section-contex-monitor{
       display: flex;
@@ -644,10 +638,6 @@ body {
       gap: 20px;
       padding: 0px;
       padding: 5px;
-    }
-
-    #div-context-grafic-data{
-      max-width: none;
     }
 
 }
