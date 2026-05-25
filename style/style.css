@@ -107,7 +107,6 @@ body {
 
 
 .div-top-sensors {
-
   border-radius: 10px;
   margin-top: 10px;
   padding: 10px;
@@ -273,6 +272,10 @@ body {
   font-size: 30px;
   margin-left: 18px !important;
 }
+
+#nenhumSensor{
+    margin-top: 0px !important;
+  }
 }
 
 
@@ -472,6 +475,21 @@ body {
     padding-top: 60px;
   }
 
+  .none-sensors{
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+  }
+
+  #nenhumSensor{
+    margin-top: 10px !important;
+    padding-top: 0px !important;
+  }
+
+  #nenhumUsuario{
+    margin-top: 10px !important;
+    padding-top: 0px !important;
+  }
+
 }
 
 #cadastrartext {
@@ -526,8 +544,6 @@ body {
 .user-card{
     width: 100%;
 }
-
-
 
 /*-----------------------------monitoramento---------------------------------*/
 
@@ -601,23 +617,8 @@ body {
   text-align: center;
 }
 
-.grafico-container{
-    position: relative; 
-    width: 100%;
-    min-width: 309px;
-}
-
-#grafico{
-    height: 250px !important;
-}
 
 @media(max-width:1090px){
-
-    .grafico-container{
-        height:250px;
-        min-width: 309px;
-        min-height: 154px;
-    }
 
     #section-contex-monitor{
       display: flex;
