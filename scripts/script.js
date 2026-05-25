@@ -368,7 +368,6 @@ if (window.location.pathname.includes("public/monitoramento.html")) {
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false,
             scales: {
                 x: {
                     type: 'time',
@@ -506,7 +505,7 @@ if (window.location.pathname.includes("public/monitoramento.html")) {
         atualizarGrafico(); //insere o 2º 
 
         setInterval(atualizarGrafico, velAtualizacao) //atualiza tudo a cada (velAtualizacao)
-    }, velAtualizacao / 5) //insere o 2º dado e inicia a atualização acima após 1/3 do tempo
+    }, velAtualizacao / 5) //insere o 2º dado e inicia a atualização acima após 1/5 do tempo
 
 
 
