@@ -651,3 +651,15 @@ body {
 
 
 /*--------------------------------------------------------------*/
+#section-contex-monitor {
+    align-items: stretch;
+}
+
+#section-contex-monitor > div {
+    display: flex;
+    flex-direction: column;
+}
+
+#section-contex-monitor > div > .card {
+    flex: 1;
+}
