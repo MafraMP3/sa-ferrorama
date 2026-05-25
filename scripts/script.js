@@ -397,16 +397,19 @@ if (window.location.pathname.includes("monitoramento.html")) {
         const segundos = String(horaAtual.getSeconds()).padStart(2, '0'); //pega hora atual
         let horario = `${horas}:${minutos}:${segundos}`;
 
-        return horaAtual;
+        return [horaAtual, horario];
     }
+
+    let tempo = pegarHoraAtual();
 
 
     function addDados() { //função de adicionar dados ao gráfico
+        tempo = pegarHoraAtual();
 
         dadosSensor = Math.floor(Math.random() * 100); //numero aleatório de 0 a 99
 
         meuGrafico.data.datasets[0].data.push({
-            x: pegarHoraAtual(),
+            x: tempo[0],
             y: dadosSensor
         }); //insere os dados na tabela
 
@@ -459,8 +462,10 @@ if (window.location.pathname.includes("monitoramento.html")) {
         velMax.textContent = maiorVelocidade; //muda na tela
     }
     function atualizarHorario() {
-        pegarHoraAtual();
-        document.getElementById('ultimaAtualizacao').textContent = horaAtual;
+        
+        let horaAgora = tempo[1];
+
+        document.getElementById('ultimaAtualizacao').textContent = horaAgora;
     }
 
     function atualizarGrafico() { //faz todas as funções de dados
