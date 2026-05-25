@@ -332,7 +332,7 @@ if (window.location.pathname.includes("public/usuarios.html")) {
 
                 console.log(alterarLinha);
                 alterarLinha.cells[4].innerHTML = `<td class="img-tabela" style="width: 10%;">
-                  <button class="botao-imagem" onclick="telaApagar(this)"><img src="..;assets/images/Lixo.png" class="icone-lixo"></button>
+                  <button class="botao-imagem" onclick="telaApagar(this)"><img src="../assets/images/Lixo.png" class="icone-lixo"></button>
                   <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img src="../assets/images/Olho.png" class="icone-olho"></button>
                 </td>`
 
