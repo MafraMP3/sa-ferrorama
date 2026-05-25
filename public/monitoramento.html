@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="icon" href="../assets/images/icon.png">
-
     <title>Monitoramento</title>
 </head>
 
 <body>
 
-    <!--==================================================Sidebar=====================================================//-->
+<!------------------------------------Sidebar---------------------------------------//-->
+
     <div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
     <button class="hamburger" onclick="toggleSidebar()">
         <i class="fa-solid fa-bars"></i>
@@ -44,22 +44,27 @@
 
         <a href="#" class="logout" id="linkSair">SAIR</a>
     </div>
-    <!--==================================================Sidebar=====================================================//-->
+
+<!------------------------------------------------------------------------------------//-->
+
+<!---------------------------------------MONITORAMENTO--------------------------------------------//-->
 
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
     <div class="content">
         <div class="card div-top-monitor">
 
-           <section id="section-navbar-monitor" class="d-flex justify-content-between align-items-center px-4 py-3">
+            <section id="section-navbar-monitor" class="d-flex justify-content-between align-items-center px-4 py-3">
                 <div>
                     <p class="text-monitor-sensor mb-0">Sensor 2</p>
-                    <p class=" small mb-0 ms-3" style="color: rgba(255, 255, 255, 0.767) !important;">Acompanhe os dados e o histórico em tempo real.</p>
+                    <p class=" small mb-0 ms-3" style="color: rgba(255, 255, 255, 0.767) !important;">Acompanhe os dados
+                        e o histórico em tempo real.</p>
                 </div>
                 <div class="d-flex align-items-center gap-3">
                     <span class="text-muted small" style="color: rgba(255,255,255,0.5) !important;">
-                        <i class="fa-regular fa-clock me-1"></i> Última atualização: <span id="ultimaAtualizacao">--:--:--</span>
+                        <i class="fa-regular fa-clock me-1"></i> Última atualização: <span
+                            id="ultimaAtualizacao">--:--:--</span>
                     </span>
                     <span class="badge rounded-pill border border-success text-success px-3 py-2">
                         <i class="fa-solid fa-circle me-1" style="font-size: 8px;"></i> ONLINE
@@ -75,55 +80,57 @@
 
                     <div class="d-flex card p-3 justify-content-center ">
                         <div class="  d-flex mb-2  align-items-center">
-                            <i class="fa-solid fa-chart-column fa-2x" style="color: rgb(255, 49, 49);"></i> 
+                            <i class="fa-solid fa-chart-column fa-2x" style="color: rgb(255, 49, 49);"></i>
                             <p class="h4 ms-1 mt-2"> Resumo Atual</p>
                         </div>
                         <div>
 
                             <div class="row g-3">
-                            <div class="col-6">
-                                <div class="card p-3">
-                                    <p class="text-muted small mb-1">Velocidade Atual</p>
-                                    <h3 class="mb-0 fw-bold" id="velAtual">—</h3>
-                                    <span class="text-muted" style="font-size: 11px;">km/h</span>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="card p-3">
-                                    <p class="text-muted small mb-1">Velocidade Máxima</p>
-                                    <h3 class="mb-0 fw-bold" id="velMax">—</h3>
-                                    <span class="text-muted" style="font-size: 11px;">km/h</span>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="card p-3">
-                                    <p class="text-muted small mb-1">Velocidade Média</p>
-                                    <h3 class="mb-0 fw-bold" id="mediaSensores">—</h3>
-                                    <span class="text-muted" style="font-size: 11px;">km/h</span>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="card p-3">
-                                    <p class="text-muted small mb-1">Status</p>
-                                    <div class="d-flex align-items-center gap-2 mt-1">
-                                        <i class="fa-solid fa-circle-check fa-2x" style="color: #28a745;"></i>
-                                        <div>
-                                            <h6 class="mb-0 fw-bold" style="color: #28a745;">Operacional</h6>
-                                            <span style="font-size: 11px;" class="text-muted">Todos os sistemas normais</span>
-                                        </div>
-                                        
+                                <div class="col-6">
+                                    <div class="card p-3">
+                                        <p class="text-muted small mb-1">Velocidade Atual</p>
+                                        <h3 class="mb-0 fw-bold" id="velAtual">—</h3>
+                                        <span class="text-muted" style="font-size: 11px;">km/h</span>
                                     </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card p-3">
+                                        <p class="text-muted small mb-1">Velocidade Máxima</p>
+                                        <h3 class="mb-0 fw-bold" id="velMax">—</h3>
+                                        <span class="text-muted" style="font-size: 11px;">km/h</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card p-3">
+                                        <p class="text-muted small mb-1">Velocidade Média</p>
+                                        <h3 class="mb-0 fw-bold" id="mediaSensores">—</h3>
+                                        <span class="text-muted" style="font-size: 11px;">km/h</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card p-3">
+                                        <p class="text-muted small mb-1">Status</p>
+                                        <div class="d-flex align-items-center gap-2 mt-1">
+                                            <i class="fa-solid fa-circle-check fa-2x" style="color: #28a745;"></i>
+                                            <div>
+                                                <h6 class="mb-0 fw-bold" style="color: #28a745;">Operacional</h6>
+                                                <span style="font-size: 11px;" class="text-muted">Todos os sistemas
+                                                    normais</span>
+                                            </div>
 
-                                    <div class="d-flex align-items-center gap-2 mt-1">
-                                        <i class="fa-solid fa-circle-xmark fa-2x" style="color: #c02727;"></i>
-                                        <div>
-                                            <h6 class="mb-0 fw-bold" style="color: #c02727;">Desativado</h6>
-                                            <span style="font-size: 11px;" class="text-muted">O sensor não está em funcionamento</span>
                                         </div>
-                                        
+
+                                        <div class="d-flex align-items-center gap-2 mt-1">
+                                            <i class="fa-solid fa-circle-xmark fa-2x" style="color: #c02727;"></i>
+                                            <div>
+                                                <h6 class="mb-0 fw-bold" style="color: #c02727;">Desativado</h6>
+                                                <span style="font-size: 11px;" class="text-muted">O sensor não está em
+                                                    funcionamento</span>
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             </div>
                         </div>
                     </div>
@@ -133,25 +140,25 @@
                 <div>
                     <div class="card p-3">
                         <div class="  d-flex mb-2  align-items-center">
-                            <i class="fa-solid fa-chart-column fa-2x" style="color: rgb(255, 49, 49);"></i> 
+                            <i class="fa-solid fa-chart-column fa-2x" style="color: rgb(255, 49, 49);"></i>
                             <p class="h4 ms-1 mt-2"> Grafico</p>
                         </div>
 
                         <div class="responsive grafico">
                             <canvas id="grafico"></canvas>
                         </div>
-                           <div>
+                        <div>
                             <div class="d-flex align-items-center gap-2 mt-2">
                                 <p class="small mb-0" style="color: rgba(0,0,0,0.5);">Visualizando:</p>
                             </div>
                             <select class=" d-flex form-select form-select-lg mb-3" aria-label="Large select example">
-                            <option selected value="1">Tudo</option>
-                            <option value="2">3 horas</option>
-                            <option value="3">24 horas</option>
-                            <option value="2">3 dias</option>
-                            <option value="3">1 semana</option>
+                                <option selected value="1">Tudo</option>
+                                <option value="2">3 horas</option>
+                                <option value="3">24 horas</option>
+                                <option value="2">3 dias</option>
+                                <option value="3">1 semana</option>
                             </select>
-                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -162,18 +169,11 @@
 
     </div>
 
-
-
-
-
-
-
-    <!--oiiiiiiiiiiiii-->
+<!----------------------------------------------------------------------------------------------//-->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-
     <script src="../scripts/script.js"></script>
 
 </body>

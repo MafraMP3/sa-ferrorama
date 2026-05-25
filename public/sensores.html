@@ -9,17 +9,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../style/style.css">
   <link rel="icon" href="../assets/images/icon.png">
-
   <title>Sensores</title>
-
-
 </head>
 
 <body>
-
   <main>
 
-    <!--==================================================Sidebar=====================================================//-->
+<!------------------------------------Sidebar---------------------------------------//-->
+
     <div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
     <button class="hamburger" onclick="toggleSidebar()">
       <i class="fa-solid fa-bars"></i>
@@ -48,7 +45,10 @@
 
       <a href="#" class="logout" id="linkSair">SAIR</a>
     </div>
-    <!--==================================================Sidebar=====================================================//-->
+
+<!------------------------------------------------------------------------------------//-->
+
+<!---------------------------------------CADASTRAR NOVO SENSOR--------------------------------------------//-->
 
     <div class="content">
 
@@ -93,9 +93,10 @@
 
     </div>
 
+<!----------------------------------------------------------------------------------------------//-->
 
+<!---------Tela de deletar Sensor--------->
 
-    <!---------Tela de deletar Sensor--------->
     <div class="container content card" id="delete-sensor-part">
       <div class="d-flex">
         <div id="div-img-delete-sensors redbg">
@@ -104,13 +105,17 @@
         <div class="mt-4">
           <p class="h4" id="text-delete-sensor"> Deseja Excluir o sensor?</h4>
           <div class="d-flex  align-items-center justify-content-center">
-            <button class="btn btn-lg" onclick="document.getElementById('delete-sensor-part').style.display = 'none'">Não</button>
+            <button class="btn btn-lg"
+              onclick="document.getElementById('delete-sensor-part').style.display = 'none'">Não</button>
             <button class="btn btn-lg" onclick="excluirLinha()">Sim</button>
           </div>
         </div>
       </div>
     </div>
-    <!---------Tela de deletar Sensor--------->
+
+<!---------------------------------------->
+
+<!---------Tela de nenhum sensor cadastrado--------->
 
     <div class="content" id="nenhumSensor">
       <div class="card div-top-sensors d-flex  align-items-center justify-content-center ">
@@ -122,12 +127,15 @@
       </div>
     </div>
 
+<!-------------------------------------------------->
+
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
   <script src="../scripts/script.js"></script>
+
 </body>
 
 </html>
