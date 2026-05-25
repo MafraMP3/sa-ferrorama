@@ -617,23 +617,8 @@ body {
   text-align: center;
 }
 
-.grafico-container{
-    position: relative; 
-    width: 100%;
-    min-width: 309px;
-}
-
-#grafico{
-    height: 260px !important;
-}
 
 @media(max-width:1090px){
-
-    .grafico-container{
-        height:250px;
-        min-width: 309px;
-        min-height: 154px;
-    }
 
     #section-contex-monitor{
       display: flex;
