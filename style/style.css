@@ -630,6 +630,10 @@ body {
 
 }
 
+#div-context-grafic-data{
+      display: flex;
+    }
+
 
 
 @media(max-width:1000px){
