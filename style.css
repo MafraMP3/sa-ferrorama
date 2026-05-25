@@ -604,8 +604,25 @@ body {
   text-align: center;
 }
 
-.grafico{
-  width: 630px;
+.grafico-container{
+    position: relative; 
+    width: 100%;
+}
+
+@media(max-width:1090px){
+
+    .grafico-container{
+        height:250px;
+    }
+
+    #section-contex-monitor{
+      display: flex;
+      flex-direction: column !important;
+      gap: 20px;
+      padding: 0px;
+      padding: 5px;
+    }
+
 }
 
 
