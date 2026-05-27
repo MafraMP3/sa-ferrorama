@@ -36,8 +36,6 @@ body {
   justify-content: center;
 }
 
-
-
 #img-login-screen {
   max-height: 500px !important;
   caret-color: transparent;
@@ -678,7 +676,5 @@ body {
     background-color:#df121275;
     border:1px solid rgba(0,0,0,0.24);
 }
-
-
 
 /*--------------------------------------------------------------*/
