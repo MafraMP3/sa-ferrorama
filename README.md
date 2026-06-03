@@ -32,6 +32,36 @@ A proposta do projeto é centralizar as informações captadas pelos sensores em
 
 ---
 
+## Estrutura do Projeto
+
+```text
+├── assets/
+│   ├── fonts/
+│   └── images/
+│
+├── docs/
+│   ├── pesquisa Sobre Xampp.md
+│   ├── pesquisa_sobre_php_e_crud.md
+│   ├── pesquisa_sobre_scrum.md
+│   └── requisitos_de_sistema_da_sa.md
+│
+├── public/
+│   ├── home.html
+│   ├── monitoramento.html
+│   ├── sensores.html
+│   └── usuarios.html
+│
+├── scripts/
+│   └── script.js
+│
+├── styles/
+│   └── style.css
+│
+├── index.html
+├── LICENSE
+└── README.md
+```
+
 ## Tecnologias Utilizadas:
 
 HTML
