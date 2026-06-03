@@ -1,5 +1,5 @@
 # SA-FERRORAMA
-**Projeto escolar**
+**Desenvolvimento de um software para visualização, monitoramento e gerenciamento de dados gerados por sensores ferroviários em tempo real.**
 
 ---
 
