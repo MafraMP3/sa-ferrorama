@@ -81,6 +81,8 @@ if (window.location.pathname.includes("public/home.html")) {
 
 if (window.location.pathname.includes("public/sensores.html")) {
 
+
+
     let formSensor = document.getElementById("formSensor");
 
     let tabelaSensor = document.getElementById("tabelaSensores");
@@ -95,6 +97,11 @@ if (window.location.pathname.includes("public/sensores.html")) {
     function telaApagar(botao) {
         telaExcluir.style.display = "flex";
         linhaSelecionada = botao.closest('tr');
+
+        let textoExcluirSensor = document.getElementById('text-delete-sensor');
+        let idSensorExcluir = linhaSelecionada.cells[0].textContent;
+        textoExcluirSensor.textContent = 'Deseja Excluir o sensor ' + idSensorExcluir + '?';
+
     }
 
     function excluirLinha() {
