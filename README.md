@@ -65,13 +65,13 @@ A proposta do projeto é centralizar as informações captadas pelos sensores em
   <img src="https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white" alt="Chart.js">
 </p>
 
-## Licença
-
+## Caso de Uso:
+```mermaid
 flowchart LR
-    Usuario((Usuário))
+
     Administrador((Administrador))
     
-```mermaid
+
     subgraph Sistema["SA - Sistema Ferroviário"]
         UC1([Cadastrar Usuários])
         UC2([Editar Usuários])
@@ -93,5 +93,6 @@ flowchart LR
     Administrador --> UC7
     Administrador --> UC8
 ```
+## Licença
 Este projeto está sob a licença MIT.  
 Consulte o arquivo `LICENSE` para mais informações.
