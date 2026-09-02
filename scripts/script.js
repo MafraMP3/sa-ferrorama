@@ -5,6 +5,22 @@ function toggleSidebar() {
     document.getElementById('overlay').classList.toggle('active');
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+
+const links = document.querySelectorAll(".sidebar-link");
+
+links.forEach(function(link) {
+
+    const paginaLink = link.getAttribute("href");
+
+    if(paginaLink === '#'){
+        link.classList.add("active");
+    } else{
+        link.classList.remove("active");
+    }
+})
+});
+
 if (!window.location.pathname.includes("index.html")) {
     if (localStorage.getItem("logado") !== "true") {
         window.location.replace("../index.html");
