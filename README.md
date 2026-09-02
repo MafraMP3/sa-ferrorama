@@ -1,12 +1,13 @@
 # SA-FERRORAMA
-**Desenvolvimento de um software para visualização, monitoramento e gerenciamento de dados gerados por sensores ferroviários em tempo real.**
+
+## Resumo
+
+*O SA-FERRORAMA é um sistema desenvolvido para a visualização, monitoramento e gerenciamento de dados provenientes de sensores instalados em trens. Os sensores são vinculados ao Ferrorama e são responsáveis por coletar informações relacionadas ao funcionamento e às condições dos dispositivos ferroviários. Esses dados são posteriormente enviados ao sistema, onde são processados, organizados e apresentados ao usuário de forma clara e intuitiva.*
 
 ---
 
 
 ## Proposta
-
-O SA-FERRORAMA é um sistema desenvolvido para a visualização, monitoramento e gerenciamento de dados provenientes de sensores instalados em trens. Os sensores são vinculados ao Ferrorama e são responsáveis por coletar informações relacionadas ao funcionamento e às condições dos dispositivos ferroviários. Esses dados são posteriormente enviados ao sistema, onde são processados, organizados e apresentados ao usuário de forma clara e intuitiva.
 
 A principal proposta do projeto é centralizar as informações coletadas pelos sensores em uma única plataforma, facilitando o acompanhamento dos dados e permitindo uma melhor administração dos dispositivos ferroviários. Através da interface do sistema, o usuário poderá visualizar as informações coletadas, acompanhar o comportamento dos sensores e utilizar gráficos e indicadores para interpretar os dados de maneira mais rápida e eficiente.
 
