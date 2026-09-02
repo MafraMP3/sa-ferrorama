@@ -74,35 +74,36 @@ O projeto também busca seguir boas práticas de desenvolvimento de software, ma
   <img src="https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white" alt="Chart.js">
 </p>
 
-## Caso de Uso:
+
+
+### Diagrama de Contexto
+
 ```mermaid
-flowchart LR
+flowchart TB 
+    Admin(["Administrador"]) 
+    Sensores(["Sensores Ferroviários"]) 
+    Trem(["Trem"]) 
+ 
+    SA["SA - Sistema Ferroviário 
+    Sistema de visualização, monitoramento 
+    e gerenciamento de dados ferroviários"] 
+ 
+    Banco[("Banco de Dados 
+    MySQL")] 
+ 
+    Admin -- "Realiza login, cadastra sensores e trens, 
+    acompanha o monitoramento e gera relatórios (HTTPS)" --> SA 
+ 
+    Sensores -- "Envia dados de velocidade, 
+    localização e status operacional" --> SA 
+ 
+    Trem -- "Possui sensores vinculados 
+    para coleta de dados" --> Sensores 
+ 
+    SA -- "Armazena e recupera dados de 
+    usuários, sensores, trens e relatórios" --> Banco
 
-    Administrador((Administrador))
-    
-
-    subgraph Sistema["SA - Sistema Ferroviário"]
-        UC1([Cadastrar Usuários])
-        UC2([Editar Usuários])
-        UC3([Excluir Usuários])
-        UC4([Listar Usuários])
-        UC5([Cadastrar Sensores])
-        UC6([Editar Sensores])
-        UC7([Excluir Sensores])
-        UC8([Listar Sensores])
-        
-    end
-
-    Administrador --> UC1
-    Administrador --> UC2
-    Administrador --> UC3
-    Administrador --> UC4
-    Administrador --> UC5
-    Administrador --> UC6
-    Administrador --> UC7
-    Administrador --> UC8
 ```
-
 ## Conclusão
 
 O SA-FERRORAMA tem como objetivo unir a coleta de dados dos sensores ferroviários a uma plataforma de monitoramento acessível e visualmente organizada, permitindo que as informações captadas pelo Ferrorama sejam transformadas em dados úteis para o acompanhamento, análise e gerenciamento dos equipamentos.
