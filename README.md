@@ -85,8 +85,8 @@ flowchart TB
     Trem(["Trem"]) 
  
     SA["SA - Sistema Ferroviário 
-    Sistema de visualização, monitoramento 
-    e gerenciamento de dados ferroviários"] 
+    visualização, monitoramento 
+    e gerenciamento de dados"] 
  
     Banco[("Banco de Dados 
     MySQL")] 
@@ -100,7 +100,7 @@ flowchart TB
     Trem -- "Possui sensores vinculados 
     para coleta de dados" --> Sensores 
  
-    SA -- "Armazena e recupera dados de 
+    SA -- "Armazena dados de 
     usuários, sensores, trens e relatórios" --> Banco
 
 ```
