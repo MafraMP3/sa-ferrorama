@@ -75,7 +75,7 @@ flowchart LR
     subgraph Sistema["SA - Sistema Ferroviário"]
         UC1([Cadastrar Usuários])
         UC2([Editar Usuários])
-        UC3([Excluir Usuários]))
+        UC3([Excluir Usuários])
         UC4([Listar Usuários])
         UC5([Cadastrar Sensores])
         UC6([Editar Sensores])
