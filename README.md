@@ -2,7 +2,7 @@
 
 ## Resumo
 
-*O SA-FERRORAMA é um sistema desenvolvido para a visualização, monitoramento e gerenciamento de dados provenientes de sensores instalados em trens. Os sensores são vinculados ao Ferrorama e são responsáveis por coletar informações relacionadas ao funcionamento e às condições dos dispositivos ferroviários. Esses dados são posteriormente enviados ao sistema, onde são processados, organizados e apresentados ao usuário de forma clara e intuitiva.*
+*O SA-FERRORAMA é um sistema desenvolvido para a visualização, monitoramento e gerenciamento de dados provenientes de sensores instalados em um ferrorama. Esses sensores são responsáveis por coletar informações relacionadas aos trens que circulam no ferrorama. Os dados coletados são posteriormente enviados ao sistema, onde são processados, organizados e apresentados ao usuário de forma clara e intuitiva.*
 
 ---
 
