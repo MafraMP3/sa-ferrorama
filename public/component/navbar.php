@@ -8,7 +8,7 @@
             <img src="../assets/images/logo-quadrada.png " alt="logo">
         </div>
 
-        <a href="#" class="sidebar-link" id="linkDashboard">
+        <a href="home.php" class="sidebar-link" id="linkDashboard">
             <i class="fa-solid fa-house" style="color: #fff;"></i> Dashboard
         </a>
 

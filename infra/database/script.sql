@@ -26,3 +26,9 @@ CREATE TABLE IF NOT EXISTS dados(
 );
 
 INSERT INTO usuarios (nome,email,senha,funcao) VALUES ("Admin","admin@gmail.com","123","Administrador");
+
+INSERT INTO usuarios (nome,email,senha,funcao) VALUES ("Caio","caio_a_mafra@estudante.sesisenai.org.br","123","Administrador");
+INSERT INTO usuarios (nome,email,senha,funcao) VALUES ("Fix","kauan_fix@estudante.sesisenai.org.br","123","Administrador");
+INSERT INTO usuarios (nome,email,senha,funcao) VALUES ("Davi","davi_sehnem@estudante.sesisenai.org.br","123","Administrador");
+INSERT INTO usuarios (nome,email,senha,funcao) VALUES ("Lucas","lucas_schattenberg@estudante.sesisenai.org.br","123","Administrador");
+INSERT INTO usuarios (nome,email,senha,funcao) VALUES ("Gustavo","gustavo_sena@estudante.sesisenai.org.br","123","Administrador");
