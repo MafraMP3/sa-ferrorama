@@ -1,3 +1,30 @@
+<?php
+
+include("infra/database/conn.php");
+
+if (isset($_POST["login"])) {
+
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];
+
+    $query = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
+
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ss", $email, $senha);
+    $stmt->execute();
+
+    $resultado = $stmt->get_result();
+
+    if ($resultado->num_rows > 0) {
+        header("Location: index.php");
+        exit;
+    } else {
+        echo "Email ou senha incorretos!";
+    }
+}
+
+?>
+
 <html lang="en">
 
 <head>
@@ -20,14 +47,14 @@
                     <img id="img-login-screen" class="img-fluid" src="assets/images/icon-image-login-screen.png" alt="">
                 </div>
                 <div id="div-login-screen" class="container-xxl">
-                    <form id="form-login" action="">
+                    <form id="form-login" method="POST">
                         <div>
                             <label class="d-block label-login" for="">E-mail</label>
-                            <input class="form-control input-login" type="text" id="email" placeholder="Digite seu email..." autocomplete="email">
+                            <input class="form-control input-login" type="text" id="email" name="email" placeholder="Digite seu email..." autocomplete="email">
                         </div>
                         <div class="div-inputs">
                             <label class="d-block label-login" for="">Senha</label>
-                            <input class="form-control input-login" type="password" id="senha" placeholder="Digite sua senha..." autocomplete="off">
+                            <input class="form-control input-login" type="password" name="senha" id="senha" placeholder="Digite sua senha..." autocomplete="off">
                         </div>
                         <div class="d-grid gap-2">
                             <button class="d-block btn btn-primary submit-button" type="submit">ENTRAR</button>
@@ -38,7 +65,6 @@
                     
                 </div>
             </div>
-
 
         </section>
     </main>
