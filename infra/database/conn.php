@@ -5,8 +5,8 @@ $password = "root";
 $user = "root";
 $database = "sa_ferrorama";
 
-$sql = new mysqli($host,$password,$user,$database);
+$conn = new mysqli($host,$password,$user,$database);
 
-if ($sql->connect_error){
+if ($conn->connect_error){
     die("Erro de conexão");
 }
