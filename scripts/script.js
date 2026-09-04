@@ -23,7 +23,7 @@ links.forEach(function(link) {
 
 if (!window.location.pathname.includes("index.php")) {
     if (localStorage.getItem("logado") !== "true") {
-        window.location.replace("../index.php");
+        window.location.replace("index.php");
     }
     const logout = document.querySelector('.logout');
 
