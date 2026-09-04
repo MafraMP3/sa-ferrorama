@@ -27,7 +27,7 @@
         <img src="../assets/images/logo-quadrada.png " alt="logo">
       </div>
 
-      <a href="home.html" class="sidebar-link" id="linkDashboard">
+      <a href="home.php" class="sidebar-link" id="linkDashboard">
         <i class="fa-solid fa-house" style="color: #fff;"></i> Dashboard
       </a>
 
@@ -35,11 +35,11 @@
         <i class="fa-solid fa-satellite-dish" style="color: #fff;"></i> Sensores
       </a>
 
-      <a href="monitoramento.html" class="sidebar-link" id="linkMonitoramento">
+      <a href="monitoramento.php" class="sidebar-link" id="linkMonitoramento">
         <i class="fa-solid fa-chart-line" style="color: #fff;"></i> Monitoramento
       </a>
 
-      <a href="usuarios.html" class="sidebar-link" id="linkUsuarios">
+      <a href="usuarios.php" class="sidebar-link" id="linkUsuarios">
         <i class="fa-solid fa-users" style="color: rgb(255, 255, 255);"></i></i> Usuários
       </a>
 
