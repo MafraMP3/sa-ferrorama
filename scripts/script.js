@@ -21,9 +21,9 @@ links.forEach(function(link) {
 })
 });
 
-if (!window.location.pathname.includes("index.html")) {
+if (!window.location.pathname.includes("index.php")) {
     if (localStorage.getItem("logado") !== "true") {
-        window.location.replace("../index.html");
+        window.location.replace("../index.php");
     }
     const logout = document.querySelector('.logout');
 
@@ -33,14 +33,14 @@ if (!window.location.pathname.includes("index.html")) {
             e.preventDefault();
 
             localStorage.clear();
-            window.location.replace("../index.html");
+            window.location.replace("../index.php");
         }
     }
 }
 
-//======================================================INDEX.HTML=======================================================================================//
+//======================================================INDEX.php=======================================================================================//
 
-if (window.location.pathname.includes("index.html")) {
+if (window.location.pathname.includes("index.php")) {
 
     localStorage.setItem("email", "admin@gmail.com");
     localStorage.setItem("password", "123");
@@ -75,7 +75,7 @@ if (window.location.pathname.includes("index.html")) {
             if (valido == true) {
                 console.log("Validado");
                 localStorage.setItem("logado", "true");
-                window.location.assign("public/home.html");
+                window.location.assign("public/home.php");
             } else {
                 console.log("Inválido");
             }
@@ -83,9 +83,9 @@ if (window.location.pathname.includes("index.html")) {
     }
 }
 
-//======================================================HOME.HTML=======================================================================================//
+//======================================================HOME.php=======================================================================================//
 
-if (window.location.pathname.includes("public/home.html")) {
+if (window.location.pathname.includes("public/home.php")) {
 
     let welcome = document.getElementById("saudacao");
     let nomeAdmin = "Admin";
@@ -93,9 +93,9 @@ if (window.location.pathname.includes("public/home.html")) {
     welcome.textContent = `Bem-vindo, ${nomeAdmin}`;
 
 }
-//======================================================SENSORES.HTML=======================================================================================//
+//======================================================SENSORES.php=======================================================================================//
 
-if (window.location.pathname.includes("public/sensores.html")) {
+if (window.location.pathname.includes("public/sensores.php")) {
 
 
 
@@ -164,7 +164,7 @@ if (window.location.pathname.includes("public/sensores.html")) {
                 <td class="img-tabela" style="width: 170px;">
                   <button class="botao-imagem" onclick="telaApagar(this)"><img src="../assets/images/Lixo.png"
                       class="icone-lixo"></button>
-                  <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img
+                  <button class="botao-imagem" onclick="window.location.href='monitoramento.php'"><img
                       src="../assets/images/Olho.png" class="icone-olho"></button>
                 </td>
               </tr>
@@ -213,7 +213,7 @@ if (window.location.pathname.includes("public/sensores.html")) {
 
                 alterarLinha.cells[3].innerHTML = `<td class="img-tabela" style="width: 10%;">
                   <button class="botao-imagem" onclick="telaApagar(this)"><img src="../assets/images/Lixo.png" class="icone-lixo"></button>
-                  <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img src="../assets/images/Olho.png" class="icone-olho"></button>
+                  <button class="botao-imagem" onclick="window.location.href='monitoramento.php'"><img src="../assets/images/Olho.png" class="icone-olho"></button>
                 </td>`
 
                 semSensor = document.getElementById("nenhumSensor");
@@ -230,9 +230,9 @@ if (window.location.pathname.includes("public/sensores.html")) {
 
 }
 
-//======================================================USUARIOS.HTML=======================================================================================//
+//======================================================USUARIOS.php=======================================================================================//
 
-if (window.location.pathname.includes("public/usuarios.html")) {
+if (window.location.pathname.includes("public/usuarios.php")) {
 
     let formUsuarios = document.getElementById("formUsuarios");
 
@@ -302,7 +302,7 @@ if (window.location.pathname.includes("public/usuarios.html")) {
                 <td class="img-tabela" style="width: 170px;">
                   <button class="botao-imagem" onclick="telaApagar(this)"><img src="../assets/images/Lixo.png"
                       class="icone-lixo"></button>
-                  <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img
+                  <button class="botao-imagem" onclick="window.location.href='monitoramento.php'"><img
                       src="../assets/images/Olho.png" class="icone-olho"></button>
                 </td>
               </tr>
@@ -356,7 +356,7 @@ if (window.location.pathname.includes("public/usuarios.html")) {
                 console.log(alterarLinha);
                 alterarLinha.cells[4].innerHTML = `<td class="img-tabela" style="width: 10%;">
                   <button class="botao-imagem" onclick="telaApagar(this)"><img src="../assets/images/Lixo.png" class="icone-lixo"></button>
-                  <button class="botao-imagem" onclick="window.location.href='monitoramento.html'"><img src="../assets/images/Olho.png" class="icone-olho"></button>
+                  <button class="botao-imagem" onclick="window.location.href='monitoramento.php'"><img src="../assets/images/Olho.png" class="icone-olho"></button>
                 </td>`
 
                 semUsuario = document.getElementById("nenhumUsuario");
@@ -372,9 +372,9 @@ if (window.location.pathname.includes("public/usuarios.html")) {
 
 
 }
-//======================================================MONITORAMENTO.HTML=======================================================================================//
+//======================================================MONITORAMENTO.php=======================================================================================//
 
-if (window.location.pathname.includes("public/monitoramento.html")) {
+if (window.location.pathname.includes("public/monitoramento.php")) {
     const ctx = document.getElementById('grafico').getContext('2d'); //Gráfico de linhas
 
     const meuGrafico = new Chart(ctx, {
