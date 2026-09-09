@@ -16,7 +16,7 @@ if (isset($_POST["login"])) {
     $resultado = $stmt->get_result();
 
     if ($resultado->num_rows > 0) {
-        header("Location: index.php");
+        header("Location: public/home.php");
         exit;
     } else {
         echo "Email ou senha incorretos!";
@@ -47,7 +47,7 @@ if (isset($_POST["login"])) {
                     <img id="img-login-screen" class="img-fluid" src="assets/images/icon-image-login-screen.png" alt="">
                 </div>
                 <div id="div-login-screen" class="container-xxl">
-                    <form id="form-login" method="POST">
+                    <form id="login" method="POST">
                         <div>
                             <label class="d-block label-login" for="">E-mail</label>
                             <input class="form-control input-login" type="text" id="email" name="email" placeholder="Digite seu email..." autocomplete="email">
@@ -57,7 +57,7 @@ if (isset($_POST["login"])) {
                             <input class="form-control input-login" type="password" name="senha" id="senha" placeholder="Digite sua senha..." autocomplete="off">
                         </div>
                         <div class="d-grid gap-2">
-                            <button class="d-block btn btn-primary submit-button" type="submit">ENTRAR</button>
+                            <button class="d-block btn btn-primary submit-button" type="submit" name="login">ENTRAR</button>
                         </div>
 
                         <div id="mensagem"></div>
@@ -77,6 +77,6 @@ if (isset($_POST["login"])) {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
-<script src="scripts/script.js"></script>
+<script src="java/script.js"></script>
 
 </html>
