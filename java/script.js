@@ -7,13 +7,16 @@ function toggleSidebar() {
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    const pagina = window.location.href;
+    const paginaAtual = pagina.split('/').pop();
+
 const links = document.querySelectorAll(".sidebar-link");
 
 links.forEach(function(link) {
 
     const paginaLink = link.getAttribute("href");
 
-    if(paginaLink === '#'){
+    if(paginaLink === paginaAtual){
         link.classList.add("active");
     } else{
         link.classList.remove("active");
