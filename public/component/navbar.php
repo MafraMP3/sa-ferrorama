@@ -24,5 +24,5 @@
             <i class="fa-solid fa-users" style="color: rgb(255, 255, 255);"></i></i> Usuários
         </a>
 
-        <a href="#" class="logout" id="linkSair">SAIR</a>
+        <a href="../../infra/logout.php" class="logout" id="linkSair">SAIR</a>
     </div>
