@@ -1,3 +1,6 @@
+<?php session_start(); ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +30,7 @@
 
     <div class="content ">
 
-        <h3 id="saudacao">Bem-vindo, (nome admin).</h3>
+        <h3 id="saudacao">Bem-vindo, <?php echo $_SESSION['usuario_nome'] ?></h3>
         <p>Gerencie tudo por aqui</p>
 
 

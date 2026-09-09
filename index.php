@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include("infra/database/conn.php");
 
 if (isset($_POST["login"])) {
@@ -16,6 +18,11 @@ if (isset($_POST["login"])) {
     $resultado = $stmt->get_result();
 
     if ($resultado->num_rows > 0) {
+
+        $usuario = $resultado->fetch_assoc();
+
+        $_SESSION['usuario_nome'] = $usuario['nome'];
+        
         header("Location: public/home.php");
         exit;
     } else {
