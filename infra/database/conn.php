@@ -1,11 +1,11 @@
 <?php
 
 $host = "localhost";
-$password = "root";
+$password = "";
 $user = "root";
 $database = "sa_ferrorama";
 
-$conn = new mysqli($host,$password,$user,$database);
+$conn = new mysqli($host,$user,$password,$database, 6608);
 
 if ($conn->connect_error){
     die("Erro de conexão");

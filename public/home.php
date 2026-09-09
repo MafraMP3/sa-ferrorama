@@ -1,3 +1,6 @@
+<?php session_start(); ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +30,7 @@
 
     <div class="content ">
 
-        <h3 id="saudacao">Bem-vindo, (nome admin).</h3>
+        <h3 id="saudacao">Bem-vindo, <?php echo $_SESSION['usuario_nome'] ?></h3>
         <p>Gerencie tudo por aqui</p>
 
 
@@ -168,7 +171,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
             crossorigin="anonymous"></script>
-        <script src="../scripts/script.js"></script>
+        <script src="../java/script.js"></script>
 </body>
 
 </html>
