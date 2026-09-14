@@ -48,6 +48,7 @@ if (isset($_POST["login"])) {
     <header></header>
 
     <main>
+
         <section id="section-login" class="d-block container">
             <div>
                 <div class="d-flex justify-content-center">
@@ -74,6 +75,7 @@ if (isset($_POST["login"])) {
             </div>
 
         </section>
+        
     </main>
 
     <footer class="d-flex justify-content-center footer">
