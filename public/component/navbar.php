@@ -16,6 +16,14 @@
             <i class="fa-solid fa-satellite-dish" style="color: #fff;"></i> Sensores
         </a>
 
+        <a href="trens.php" class="sidebar-link" id="linkUsuarios">
+            <i class="fa-solid fa-train" style="color: rgb(255, 255, 255);"></i></i> Trens
+        </a>
+
+        <a href="rotas.php" class="sidebar-link" id="linkUsuarios">
+            <i class="fa-solid fa-left-right" style="color: rgb(255, 255, 255);"></i></i> Rotas
+        </a>
+
         <a href="monitoramento.php" class="sidebar-link" id="linkMonitoramento">
             <i class="fa-solid fa-chart-line" style="color: #fff;"></i> Monitoramento
         </a>
@@ -23,6 +31,8 @@
         <a href="usuarios.php" class="sidebar-link" id="linkUsuarios">
             <i class="fa-solid fa-users" style="color: rgb(255, 255, 255);"></i></i> Usuários
         </a>
+
+
 
         <a href="../infra/logout.php" class="logout" id="linkSair">SAIR</a>
     </div>
