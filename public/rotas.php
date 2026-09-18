@@ -23,7 +23,7 @@
 
 <!------------------------------------------------------------------------------------//-->
 
-<!---------------------------------------CADASTRAR NOVO SENSOR--------------------------------------------//-->
+<!---------------------------------------CADASTRAR NOVA ROTA--------------------------------------------//-->
 
     <div class="content">
 
@@ -43,19 +43,14 @@
                   id="nomeSensor" required>
               </div>
               <div class="div-inputs-label-sensors">
-                <label class="d-block label-form-sensors" for="">LOCALIZAÇÃO</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="EX: Km 67" id="localSensor"
+                <label class="d-block label-form-sensors" for="">ORIGEM</label>
+                <input class="form-control input-form-sensors" type="text" placeholder="EX: Estação 1" id="localSensor"
                   required>
               </div>
               <div class="div-inputs-label-sensors">
-                <label class=" label-form-sensors" for="">TIPO DE ROTA</label>
-                <select class="form-select input-form-sensors-select" aria-label="Default select example"
-                  id="tipoSensor">
-                  <option selected disabled value="">Selecione o tipo</option>
-                  <option value="Velocidade">Velocidade</option>
-                  <option value="Temperatura">Temperatura</option>
-                  <option value="Energia">Energia</option>
-                </select>
+                <label class="d-block label-form-sensors" for="">DESTINO</label>
+                <input class="form-control input-form-sensors" type="text" placeholder="EX: Estação 2" id="localSensor"
+                  required>
               </div>
               <div id="div-button-sensors">
                 <button class="d-block btn btn-primary button-form-sensors" type="submit">Cadastrar</button>
@@ -90,7 +85,7 @@
 
 <!---------------------------------------->
 
-<!---------Tela de nenhum sensor cadastrado--------->
+<!---------Tela de nenhuma rota cadastrada--------->
 
     <div class="content" id="nenhumSensor">
       <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
