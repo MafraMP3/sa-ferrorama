@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     nome VARCHAR(50) NOT NULL,
     email VARCHAR(255) NOT NULL,
     senha VARCHAR(20) NOT NULL,
+    cpf VARCHAR(14) NOT NULL,
     funcao VARCHAR(20) NOT NULL
 );
 
