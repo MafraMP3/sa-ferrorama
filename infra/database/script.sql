@@ -26,6 +26,19 @@ CREATE TABLE IF NOT EXISTS dados(
     FOREIGN KEY (idSensor) REFERENCES sensores(idSensor)
 );
 
+CREATE TABLE IF NOT EXISTS trens(
+    idTrem INT AUTO_INCREMENT PRIMARY KEY,
+    tipoCarga VARCHAR(20) NOT NULL,
+    modeloTrem VARCHAR(8) NOT NULL,
+    FOREIGN KEY (idRota) REFERENCES rotas(idRota)
+);
+
+CREATE TABLE IF NOT EXISTS rotas(
+    idRota INT AUTO_INCREMENT PRIMARY KEY,
+    origem VARCHAR(20) NOT NULL,
+    destino VARCHAR(20) NOT NULL,
+);
+
 INSERT INTO usuarios (nome,email,senha,funcao) VALUES ("Admin","admin@gmail.com","123","Administrador");
 
 INSERT INTO usuarios (nome,email,senha,funcao) VALUES ("Caio","caio_a_mafra@estudante.sesisenai.org.br","123","Administrador");
