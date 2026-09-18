@@ -225,6 +225,10 @@ if (window.location.pathname.includes("public/usuarios.php")) {
                 <th class="ths">Nome</th>
                 <th class="ths">Email</th>
                 <th class="ths">Cargo</th>
+
+                 /* ⚠️ ERRO DE SEGURANÇA (H6): a senha do usuário fica visível
+                     em texto puro nesta tabela. */
+
                 <th class="ths">Senha</th>
                 <th></th>
               </tr>
@@ -309,6 +313,12 @@ if (window.location.pathname.includes("public/usuarios.php")) {
 
 }
 //======================================================MONITORAMENTO.php=======================================================================================//
+
+// ⚠️ FALTA: este bloco todo simula dados com Math.random() em vez de
+//    buscar leituras reais da tabela "dados" no banco (via fetch para um PHP
+//    que devolva JSON). Também falta o mapa com a localização (item 7 do
+//    enunciado exige "Localização em mapa"), e o <select> de período
+//    (Tudo/3h/24h/...) não tem nenhum listener, não filtra nada.
 
 if (window.location.pathname.includes("public/monitoramento.php")) {
     const ctx = document.getElementById('grafico').getContext('2d'); //Gráfico de linhas

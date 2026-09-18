@@ -17,6 +17,10 @@
 <!------------------------------------Sidebar---------------------------------------//-->
 
     <?php
+
+    // ⚠️ FALTA: session_start() + guard de login
+    // ⚠️ FALTA: receber ?id=X pela URL e buscar o sensor real no banco
+    //    (hoje "Sensor 2" está fixo no HTML abaixo, não vem de lugar nenhum)
     include "component/navbar.php";
     ?>
 
@@ -27,6 +31,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+     <!-- ⚠️ FALTA (item 7): "Localização em mapa" exigida pelo enunciado.
+         Não existe nenhum mapa/iframe nesta página ainda. -->
     <div class="content">
 
 
@@ -34,6 +40,7 @@
 
             <section id="section-navbar-monitor" class="rounded-top d-flex justify-content-between align-items-center px-4 py-3">
                 <div>
+                    <!-- ⚠️ "Sensor 2" está fixo/chumbado, deveria vir do banco pelo id na URL -->
                     <p class="text-monitor-sensor mb-0">Sensor 2</p>
                     <p class=" small mb-0 ms-3" style="color: rgba(255, 255, 255, 0.767) !important;">Acompanhe os dados
                         e o histórico em tempo real.</p>
@@ -107,6 +114,8 @@
             </div>
 
             <div class="row g-3 mt-1">
+                <!-- ⚠️ Todos os campos abaixo são placeholders fixos, deveriam vir do
+                     registro do sensor no banco (localizacao, tipo, dataInstalacao) -->
                 <div class="col-6 col-md-4">
                     <p class="text-muted mb-0">Localização</p>
                     <p class="mb-0 fw-bold small">Localização do sensor</p>

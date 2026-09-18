@@ -34,5 +34,5 @@
 
 
 
-        <a href="../infra/logout.php" class="logout" id="linkSair">SAIR</a>
+        <a href="logout.php" class="logout" id="linkSair">SAIR</a>
     </div>
