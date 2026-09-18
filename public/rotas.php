@@ -34,6 +34,10 @@
           <p class="text-cadastrar-novo-sensor h4">CADASTRAR NOVA ROTA</p>
         </div>
 
+
+        <!-- ⚠️ ERRO GRAVE: mesmos ids de sensores.php (formSensor, nomeSensor...).
+             O script.js só reage em "sensores.php", então aqui o Cadastrar
+             não faz nada. Além disso não existe tabela "rotas" no banco ainda. -->
         <div id="div-forms-sensors">
           <form action="" id="formSensor">
             <div id="div-form-cadastrarsensor" class="d-flex">
