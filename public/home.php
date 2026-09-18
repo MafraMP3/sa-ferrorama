@@ -31,7 +31,7 @@
     <div class="content ">
 
         <h3 id="saudacao">Bem-vindo, <?php echo $_SESSION['usuario_nome'] ?></h3>
-        <p>Gerencie tudo por aqui</p>
+        <p>Gerencie tudo aqui</p>
 
 
         <div class="container-fluid">

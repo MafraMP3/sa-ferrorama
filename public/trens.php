@@ -23,7 +23,7 @@
 
 <!------------------------------------------------------------------------------------//-->
 
-<!---------------------------------------CADASTRAR NOVO SENSOR--------------------------------------------//-->
+<!---------------------------------------CADASTRAR NOVO TREM--------------------------------------------//-->
 
     <div class="content">
 
@@ -50,12 +50,7 @@
                   id="nomeSensor" required>
               </div>
               <div class="div-inputs-label-sensors">
-                <label class="d-block label-form-sensors" for="">LOCALIZAÇÃO</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="EX: Km 67" id="localSensor"
-                  required>
-              </div>
-              <div class="div-inputs-label-sensors">
-                <label class=" label-form-sensors" for="">TIPO DE CARGA</label>
+                <label class=" label-form-sensors" for="">Rota do trem</label>
                 <select class="form-select input-form-sensors-select" aria-label="Default select example"
                   id="tipoSensor">
 
@@ -64,9 +59,30 @@
                        Corrigir para value="Fragil", value="Carvao", value="Toneladas" -->
 
                   <option selected disabled value="">Selecione o tipo</option>
-                  <option value="Velocidade">Frágil</option>
+                  <option value="Velocidade">ROTA 1</option>
+                  <option value="Temperatura">ROTA 2</option>
+                  <option value="Energia">ROTA 3</option>
+                </select>
+              </div>
+              <div class="div-inputs-label-sensors">
+                <label class=" label-form-sensors" for="">Tipo de carga</label>
+                <select class="form-select input-form-sensors-select" aria-label="Default select example"
+                  id="tipoSensor">
+                  <option selected disabled value="">Selecione o tipo</option>
+                  <option value="Velocidade">Passageiros</option>
                   <option value="Temperatura">Carvão</option>
-                  <option value="Energia">Toneladas</option>
+                  <option value="Energia">Granola</option>
+                  <option value="Energia">Líquido</option>
+                </select>
+              </div>
+              <div class="div-inputs-label-sensors">
+                <label class=" label-form-sensors" for="">Modelo do trem</label>
+                <select class="form-select input-form-sensors-select" aria-label="Default select example"
+                  id="tipoSensor">
+                  <option selected disabled value="">Selecione o tipo</option>
+                  <option value="Velocidade">MODELO 1</option>
+                  <option value="Temperatura">MODELO 2</option>
+                  <option value="Energia">MODELO 3</option>
                 </select>
               </div>
               <div id="div-button-sensors">
@@ -103,7 +119,7 @@
 
 <!---------------------------------------->
 
-<!---------Tela de nenhum sensor cadastrado--------->
+<!---------Tela de nenhum trem cadastrado--------->
 
     <div class="content" id="nenhumSensor">
       <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">

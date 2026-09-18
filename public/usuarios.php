@@ -49,6 +49,11 @@
                   id="emailUsuario" required>
               </div>
               <div class="div-inputs-label-sensors">
+                <label class="d-block label-form-sensors" for="">CPF</label>
+                <input class="form-control input-form-sensors" type="text" placeholder="EX: 123.456.789-00"
+                  id="cpfUsuario" required>
+              </div>
+              <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">FUNÇÃO / CARGO</label>
                 <input class="form-control input-form-sensors" type="text" placeholder="EX: Marceneiro"
                   id="cargoUsuario" required>
