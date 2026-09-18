@@ -40,8 +40,21 @@ CREATE TABLE IF NOT EXISTS dados(
     FOREIGN KEY (idSensor) REFERENCES sensores(idSensor)
 );
 
--- ⚠️ FALTA: nao existem INSERTs de teste para "sensores" e "dados".
---    O checklist (item 1) pede pelo menos 3 registros em TODAS as tabelas.
+
+
+CREATE TABLE IF NOT EXISTS rotas(
+    idRota INT AUTO_INCREMENT PRIMARY KEY,
+    origem VARCHAR(20) NOT NULL,
+    destino VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS trens(
+    idTrem INT AUTO_INCREMENT PRIMARY KEY,
+    tipoCarga VARCHAR(20) NOT NULL,
+    modeloTrem VARCHAR(8) NOT NULL,
+    idRota INT,
+    FOREIGN KEY (idRota) REFERENCES rotas(idRota)
+);
 
 INSERT INTO usuarios (nome,email,senha,funcao) VALUES ("Admin","admin@gmail.com","123","Administrador");
 
