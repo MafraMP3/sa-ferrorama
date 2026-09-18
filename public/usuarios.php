@@ -19,6 +19,8 @@
 <!------------------------------------Sidebar---------------------------------------//-->
 
   <?php
+      // ⚠️ FALTA: session_start() + guard de login
+      // ⚠️ FALTA: conn.php + query para listar usuários cadastrados no banco
       include "component/navbar.php";
   ?>
 
@@ -35,6 +37,11 @@
           <p class="text-cadastrar-novo-sensor h4">ADICIONAR NOVO USUÁRIO</p>
         </div>
 
+
+
+        <!-- ⚠️ ERRO GRAVE: form só em JS, não salva no banco (mesmo problema de sensores.php).
+             Falta <form method="POST" action="cadastrar_usuario.php"> com INSERT
+             usando password_hash($senha, PASSWORD_DEFAULT) — nunca salvar senha em texto puro. -->
         <div id="div-forms-sensors">
           <form action="" id="formUsuarios">
             <div id="div-form-cadastrarsensor" class="d-flex">
@@ -85,6 +92,9 @@
           <img id="img-delete-sensors" src="../assets/images/Lixo.png" alt="">
         </div>
         <div class="mt-4">
+          
+           <!-- ⚠️ ERRO de tag: abre <p> e fecha </h4>, HTML inválido -->
+
           <p class="h4" id="text-delete-sensor"> Deseja Excluir o usuário?</h4>
           <div class="d-flex  align-items-center justify-content-center">
             <button class="btn btn-lg"

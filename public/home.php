@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+// ⚠️ FALTA: guard de sessão. Sem isso, qualquer um acessa home.php sem logar.
+// if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit; }
+?>
 
 
 <!DOCTYPE html>
@@ -30,10 +34,14 @@
 
     <div class="content ">
 
+     <!-- ⚠️ ERRO: sem isset(), gera Warning na tela se acessar sem sessão -->
+
         <h3 id="saudacao">Bem-vindo, <?php echo $_SESSION['usuario_nome'] ?></h3>
         <p>Gerencie tudo aqui</p>
 
-
+         <!-- ⚠️ FALTA (item 3): esta página deveria ter a LISTAGEM de sensores
+             (ID, localização, tipo, botão excluir, botão detalhes). Hoje
+             essa listagem só existe (em JS, sem banco) em sensores.php. -->
         <div class="container-fluid">
 
             <div class="row g-4 mb-4">
@@ -46,6 +54,8 @@
                                 <p class="h5 mb-1">
                                     Sensores ativos
                                 </p>
+
+                                 <!-- ⚠️ FALTA: dado fixo/falso. Deveria vir de SELECT COUNT(*) FROM sensores WHERE ativo = 1 -->
 
                                 <p class="lead mb-0">
                                     ?? sensores online
@@ -68,6 +78,8 @@
                                     Velocidade atual
                                 </p>
 
+                                <!-- ⚠️ FALTA: dado fixo/falso. Deveria vir da última leitura em "dados" -->
+
                                 <p class="lead mb-0">
                                     ?? km/h
                                 </p>
@@ -85,6 +97,8 @@
                                 <p class="h5 mb-1">
                                     Status atual
                                 </p>
+
+                                <!-- ⚠️ FALTA: dado fixo/falso. Status atual real do sistema -->
 
                                 <p class="lead mb-0">
                                     ??
@@ -108,6 +122,8 @@
                         <div class="monitoramento-area">
                             <div class="text-center">
                                 <i class="fa-solid fa-train fa-3x mb-3"></i>
+
+                                 <!-- ⚠️ ERRO: texto placeholder "aaaa..." esquecido, precisa trocar por conteúdo real -->
 
                                 <h5>
                                     aaaaaaaaaaaaaaaaaaaaaaaaaaaa

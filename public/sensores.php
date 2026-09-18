@@ -18,6 +18,9 @@
 <!------------------------------------Sidebar---------------------------------------//-->
 
   <?php
+      // ⚠️ FALTA: session_start() + guard de login (esta página está aberta pra qualquer um)
+      // ⚠️ FALTA: conn.php + query para listar os sensores já cadastrados no banco
+      //    (SELECT s.*, t.nome AS trem FROM sensores s JOIN trens t ON t.idTrem = s.idTrem)
       include "component/navbar.php";
   ?>
 
@@ -33,6 +36,12 @@
           <i class="fa-solid fa-circle-plus fa-2x" style="color: rgb(255, 49, 49);"></i>
           <p class="text-cadastrar-novo-sensor h4">CADASTRAR NOVO SENSOR</p>
         </div>
+
+        <!-- ⚠️ ERRO GRAVE: este form só existe em memória (JS puro, ver script.js).
+             Ao dar F5 tudo desaparece. Precisa de <form method="POST" action="cadastrar_sensor.php">
+             com um PHP que faça INSERT INTO sensores (...) com prepare/bind_param.
+             Falta também: campo para escolher o TREM (select com trens do banco),
+             já que sensor deve estar vinculado a um trem específico (item 4 do enunciado). -->
 
         <div id="div-forms-sensors">
           <form action="" id="formSensor">
@@ -79,6 +88,10 @@
         </div>
         <div class="mt-4">
           <p class="h4" id="text-delete-sensor"> Deseja Excluir o sensor?</p>
+           <!-- ⚠️ FALTA (item 6, regra de negócio): antes de excluir, verificar
+               SELECT COUNT(*) FROM dados WHERE idSensor = ?. Se > 0, bloquear
+               e mostrar "Não é possível excluir sensores com dados registrados".
+               Hoje o botão "Sim" só remove a linha da tabela HTML, não apaga do banco. -->
           <div class="d-flex  align-items-center justify-content-center">
             <button class="btn btn-lg"
               onclick="document.getElementById('delete-sensor-part').style.display = 'none'">Não</button>
