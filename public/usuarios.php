@@ -20,15 +20,15 @@
 
   <main>
 
-<!------------------------------------Sidebar---------------------------------------//-->
+    <!------------------------------------Sidebar---------------------------------------//-->
 
   <?php
       include "component/navbar.php";
   ?>
 
-<!------------------------------------------------------------------------------------//-->
+    <!------------------------------------------------------------------------------------//-->
 
-<!---------------------------------------CADASTRAR NOVO USUARIO--------------------------------------------//-->
+    <!---------------------------------------CADASTRAR NOVO USUARIO--------------------------------------------//-->
 
     <div class="content">
 
@@ -70,6 +70,15 @@
                 <input class="form-control input-form-sensors" type="password" placeholder="EX: 1234" id="senhaUsuario"
                   required>
               </div>
+              <div class="div-inputs-label-sensors">
+                <label class=" label-form-sensors" for="">ADMINISTRADOR?</label>
+                <select class="form-select input-form-sensors-select" aria-label="Default select example"
+                  id="tipoSensor">
+                  <option selected disabled value="">Selecione o tipo</option>
+                  <option value="Velocidade">SIM</option>
+                  <option value="Temperatura">NÃO</option>
+                </select>
+              </div>
               <div id="div-button-sensors">
                 <button class="d-block btn btn-primary button-form-sensors" type="submit">Cadastrar</button>
               </div>
@@ -81,10 +90,10 @@
 
     </div>
 
-<!-----------------------------------------------------------------------------------------------------------//-->
+    <!-----------------------------------------------------------------------------------------------------------//-->
 
 
-<!---------Tela de deletar Sensor--------->
+    <!---------Tela de deletar Sensor--------->
 
     <div class="container content card" id="delete-sensor-part">
       <div class="d-flex">
@@ -92,7 +101,7 @@
           <img id="img-delete-sensors" src="../assets/images/Lixo.png" alt="">
         </div>
         <div class="mt-4">
-          
+
          
 
           <p class="h4" id="text-delete-sensor"> Deseja Excluir o usuário?</p>
@@ -105,10 +114,10 @@
       </div>
     </div>
 
-<!---------------------------------------->
+    <!---------------------------------------->
 
-    
-<!---------Tela de nenhum usuario cadastrado--------->
+
+    <!---------Tela de nenhum usuario cadastrado--------->
 
     <div class="content" id="nenhumUsuario">
       <div class="card div-top-sensors d-flex  align-items-center justify-content-center ">
@@ -120,7 +129,7 @@
       </div>
     </div>
 
-<!---------------------------------------------------->
+    <!---------------------------------------------------->
 
 
   </main>
