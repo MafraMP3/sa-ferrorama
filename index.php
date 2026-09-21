@@ -9,10 +9,7 @@ if (isset($_POST["login"])) {
     $email = $_POST["email"];
     $senha = $_POST["senha"];
 
-    // ⚠️ ERRO/SEGURANÇA (H6): senha comparada em texto puro direto na query.
-    // Deveria buscar só pelo email, e comparar com password_verify($senha, $usuario['senha']).
-    // Hoje, se alguém abrir o banco, vê a senha de todo mundo.
-
+    
     $query = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
 
     $stmt = $conn->prepare($query);
@@ -30,16 +27,11 @@ if (isset($_POST["login"])) {
         header("Location: public/home.php");
         exit;
     } else {
-         // ⚠️ ERRO: esse echo sai ANTES de <html>, fica solto no topo da página
-        //    em vez de aparecer dentro da <div id="mensagem"> que já existe no form.
+
         echo "Email ou senha incorretos!";
     }
 }
 
-// ⚠️ FALTA (item 10 / logout): nenhuma outra página (sensores.php, usuarios.php,
-//    monitoramento.php, trens.php, rotas.php) verifica se existe sessão ativa.
-//    Qualquer pessoa pode digitar a URL direto e entrar sem logar.
-//    Precisa em cada uma: if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit; }
 
 
 ?>

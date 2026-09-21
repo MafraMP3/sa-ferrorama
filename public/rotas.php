@@ -1,3 +1,8 @@
+<?php 
+    Session_start(); 
+    if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit; }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,15 +20,12 @@
 <body>
   <main>
 
-<!------------------------------------Sidebar---------------------------------------//-->
 
   <?php
       include "component/navbar.php";
   ?>
 
-<!------------------------------------------------------------------------------------//-->
 
-<!---------------------------------------CADASTRAR NOVA ROTA--------------------------------------------//-->
 
     <div class="content">
 
@@ -35,9 +37,7 @@
         </div>
 
 
-        <!-- ⚠️ ERRO GRAVE: mesmos ids de sensores.php (formSensor, nomeSensor...).
-             O script.js só reage em "sensores.php", então aqui o Cadastrar
-             não faz nada. Além disso não existe tabela "rotas" no banco ainda. -->
+
         <div id="div-forms-sensors">
           <form action="" id="formSensor">
             <div id="div-form-cadastrarsensor" class="d-flex">

@@ -1,3 +1,7 @@
+<?php 
+    Session_start(); 
+    if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit; }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,8 +23,6 @@
 <!------------------------------------Sidebar---------------------------------------//-->
 
   <?php
-      // ⚠️ FALTA: session_start() + guard de login
-      // ⚠️ FALTA: conn.php + query para listar usuários cadastrados no banco
       include "component/navbar.php";
   ?>
 
@@ -39,9 +41,7 @@
 
 
 
-        <!-- ⚠️ ERRO GRAVE: form só em JS, não salva no banco (mesmo problema de sensores.php).
-             Falta <form method="POST" action="cadastrar_usuario.php"> com INSERT
-             usando password_hash($senha, PASSWORD_DEFAULT) — nunca salvar senha em texto puro. -->
+      
         <div id="div-forms-sensors">
           <form action="" id="formUsuarios">
             <div id="div-form-cadastrarsensor" class="d-flex">
@@ -93,9 +93,9 @@
         </div>
         <div class="mt-4">
           
-           <!-- ⚠️ ERRO de tag: abre <p> e fecha </h4>, HTML inválido -->
+         
 
-          <p class="h4" id="text-delete-sensor"> Deseja Excluir o usuário?</h4>
+          <p class="h4" id="text-delete-sensor"> Deseja Excluir o usuário?</p>
           <div class="d-flex  align-items-center justify-content-center">
             <button class="btn btn-lg"
               onclick="document.getElementById('delete-sensor-part').style.display = 'none'">Não</button>

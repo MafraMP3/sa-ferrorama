@@ -12,5 +12,6 @@ if ($conn->connect_error){
 }
 
 
-// ⚠️ FALTA: sem $conn->set_charset("utf8mb4"), acentos podem sair
-//    errados ("informaÃ§Ã£o") dependendo da configuração do servidor.
+if (!$conn->set_charset("utf8mb4")) {
+    printf("Erro ao carregar utf8mb4: %s\n", $conn->error);
+}

@@ -1,3 +1,7 @@
+<?php 
+    Session_start(); 
+    if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit; }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,19 +18,14 @@
 
 <body>
 
-<!------------------------------------Sidebar---------------------------------------//-->
+
 
     <?php
-
-    // ⚠️ FALTA: session_start() + guard de login
-    // ⚠️ FALTA: receber ?id=X pela URL e buscar o sensor real no banco
-    //    (hoje "Sensor 2" está fixo no HTML abaixo, não vem de lugar nenhum)
+    
     include "component/navbar.php";
     ?>
 
-<!------------------------------------------------------------------------------------//-->
 
-<!---------------------------------------MONITORAMENTO--------------------------------------------//-->
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

@@ -1,3 +1,7 @@
+<?php 
+    Session_start(); 
+    if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit; }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,9 +22,6 @@
 <!------------------------------------Sidebar---------------------------------------//-->
 
   <?php
-      // ⚠️ FALTA: session_start() + guard de login (esta página está aberta pra qualquer um)
-      // ⚠️ FALTA: conn.php + query para listar os sensores já cadastrados no banco
-      //    (SELECT s.*, t.nome AS trem FROM sensores s JOIN trens t ON t.idTrem = s.idTrem)
       include "component/navbar.php";
   ?>
 

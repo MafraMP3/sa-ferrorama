@@ -1,3 +1,7 @@
+<?php 
+    Session_start(); 
+    if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit; }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,15 +19,11 @@
 <body>
   <main>
 
-<!------------------------------------Sidebar---------------------------------------//-->
 
   <?php
       include "component/navbar.php";
   ?>
 
-<!------------------------------------------------------------------------------------//-->
-
-<!---------------------------------------CADASTRAR NOVO TREM--------------------------------------------//-->
 
     <div class="content">
 
@@ -34,12 +34,7 @@
           <p class="text-cadastrar-novo-sensor h4">CADASTRAR NOVO TREM</p>
         </div>
 
-        <!-- ⚠️ ERRO GRAVE: este form usa os MESMOS ids de sensores.php
-             (formSensor, nomeSensor, localSensor, tipoSensor). O script.js só
-             executa a lógica de cadastro quando a URL contém "sensores.php",
-             então nesta página o botão Cadastrar NÃO FAZ NADA. Precisa de
-             ids próprios (formTrem, nomeTrem...) e um bloco novo no script.js
-             (ou, melhor, um form real enviando pra um PHP). -->
+
 
         <div id="div-forms-sensors">
           <form action="" id="formSensor">
@@ -54,9 +49,7 @@
                 <select class="form-select input-form-sensors-select" aria-label="Default select example"
                   id="tipoSensor">
 
-                   <!-- ⚠️ ERRO: value não corresponde ao texto mostrado.
-                       Ex: escolher "Carvão" salva o valor "Temperatura".
-                       Corrigir para value="Fragil", value="Carvao", value="Toneladas" -->
+
 
                   <option selected disabled value="">Selecione o tipo</option>
                   <option value="Velocidade">ROTA 1</option>
@@ -106,8 +99,8 @@
           <img id="img-delete-sensors" src="../assets/images/Lixo.png" alt="">
         </div>
         <div class="mt-4">
-           <!-- ⚠️ ERRO: texto copiado de sensores.php, aqui devia ser "trem" -->
-          <p class="h4" id="text-delete-sensor"> Deseja Excluir o sensor?</p>
+
+          <p class="h4" id="text-delete-sensor"> Deseja Excluir o trem?</p>
           <div class="d-flex  align-items-center justify-content-center">
             <button class="btn btn-lg"
               onclick="document.getElementById('delete-sensor-part').style.display = 'none'">Não</button>
