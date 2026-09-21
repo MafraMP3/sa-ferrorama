@@ -125,7 +125,7 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
               <tr class="table-dark ">
                 <th class="ths">Nome Rota</th>
                 <th class="ths">Origem</th>
-                <th class="ths">Destinoo</th>
+                <th class="ths">Destino</th>
                 <th></th>
               </tr>
             </thead>
