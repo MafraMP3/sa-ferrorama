@@ -6,10 +6,9 @@ include("infra/database/conn.php");
 
 if (isset($_POST["login"])) {
 
-    $email = $_POST["email"];
+    $email = trim($_POST["email"]);
     $senha = $_POST["senha"];
 
-    
     $query = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
 
     $stmt = $conn->prepare($query);
@@ -31,8 +30,6 @@ if (isset($_POST["login"])) {
         echo "Email ou senha incorretos!";
     }
 }
-
-
 
 ?>
 
