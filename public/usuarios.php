@@ -43,40 +43,35 @@
 
       
         <div id="div-forms-sensors">
-          <form action="" id="formUsuarios">
+          <form method="POST" action="services/ProcessosUsuario/cadastrarUsuario.php" id="formUsuarios">
             <div id="div-form-cadastrarsensor" class="d-flex">
               <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">NOME COMPLETO</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="EX: Carlos" id="nomeUsuario"
+                <input class="form-control input-form-sensors" name="nome" type="text" placeholder="EX: Carlos" id="nomeUsuario"
                   required>
               </div>
               <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">EMAIL</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="EX: Carlos@gmail.com"
+                <input class="form-control input-form-sensors" name="email" type="text" placeholder="EX: Carlos@gmail.com"
                   id="emailUsuario" required>
               </div>
               <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">CPF</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="EX: 123.456.789-00"
+                <input class="form-control input-form-sensors" name="cpf" type="text" placeholder="EX: 123.456.789-00"
                   id="cpfUsuario" required>
               </div>
               <div class="div-inputs-label-sensors">
-                <label class="d-block label-form-sensors" for="">FUNÇÃO / CARGO</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="EX: Marceneiro"
-                  id="cargoUsuario" required>
-              </div>
-              <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">SENHA</label>
-                <input class="form-control input-form-sensors" type="password" placeholder="EX: 1234" id="senhaUsuario"
+                <input class="form-control input-form-sensors" name="senha" type="password" placeholder="EX: 1234" id="senhaUsuario"
                   required>
               </div>
               <div class="div-inputs-label-sensors">
-                <label class=" label-form-sensors" for="">ADMINISTRADOR?</label>
-                <select class="form-select input-form-sensors-select" aria-label="Default select example"
+                <label class=" label-form-sensors" for="">FUNÇÃO / CARGO</label>
+                <select class="form-select input-form-sensors-select" name="funcao" aria-label="Default select example"
                   id="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
-                  <option value="Velocidade">SIM</option>
-                  <option value="Temperatura">NÃO</option>
+                  <option value="Velocidade">Administrador</option>
+                  <option value="Temperatura">Maquinista</option>
                 </select>
               </div>
               <div id="div-button-sensors">
