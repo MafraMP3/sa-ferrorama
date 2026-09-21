@@ -124,77 +124,99 @@ $usuarios = $resultado;
     <!---------Tela de nenhum usuario cadastrado--------->
 
     <div class="content" id="nenhumUsuario">
-      <div class="card div-top-sensors d-flex  align-items-center justify-content-center ">
-<table id="tabelaUsuarios" class="table table-bordered align-middle rounded overflow-hidden border-dark">
 
-  <thead>
-    <tr class="table-dark">
-      <th class="ths">Nome</th>
-      <th class="ths">Email</th>
-      <th class="ths">Senha</th>
-      <th class="ths">CPF</th>
-      <th class="ths">Função</th>
-      <th class="ths"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+        <div class="card div-tabela-sensors">
 
-    <?php while ($usuario = mysqli_fetch_assoc($usuarios)) { ?>
+          <div class="d-flex align-items-center">
+            <img class="img-sensor-icon"
+              src="../assets/images/icone-tabela-sensor.png"
+              alt="">
 
-      <tr>
-        <td><?php echo $usuario["nome"]; ?></td>
+            <p class="text-cadastrar-novo-sensor h4">
+              USUÁRIOS CADASTRADOS
+            </p>
+          </div>
 
-        <td><?php echo $usuario["email"]; ?></td>
+          <div class="table-responsive">
 
-        <td><?php echo $usuario["senha"]; ?></td>
+            <table id="tabelaUsuarios"
+              class="table table-bordered align-middle rounded overflow-hidden border-dark">
 
-        <td><?php echo $usuario["cpf"]; ?></td>
+              <thead>
+                <tr class="table-dark">
+                  <th class="ths">Nome</th>
+                  <th class="ths">Email</th>
+                  <th class="ths">Senha</th>
+                  <th class="ths">CPF</th>
+                  <th class="ths">Função</th>
+                  <th class="ths"></th>
+                </tr>
+              </thead>
 
-        <td><?php echo $usuario["funcao"]; ?></td>
+              <tbody>
 
-        <td class="img-tabela" style="width: 170px;">
+                <?php while ($usuario = mysqli_fetch_assoc($usuarios)) { ?>
 
-          <form action="services/ProcessosUsuario/excluirUsuario.php"
-            method="POST"
-            onsubmit="return confirm('Deseja excluir este usuário?')"
-            style="display: inline;">
+                  <tr>
 
-            <input type="hidden"
-              name="idUsuario"
-              value="<?php echo $usuario["idUsuario"]; ?>">
+                    <td><?php echo $usuario["nome"]; ?></td>
 
-            <button class="botao-imagem" type="submit">
-              <img src="../assets/images/Lixo.png"
-                class="icone-lixo">
-            </button>
+                    <td><?php echo $usuario["email"]; ?></td>
 
-          </form>
+                     <td><?php echo $usuario["senha"]; ?></td>
 
-          <form action="services/ProcessosUsuario/editarUsuario.php"
-            method="POST"
-            style="display: inline;">
+                    <td><?php echo $usuario["cpf"]; ?></td>
 
-            <input type="hidden"
-              name="idUsuario"
-              value="<?php echo $usuario["idUsuario"]; ?>">
+                    <td><?php echo $usuario["funcao"]; ?></td>
 
-            <button class="botao-imagem" type="submit">
-              <img src="../assets/images/Olho.png"
-                class="icone-olho">
-            </button>
+                    <td class="img-tabela" style="width: 170px;">
 
-          </form>
+                      <form action="services/ProcessosUsuario/excluirUsuario.php"
+                        method="POST"
+                        onsubmit="return confirm('Deseja excluir este usuário?')"
+                        style="display: inline;">
 
-        </td>
-      </tr>
+                        <input type="hidden"
+                          name="idUsuario"
+                          value="<?php echo $usuario["idUsuario"]; ?>">
 
-    <?php } ?>
+                        <button class="botao-imagem" type="submit">
+                          <img src="../assets/images/Lixo.png"
+                            class="icone-lixo">
+                        </button>
 
-  </tbody>
+                      </form>
 
-</table>
-      </div>
+                      <form action="services/ProcessosUsuario/editarUsuario.php"
+                        method="POST"
+                        style="display: inline;">
+
+                        <input type="hidden"
+                          name="idUsuario"
+                          value="<?php echo $usuario["idUsuario"]; ?>">
+
+                        <button class="botao-imagem" type="submit">
+                          <img src="../assets/images/Olho.png"
+                            class="icone-olho">
+                        </button>
+
+                      </form>
+
+                    </td>
+
+                  </tr>
+
+                <?php } ?>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+  
     </div>
 
     <!---------------------------------------------------->
