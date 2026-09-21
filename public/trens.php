@@ -10,6 +10,19 @@ include("../infra/database/conn.php");
 $sql = "SELECT * FROM rotas";
 $resultado = $conn->query($sql);
 $rotas = $resultado;
+
+
+$sql = "SELECT
+            trens.idTrem,
+            trens.nomeTrem,
+            trens.tipoCarga,
+            trens.modeloTrem,
+            rotas.nomeRota
+        FROM trens
+        LEFT JOIN rotas ON trens.idRota = rotas.idRota";
+
+$resultado = $conn->query($sql);
+$trens = $resultado;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,16 +59,16 @@ $rotas = $resultado;
 
 
         <div id="div-forms-sensors">
-          <form action="" id="formSensor">
+          <form action="services/ProcessosTrem/cadastrarTrem.php" method="POST" id="formSensor">
             <div id="div-form-cadastrarsensor" class="d-flex">
               <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">NOME DO TREM</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="EX: Trem 2"
+                <input class="form-control input-form-sensors" name="nomeTrem" type="text" placeholder="EX: Trem 2"
                   id="nomeSensor" required>
               </div>
               <div>
                     <label class="form-label" for="id_usuario">Selecione uma rota para cadastrar trens:</label>
-                    <select class="form-select" name="id_usuario">
+                    <select class="form-select" name="idRota">
                         <option value="" selected disabled>
                             Selecione uma rota
                         </option>
@@ -68,7 +81,7 @@ $rotas = $resultado;
                 </div>
               <div class="div-inputs-label-sensors">
                 <label class=" label-form-sensors" for="">Tipo de carga</label>
-                <select class="form-select input-form-sensors-select" aria-label="Default select example"
+                <select class="form-select input-form-sensors-select" name="tipoCarga" aria-label="Default select example"
                   id="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
                   <option value="Velocidade">Passageiros</option>
@@ -79,7 +92,7 @@ $rotas = $resultado;
               </div>
               <div class="div-inputs-label-sensors">
                 <label class=" label-form-sensors" for="">Modelo do trem</label>
-                <select class="form-select input-form-sensors-select" aria-label="Default select example"
+                <select class="form-select input-form-sensors-select" name="modeloTrem" aria-label="Default select example"
                   id="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
                   <option value="Velocidade">MODELO 1</option>
@@ -123,15 +136,102 @@ $rotas = $resultado;
 
     <!---------Tela de nenhum trem cadastrado--------->
 
-    <div class="content" id="nenhumSensor">
-      <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
-        <i class="fa-solid fa-train fa-5x m-4 text-danger opacity-50"></i>
-        <h4 class="text-secondary">
-          Nenhum trem cadastrado ainda.
-        </h4>
-        <p class="text-secondary mb-4">Cadastre um novo trem para começar.</p>
-      </div>
+<div class="content" id="nenhumTrem">
+
+  <div class="card div-tabela-sensors">
+
+    <div class="d-flex align-items-center">
+      <img class="img-sensor-icon"
+        src="../assets/images/icone-tabela-sensor.png"
+        alt="">
+
+      <p class="text-cadastrar-novo-sensor h4">
+        TRENS CADASTRADOS
+      </p>
     </div>
+
+    <div class="table-responsive">
+
+      <table id="tabelaTrens"
+        class="table table-bordered align-middle rounded overflow-hidden border-dark">
+
+        <thead>
+          <tr class="table-dark">
+            <th class="ths">ID Trem</th>
+            <th class="ths">Nome</th>
+            <th class="ths">Tipo de Carga</th>
+            <th class="ths">Modelo</th>
+            <th class="ths">Rota</th>
+            <th class="ths"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <?php while ($trem = mysqli_fetch_assoc($trens)) { ?>
+
+            <tr>
+
+              <td><?php echo $trem["idTrem"]; ?></td>
+
+              <td><?php echo $trem["nomeTrem"]; ?></td>
+
+              <td><?php echo $trem["tipoCarga"]; ?></td>
+
+              <td><?php echo $trem["modeloTrem"]; ?></td>
+
+              <td>
+                <?php echo $trem["nomeRota"] ?? "Sem rota"; ?>
+              </td>
+
+              <td class="img-tabela" style="width: 170px;">
+
+                <form action="services/ProcessosTrem/excluirTrem.php"
+                  method="POST"
+                  onsubmit="return confirm('Deseja excluir este trem?')"
+                  style="display: inline;">
+
+                  <input type="hidden"
+                    name="idTrem"
+                    value="<?php echo $trem["idTrem"]; ?>">
+
+                  <button class="botao-imagem" type="submit">
+                    <img src="../assets/images/Lixo.png"
+                      class="icone-lixo">
+                  </button>
+
+                </form>
+
+                <form action="services/ProcessosTrem/editarTrem.php"
+                  method="POST"
+                  style="display: inline;">
+
+                  <input type="hidden"
+                    name="idTrem"
+                    value="<?php echo $trem["idTrem"]; ?>">
+
+                  <button class="botao-imagem" type="submit">
+                    <img src="../assets/images/Olho.png"
+                      class="icone-olho">
+                  </button>
+
+                </form>
+
+              </td>
+
+            </tr>
+
+          <?php } ?>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
 
     <!-------------------------------------------------->
 

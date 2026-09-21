@@ -3,9 +3,10 @@
   include "../../../infra/database/conn.php";
 
   $nomeTrem = $_POST["nomeTrem"];
+  $rotaTrem = $_POST["idRota"];
   $tipoCarga = $_POST["tipoCarga"];
   $modeloTrem = $_POST["modeloTrem"];
-  $rotaTrem = $_POST["idRota"];
+ 
 
   if ($nomeTrem == null || $tipoCarga == null || $modeloTrem == null || $rotaTrem == null){
     echo "<script>
@@ -15,10 +16,10 @@
     die();
   }
 
-  $sql = "INSERT INTO trens (nomeTrem,tipoCarga,modeloTrem,idRota) VALUES (?,?,?,?)";
+  $sql = "INSERT INTO trens (nomeTrem,idRota,tipoCarga,modeloTrem) VALUES (?,?,?,?)";
 
   $stmt = $conn -> prepare($sql);
-  $stmt->bind_param("sss", $nomeTrem, $tipoCarga, $modeloTrem, $rotaTrem);
+  $stmt->bind_param("siss", $nomeTrem, $rotaTrem, $tipoCarga, $modeloTrem);
   $stmt->execute();
 
   header("location: ../../trens.php");
