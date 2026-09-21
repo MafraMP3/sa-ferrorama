@@ -6,7 +6,7 @@
   $tipoCarga = $_POST["tipoCarga"];
   $modeloTrem = $_POST["modeloTrem"];
   $rotaTrem = $_POST["idRota"];
-  
+
   if ($nomeTrem == null || $tipoCarga == null || $modeloTrem == null || $rotaTrem == null){
     echo "<script>
           alert('Erro no cadastro de trens, não é permitido campos vazios');
@@ -18,7 +18,7 @@
   $sql = "INSERT INTO trens (nomeTrem,tipoCarga,modeloTrem,idRota) VALUES (?,?,?,?)";
 
   $stmt = $conn -> prepare($sql);
-  $stmt->bind_param("sss", $nomeTrem, $tipoCarga, $modeloTrem);
+  $stmt->bind_param("sss", $nomeTrem, $tipoCarga, $modeloTrem, $rotaTrem);
   $stmt->execute();
 
   header("location: ../../trens.php");
