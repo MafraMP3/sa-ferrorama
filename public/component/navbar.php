@@ -32,6 +32,10 @@
             <i class="fa-solid fa-users" style="color: rgb(255, 255, 255);"></i></i> Usuários
         </a>
 
+        <a href="suporte.php" class="sidebar-link" id="linkSuporte">
+            <i class="fa-solid fa-headset" style="color: rgb(255, 255, 255);"></i></i> Suporte
+        </a>
+
 
 
         <a href="logout.php" class="logout" id="linkSair">SAIR</a>

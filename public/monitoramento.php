@@ -39,9 +39,8 @@
             <section id="section-navbar-monitor" class="rounded-top d-flex justify-content-between align-items-center px-4 py-3">
                 <div>
                   
-                    <p class="text-monitor-sensor mb-0">Sensor 2</p>
-                    <p class=" small mb-0 ms-3" style="color: rgba(255, 255, 255, 0.767) !important;">Acompanhe os dados
-                        e o histórico em tempo real.</p>
+                    <p class="text-monitor-sensor mb-0">Sobre o projeto</p>
+                    <p class=" small mb-0 ms-3" style="color: rgba(255, 255, 255, 0.767) !important;">Informações sobre o projeto e seu desenvolvimento.</p>
                 </div>
                 <div class="d-flex align-items-center gap-3">
                     <span class="text-muted small" style="color: rgba(255,255,255,0.5) !important;">
