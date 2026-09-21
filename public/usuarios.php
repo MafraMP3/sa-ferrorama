@@ -172,14 +172,22 @@ $usuarios = $resultado;
 
                     <td class="img-tabela" style="width: 170px;">
 
-                      <form action="services/ProcessosUsuario/excluirUsuario.php"
+                      <form action="services/excluir.php"
                         method="POST"
                         onsubmit="return confirm('Deseja excluir este usuário?')"
                         style="display: inline;">
 
                         <input type="hidden"
-                          name="idUsuario"
+                          name="idExcluir"
                           value="<?php echo $usuario["idUsuario"]; ?>">
+
+                        <input type="hidden"
+                          name="tabela"
+                          value="usuarios">
+
+                        <input type="hidden"
+                          name="campoId"
+                          value="idUsuario">
 
                         <button class="botao-imagem" type="submit">
                           <img src="../assets/images/Lixo.png"
