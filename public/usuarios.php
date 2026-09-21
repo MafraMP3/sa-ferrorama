@@ -1,6 +1,15 @@
-<?php 
-    Session_start(); 
-    if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit; }
+<?php
+session_start();
+if (!isset($_SESSION['usuario_nome'])) {
+  header("Location: ../index.php");
+  exit;
+}
+
+include("../infra/database/conn.php");
+
+$sql = "SELECT * FROM usuarios";
+$resultado = $conn->query($sql);
+$usuarios = $resultado;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,9 +31,9 @@
 
     <!------------------------------------Sidebar---------------------------------------//-->
 
-  <?php
-      include "component/navbar.php";
-  ?>
+    <?php
+    include "component/navbar.php";
+    ?>
 
     <!------------------------------------------------------------------------------------//-->
 
@@ -41,7 +50,7 @@
 
 
 
-      
+
         <div id="div-forms-sensors">
           <form method="POST" action="services/ProcessosUsuario/cadastrarUsuario.php" id="formUsuarios">
             <div id="div-form-cadastrarsensor" class="d-flex">
@@ -97,7 +106,7 @@
         </div>
         <div class="mt-4">
 
-         
+
 
           <p class="h4" id="text-delete-sensor"> Deseja Excluir o usuário?</p>
           <div class="d-flex  align-items-center justify-content-center">
@@ -116,11 +125,75 @@
 
     <div class="content" id="nenhumUsuario">
       <div class="card div-top-sensors d-flex  align-items-center justify-content-center ">
-        <i class="fa-solid fa-users-slash fa-5x m-4 text-danger opacity-50"></i>
-        <h4 class="text-secondary">
-          Nenhum usuário cadastrado ainda.
-        </h4>
-        <p class="text-secondary mb-4">Cadastre um novo usuário para começar.</p>
+<table id="tabelaUsuarios" class="table table-bordered align-middle rounded overflow-hidden border-dark">
+
+  <thead>
+    <tr class="table-dark">
+      <th class="ths">Nome</th>
+      <th class="ths">Email</th>
+      <th class="ths">Senha</th>
+      <th class="ths">CPF</th>
+      <th class="ths">Função</th>
+      <th class="ths"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <?php while ($usuario = mysqli_fetch_assoc($usuarios)) { ?>
+
+      <tr>
+        <td><?php echo $usuario["nome"]; ?></td>
+
+        <td><?php echo $usuario["email"]; ?></td>
+
+        <td><?php echo $usuario["senha"]; ?></td>
+
+        <td><?php echo $usuario["cpf"]; ?></td>
+
+        <td><?php echo $usuario["funcao"]; ?></td>
+
+        <td class="img-tabela" style="width: 170px;">
+
+          <form action="services/ProcessosUsuario/excluirUsuario.php"
+            method="POST"
+            onsubmit="return confirm('Deseja excluir este usuário?')"
+            style="display: inline;">
+
+            <input type="hidden"
+              name="idUsuario"
+              value="<?php echo $usuario["idUsuario"]; ?>">
+
+            <button class="botao-imagem" type="submit">
+              <img src="../assets/images/Lixo.png"
+                class="icone-lixo">
+            </button>
+
+          </form>
+
+          <form action="services/ProcessosUsuario/editarUsuario.php"
+            method="POST"
+            style="display: inline;">
+
+            <input type="hidden"
+              name="idUsuario"
+              value="<?php echo $usuario["idUsuario"]; ?>">
+
+            <button class="botao-imagem" type="submit">
+              <img src="../assets/images/Olho.png"
+                class="icone-olho">
+            </button>
+
+          </form>
+
+        </td>
+      </tr>
+
+    <?php } ?>
+
+  </tbody>
+
+</table>
       </div>
     </div>
 
