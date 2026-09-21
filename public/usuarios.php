@@ -1,6 +1,15 @@
-<?php 
-    Session_start(); 
-    if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit; }
+<?php
+session_start();
+if (!isset($_SESSION['usuario_nome'])) {
+  header("Location: ../index.php");
+  exit;
+}
+
+include("../infra/database/conn.php");
+
+$sql = "SELECT * FROM usuarios";
+$resultado = $conn->query($sql);
+$usuarios = $resultado;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,9 +31,9 @@
 
     <!------------------------------------Sidebar---------------------------------------//-->
 
-  <?php
-      include "component/navbar.php";
-  ?>
+    <?php
+    include "component/navbar.php";
+    ?>
 
     <!------------------------------------------------------------------------------------//-->
 
@@ -41,42 +50,37 @@
 
 
 
-      
+
         <div id="div-forms-sensors">
-          <form action="" id="formUsuarios">
+          <form method="POST" action="services/ProcessosUsuario/cadastrarUsuario.php" id="formUsuarios">
             <div id="div-form-cadastrarsensor" class="d-flex">
               <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">NOME COMPLETO</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="EX: Carlos" id="nomeUsuario"
+                <input class="form-control input-form-sensors" name="nome" type="text" placeholder="EX: Carlos" id="nomeUsuario"
                   required>
               </div>
               <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">EMAIL</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="EX: Carlos@gmail.com"
+                <input class="form-control input-form-sensors" name="email" type="text" placeholder="EX: Carlos@gmail.com"
                   id="emailUsuario" required>
               </div>
               <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">CPF</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="EX: 123.456.789-00"
+                <input class="form-control input-form-sensors" name="cpf" type="text" placeholder="EX: 123.456.789-00"
                   id="cpfUsuario" required>
               </div>
               <div class="div-inputs-label-sensors">
-                <label class="d-block label-form-sensors" for="">FUNÇÃO / CARGO</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="EX: Marceneiro"
-                  id="cargoUsuario" required>
-              </div>
-              <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">SENHA</label>
-                <input class="form-control input-form-sensors" type="password" placeholder="EX: 1234" id="senhaUsuario"
+                <input class="form-control input-form-sensors" name="senha" type="password" placeholder="EX: 1234" id="senhaUsuario"
                   required>
               </div>
               <div class="div-inputs-label-sensors">
-                <label class=" label-form-sensors" for="">ADMINISTRADOR?</label>
-                <select class="form-select input-form-sensors-select" aria-label="Default select example"
+                <label class=" label-form-sensors" for="">FUNÇÃO / CARGO</label>
+                <select class="form-select input-form-sensors-select" name="funcao" aria-label="Default select example"
                   id="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
-                  <option value="Velocidade">SIM</option>
-                  <option value="Temperatura">NÃO</option>
+                  <option value="Velocidade">Administrador</option>
+                  <option value="Temperatura">Maquinista</option>
                 </select>
               </div>
               <div id="div-button-sensors">
@@ -102,7 +106,7 @@
         </div>
         <div class="mt-4">
 
-         
+
 
           <p class="h4" id="text-delete-sensor"> Deseja Excluir o usuário?</p>
           <div class="d-flex  align-items-center justify-content-center">
@@ -120,13 +124,99 @@
     <!---------Tela de nenhum usuario cadastrado--------->
 
     <div class="content" id="nenhumUsuario">
-      <div class="card div-top-sensors d-flex  align-items-center justify-content-center ">
-        <i class="fa-solid fa-users-slash fa-5x m-4 text-danger opacity-50"></i>
-        <h4 class="text-secondary">
-          Nenhum usuário cadastrado ainda.
-        </h4>
-        <p class="text-secondary mb-4">Cadastre um novo usuário para começar.</p>
-      </div>
+
+
+        <div class="card div-tabela-sensors">
+
+          <div class="d-flex align-items-center">
+            <img class="img-sensor-icon"
+              src="../assets/images/icone-tabela-sensor.png"
+              alt="">
+
+            <p class="text-cadastrar-novo-sensor h4">
+              USUÁRIOS CADASTRADOS
+            </p>
+          </div>
+
+          <div class="table-responsive">
+
+            <table id="tabelaUsuarios"
+              class="table table-bordered align-middle rounded overflow-hidden border-dark">
+
+              <thead>
+                <tr class="table-dark">
+                  <th class="ths">Nome</th>
+                  <th class="ths">Email</th>
+                  <th class="ths">Senha</th>
+                  <th class="ths">CPF</th>
+                  <th class="ths">Função</th>
+                  <th class="ths"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                <?php while ($usuario = mysqli_fetch_assoc($usuarios)) { ?>
+
+                  <tr>
+
+                    <td><?php echo $usuario["nome"]; ?></td>
+
+                    <td><?php echo $usuario["email"]; ?></td>
+
+                     <td><?php echo $usuario["senha"]; ?></td>
+
+                    <td><?php echo $usuario["cpf"]; ?></td>
+
+                    <td><?php echo $usuario["funcao"]; ?></td>
+
+                    <td class="img-tabela" style="width: 170px;">
+
+                      <form action="services/ProcessosUsuario/excluirUsuario.php"
+                        method="POST"
+                        onsubmit="return confirm('Deseja excluir este usuário?')"
+                        style="display: inline;">
+
+                        <input type="hidden"
+                          name="idUsuario"
+                          value="<?php echo $usuario["idUsuario"]; ?>">
+
+                        <button class="botao-imagem" type="submit">
+                          <img src="../assets/images/Lixo.png"
+                            class="icone-lixo">
+                        </button>
+
+                      </form>
+
+                      <form action="services/ProcessosUsuario/editarUsuario.php"
+                        method="POST"
+                        style="display: inline;">
+
+                        <input type="hidden"
+                          name="idUsuario"
+                          value="<?php echo $usuario["idUsuario"]; ?>">
+
+                        <button class="botao-imagem" type="submit">
+                          <img src="../assets/images/Olho.png"
+                            class="icone-olho">
+                        </button>
+
+                      </form>
+
+                    </td>
+
+                  </tr>
+
+                <?php } ?>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+  
     </div>
 
     <!---------------------------------------------------->
