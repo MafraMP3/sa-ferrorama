@@ -38,14 +38,9 @@
           <p class="text-cadastrar-novo-sensor h4">CADASTRAR NOVO SENSOR</p>
         </div>
 
-        <!-- ⚠️ ERRO GRAVE: este form só existe em memória (JS puro, ver script.js).
-             Ao dar F5 tudo desaparece. Precisa de <form method="POST" action="cadastrar_sensor.php">
-             com um PHP que faça INSERT INTO sensores (...) com prepare/bind_param.
-             Falta também: campo para escolher o TREM (select com trens do banco),
-             já que sensor deve estar vinculado a um trem específico (item 4 do enunciado). -->
 
         <div id="div-forms-sensors">
-          <form action="" id="formSensor">
+          <form action="services/ProcessosSensor/cadastrarSensor.php" id="formSensor" method="POST">
             <div id="div-form-cadastrarsensor" class="d-flex">
               <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">NOME DO SENSOR</label>
@@ -89,10 +84,7 @@
         </div>
         <div class="mt-4">
           <p class="h4" id="text-delete-sensor"> Deseja Excluir o sensor?</p>
-           <!-- ⚠️ FALTA (item 6, regra de negócio): antes de excluir, verificar
-               SELECT COUNT(*) FROM dados WHERE idSensor = ?. Se > 0, bloquear
-               e mostrar "Não é possível excluir sensores com dados registrados".
-               Hoje o botão "Sim" só remove a linha da tabela HTML, não apaga do banco. -->
+        
           <div class="d-flex  align-items-center justify-content-center">
             <button class="btn btn-lg"
               onclick="document.getElementById('delete-sensor-part').style.display = 'none'">Não</button>

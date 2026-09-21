@@ -75,12 +75,12 @@ $usuarios = $resultado;
                   required>
               </div>
               <div class="div-inputs-label-sensors">
-                <label class=" label-form-sensors" for="">FUNÇÃO / CARGO</label>
+                <label class=" label-form-sensors" for="">CARGO</label>
                 <select class="form-select input-form-sensors-select" name="funcao" aria-label="Default select example"
                   id="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
-                  <option value="Velocidade">Administrador</option>
-                  <option value="Temperatura">Maquinista</option>
+                  <option value="Administrador">Administrador</option>
+                  <option value="Funcionário">Funcionário</option>
                 </select>
               </div>
               <div id="div-button-sensors">
