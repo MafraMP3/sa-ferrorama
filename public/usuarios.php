@@ -122,6 +122,17 @@ $usuarios = $resultado;
 
 
     <!---------Tela de nenhum usuario cadastrado--------->
+<?php if (mysqli_num_rows($usuarios) == 0) { ?>
+    <div class="content" id="nenhumSensor">
+      <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
+        <i class="fa-solid fa-left-right fa-5x m-4 text-danger opacity-50"></i>
+        <h4 class="text-secondary">
+          Nenhuma rota cadastrada ainda.
+        </h4>
+        <p class="text-secondary mb-4">Cadastre uma nova rota para começar.</p>
+      </div>
+    </div>
+    <?php } else{ ?>
 
     <div class="content" id="nenhumUsuario">
 
@@ -218,7 +229,7 @@ $usuarios = $resultado;
         </div>
   
     </div>
-
+<?php } ?>
     <!---------------------------------------------------->
 
 
