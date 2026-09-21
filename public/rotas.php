@@ -39,21 +39,21 @@
 
 
         <div id="div-forms-sensors">
-          <form action="" id="formSensor">
+          <form action="services/ProcessosRotas/cadastrarRota.php" method="POST" id="formSensor">
             <div id="div-form-cadastrarsensor" class="d-flex">
               <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">NOME DA ROTA</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="EX: caminho das águas"
-                  id="nomeSensor" required>
+                <input class="form-control input-form-sensors" name="nomeRota" type="text" placeholder="EX: caminho das águas"
+                  id="nomeRota" required>
               </div>
               <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">ORIGEM</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="EX: Estação 1" id="localSensor"
+                <input class="form-control input-form-sensors" name="origemRota" type="text" placeholder="EX: Estação 1" id="origemRota"
                   required>
               </div>
               <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">DESTINO</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="EX: Estação 2" id="localSensor"
+                <input class="form-control input-form-sensors" name="destinoRota" type="text" placeholder="EX: Estação 2" id="destinoRota"
                   required>
               </div>
               <div id="div-button-sensors">
