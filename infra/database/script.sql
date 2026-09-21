@@ -1,7 +1,19 @@
-
-
 CREATE DATABASE IF NOT EXISTS sa_ferrorama ;
 USE sa_ferrorama;
+
+CREATE TABLE IF NOT EXISTS rotas(
+    idRota INT AUTO_INCREMENT PRIMARY KEY,
+    origem VARCHAR(20) NOT NULL,
+    destino VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS trens(
+    idTrem INT AUTO_INCREMENT PRIMARY KEY,
+    tipoCarga VARCHAR(20) NOT NULL,
+    modeloTrem VARCHAR(8) NOT NULL,
+    idRota INT,
+    FOREIGN KEY (idRota) REFERENCES rotas(idRota)
+);
 
 CREATE TABLE IF NOT EXISTS usuarios (
     idUsuario INT AUTO_INCREMENT PRIMARY KEY,
@@ -17,8 +29,10 @@ CREATE TABLE IF NOT EXISTS sensores (
     nome VARCHAR(50) NOT NULL,
     localizacao VARCHAR(255) NOT NULL,
     tipo VARCHAR(20) NOT NULL
-    dataInstalacao DATE NOT NULL,
+    dataInstalacao DATETIME NOT NULL,
     ativo BOOLEAN NOT NULL,
+    idTrem INT NOT NULL,
+    FOREIGN KEY (idTrem) REFERENCES trens(idTrem)
 );
 
 CREATE TABLE IF NOT EXISTS dados(
@@ -30,21 +44,6 @@ CREATE TABLE IF NOT EXISTS dados(
     FOREIGN KEY (idSensor) REFERENCES sensores(idSensor)
 );
 
-
-
-CREATE TABLE IF NOT EXISTS rotas(
-    idRota INT AUTO_INCREMENT PRIMARY KEY,
-    origem VARCHAR(20) NOT NULL,
-    destino VARCHAR(20) NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS trens(
-    idTrem INT AUTO_INCREMENT PRIMARY KEY,
-    tipoCarga VARCHAR(20) NOT NULL,
-    modeloTrem VARCHAR(8) NOT NULL,
-    idRota INT,
-    FOREIGN KEY (idRota) REFERENCES rotas(idRota)
-);
 
 INSERT INTO usuarios (nome,email,senha,funcao) VALUES ("Admin","admin@gmail.com","123","Administrador");
 
