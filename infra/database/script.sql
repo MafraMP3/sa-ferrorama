@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS sa_ferrorama_ds2 ;
+CREATE DATABASE IF NOT EXISTS sa_ferrorama_ds2;
 USE sa_ferrorama_ds2;
 
 CREATE TABLE IF NOT EXISTS rotas(
