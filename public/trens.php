@@ -1,6 +1,15 @@
-<?php 
-    Session_start(); 
-    if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit; }
+<?php
+Session_start();
+if (!isset($_SESSION['usuario_nome'])) {
+  header("Location: ../index.php");
+  exit;
+}
+
+include("../infra/database/conn.php");
+
+$sql = "SELECT * FROM rotas";
+$resultado = $conn->query($sql);
+$rotas = $resultado;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,9 +29,9 @@
   <main>
 
 
-  <?php
-      include "component/navbar.php";
-  ?>
+    <?php
+    include "component/navbar.php";
+    ?>
 
 
     <div class="content">
@@ -44,19 +53,19 @@
                 <input class="form-control input-form-sensors" type="text" placeholder="EX: Trem 2"
                   id="nomeSensor" required>
               </div>
-              <div class="div-inputs-label-sensors">
-                <label class=" label-form-sensors" for="">Rota do trem</label>
-                <select class="form-select input-form-sensors-select" aria-label="Default select example"
-                  id="tipoSensor">
-
-
-
-                  <option selected disabled value="">Selecione o tipo</option>
-                  <option value="Velocidade">ROTA 1</option>
-                  <option value="Temperatura">ROTA 2</option>
-                  <option value="Energia">ROTA 3</option>
-                </select>
-              </div>
+              <div>
+                    <label class="form-label" for="id_usuario">Selecione uma rota para cadastrar trens:</label>
+                    <select class="form-select" name="id_usuario">
+                        <option value="" selected disabled>
+                            Selecione uma rota
+                        </option>
+                        <?php while ($rota = mysqli_fetch_assoc($rotas)) { ?>
+                            <option value="<?php echo $rota["idRota"]; ?>">
+                                <?php echo $rota["nomeRota"] ?>
+                            </option>
+                        <?php } ?>
+                    </select>
+                </div>
               <div class="div-inputs-label-sensors">
                 <label class=" label-form-sensors" for="">Tipo de carga</label>
                 <select class="form-select input-form-sensors-select" aria-label="Default select example"
@@ -89,9 +98,9 @@
 
     </div>
 
-<!----------------------------------------------------------------------------------------------//-->
+    <!----------------------------------------------------------------------------------------------//-->
 
-<!---------Tela de deletar Sensor--------->
+    <!---------Tela de deletar Sensor--------->
 
     <div class="container content card" id="delete-sensor-part">
       <div class="d-flex">
@@ -110,9 +119,9 @@
       </div>
     </div>
 
-<!---------------------------------------->
+    <!---------------------------------------->
 
-<!---------Tela de nenhum trem cadastrado--------->
+    <!---------Tela de nenhum trem cadastrado--------->
 
     <div class="content" id="nenhumSensor">
       <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
@@ -124,7 +133,7 @@
       </div>
     </div>
 
-<!-------------------------------------------------->
+    <!-------------------------------------------------->
 
   </main>
 
