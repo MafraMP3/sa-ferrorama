@@ -3,7 +3,7 @@
 $host = "localhost";
 $password = "";
 $user = "root";
-$database = "sa_ferrorama";
+$database = "sa_ferrorama_ds2";
 
 $conn = new mysqli($host,$user,$password,$database, 6608);
 
