@@ -1,6 +1,6 @@
 <?php 
   
-  include "../../infra/database/conn.php"
+  include "../../../infra/database/conn.php";
 
   $nomeRota = $_POST["nomeRota"];
   $origemRota = $_POST["origemRota"];
@@ -17,7 +17,7 @@
   $sql = "INSERT INTO rotas (nomeRota,origem,destino) VALUES (?,?,?)";
 
   $stmt = $conn -> prepare($sql);
-  $stmt = bind_param("sss", $nomeRota, $origemRota, $destinoRota);
+  $stmt->bind_param("sss", $nomeRota, $origemRota, $destinoRota);
   $stmt->execute();
 
   header("location: ../../rotas.php");
