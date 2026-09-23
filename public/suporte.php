@@ -195,7 +195,7 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
 
         <div class="col">
             <div class="card text-center h-100">
-                <img src="../assets/images/fix.jpeg" class="card-img-top" style="height: 300px; object-fit: cover;">
+                <img src="../assets/images/fix.png" class="card-img-top" style=" object-fit: cover;">
                 <div class="card-body">
                     <h6 class="card-title mb-1">Kauan Fix</h6>
                     <p class="card-text small text-muted">Desenvolvedor</p>

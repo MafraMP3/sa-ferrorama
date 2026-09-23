@@ -108,7 +108,7 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
         <p class="text-secondary mb-4">Cadastre uma nova rota para começar.</p>
       </div>
     </div>
-    <?php } else{ ?>
+    <?php } else { ?>
     <!-------------------------------------------------->
 
     <div class="content" id="todaTabela">
@@ -126,7 +126,9 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
                 <th class="ths">Nome Rota</th>
                 <th class="ths">Origem</th>
                 <th class="ths">Destino</th>
+                <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
                 <th></th>
+                <?php } ?>
               </tr>
             </thead>
             <tbody>
@@ -136,12 +138,14 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
                 <td><?php echo $rota["origem"] ?> </td>
                 <td><?php echo $rota["destino"] ?> </td>
 
+                <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?> 
                 <td class="img-tabela" style="width: 170px;">
                   <button class="botao-imagem" onclick="telaApagar(this)"><img src="../assets/images/Lixo.png"
                       class="icone-lixo"></button>
                   <button class="botao-imagem" onclick="window.location.href='monitoramento.php'"><img
                       src="../assets/images/Olho.png" class="icone-olho"></button>
                 </td>
+                <?php } ?>
               </tr>
               <?php } ?>
           </table>

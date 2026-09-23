@@ -22,6 +22,7 @@ if (isset($_POST["login"])) {
         $usuario = $resultado->fetch_assoc();
 
         $_SESSION['usuario_nome'] = $usuario['nome'];
+        $_SESSION['usuario_funcao'] = $usuario['funcao'];
         
         header("Location: public/home.php");
         exit;
