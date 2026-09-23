@@ -84,10 +84,10 @@ $trens = $resultado;
                 <select class="form-select input-form-sensors-select" name="tipoCarga" aria-label="Default select example"
                   id="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
-                  <option value="Velocidade">Passageiros</option>
-                  <option value="Temperatura">Carvão</option>
-                  <option value="Energia">Granola</option>
-                  <option value="Energia">Líquido</option>
+                  <option value="Passageiros">Passageiros</option>
+                  <option value="Carvão">Carvão</option>
+                  <option value="Granola">Granola</option>
+                  <option value="Líquido">Líquido</option>
                 </select>
               </div>
               <div class="div-inputs-label-sensors">
@@ -95,9 +95,9 @@ $trens = $resultado;
                 <select class="form-select input-form-sensors-select" name="modeloTrem" aria-label="Default select example"
                   id="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
-                  <option value="Velocidade">MODELO 1</option>
-                  <option value="Temperatura">MODELO 2</option>
-                  <option value="Energia">MODELO 3</option>
+                  <option value="MODELO 1">MODELO 1</option>
+                  <option value="MODELO 2">MODELO 2</option>
+                  <option value="MODELO 3">MODELO 3</option>
                 </select>
               </div>
               <div id="div-button-sensors">

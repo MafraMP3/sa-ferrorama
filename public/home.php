@@ -23,9 +23,8 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
 
 
 <?php
+
     include "component/navbar.php";
-
-
 
 $hora = date("H");
 
