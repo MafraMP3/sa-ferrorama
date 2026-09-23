@@ -45,7 +45,7 @@ $usuarios = $resultado;
 
         <div class="d-flex align-items-center">
           <i class="fa-solid fa-circle-plus fa-2x" style="color: rgb(255, 49, 49);"></i>
-          <p class="text-cadastrar-novo-sensor h4">ADICIONAR NOVO USUÁRIO</p>
+          <p class="text-cadastrar-novo-sensor h4">CADASTRAR NOVO USUÁRIO</p>
         </div>
 
 
