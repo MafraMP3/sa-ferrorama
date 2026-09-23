@@ -165,9 +165,9 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
 
         <div class="col">
             <div class="card text-center h-100">
-                <img src="../assets/images/lucas.webp" class="card-img-top"  object-fit: cover;">
+                <img src="../assets/images/lucas.png" class="card-img-top"  object-fit: cover;">
                 <div class="card-body">
-                    <h6 class="card-title mb-1">Lucas Schattengeberg 2</h6>
+                    <h6 class="card-title mb-1">Lucas Schattengeberg</h6>
                     <p class="card-text small text-muted">Desenvolvedor</p>
                 </div>
             </div>

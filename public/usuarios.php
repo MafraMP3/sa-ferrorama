@@ -122,8 +122,20 @@ $usuarios = $resultado;
 
 
     <!---------Tela de nenhum usuario cadastrado--------->
+    <?php if (mysqli_num_rows($usuarios) == 0) { ?>
+      <div class="content" id="nenhumSensor">
+        <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
+          <i class="fa-solid fa-users-slash fa-5x m-4 text-danger opacity-50"></i>
+          <h4 class="text-secondary">
+            Nenhum usuário cadastrado ainda.
+          </h4>
+          <p class="text-secondary mb-4">Cadastre um novo usuário para começar.</p>
+        </div>
+      </div>
+    <?php } else { ?>
+      <!-------------------------------------------------->
 
-    <div class="content" id="nenhumUsuario">
+      <div class="content" id="nenhumUsuario">
 
 
         <div class="card div-tabela-sensors">
@@ -139,10 +151,7 @@ $usuarios = $resultado;
           </div>
 
           <div class="table-responsive">
-
-            <table id="tabelaUsuarios"
-              class="table table-bordered align-middle rounded overflow-hidden border-dark">
-
+            <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
               <thead>
                 <tr class="table-dark">
                   <th class="ths">Nome</th>
@@ -164,7 +173,7 @@ $usuarios = $resultado;
 
                     <td><?php echo $usuario["email"]; ?></td>
 
-                     <td><?php echo $usuario["senha"]; ?></td>
+                    <td><?php echo $usuario["senha"]; ?></td>
 
                     <td><?php echo $usuario["cpf"]; ?></td>
 
@@ -224,9 +233,9 @@ $usuarios = $resultado;
           </div>
 
         </div>
-  
-    </div>
 
+      </div>
+    <?php } ?>
     <!---------------------------------------------------->
 
 
