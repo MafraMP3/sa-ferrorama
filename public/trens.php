@@ -147,9 +147,9 @@ $trens = $resultado;
         </div>
       </div>
     <?php } else { ?>
+      <!-------------------------------------------------->
 
-      <div class="content" id="nenhumTrem">
-
+      <div class="content" id="todaTabela">
         <div class="card div-tabela-sensors">
 
           <div class="d-flex align-items-center">
@@ -163,10 +163,7 @@ $trens = $resultado;
           </div>
 
           <div class="table-responsive">
-
-            <table id="tabelaTrens"
-              class="table table-bordered align-middle rounded overflow-hidden border-dark">
-
+            <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
               <thead>
                 <tr class="table-dark">
                   <th class="ths">ID Trem</th>

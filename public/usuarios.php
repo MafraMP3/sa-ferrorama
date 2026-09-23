@@ -133,6 +133,7 @@ $usuarios = $resultado;
         </div>
       </div>
     <?php } else { ?>
+      <!-------------------------------------------------->
 
       <div class="content" id="nenhumUsuario">
 
@@ -150,10 +151,7 @@ $usuarios = $resultado;
           </div>
 
           <div class="table-responsive">
-
-            <table id="tabelaUsuarios"
-              class="table table-bordered align-middle rounded overflow-hidden border-dark">
-
+            <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
               <thead>
                 <tr class="table-dark">
                   <th class="ths">Nome</th>

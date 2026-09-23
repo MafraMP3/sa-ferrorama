@@ -12,6 +12,10 @@
             <i class="fa-solid fa-house" style="color: #fff;"></i> Dashboard
         </a>
 
+        <a href="monitoramento.php" class="sidebar-link" id="linkMonitoramento">
+            <i class="fa-solid fa-chart-line" style="color: #fff;"></i> Monitoramento
+        </a>
+
         <a href="sensores.php" class="sidebar-link" id="linkSensores">
             <i class="fa-solid fa-satellite-dish" style="color: #fff;"></i> Sensores
         </a>
@@ -24,15 +28,11 @@
             <i class="fa-solid fa-left-right" style="color: rgb(255, 255, 255);"></i></i> Rotas
         </a>
 
-        <a href="monitoramento.php" class="sidebar-link" id="linkMonitoramento">
-            <i class="fa-solid fa-chart-line" style="color: #fff;"></i> Monitoramento
-        </a>
-
         <a href="usuarios.php" class="sidebar-link" id="linkUsuarios">
             <i class="fa-solid fa-users" style="color: rgb(255, 255, 255);"></i></i> Usuários
         </a>
 
-        <a href="suporte.php" class="sidebar-link" id="linkSuporte">
+        <a href="suporte.php" class="sidebar-link mt-5" id="linkSuporte">
             <i class="fa-solid fa-headset" style="color: rgb(255, 255, 255);"></i></i> Suporte
         </a>
 

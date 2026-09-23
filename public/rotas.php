@@ -99,55 +99,55 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
     <!---------Tela de nenhuma rota cadastrada--------->
 
     <?php if (mysqli_num_rows($rotas) == 0) { ?>
-    <div class="content" id="nenhumSensor">
-      <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
-        <i class="fa-solid fa-left-right fa-5x m-4 text-danger opacity-50"></i>
-        <h4 class="text-secondary">
-          Nenhuma rota cadastrada ainda.
-        </h4>
-        <p class="text-secondary mb-4">Cadastre uma nova rota para começar.</p>
-      </div>
-    </div>
-    <?php } else{ ?>
-    <!-------------------------------------------------->
-
-    <div class="content" id="todaTabela">
-      <div class="card div-tabela-sensors ">
-
-        <div class="d-flex align-items-center">
-          <img class="img-sensor-icon" src="../assets/images/icone-tabela-sensor.png" alt="">
-          <p class="text-cadastrar-novo-sensor h4">ROTAS CADASTRADAS</p>
-        </div>
-
-        <div class="table-responsive">
-          <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
-            <thead>
-              <tr class="table-dark ">
-                <th class="ths">Nome Rota</th>
-                <th class="ths">Origem</th>
-                <th class="ths">Destino</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php while($rota = mysqli_fetch_assoc($rotas)) { ?>
-              <tr>
-                <td><?php echo $rota["nomeRota"] ?> </td>
-                <td><?php echo $rota["origem"] ?> </td>
-                <td><?php echo $rota["destino"] ?> </td>
-
-                <td class="img-tabela" style="width: 170px;">
-                  <button class="botao-imagem" onclick="telaApagar(this)"><img src="../assets/images/Lixo.png"
-                      class="icone-lixo"></button>
-                  <button class="botao-imagem" onclick="window.location.href='monitoramento.php'"><img
-                      src="../assets/images/Olho.png" class="icone-olho"></button>
-                </td>
-              </tr>
-              <?php } ?>
-          </table>
+      <div class="content" id="nenhumSensor">
+        <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
+          <i class="fa-solid fa-left-right fa-5x m-4 text-danger opacity-50"></i>
+          <h4 class="text-secondary">
+            Nenhuma rota cadastrada ainda.
+          </h4>
+          <p class="text-secondary mb-4">Cadastre uma nova rota para começar.</p>
         </div>
       </div>
-    <?php } ?>
+    <?php } else { ?>
+      <!-------------------------------------------------->
+
+      <div class="content" id="todaTabela">
+        <div class="card div-tabela-sensors ">
+
+          <div class="d-flex align-items-center">
+            <img class="img-sensor-icon" src="../assets/images/icone-tabela-sensor.png" alt="">
+            <p class="text-cadastrar-novo-sensor h4">ROTAS CADASTRADAS</p>
+          </div>
+
+          <div class="table-responsive">
+            <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
+              <thead>
+                <tr class="table-dark ">
+                  <th class="ths">Nome Rota</th>
+                  <th class="ths">Origem</th>
+                  <th class="ths">Destino</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php while ($rota = mysqli_fetch_assoc($rotas)) { ?>
+                  <tr>
+                    <td><?php echo $rota["nomeRota"] ?> </td>
+                    <td><?php echo $rota["origem"] ?> </td>
+                    <td><?php echo $rota["destino"] ?> </td>
+
+                    <td class="img-tabela" style="width: 170px;">
+                      <button class="botao-imagem" onclick="telaApagar(this)"><img src="../assets/images/Lixo.png"
+                          class="icone-lixo"></button>
+                      <button class="botao-imagem" onclick="window.location.href='monitoramento.php'"><img
+                          src="../assets/images/Olho.png" class="icone-olho"></button>
+                    </td>
+                  </tr>
+                <?php } ?>
+            </table>
+          </div>
+        </div>
+      <?php } ?>
 
   </main>
 
