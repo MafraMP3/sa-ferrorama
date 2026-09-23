@@ -24,17 +24,26 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
 
 <?php
     include "component/navbar.php";
+
+
+
+$hora = date("H");
+
+if ($hora >= 5 && $hora < 12) {
+    $saudacao = "Bom dia";
+} elseif ($hora >= 12 && $hora < 18) {
+    $saudacao = "Boa tarde";
+} else {
+    $saudacao = "Boa noite";
+}
 ?>
-
-
-
 <!---------DADOS--------->
 
 
     <div class="content ">
      
 
-        <h3 id="saudacao">Bem-vindo, <?php echo $_SESSION['usuario_nome'] ?></h3>
+        <h3 id="saudacao"><?php echo $saudacao . ", " . $_SESSION['usuario_nome'] ?></h3>
         <p>Gerencie tudo aqui</p>
 
         <div class="container-fluid">
