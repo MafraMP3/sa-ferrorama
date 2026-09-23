@@ -81,8 +81,8 @@ $trens = $resultado;
               </div>
               <div class="div-inputs-label-sensors">
                 <label class=" label-form-sensors" for="">Tipo de carga</label>
-                <select class="form-select input-form-sensors-select" name="tipoCarga" aria-label="Default select example"
-                  id="tipoSensor">
+                <select class="form-select input-form-sensors-select" name="tipoCarga"
+                  aria-label="Default select example" id="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
                   <option value="Passageiros">Passageiros</option>
                   <option value="Carvão">Carvão</option>
@@ -92,8 +92,8 @@ $trens = $resultado;
               </div>
               <div class="div-inputs-label-sensors">
                 <label class=" label-form-sensors" for="">Modelo do trem</label>
-                <select class="form-select input-form-sensors-select" name="modeloTrem" aria-label="Default select example"
-                  id="tipoSensor">
+                <select class="form-select input-form-sensors-select" name="modeloTrem"
+                  aria-label="Default select example" id="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
                   <option value="MODELO 1">MODELO 1</option>
                   <option value="MODELO 2">MODELO 2</option>
@@ -137,25 +137,23 @@ $trens = $resultado;
     <!---------Tela de nenhum trem cadastrado--------->
 
     <?php if (mysqli_num_rows($trens) == 0) { ?>
-      <div class="content" id="nenhumSensor">
-        <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
-          <i class="fa-solid fa-train fa-5x m-4 text-danger opacity-50"></i>
-          <h4 class="text-secondary">
-            Nenhum trem cadastrado ainda.
-          </h4>
-          <p class="text-secondary mb-4">Cadastre um novo trem para começar.</p>
-        </div>
+    <div class="content" id="nenhumSensor">
+      <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
+        <i class="fa-solid fa-train fa-5x m-4 text-danger opacity-50"></i>
+        <h4 class="text-secondary">
+          Nenhum trem cadastrado ainda.
+        </h4>
+        <p class="text-secondary mb-4">Cadastre um novo trem para começar.</p>
       </div>
+    </div>
     <?php } else { ?>
-      <!-------------------------------------------------->
+    <!-------------------------------------------------->
 
       <div class="content" id="todaTabela">
         <div class="card div-tabela-sensors">
 
           <div class="d-flex align-items-center">
-            <img class="img-sensor-icon"
-              src="../assets/images/icone-tabela-sensor.png"
-              alt="">
+            <img class="img-sensor-icon" src="../assets/images/icone-tabela-sensor.png" alt="">
 
             <p class="text-cadastrar-novo-sensor h4">
               TRENS CADASTRADOS
@@ -195,33 +193,27 @@ $trens = $resultado;
 
                     <td class="img-tabela" style="width: 170px;">
 
-                      <form action="services/ProcessosTrem/excluirTrem.php"
-                        method="POST"
-                        onsubmit="return confirm('Deseja excluir este trem?')"
-                        style="display: inline;">
+                      <form action="services/excluir.php" method="POST"
+                        onsubmit="return confirm('Deseja excluir este usuário?')" style="display: inline;">
 
-                        <input type="hidden"
-                          name="idTrem"
-                          value="<?php echo $trem["idTrem"]; ?>">
+                        <input type="hidden" name="idExcluir" value="<?php echo $trem["idTrem"]; ?>">
+
+                        <input type="hidden" name="tabela" value="trens">
+
+                        <input type="hidden" name="campoId" value="idTrem">
 
                         <button class="botao-imagem" type="submit">
-                          <img src="../assets/images/Lixo.png"
-                            class="icone-lixo">
+                          <img src="../assets/images/Lixo.png" class="icone-lixo">
                         </button>
 
                       </form>
 
-                      <form action="services/ProcessosTrem/editarTrem.php"
-                        method="POST"
-                        style="display: inline;">
+                      <form action="services/ProcessosUsuario/editarUsuario.php" method="POST" style="display: inline;">
 
-                        <input type="hidden"
-                          name="idTrem"
-                          value="<?php echo $trem["idTrem"]; ?>">
+                        <input type="hidden" name="idUsuario" value="<?php echo $usuario["idUsuario"]; ?>">
 
                         <button class="botao-imagem" type="submit">
-                          <img src="../assets/images/Olho.png"
-                            class="icone-olho">
+                          <img src="../assets/images/Olho.png" class="icone-olho">
                         </button>
 
                       </form>
