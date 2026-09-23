@@ -28,10 +28,11 @@
             <a href="rotas.php" class="sidebar-link" id="linkUsuarios">
                 <i class="fa-solid fa-left-right" style="color: rgb(255, 255, 255);"></i></i> Rotas
             </a>
-
+            <?php if ($_SESSION['usuario_funcao'] == 'Administrador') {  ?>
             <a href="usuarios.php" class="sidebar-link" id="linkUsuarios">
                 <i class="fa-solid fa-users" style="color: rgb(255, 255, 255);"></i></i> Usuários
             </a>
+            <?php } ?>
         </div>
 
         <div class="">
