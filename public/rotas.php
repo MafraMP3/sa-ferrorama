@@ -139,12 +139,48 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
                 <td><?php echo $rota["destino"] ?> </td>
 
                 <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?> 
-                <td class="img-tabela" style="width: 170px;">
-                  <button class="botao-imagem" onclick="telaApagar(this)"><img src="../assets/images/Lixo.png"
-                      class="icone-lixo"></button>
-                  <button class="botao-imagem" onclick="window.location.href='monitoramento.php'"><img
-                      src="../assets/images/Olho.png" class="icone-olho"></button>
-                </td>
+                    <td class="img-tabela" style="width: 170px;">
+
+                      <form action="services/excluir.php"
+                        method="POST"
+                        onsubmit="return confirm('Deseja excluir este usuário?')"
+                        style="display: inline;">
+
+                        <input type="hidden"
+                          name="idExcluir"
+                          value="<?php echo $rota["idRota"]; ?>">
+
+                        <input type="hidden"
+                          name="tabela"
+                          value="rotas">
+
+                        <input type="hidden"
+                          name="campoId"
+                          value="idRota">
+
+                        <button class="botao-imagem" type="submit">
+                          <img src="../assets/images/Lixo.png"
+                            class="icone-lixo">
+                        </button>
+
+                      </form>
+
+                      <form action="services/ProcessosUsuario/editarUsuario.php"
+                        method="POST"
+                        style="display: inline;">
+
+                        <input type="hidden"
+                          name="idUsuario"
+                          value="<?php echo $usuario["idUsuario"]; ?>">
+
+                        <button class="botao-imagem" type="submit">
+                          <img src="../assets/images/Olho.png"
+                            class="icone-olho">
+                        </button>
+
+                      </form>
+
+                    </td>
                 <?php } ?>
               </tr>
               <?php } ?>
