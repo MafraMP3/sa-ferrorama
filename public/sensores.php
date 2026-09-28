@@ -11,6 +11,8 @@ $sql = "SELECT * FROM trens";
 $resultado = $conn->query($sql);
 $trens = $resultado;
 
+$sensores = mysqli_query($conn, "SELECT * FROM sensores");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,14 +50,13 @@ $trens = $resultado;
           <p class="text-cadastrar-novo-sensor h4">CADASTRAR NOVO SENSOR</p>
         </div>
 
-
         <div id="div-forms-sensors">
           <form action="services/ProcessosSensor/cadastrarSensor.php" id="formSensor" method="POST">
             <div id="div-form-cadastrarsensor" class="d-flex">
               <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">NOME DO SENSOR</label>
                 <input class="form-control input-form-sensors" type="text" placeholder="EX: Sensor KL-I32"
-                  id="nomeSensor" required>
+                  id="nomeSensor" name="nomeSensor" required>
               </div>
 
               <div>
@@ -79,14 +80,14 @@ $trens = $resultado;
               </div>
 
               <div class="div-inputs-label-sensors">
-                <label class="d-block label-form-sensors" for="">LOCALIZAÇÃO</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="EX: Km 67" id="localSensor"
+                <label class="d-block label-form-sensors" for="localSensor">LOCALIZAÇÃO</label>
+                <input class="form-control input-form-sensors" type="text" placeholder="EX: Km 67" id="localSensor" name="localSensor"
                   required>
               </div>
               <div class="div-inputs-label-sensors">
-                <label class=" label-form-sensors" for="">TIPO DE DADO</label>
+                <label class=" label-form-sensors" for="tipoSensor">TIPO DE DADO</label>
                 <select class="form-select input-form-sensors-select" aria-label="Default select example"
-                  id="tipoSensor">
+                  id="tipoSensor" name="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
                   <option value="Velocidade">Velocidade</option>
                   <option value="Temperatura">Temperatura</option>
@@ -129,18 +130,112 @@ $trens = $resultado;
 
     <!---------Tela de nenhum sensor cadastrado--------->
 
+     <?php if (mysqli_num_rows($sensores) == 0) { ?>
     <div class="content" id="nenhumSensor">
       <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
         <i class="fa-solid fa-tower-broadcast fa-5x m-4 text-danger opacity-50"></i>
         <h4 class="text-secondary">
-          Nenhum sensor cadastrado ainda.
+          Nenhum sensor cadastrada ainda.
         </h4>
         <p class="text-secondary mb-4">Cadastre um novo sensor para começar.</p>
       </div>
     </div>
-
+    <?php } else {  ?>
     <!-------------------------------------------------->
 
+
+
+    <div class="content" id="todaTabela">
+      <div class="card div-tabela-sensors ">
+
+        <div class="d-flex align-items-center">
+          <img class="img-sensor-icon" src="../assets/images/icone-tabela-sensor.png" alt="">
+          <p class="text-cadastrar-novo-sensor h4">SENSORES CADASTRADAS</p>
+        </div>
+
+        <div class="table-responsive">
+          <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
+            <thead>
+              <tr class="table-dark ">
+                <th class="ths">Nome Sensor</th>
+                <th class="ths">Trem do Sensor</th>
+                <th class="ths">Data de Instalação</th>
+                <th class="ths">Localização</th>
+                <th class="ths">Tipo de Dado</th>
+                <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
+                <th></th>
+                <?php } ?>
+              </tr>
+            </thead>
+            <tbody>
+              <?php while($sensor = mysqli_fetch_assoc($sensores)) { ?>
+              <tr>
+                <td><?php echo $sensor["nome"] ?> </td>
+                <td><?php 
+
+                $tremSensor = $sensor["idTrem"];
+
+                  $consultaTrem = mysqli_query($conn,"SELECT nomeTrem FROM trens WHERE idTrem=$tremSensor");
+                  $nomeTrem = mysqli_fetch_assoc($consultaTrem); 
+
+                 echo $nomeTrem["nomeTrem"] ?> </td>
+                
+                <td><?php echo $sensor["dataInstalacao"] ?> </td>
+
+                <td><?php echo $sensor["localizacao"] ?> </td>
+
+                <td><?php echo $sensor["tipo"] ?> </td>
+
+                <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?> 
+                    <td class="img-tabela" style="width: 170px;">
+
+                      <form action="services/excluir.php"
+                        method="POST"
+                        onsubmit="return confirm('Deseja excluir este sensor?')"
+                        style="display: inline;">
+
+                        <input type="hidden"
+                          name="idExcluir"
+                          value="<?php echo $sensor["idSensor"]; ?>">
+
+                        <input type="hidden"
+                          name="tabela"
+                          value="sensores">
+
+                        <input type="hidden"
+                          name="campoId"
+                          value="idSensor">
+
+                        <button class="botao-imagem" type="submit">
+                          <img src="../assets/images/Lixo.png"
+                            class="icone-lixo">
+                        </button>
+
+                      </form>
+
+                      <form action="services/ProcessosUsuario/editarUsuario.php"
+                        method="POST"
+                        style="display: inline;">
+
+                        <input type="hidden"
+                          name="idUsuario"
+                          value="<?php echo $usuario["idUsuario"]; ?>">
+
+                        <button class="botao-imagem" type="submit">
+                          <img src="../assets/images/Olho.png"
+                            class="icone-olho">
+                        </button>
+
+                      </form>
+
+                    </td>
+                <?php } ?>
+              </tr>
+              <?php } ?>
+          </table>
+        </div>
+      </div>
+    <?php } ?>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

@@ -3,9 +3,9 @@
   include "../../../infra/database/conn.php";
 
   $nomeSensor = $_POST["nomeSensor"];
-  $localizacao = $_POST["localizacao"];
-  $tipo = $_POST["tipo"];
-  $dataInstalacao = date("Y-m-d");
+  $localizacao = $_POST["localSensor"];
+  $tipo = $_POST["tipoSensor"];
+  $dataInstalacao = $_POST["dataInstalacao"];
   $idTrem = $_POST["idTrem"];
 
   if ($nomeSensor == null || $localizacao == null || $tipo == null || $dataInstalacao == null || $idTrem == null){
@@ -19,7 +19,7 @@
   $sql = "INSERT INTO sensores (nome,localizacao,tipo,dataInstalacao,idTrem) VALUES (?,?,?,?,?)";
 
   $stmt = $conn -> prepare($sql);
-  $stmt->bind_param("sssdi", $nomeSensor, $localizacao, $tipo, $dataInstalacao, $ativo, $idTrem);
+  $stmt->bind_param("ssssi", $nomeSensor, $localizacao, $tipo, $dataInstalacao, $idTrem);
   $stmt->execute();
 
   header("location: ../../sensores.php");
