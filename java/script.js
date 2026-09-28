@@ -10,18 +10,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const pagina = window.location.href;
     const paginaAtual = pagina.split('/').pop();
 
-const links = document.querySelectorAll(".sidebar-link");
+    const links = document.querySelectorAll(".sidebar-link");
 
-links.forEach(function(link) {
+    links.forEach(function (link) {
 
-    const paginaLink = link.getAttribute("href");
+        const paginaLink = link.getAttribute("href");
 
-    if(paginaLink === paginaAtual){
-        link.classList.add("active");
-    } else{
-        link.classList.remove("active");
-    }
-})
+        if (paginaLink === paginaAtual) {
+            link.classList.add("active");
+        } else {
+            link.classList.remove("active");
+        }
+    })
 });
 
 //======================================================HOME.php=======================================================================================//
@@ -30,6 +30,26 @@ if (window.location.pathname.includes("public/home.php")) {
 
 }
 //======================================================SENSORES.php=======================================================================================//
+
+if (window.location.pathname.includes("public/sensores.php")) {
+    const dataAtual = new Date();
+
+    let diaAtual = String(dataAtual.getDate());
+    diaAtual = diaAtual.padStart(2, '0');
+
+    let mesAtual = String(dataAtual.getMonth() + 1);
+    mesAtual = mesAtual.padStart(2, '0');
+
+    let anoAtual = dataAtual.getFullYear();
+
+    let inputData = document.getElementById("dataInstalacao");
+
+    if (inputData) {
+        inputData.value = `${anoAtual}-${mesAtual}-${diaAtual}`;
+        console.log(`${anoAtual}-${mesAtual}-${diaAtual}`);
+    }
+
+}
 
 //======================================================USUARIOS.php=======================================================================================//
 

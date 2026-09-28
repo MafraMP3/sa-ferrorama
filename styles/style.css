@@ -72,20 +72,6 @@ body {
   border: 0px;
 }
 
-
-#img-footer-login-screen {
-  max-height: 45px;
-  position: absolute;
-  left: 50%;
-  top: 95%;
-  transform: translate(-50%, -50%);
-}
-
-.footer {
-  margin: 10px;
-}
-
-
 #mensagem {
   margin: 0;
   padding: 0;
