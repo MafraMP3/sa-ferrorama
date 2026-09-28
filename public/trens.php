@@ -85,9 +85,11 @@ $trens = $resultado;
                   aria-label="Default select example" id="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
                   <option value="Passageiros">Passageiros</option>
+                  <option value="Grãos">Grãos</option>
+                  <option value="Minério">Minério</option>
                   <option value="Carvão">Carvão</option>
-                  <option value="Granola">Granola</option>
-                  <option value="Líquido">Líquido</option>
+                  <option value="Combustível">Combustível</option>
+                  <option value="Produtos Químicos">Produtos Químicos</option>
                 </select>
               </div>
               <div class="div-inputs-label-sensors">
@@ -95,9 +97,10 @@ $trens = $resultado;
                 <select class="form-select input-form-sensors-select" name="modeloTrem"
                   aria-label="Default select example" id="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
-                  <option value="MODELO 1">MODELO 1</option>
-                  <option value="MODELO 2">MODELO 2</option>
-                  <option value="MODELO 3">MODELO 3</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Elétrico">Elétrico</option>
+                    <option value="Diesel-Elétrico">Diesel-Elétrico</option>
+                    <option value="Híbrido">Híbrido</option>
                 </select>
               </div>
               <div id="div-button-sensors">
@@ -193,29 +196,35 @@ $trens = $resultado;
 
                     <td class="img-tabela" style="width: 170px;">
 
-                      <form action="services/excluir.php" method="POST"
-                        onsubmit="return confirm('Deseja excluir este usuário?')" style="display: inline;">
 
+                      <div class="d-flex gap-2 justify-content-around align-items-center">
+                      <form action="services/excluir.php" method="POST" style="display: inline;">
                         <input type="hidden" name="idExcluir" value="<?php echo $trem["idTrem"]; ?>">
-
                         <input type="hidden" name="tabela" value="trens">
-
                         <input type="hidden" name="campoId" value="idTrem">
 
-                        <button class="botao-imagem" type="submit">
-                          <img src="../assets/images/Lixo.png" class="icone-lixo">
+                        <button class="botao-imagem" type="submit" onclick="return confirm('Deseja excluir este trem?')" data-bs-toggle="tooltip" title="Excluir"> 
+                          <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
                         </button>
-
                       </form>
 
                       <form action="services/ProcessosTrem/editarTrem.php" method="POST" style="display: inline;">
 
                         <input type="hidden" name="idTrem" value="<?php echo $trem["idTrem"]; ?>">
 
-                        <button class="botao-imagem" type="submit">
-                          <img src="../assets/images/Olho.png" class="icone-olho">
+                        <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
+                          <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
                         </button>
+                      </form>
 
+                      <form action="services/ProcessosUsuario/visualizarUsuario.php" method="POST" style="display: inline;">
+                        <input type="hidden" name="idUsuario" value="<?php echo $usuario["idUsuario"]; ?>">
+
+                        <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Visualizar">
+                          <i class="fa-solid fa-eye fa-xl" style="color: #392d29;"></i>
+                        </button>
+                      </form>
+                      </div>
                       </form>
 
                     </td>

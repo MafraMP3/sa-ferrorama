@@ -77,13 +77,16 @@ if (isset($_POST["login"])) {
                 </div>
             </div>
 
+            <br><br><br><br>
+
+            <div>
+                <img class="img-fluid" id="img-footer-login-screen" src="assets/images/footer-image-login-screen.png" alt="">
+            </div>
+            
+
         </section>
         
-    </main>
-
-    <footer class="d-flex justify-content-center footer">
-        <img class="img-fluid" id="img-footer-login-screen" src="assets/images/footer-image-login-screen.png" alt="">
-    </footer>
+    </main>        
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
