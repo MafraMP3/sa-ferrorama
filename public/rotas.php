@@ -197,5 +197,8 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
   <script src="../java/script.js"></script>
 
 </body>
-
+<script>
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+[...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+</script>
 </html>
