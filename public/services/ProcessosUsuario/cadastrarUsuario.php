@@ -19,7 +19,8 @@ $funcao = $_POST["funcao"];
 $sql = "INSERT INTO usuarios (nome,email,senha,cpf,funcao) VALUES (?,?,?,?,?)";
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssss", $nome,$email,$senha,$cpf,$funcao);
+$stmt->bind_param("sssis", $nome,$email,$senha,$cpf,$funcao);
 $stmt->execute();
 
 header("location: ../../usuarios.php");
+
