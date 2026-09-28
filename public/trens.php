@@ -208,8 +208,9 @@ $trens = $resultado;
                         </button>
                       </form>
 
-                      <form action="services/ProcessosUsuario/editarUsuario.php" method="POST" style="display: inline;" >
-                        <input type="hidden" name="idUsuario" value="<?php echo $usuario["idUsuario"]; ?>">
+                      <form action="services/ProcessosTrem/editarTrem.php" method="POST" style="display: inline;">
+
+                        <input type="hidden" name="idTrem" value="<?php echo $trem["idTrem"]; ?>">
 
                         <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
                           <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
