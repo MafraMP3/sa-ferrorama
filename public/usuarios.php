@@ -186,15 +186,15 @@ $usuarios = $resultado;
                         <input type="hidden" name="tabela" value="usuarios">
                         <input type="hidden" name="campoId" value="idUsuario">
 
-                        <button class="botao-imagem" type="submit" onclick="return confirm('Deseja excluir este usuário?')"  
+                        <button class="botao-imagem" type="submit" onclick="return confirm('Deseja excluir este usuário?')" data-bs-toggle="tooltip" title="Excluir"> 
                           <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
                         </button>
                       </form>
 
-                      <form action="services/ProcessosUsuario/editarUsuario.php" method="POST" style="display: inline;">
+                      <form action="services/ProcessosUsuario/editarUsuario.php" method="POST" style="display: inline;" >
                         <input type="hidden" name="idUsuario" value="<?php echo $usuario["idUsuario"]; ?>">
 
-                        <button class="botao-imagem" type="submit"  
+                        <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
                           <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
                         </button>
                       </form>
@@ -202,7 +202,7 @@ $usuarios = $resultado;
                       <form action="services/ProcessosUsuario/visualizarUsuario.php" method="POST" style="display: inline;">
                         <input type="hidden" name="idUsuario" value="<?php echo $usuario["idUsuario"]; ?>">
 
-                        <button class="botao-imagem" type="submit" 
+                        <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Visualizar">
                           <i class="fa-solid fa-eye fa-xl" style="color: #392d29;"></i>
                         </button>
                       </form>
