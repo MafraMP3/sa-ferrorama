@@ -117,7 +117,7 @@ if (isset($_POST["idTrem"]) && filter_var($_POST["idTrem"], FILTER_VALIDATE_INT)
                                         <?php echo $tremEditar["tipoCarga"]; ?>
                                     </option>
                                     <?php
-                                    $tiposCarga = ["Passageiros", "Carvão", "Granola", "Líquido"];
+                                    $tiposCarga = ["Passageiros", "Grãos", "Minério", "Carvão", "Combustível", "Produtos Químicos"];
 
                                     foreach ($tiposCarga as $tipo) {
                                         if ($tipo != $tremEditar["tipoCarga"]) {
@@ -139,7 +139,7 @@ if (isset($_POST["idTrem"]) && filter_var($_POST["idTrem"], FILTER_VALIDATE_INT)
                                         <?php echo $tremEditar["modeloTrem"]; ?>
                                     </option>
                                     <?php
-                                    $modeloTrem = ["MODELO 1", "MODELO 2", "MODELO 3", "MODELO 4"];
+                                    $modeloTrem = ["Diesel", "Elétrico", "Diesel-Elétrico", "Híbrido"];
 
                                     foreach ($modeloTrem as $modelo) {
                                         if ($modelo != $tremEditar["modeloTrem"]) {
