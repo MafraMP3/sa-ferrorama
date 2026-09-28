@@ -208,9 +208,9 @@ $trens = $resultado;
 
                       </form>
 
-                      <form action="services/ProcessosUsuario/editarUsuario.php" method="POST" style="display: inline;">
+                      <form action="services/ProcessosTrem/editarTrem.php" method="POST" style="display: inline;">
 
-                        <input type="hidden" name="idUsuario" value="<?php echo $usuario["idUsuario"]; ?>">
+                        <input type="hidden" name="idTrem" value="<?php echo $trem["idTrem"]; ?>">
 
                         <button class="botao-imagem" type="submit">
                           <img src="../assets/images/Olho.png" class="icone-olho">
