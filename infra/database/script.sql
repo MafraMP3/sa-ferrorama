@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS trens(
     idTrem INT AUTO_INCREMENT PRIMARY KEY,
     nomeTrem VARCHAR(20) NOT NULL,
     tipoCarga VARCHAR(20) NOT NULL,
-    modeloTrem VARCHAR(8) NOT NULL,
+    modeloTrem VARCHAR(15) NOT NULL,
     idRota INT,
     FOREIGN KEY (idRota) REFERENCES rotas(idRota)
 );
