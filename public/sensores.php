@@ -1,6 +1,16 @@
-<?php 
-    Session_start(); 
-    if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit; }
+<?php
+Session_start();
+if (!isset($_SESSION['usuario_nome'])) {
+  header("Location: ../index.php");
+  exit;
+}
+
+include("../infra/database/conn.php");
+
+$sql = "SELECT * FROM trens";
+$resultado = $conn->query($sql);
+$trens = $resultado;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,15 +29,15 @@
 <body>
   <main>
 
-<!------------------------------------Sidebar---------------------------------------//-->
+    <!------------------------------------Sidebar---------------------------------------//-->
 
-  <?php
-      include "component/navbar.php";
-  ?>
+    <?php
+    include "component/navbar.php";
+    ?>
 
-<!------------------------------------------------------------------------------------//-->
+    <!------------------------------------------------------------------------------------//-->
 
-<!---------------------------------------CADASTRAR NOVO SENSOR--------------------------------------------//-->
+    <!---------------------------------------CADASTRAR NOVO SENSOR--------------------------------------------//-->
 
     <div class="content">
 
@@ -47,6 +57,27 @@
                 <input class="form-control input-form-sensors" type="text" placeholder="EX: Sensor KL-I32"
                   id="nomeSensor" required>
               </div>
+
+              <div>
+                <label class="form-label" for="idTrem">TREM DO SENSOR:</label>
+                <select class="form-select" name="idTrem">
+                  <option value="" selected disabled>
+                    Selecione um trem
+                  </option>
+                  <?php while ($trem = mysqli_fetch_assoc($trens)) { ?>
+                    <option value="<?php echo $trem["idTrem"]; ?>">
+                      <?php echo $trem["nomeTrem"] ?>
+                    </option>
+                  <?php } ?>
+                </select>
+              </div>
+
+              <div class="div-inputs-label-sensors">
+                <label class="d-block label-form-sensors" for="dataInstalacao">DATA DE INSTALAÇÃO:</label>
+                <input class="form-control input-form-sensors" type="date" id="dataInstalacao" name="dataInstalacao"
+                  required value="">
+              </div>
+
               <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">LOCALIZAÇÃO</label>
                 <input class="form-control input-form-sensors" type="text" placeholder="EX: Km 67" id="localSensor"
@@ -73,9 +104,9 @@
 
     </div>
 
-<!----------------------------------------------------------------------------------------------//-->
+    <!----------------------------------------------------------------------------------------------//-->
 
-<!---------Tela de deletar Sensor--------->
+    <!---------Tela de deletar Sensor--------->
 
     <div class="container content card" id="delete-sensor-part">
       <div class="d-flex">
@@ -84,7 +115,7 @@
         </div>
         <div class="mt-4">
           <p class="h4" id="text-delete-sensor"> Deseja Excluir o sensor?</p>
-        
+
           <div class="d-flex  align-items-center justify-content-center">
             <button class="btn btn-lg"
               onclick="document.getElementById('delete-sensor-part').style.display = 'none'">Não</button>
@@ -94,9 +125,9 @@
       </div>
     </div>
 
-<!---------------------------------------->
+    <!---------------------------------------->
 
-<!---------Tela de nenhum sensor cadastrado--------->
+    <!---------Tela de nenhum sensor cadastrado--------->
 
     <div class="content" id="nenhumSensor">
       <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
@@ -108,7 +139,7 @@
       </div>
     </div>
 
-<!-------------------------------------------------->
+    <!-------------------------------------------------->
 
   </main>
 
