@@ -141,45 +141,33 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
                 <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?> 
                     <td class="img-tabela" style="width: 170px;">
 
-                      <form action="services/excluir.php"
-                        method="POST"
-                        onsubmit="return confirm('Deseja excluir este usuário?')"
-                        style="display: inline;">
-
+                        <div class="d-flex gap-2 justify-content-around align-items-center">
+                      <form action="services/excluir.php" method="POST" style="display: inline;">
                         <input type="hidden"
                           name="idExcluir"
                           value="<?php echo $rota["idRota"]; ?>">
-
                         <input type="hidden"
                           name="tabela"
                           value="rotas">
-
                         <input type="hidden"
                           name="campoId"
                           value="idRota">
 
-                        <button class="botao-imagem" type="submit">
-                          <img src="../assets/images/Lixo.png"
-                            class="icone-lixo">
+                        <button class="botao-imagem" type="submit" onclick="return confirm('Deseja excluir esta rota?')" data-bs-toggle="tooltip" title="Excluir"> 
+                          <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
                         </button>
-
                       </form>
 
-                      <form action="services/ProcessosUsuario/editarUsuario.php"
-                        method="POST"
-                        style="display: inline;">
+                      <form action="services/ProcessosRota/editarRota.php" method="POST" style="display: inline;" >
+                        <input type="hidden" name="idRota" value="<?php echo $rota["idRota"]; ?>">
 
-                        <input type="hidden"
-                          name="idUsuario"
-                          value="<?php echo $usuario["idUsuario"]; ?>">
-
-                        <button class="botao-imagem" type="submit">
-                          <img src="../assets/images/Olho.png"
-                            class="icone-olho">
+                        <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
+                          <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
                         </button>
-
                       </form>
 
+
+                      </div>
                     </td>
                 <?php } ?>
               </tr>

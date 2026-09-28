@@ -189,44 +189,27 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
                 <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?> 
                     <td class="img-tabela" style="width: 170px;">
 
-                      <form action="services/excluir.php"
-                        method="POST"
-                        onsubmit="return confirm('Deseja excluir este sensor?')"
-                        style="display: inline;">
+                        <div class="d-flex gap-2 justify-content-around align-items-center">
+                      <form action="services/excluir.php" method="POST" style="display: inline;">
+                        <input type="hidden" name="idExcluir" value="<?php echo $sensor["idSensor"]; ?>">
+                        <input type="hidden" name="tabela" value="sensores">
+                        <input type="hidden" name="campoId" value="idSensor">
 
-                        <input type="hidden"
-                          name="idExcluir"
-                          value="<?php echo $sensor["idSensor"]; ?>">
-
-                        <input type="hidden"
-                          name="tabela"
-                          value="sensores">
-
-                        <input type="hidden"
-                          name="campoId"
-                          value="idSensor">
-
-                        <button class="botao-imagem" type="submit">
-                          <img src="../assets/images/Lixo.png"
-                            class="icone-lixo">
+                        <button class="botao-imagem" type="submit" onclick="return confirm('Deseja excluir este sensor?')" data-bs-toggle="tooltip" title="Excluir"> 
+                          <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
                         </button>
-
                       </form>
 
-                      <form action="services/ProcessosUsuario/editarUsuario.php"
-                        method="POST"
-                        style="display: inline;">
+                      <form action="services/ProcessosSensor/editarSensor.php" method="POST" style="display: inline;" >
+                        <input type="hidden" name="idSensor" value="<?php echo $sensor["idSensor"]; ?>">
 
-                        <input type="hidden"
-                          name="idUsuario"
-                          value="<?php echo $usuario["idUsuario"]; ?>">
-
-                        <button class="botao-imagem" type="submit">
-                          <img src="../assets/images/Olho.png"
-                            class="icone-olho">
+                        <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
+                          <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
                         </button>
-
                       </form>
+
+
+                      </div>
 
                     </td>
                 <?php } ?>
