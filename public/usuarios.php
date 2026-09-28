@@ -159,7 +159,7 @@ $usuarios = $resultado;
                   <th class="ths">Senha</th>
                   <th class="ths">CPF</th>
                   <th class="ths">Função</th>
-                  <th class="ths"></th>
+                  <th class="ths">Ações</th>
                 </tr>
               </thead>
 
@@ -179,49 +179,34 @@ $usuarios = $resultado;
 
                     <td><?php echo $usuario["funcao"]; ?></td>
 
-                    <td class="img-tabela" style="width: 170px;">
+                    <td class="img-tabela  " style="width: 220px;">
+                      <div class="d-flex gap-2 justify-content-around align-items-center">
+                      <form action="services/excluir.php" method="POST" style="display: inline;">
+                        <input type="hidden" name="idExcluir" value="<?php echo $usuario["idUsuario"]; ?>">
+                        <input type="hidden" name="tabela" value="usuarios">
+                        <input type="hidden" name="campoId" value="idUsuario">
 
-                      <form action="services/excluir.php"
-                        method="POST"
-                        onsubmit="return confirm('Deseja excluir este usuário?')"
-                        style="display: inline;">
-
-                        <input type="hidden"
-                          name="idExcluir"
-                          value="<?php echo $usuario["idUsuario"]; ?>">
-
-                        <input type="hidden"
-                          name="tabela"
-                          value="usuarios">
-
-                        <input type="hidden"
-                          name="campoId"
-                          value="idUsuario">
-
-                        <button class="botao-imagem" type="submit">
-                          <img src="../assets/images/Lixo.png"
-                            class="icone-lixo">
+                        <button class="botao-imagem" type="submit" onclick="return confirm('Deseja excluir este usuário?')"  
+                          <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
                         </button>
-
                       </form>
 
-                      <form action="services/ProcessosUsuario/editarUsuario.php"
-                        method="POST"
-                        style="display: inline;">
+                      <form action="services/ProcessosUsuario/editarUsuario.php" method="POST" style="display: inline;">
+                        <input type="hidden" name="idUsuario" value="<?php echo $usuario["idUsuario"]; ?>">
 
-                        <input type="hidden"
-                          name="idUsuario"
-                          value="<?php echo $usuario["idUsuario"]; ?>">
-
-                        <button class="botao-imagem" type="submit">
-                          <img src="../assets/images/Olho.png"
-                            class="icone-olho">
+                        <button class="botao-imagem" type="submit"  
+                          <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
                         </button>
-
                       </form>
 
-                      
+                      <form action="services/ProcessosUsuario/visualizarUsuario.php" method="POST" style="display: inline;">
+                        <input type="hidden" name="idUsuario" value="<?php echo $usuario["idUsuario"]; ?>">
 
+                        <button class="botao-imagem" type="submit" 
+                          <i class="fa-solid fa-eye fa-xl" style="color: #392d29;"></i>
+                        </button>
+                      </form>
+                      </div>
                     </td>
 
                   </tr>
@@ -248,5 +233,8 @@ $usuarios = $resultado;
     crossorigin="anonymous"></script>
   <script src="../java/script.js"></script>
 </body>
-
+<script>
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+[...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+</script>
 </html>

@@ -48,7 +48,6 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
    <div class="p-3">
     <div class="div-top-sensors none-sensors d-flex gap-4 align-items-start">
 
-        <!-- TEXTO -->
         <div class="w-50">
             <p>
                 A SA (situação de aprendizado) é um projeto iniciado no 3º ano do curso
