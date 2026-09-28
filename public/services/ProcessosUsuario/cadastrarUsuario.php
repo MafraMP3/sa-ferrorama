@@ -40,11 +40,18 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     die();
   }
 
-$sql = "INSERT INTO usuarios (nome,email,senha,cpf,funcao) VALUES (?,?,?,?,?)";
+if ($conn->query("SELECT * FROM usuarios WHERE email = '$email' OR cpf = '$cpf'")->num_rows > 0) {
+    echo "<script>
+          alert('Erro no cadastro de usuarios, o email ou CPF informado já está cadastrado');
+          window.location.href = '../../usuarios.php'
+          </script>";
+    die();
+}
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("sssis", $nome,$email,$senha,$cpf,$funcao);
 $stmt->execute();
+
 
 header("location: ../../usuarios.php");
 
