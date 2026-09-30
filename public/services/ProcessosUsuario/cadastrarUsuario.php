@@ -48,6 +48,8 @@ if ($conn->query("SELECT * FROM usuarios WHERE email = '$email' OR cpf = '$cpf'"
     die();
 }
 
+$sql = "INSERT INTO usuarios (nome, email, senha, cpf, funcao) VALUES (?,?,?,?,?)";
+
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("sssis", $nome,$email,$senha,$cpf,$funcao);
 $stmt->execute();
