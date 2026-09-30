@@ -1,6 +1,25 @@
-<?php 
-    Session_start(); 
-    if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit; }
+<?php
+Session_start();
+
+include "../infra/database/conn.php";
+
+if (!isset($_SESSION['usuario_nome'])) {
+    header("Location: ../index.php");
+    exit;
+}
+
+if (isset($_POST["editarSensor"])) {
+
+    $idSensor = $_POST["idSensor"];
+
+    $sql = "SELECT * FROM sensores WHERE idSensor = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $idSensor);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $sensor = $result->fetch_assoc();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,26 +40,28 @@
 
 
     <?php
-    
+
     include "component/navbar.php";
     ?>
 
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
-   
+
     <div class="content">
 
 
         <div class="card div-top-monitor">
 
-            <section id="section-navbar-monitor" class="rounded-top d-flex justify-content-between align-items-center px-4 py-3">
+            <section id="section-navbar-monitor"
+                class="rounded-top d-flex justify-content-between align-items-center px-4 py-3">
                 <div>
-                  
+
                     <p class="text-monitor-sensor mb-0">Sobre o projeto</p>
-                    <p class=" small mb-0 ms-3" style="color: rgba(255, 255, 255, 0.767) !important;">Informações sobre o projeto e seu desenvolvimento.</p>
+                    <p class=" small mb-0 ms-3" style="color: rgba(255, 255, 255, 0.767) !important;">Informações sobre
+                        o projeto e seu desenvolvimento.</p>
                 </div>
                 <div class="d-flex align-items-center gap-3">
                     <span class="text-muted small" style="color: rgba(255,255,255,0.5) !important;">
@@ -48,117 +69,120 @@
                             id="ultimaAtualizacao">--:--:--</span>
                     </span>
                     <div id="info-online">
-                       <span class="badge rounded-pill border border-success text-success px-3 py-2 status-online">
-                        <i class="fa-solid fa-circle me-1" style="font-size: 8px;"></i> ONLINE
-                    </span>
-                    <span class="badge rounded-pill border border-danger text-danger px-3 py-2 status-offline d-none">
-                        <i class="fa-solid fa-circle me-1" style="font-size: 8px;"></i> OFFLINE
-                    </span> 
+                        <span class="badge rounded-pill border border-success text-success px-3 py-2 status-online">
+                            <i class="fa-solid fa-circle me-1" style="font-size: 8px;"></i> ONLINE
+                        </span>
+                        <span
+                            class="badge rounded-pill border border-danger text-danger px-3 py-2 status-offline d-none">
+                            <i class="fa-solid fa-circle me-1" style="font-size: 8px;"></i> OFFLINE
+                        </span>
                     </div>
-                    
+
                 </div>
             </section>
-<section id="section-contex-monitor">
+            <section id="section-contex-monitor">
 
-    <div id="div-context-grafic-data">
-        <div class="card p-3">
-            <div class="d-flex mb-2 align-items-center">
-                <i class="fa-solid fa-chart-column fa-2x" style="color: rgb(255, 49, 49);"></i>
-                <p class="h4 ms-1 mt-2">Resumo Atual</p>
-            </div>
+                <div id="div-context-grafic-data">
+                    <div class="card p-3">
+                        <div class="d-flex mb-2 align-items-center">
+                            <i class="fa-solid fa-chart-column fa-2x" style="color: rgb(255, 49, 49);"></i>
+                            <p class="h4 ms-1 mt-2">Resumo Atual</p>
+                        </div>
 
-            <div class="row g-3 div-father-monitor-data">
-                <div class="col-6 div-monitor-data">
-                    <div class="card p-3 div-monitor-data">
-                        <p class="text-muted mb-1">Velocidade Atual</p>
-                        <h3 class="mb-2 fw-bold" id="velAtual">—</h3>
-                        <span class="text-muted" style="font-size: 11px;">km/h</span>
-                    </div>
-                </div>
-                <div class="col-6 div-monitor-data">
-                    <div class="card p-3 div-monitor-data">
-                        <p class="text-muted mb-1">Velocidade Máxima</p>
-                        <h3 class="mb-2 fw-bold" id="velMax">—</h3>
-                        <span class="text-muted" style="font-size: 11px;">km/h</span>
-                    </div>
-                </div>
-                <div class="col-6 div-monitor-data">
-                    <div class="card p-3 div-monitor-data">
-                        <p class="text-muted mb-1">Velocidade Média</p>
-                        <h3 class="mb-2 fw-bold" id="mediaSensores">—</h3>
-                        <span class="text-muted" style="font-size: 11px;">km/h</span>
-                    </div>
-                </div>
-                <div class="col-6 div-monitor-data">
-                    <div class="card p-3 div-monitor-data">
-                        <p class="text-muted mb-1">Status</p>
-                        <div class="d-flex align-items-center gap-2 mt-1 mb-2 status-online">
-                            <i class="fa-solid fa-circle-check fa-2x" style="color: #28a745;"></i>
-                            <div>
-                                <h6 class="mb-0 fw-bold" style="color: #28a745;">Operacional</h6>
-                                <span style="font-size: 11px;" class="text-muted">Todos os sistemas normais</span>
+                        <div class="row g-3 div-father-monitor-data">
+                            <div class="col-6 div-monitor-data">
+                                <div class="card p-3 div-monitor-data">
+                                    <p class="text-muted mb-1">Velocidade Atual</p>
+                                    <h3 class="mb-2 fw-bold" id="velAtual">—</h3>
+                                    <span class="text-muted" style="font-size: 11px;">km/h</span>
+                                </div>
+                            </div>
+                            <div class="col-6 div-monitor-data">
+                                <div class="card p-3 div-monitor-data">
+                                    <p class="text-muted mb-1">Velocidade Máxima</p>
+                                    <h3 class="mb-2 fw-bold" id="velMax">—</h3>
+                                    <span class="text-muted" style="font-size: 11px;">km/h</span>
+                                </div>
+                            </div>
+                            <div class="col-6 div-monitor-data">
+                                <div class="card p-3 div-monitor-data">
+                                    <p class="text-muted mb-1">Velocidade Média</p>
+                                    <h3 class="mb-2 fw-bold" id="mediaSensores">—</h3>
+                                    <span class="text-muted" style="font-size: 11px;">km/h</span>
+                                </div>
+                            </div>
+                            <div class="col-6 div-monitor-data">
+                                <div class="card p-3 div-monitor-data">
+                                    <p class="text-muted mb-1">Status</p>
+                                    <div class="d-flex align-items-center gap-2 mt-1 mb-2 status-online">
+                                        <i class="fa-solid fa-circle-check fa-2x" style="color: #28a745;"></i>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold" style="color: #28a745;">Operacional</h6>
+                                            <span style="font-size: 11px;" class="text-muted">Todos os sistemas
+                                                normais</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2 mt-1 mb-2 status-offline d-none">
+                                        <i class="fa-solid fa-circle-xmark fa-2x" style="color: #c02727;"></i>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold" style="color: #c02727;">Desativado</h6>
+                                            <span style="font-size: 11px;" class="text-muted">O sensor não está em
+                                                funcionamento</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center gap-2 mt-1 mb-2 status-offline d-none">
-                            <i class="fa-solid fa-circle-xmark fa-2x" style="color: #c02727;"></i>
-                            <div>
-                                <h6 class="mb-0 fw-bold" style="color: #c02727;">Desativado</h6>
-                                <span style="font-size: 11px;" class="text-muted">O sensor não está em funcionamento</span>
+
+                        <div class="row g-3 mt-1">
+
+                            <div class="col-6 col-md-4">
+                                <p class="text-muted mb-0">Localização</p>
+                                <p class="mb-0 fw-bold small"><?php if (isset($_POST["editarSensor"])) { echo $sensor["localizacao"]; } else { ?> Localização <?php } ?></p>
                             </div>
+                            <div class="col-6 col-md-4">
+                                <p class="text-muted mb-0">Tipo</p>
+                                <p class="mb-0 fw-bold small"><?php if (isset($_POST["editarSensor"])) { echo $sensor["tipo"]; } else { ?> Tipo do Sensor <?php } ?></p>
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <p class="text-muted mb-0">Data de Instalação</p>
+                                <p class="mb-0 fw-bold small"><?php if (isset($_POST["editarSensor"])) { echo $sensor["dataInstalacao"]; } else { ?> Data de Instalação <?php } ?></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div>
+                    <div class="card p-3">
+                        <div class="d-flex mb-2 align-items-center">
+                            <i class="fa-solid fa-chart-column fa-2x" style="color: rgb(255, 49, 49);"></i>
+                            <p class="h4 ms-1 mt-2">Gráfico</p>
+                        </div>
+                        <div class="grafico">
+                            <canvas id="grafico"></canvas>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 mt-2">
+                            <p class="small mb-0" style="color: rgba(0,0,0,0.5);">Visualizando:</p>
+                            <select class="form-select form-select-sm w-auto" aria-label="Período">
+                                <option selected value="1">Tudo</option>
+                                <option value="2">3 horas</option>
+                                <option value="3">24 horas</option>
+                                <option value="4">3 dias</option>
+                                <option value="5">1 semana</option>
+                            </select>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row g-3 mt-1">
-
-                <div class="col-6 col-md-4">
-                    <p class="text-muted mb-0">Localização</p>
-                    <p class="mb-0 fw-bold small">Localização do sensor</p>
-                </div>
-                <div class="col-6 col-md-4">
-                    <p class="text-muted mb-0">Tipo</p>
-                    <p class="mb-0 fw-bold small">Tipo do sensor</p>
-                </div>
-                <div class="col-6 col-md-4">
-                    <p class="text-muted mb-0">Data de Instalação</p>
-                    <p class="mb-0 fw-bold small">00/00/0000</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div>
-        <div class="card p-3">
-            <div class="d-flex mb-2 align-items-center">
-                <i class="fa-solid fa-chart-column fa-2x" style="color: rgb(255, 49, 49);"></i>
-                <p class="h4 ms-1 mt-2">Gráfico</p>
-            </div>
-            <div class="grafico">
-                <canvas id="grafico"></canvas>
-            </div>
-            <div class="d-flex align-items-center gap-2 mt-2">
-                <p class="small mb-0" style="color: rgba(0,0,0,0.5);">Visualizando:</p>
-                <select class="form-select form-select-sm w-auto" aria-label="Período">
-                    <option selected value="1">Tudo</option>
-                    <option value="2">3 horas</option>
-                    <option value="3">24 horas</option>
-                    <option value="4">3 dias</option>
-                    <option value="5">1 semana</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-</section>
+            </section>
 
         </div>
 
 
     </div>
 
-<!----------------------------------------------------------------------------------------------//-->
+    <!----------------------------------------------------------------------------------------------//-->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

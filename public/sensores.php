@@ -230,17 +230,17 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
                           <form action="services/ProcessosSensor/editarSensor.php" method="POST" style="display: inline;">
                             <input type="hidden" name="idSensor" value="<?php echo $sensor["idSensor"]; ?>">
 
-                            <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
-                              <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
-                            </button>
-                          </form>
-                          <form action="services/ProcessosUsuario/visualizarUsuario.php" method="POST" style="display: inline;">
-                            <input type="hidden" name="idUsuario" value="<?php echo $usuario["idUsuario"]; ?>">
+                        <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
+                          <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
+                        </button>
+                      </form>
+                      <form action="monitoramento.php" method="POST" style="display: inline;">
+                        <input type="hidden" name="idSensor" value="<?php echo $sensor["idSensor"]; ?>">
 
-                            <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Visualizar">
-                              <i class="fa-solid fa-eye fa-xl" style="color: #392d29;"></i>
-                            </button>
-                          </form>
+                        <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Visualizar" name="editarSensor">
+                          <i class="fa-solid fa-eye fa-xl" style="color: #392d29;"></i>
+                        </button>
+                      </form>
 
                         </div>
 
