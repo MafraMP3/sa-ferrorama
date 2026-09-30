@@ -183,18 +183,53 @@ $usuarios = $resultado;
                           <input type="hidden" name="tabela" value="usuarios">
                           <input type="hidden" name="campoId" value="idUsuario">
 
-                          <button class="botao-imagem" type="submit" onclick="return confirm('Deseja excluir este usuário?')" data-bs-toggle="tooltip" title="Excluir">
-                            <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
+                          <button class="botao-imagem" type="button" data-bs-toggle="modal" data-bs-target="#ModalExcluir<?php echo $usuario["idUsuario"]; ?>">
+                              <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
                           </button>
-                        </form>
+
+                            <div class="modal fade" id="ModalExcluir<?php echo $usuario["idUsuario"]; ?>" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5">Confirmar exclusão</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            Deseja realmente excluir o usuário <strong><?php echo $usuario["nome"]; ?></strong>?
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                Cancelar
+                                            </button>
+
+                                            <button type="submit" class="btn btn-danger">
+                                                Confirmar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                      </form>
 
                         <form action="services/ProcessosUsuario/editarUsuario.php" method="POST" style="display: inline;">
                           <input type="hidden" name="idUsuario" value="<?php echo $usuario["idUsuario"]; ?>">
 
+<<<<<<< HEAD
                           <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
                             <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
                           </button>
                         </form>
+=======
+                        <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
+                          <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
+                        </button>
+
+                        
+                      </form>
+>>>>>>> 4c54451ded9cd6ba6b33176c58da757d8bb95a85
 
 
                       </div>
