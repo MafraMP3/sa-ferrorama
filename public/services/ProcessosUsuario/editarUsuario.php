@@ -169,14 +169,15 @@ if (isset($_POST["idUsuario"]) && filter_var($_POST["idUsuario"], FILTER_VALIDAT
 
                             </div>
 
+                            <div class="d-flex flex-column">
+                                <button
+                                    class="d-block btn btn-primary button-form-sensors"
+                                    type="submit">
+                                    Atualizar
+                                </button>
+                                <a id="botao-voltar-editar" class="btn btn-dark mt-1" href="../../usuarios.php">Voltar</a>
+                            </div>
 
-                            <button
-                                class="d-block btn btn-primary button-form-sensors"
-                                type="submit">
-
-                                Atualizar
-
-                            </button>
 
                         </div>
 

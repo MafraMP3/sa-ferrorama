@@ -491,6 +491,10 @@ body {
   font-weight: bold;
 }
 
+.btn{
+  border: none !important;
+}
+
 .btn.active,
 .btn:hover {
   background-color: #ff2c2c;
@@ -663,4 +667,10 @@ body {
     border:1px solid rgba(0,0,0,0.24);
 }
 
+/*--------------------------------------------------------------*/
+
+/*---------------------------Editar usuarios-----------------------------------*/
+#botao-voltar-editar:hover{
+  background-color: #4d4d4d !important;
+}
 /*--------------------------------------------------------------*/
