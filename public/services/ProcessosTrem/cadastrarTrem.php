@@ -16,6 +16,16 @@
     die();
   }
 
+    $rotas = mysqli_query($conn, "SELECT * FROM rotas");
+
+  if ($rotaTrem > mysqli_num_rows($rotas) || $rotaTrem <= 0){
+        echo "<script>
+          alert('Erro no cadastro de Trens, Rota Inexistente');
+          window.location.href = '../../sensores.php'
+          </script>";
+    die();
+  }
+
   $sql = "INSERT INTO trens (nomeTrem,idRota,tipoCarga,modeloTrem) VALUES (?,?,?,?)";
 
   $stmt = $conn -> prepare($sql);

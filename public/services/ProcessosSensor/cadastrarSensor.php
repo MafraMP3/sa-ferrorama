@@ -16,6 +16,16 @@
     die();
   }
 
+  $trens = mysqli_query($conn, "SELECT * FROM trens");
+
+  if ($idTrem > mysqli_num_rows($trens) || $idTrem <= 0){
+        echo "<script>
+          alert('Erro no cadastro de sensores, Trem Inexistente');
+          window.location.href = '../../sensores.php'
+          </script>";
+    die();
+  }
+
   $sql = "INSERT INTO sensores (nome,localizacao,tipo,dataInstalacao,idTrem) VALUES (?,?,?,?,?)";
 
   $stmt = $conn -> prepare($sql);
