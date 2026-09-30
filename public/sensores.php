@@ -170,7 +170,7 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
             <tbody>
               <?php while($sensor = mysqli_fetch_assoc($sensores)) { ?>
               <tr>
-                <td><?php echo $sensor["nome"] ?> </td>
+                <td><?php echo htmlspecialchars($sensor["nome"]) ?> </td>
                 <td><?php 
 
                 $tremSensor = $sensor["idTrem"];
@@ -182,7 +182,7 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
                 
                 <td><?php echo $sensor["dataInstalacao"] ?> </td>
 
-                <td><?php echo $sensor["localizacao"] ?> </td>
+                <td><?php echo htmlspecialchars($sensor["localizacao"]) ?> </td>
 
                 <td><?php echo $sensor["tipo"] ?> </td>
 

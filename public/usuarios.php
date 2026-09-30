@@ -169,13 +169,13 @@ $usuarios = $resultado;
 
                   <tr>
 
-                    <td><?php echo $usuario["nome"]; ?></td>
+                    <td><?php echo htmlspecialchars($usuario["nome"]); ?></td>
 
                     <td><?php echo $usuario["email"]; ?></td>
 
-                    <td><?php echo $usuario["senha"]; ?></td>
+                    <td class="dado-restrito"><?php echo htmlspecialchars($usuario["senha"]); ?></td>
 
-                    <td><?php echo $usuario["cpf"]; ?></td>
+                    <td class="dado-restrito"><?php echo htmlspecialchars($usuario["cpf"]) ; ?></td>
 
                     <td><?php echo $usuario["funcao"]; ?></td>
 

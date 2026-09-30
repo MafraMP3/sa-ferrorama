@@ -184,7 +184,7 @@ $trens = $resultado;
 
                     <td><?php echo $trem["idTrem"]; ?></td>
 
-                    <td><?php echo $trem["nomeTrem"]; ?></td>
+                    <td><?php echo htmlspecialchars($trem["nomeTrem"]); ?></td>
 
                     <td><?php echo $trem["tipoCarga"]; ?></td>
 
