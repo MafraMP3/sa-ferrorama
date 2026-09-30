@@ -158,7 +158,7 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
                         </button>
                       </form>
 
-                      <form action="services/ProcessosRota/editarRota.php" method="POST" style="display: inline;" >
+                      <form action="services/ProcessosRotas/editarRota.php" method="POST" style="display: inline;" >
                         <input type="hidden" name="idRota" value="<?php echo $rota["idRota"]; ?>">
 
                         <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
