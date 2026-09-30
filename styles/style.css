@@ -31,8 +31,7 @@ body {
     width: 100%;
     max-width: 100%;
     min-height: 100vh;
-    padding-top: 20px;
-    padding-bottom: 30px;
+    padding-top: 60px;
 }
 
 #div-login-screen {
@@ -97,9 +96,10 @@ body {
 
 #img-footer-login-screen {
     display: block;
-    width: 400px;
+    width: 350px;
     object-fit: contain;
     margin: 80px auto 0;
+    margin-top: 25px;
 }
 
 /*--------------------------------------------------------------*/
