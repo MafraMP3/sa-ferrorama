@@ -149,9 +149,11 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
       <div class="card div-tabela-sensors ">
 
         <div class="d-flex align-items-center">
-          <img class="img-sensor-icon" src="../assets/images/icone-tabela-sensor.png" alt="">
-          <p class="text-cadastrar-novo-sensor h4">SENSORES CADASTRADAS</p>
-        </div>
+            <i class="fa-solid fa-satellite-dish fa-2x" style="color: rgb(255, 49, 49);"></i>
+            <p class="text-cadastrar-novo-sensor h4">
+              SENSORES CADASTRADOS
+            </p>
+          </div>
 
         <div class="table-responsive">
           <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
