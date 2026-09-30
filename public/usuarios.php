@@ -217,19 +217,11 @@ $usuarios = $resultado;
                         <form action="services/ProcessosUsuario/editarUsuario.php" method="POST" style="display: inline;">
                           <input type="hidden" name="idUsuario" value="<?php echo $usuario["idUsuario"]; ?>">
 
-<<<<<<< HEAD
-                          <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
-                            <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
-                          </button>
-                        </form>
-=======
                         <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
                           <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
                         </button>
 
-                        
                       </form>
->>>>>>> 4c54451ded9cd6ba6b33176c58da757d8bb95a85
 
 
                       </div>
