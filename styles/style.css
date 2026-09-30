@@ -690,4 +690,13 @@ body {
 #botao-voltar-editar:hover{
   background-color: #4d4d4d !important;
 }
-/*--------------------------------------------------------------*/
+/*----------------------------Usuários----------------------------*/
+
+#tabelaSensores tbody tr .dado-restrito {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+#tabelaSensores tbody tr:hover .dado-restrito {
+  color: var(--hermes-grey) !important; 
+}
