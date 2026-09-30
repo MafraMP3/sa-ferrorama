@@ -130,103 +130,128 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
 
     <!---------Tela de nenhum sensor cadastrado--------->
 
-    <?php if (mysqli_num_rows($sensores) == 0) { ?>
-      <div class="content" id="nenhumSensor">
-        <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
-          <i class="fa-solid fa-tower-broadcast fa-5x m-4 text-danger opacity-50"></i>
-          <h4 class="text-secondary">
-            Nenhum sensor cadastrada ainda.
-          </h4>
-          <p class="text-secondary mb-4">Cadastre um novo sensor para começar.</p>
-        </div>
+     <?php if (mysqli_num_rows($sensores) == 0) { ?>
+    <div class="content" id="nenhumSensor">
+      <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
+        <i class="fa-solid fa-tower-broadcast fa-5x m-4 text-danger opacity-50"></i>
+        <h4 class="text-secondary">
+          Nenhum sensor cadastrada ainda.
+        </h4>
+        <p class="text-secondary mb-4">Cadastre um novo sensor para começar.</p>
       </div>
+    </div>
     <?php } else {  ?>
-      <!-------------------------------------------------->
+    <!-------------------------------------------------->
 
 
 
-      <div class="content" id="todaTabela">
-        <div class="card div-tabela-sensors ">
+    <div class="content" id="todaTabela">
+      <div class="card div-tabela-sensors ">
 
-          <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center">
             <i class="fa-solid fa-satellite-dish fa-2x" style="color: rgb(255, 49, 49);"></i>
             <p class="text-cadastrar-novo-sensor h4">
               SENSORES CADASTRADOS
             </p>
           </div>
 
-          <div class="table-responsive">
-            <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
-              <thead>
-                <tr class="table-dark ">
-                  <th class="ths">Nome Sensor</th>
-                  <th class="ths">Trem do Sensor</th>
-                  <th class="ths">Data de Instalação</th>
-                  <th class="ths">Localização</th>
-                  <th class="ths">Tipo de Dado</th>
-                  <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
-                    <th></th>
-                  <?php } ?>
-                </tr>
-              </thead>
-              <tbody>
-                <?php while ($sensor = mysqli_fetch_assoc($sensores)) { ?>
-                  <tr>
-                    <td><?php echo $sensor["nome"] ?> </td>
-                    <td><?php
+        <div class="table-responsive">
+          <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
+            <thead>
+              <tr class="table-dark ">
+                <th class="ths">Nome Sensor</th>
+                <th class="ths">Trem do Sensor</th>
+                <th class="ths">Data de Instalação</th>
+                <th class="ths">Localização</th>
+                <th class="ths">Tipo de Dado</th>
+                <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
+                <th></th>
+                <?php } ?>
+              </tr>
+            </thead>
+            <tbody>
+              <?php while($sensor = mysqli_fetch_assoc($sensores)) { ?>
+              <tr>
+                <td><?php echo htmlspecialchars($sensor["nome"]) ?> </td>
+                <td><?php 
 
-                        $tremSensor = $sensor["idTrem"];
+                $tremSensor = $sensor["idTrem"];
 
-                        $consultaTrem = mysqli_query($conn, "SELECT nomeTrem FROM trens WHERE idTrem=$tremSensor");
-                        $nomeTrem = mysqli_fetch_assoc($consultaTrem);
+                  $consultaTrem = mysqli_query($conn,"SELECT nomeTrem FROM trens WHERE idTrem=$tremSensor");
+                  $nomeTrem = mysqli_fetch_assoc($consultaTrem); 
 
-                        echo $nomeTrem["nomeTrem"] ?> </td>
+                 echo $nomeTrem["nomeTrem"] ?> </td>
+                
+                <td><?php echo $sensor["dataInstalacao"] ?> </td>
 
-                    <td><?php echo $sensor["dataInstalacao"] ?> </td>
+                <td><?php echo htmlspecialchars($sensor["localizacao"]) ?> </td>
 
-                    <td><?php echo $sensor["localizacao"] ?> </td>
+                <td><?php echo $sensor["tipo"] ?> </td>
 
-                    <td><?php echo $sensor["tipo"] ?> </td>
-
-                    <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
-                      <td class="img-tabela" style="width: 170px;">
+                <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?> 
+                    <td class="img-tabela" style="width: 170px;">
 
                         <div class="d-flex gap-2 justify-content-around align-items-center">
-                          <form action="services/excluir.php" method="POST" style="display: inline;">
-                            <input type="hidden" name="idExcluir" value="<?php echo $sensor["idSensor"]; ?>">
-                            <input type="hidden" name="tabela" value="sensores">
-                            <input type="hidden" name="campoId" value="idSensor">
+                      <form action="services/excluir.php" method="POST" style="display: inline;">
+                        <input type="hidden" name="idExcluir" value="<?php echo $sensor["idSensor"]; ?>">
+                        <input type="hidden" name="tabela" value="sensores">
+                        <input type="hidden" name="campoId" value="idSensor">
 
-                            <button class="botao-imagem" type="submit" onclick="return confirm('Deseja excluir este sensor?')" data-bs-toggle="tooltip" title="Excluir">
+                        <button class="botao-imagem" type="button" data-bs-toggle="modal" data-bs-target="#ModalExcluir<?php echo $sensor["idSensor"]; ?>">
                               <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
-                            </button>
-                          </form>
+                          </button>
 
-                          <form action="services/ProcessosSensor/editarSensor.php" method="POST" style="display: inline;">
-                            <input type="hidden" name="idSensor" value="<?php echo $sensor["idSensor"]; ?>">
+                            <div class="modal fade" id="ModalExcluir<?php echo $sensor["idSensor"]; ?>" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5">Confirmar exclusão</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                        </div>
 
-                            <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
-                              <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
-                            </button>
-                          </form>
-                          <form action="services/ProcessosUsuario/visualizarUsuario.php" method="POST" style="display: inline;">
-                            <input type="hidden" name="idUsuario" value="<?php echo $usuario["idUsuario"]; ?>">
+                                        <div class="modal-body">
+                                            Deseja realmente excluir o sensor <strong><?php echo $sensor["nome"]; ?></strong>?
+                                        </div>
 
-                            <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Visualizar">
-                              <i class="fa-solid fa-eye fa-xl" style="color: #392d29;"></i>
-                            </button>
-                          </form>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                Cancelar
+                                            </button>
 
-                        </div>
+                                            <button type="submit" class="btn btn-danger">
+                                                Confirmar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                      </form>
 
-                      </td>
-                    <?php } ?>
-                  </tr>
+                      <form action="services/ProcessosSensor/editarSensor.php" method="POST" style="display: inline;" >
+                        <input type="hidden" name="idSensor" value="<?php echo $sensor["idSensor"]; ?>">
+
+                        <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
+                          <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
+                        </button>
+                      </form>
+                      <form action="services/ProcessosUsuario/visualizarUsuario.php" method="POST" style="display: inline;">
+                        <input type="hidden" name="idUsuario" value="<?php echo $usuario["idUsuario"]; ?>">
+
+                        <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Visualizar">
+                          <i class="fa-solid fa-eye fa-xl" style="color: #392d29;"></i>
+                        </button>
+                      </form>
+
+                      </div>
+
+                    </td>
                 <?php } ?>
-            </table>
-          </div>
+              </tr>
+              <?php } ?>
+          </table>
         </div>
-      <?php } ?>
+      </div>
+    <?php } ?>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -236,8 +261,7 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
 
 </body>
 <script>
-  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-  [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+[...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 </script>
-
 </html>
