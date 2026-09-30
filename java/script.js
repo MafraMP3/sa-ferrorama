@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     links.forEach(function (link) {
 
-        const paginaLink = link.getAttribute("href");
+        const paginaLink = link.getAttribute("href").split('/').pop();
 
         if (paginaLink === paginaAtual) {
             link.classList.add("active");
