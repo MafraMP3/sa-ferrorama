@@ -77,8 +77,6 @@ if (isset($_POST["login"])) {
                 </div>
             </div>
 
-            <br><br><br><br>
-
             <div>
                 <img class="img-fluid" id="img-footer-login-screen" src="assets/images/footer-image-login-screen.png" alt="">
             </div>
