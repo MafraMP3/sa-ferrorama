@@ -134,9 +134,9 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
             <tbody>
               <?php while($rota = mysqli_fetch_assoc($rotas)) { ?>
               <tr>
-                <td><?php echo $rota["nomeRota"] ?> </td>
-                <td><?php echo $rota["origem"] ?> </td>
-                <td><?php echo $rota["destino"] ?> </td>
+                <td><?php echo htmlspecialchars($rota["nomeRota"]) ?> </td>
+                <td><?php echo htmlspecialchars($rota["origem"]) ?> </td>
+                <td><?php echo htmlspecialchars($rota["destino"]) ?> </td>
 
                 <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?> 
                     <td class="img-tabela" style="width: 170px;">
