@@ -25,7 +25,7 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
 <?php
 
     include "component/navbar.php";
-
+date_default_timezone_set('America/Sao_Paulo');
 $hora = date("H");
 
 if ($hora >= 5 && $hora < 12) {
