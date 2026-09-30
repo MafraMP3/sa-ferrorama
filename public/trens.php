@@ -97,10 +97,10 @@ $trens = $resultado;
                 <select class="form-select input-form-sensors-select" name="modeloTrem"
                   aria-label="Default select example" id="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
-                    <option value="Diesel">Diesel</option>
-                    <option value="Elétrico">Elétrico</option>
-                    <option value="Diesel-Elétrico">Diesel-Elétrico</option>
-                    <option value="Híbrido">Híbrido</option>
+                  <option value="Diesel">Diesel</option>
+                  <option value="Elétrico">Elétrico</option>
+                  <option value="Diesel-Elétrico">Diesel-Elétrico</option>
+                  <option value="Híbrido">Híbrido</option>
                 </select>
               </div>
               <div id="div-button-sensors">
@@ -140,24 +140,23 @@ $trens = $resultado;
     <!---------Tela de nenhum trem cadastrado--------->
 
     <?php if (mysqli_num_rows($trens) == 0) { ?>
-    <div class="content" id="nenhumSensor">
-      <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
-        <i class="fa-solid fa-train fa-5x m-4 text-danger opacity-50"></i>
-        <h4 class="text-secondary">
-          Nenhum trem cadastrado ainda.
-        </h4>
-        <p class="text-secondary mb-4">Cadastre um novo trem para começar.</p>
+      <div class="content" id="nenhumSensor">
+        <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
+          <i class="fa-solid fa-train fa-5x m-4 text-danger opacity-50"></i>
+          <h4 class="text-secondary">
+            Nenhum trem cadastrado ainda.
+          </h4>
+          <p class="text-secondary mb-4">Cadastre um novo trem para começar.</p>
+        </div>
       </div>
-    </div>
     <?php } else { ?>
-    <!-------------------------------------------------->
+      <!-------------------------------------------------->
 
       <div class="content" id="todaTabela">
         <div class="card div-tabela-sensors">
 
           <div class="d-flex align-items-center">
-            <img class="img-sensor-icon" src="../assets/images/icone-tabela-sensor.png" alt="">
-
+            <i class="fa-solid fa-train fa-2x" style="color: rgb(255, 49, 49);"></i>
             <p class="text-cadastrar-novo-sensor h4">
               TRENS CADASTRADOS
             </p>
@@ -198,24 +197,24 @@ $trens = $resultado;
 
 
                       <div class="d-flex gap-2 justify-content-around align-items-center">
-                      <form action="services/excluir.php" method="POST" style="display: inline;">
-                        <input type="hidden" name="idExcluir" value="<?php echo $trem["idTrem"]; ?>">
-                        <input type="hidden" name="tabela" value="trens">
-                        <input type="hidden" name="campoId" value="idTrem">
+                        <form action="services/excluir.php" method="POST" style="display: inline;">
+                          <input type="hidden" name="idExcluir" value="<?php echo $trem["idTrem"]; ?>">
+                          <input type="hidden" name="tabela" value="trens">
+                          <input type="hidden" name="campoId" value="idTrem">
 
-                        <button class="botao-imagem" type="submit" onclick="return confirm('Deseja excluir este trem?')" data-bs-toggle="tooltip" title="Excluir"> 
-                          <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
-                        </button>
-                      </form>
+                          <button class="botao-imagem" type="submit" onclick="return confirm('Deseja excluir este trem?')" data-bs-toggle="tooltip" title="Excluir">
+                            <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
+                          </button>
+                        </form>
 
-                      <form action="services/ProcessosTrem/editarTrem.php" method="POST" style="display: inline;">
+                        <form action="services/ProcessosTrem/editarTrem.php" method="POST" style="display: inline;">
 
-                        <input type="hidden" name="idTrem" value="<?php echo $trem["idTrem"]; ?>">
+                          <input type="hidden" name="idTrem" value="<?php echo $trem["idTrem"]; ?>">
 
-                        <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
-                          <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
-                        </button>
-                      </form>
+                          <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
+                            <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
+                          </button>
+                        </form>
 
 
                       </div>
@@ -248,7 +247,8 @@ $trens = $resultado;
 
 </body>
 <script>
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-[...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 </script>
+
 </html>

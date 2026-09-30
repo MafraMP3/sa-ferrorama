@@ -68,12 +68,12 @@ if (isset($_POST["idTrem"]) && filter_var($_POST["idTrem"], FILTER_VALIDATE_INT)
 
             <div class="card div-top-sensors">
 
-                <div class="d-flex align-items-center">
-                    <i class="fa-solid fa-circle-plus fa-2x" style="color: rgb(255, 49, 49);"></i>
-                    <p class="text-cadastrar-novo-sensor h4">CADASTRAR NOVO TREM</p>
-                </div>
-
-
+<div class="d-flex align-items-center">
+    <i class="fa-solid fa-train fa-2x" style="color: rgb(255, 49, 49);"></i>
+    <p class="text-cadastrar-novo-sensor h4">
+        EDITAR TREM: <?php echo $tremEditar["nomeTrem"] ?>
+    </p>
+</div>
 
                 <div id="div-forms-sensors">
                     <form action="atualizarTrem.php" method="POST">

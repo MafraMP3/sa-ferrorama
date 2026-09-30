@@ -99,83 +99,85 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
     <!---------Tela de nenhuma rota cadastrada--------->
 
     <?php if (mysqli_num_rows($rotas) == 0) { ?>
-    <div class="content" id="nenhumSensor">
-      <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
-        <i class="fa-solid fa-left-right fa-5x m-4 text-danger opacity-50"></i>
-        <h4 class="text-secondary">
-          Nenhuma rota cadastrada ainda.
-        </h4>
-        <p class="text-secondary mb-4">Cadastre uma nova rota para começar.</p>
-      </div>
-    </div>
-    <?php } else { ?>
-    <!-------------------------------------------------->
-
-    <div class="content" id="todaTabela">
-      <div class="card div-tabela-sensors ">
-
-        <div class="d-flex align-items-center">
-          <img class="img-sensor-icon" src="../assets/images/icone-tabela-sensor.png" alt="">
-          <p class="text-cadastrar-novo-sensor h4">ROTAS CADASTRADAS</p>
+      <div class="content" id="nenhumSensor">
+        <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
+          <i class="fa-solid fa-left-right fa-5x m-4 text-danger opacity-50"></i>
+          <h4 class="text-secondary">
+            Nenhuma rota cadastrada ainda.
+          </h4>
+          <p class="text-secondary mb-4">Cadastre uma nova rota para começar.</p>
         </div>
+      </div>
+    <?php } else { ?>
+      <!-------------------------------------------------->
 
-        <div class="table-responsive">
-          <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
-            <thead>
-              <tr class="table-dark ">
-                <th class="ths">Nome Rota</th>
-                <th class="ths">Origem</th>
-                <th class="ths">Destino</th>
-                <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
-                <th></th>
-                <?php } ?>
-              </tr>
-            </thead>
-            <tbody>
-              <?php while($rota = mysqli_fetch_assoc($rotas)) { ?>
-              <tr>
-                <td><?php echo $rota["nomeRota"] ?> </td>
-                <td><?php echo $rota["origem"] ?> </td>
-                <td><?php echo $rota["destino"] ?> </td>
+      <div class="content" id="todaTabela">
+        <div class="card div-tabela-sensors ">
 
-                <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?> 
-                    <td class="img-tabela" style="width: 170px;">
+          <div class="d-flex align-items-center">
+            <i class="fa-solid fa-route fa-2x" style="color: rgb(255, 49, 49);"></i>
+            <p class="text-cadastrar-novo-sensor h4">
+              ROTAS CADASTRADAS
+            </p>
+          </div>
+
+          <div class="table-responsive">
+            <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
+              <thead>
+                <tr class="table-dark ">
+                  <th class="ths">Nome Rota</th>
+                  <th class="ths">Origem</th>
+                  <th class="ths">Destino</th>
+                  <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
+                    <th></th>
+                  <?php } ?>
+                </tr>
+              </thead>
+              <tbody>
+                <?php while ($rota = mysqli_fetch_assoc($rotas)) { ?>
+                  <tr>
+                    <td><?php echo $rota["nomeRota"] ?> </td>
+                    <td><?php echo $rota["origem"] ?> </td>
+                    <td><?php echo $rota["destino"] ?> </td>
+
+                    <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
+                      <td class="img-tabela" style="width: 170px;">
 
                         <div class="d-flex gap-2 justify-content-around align-items-center">
-                      <form action="services/excluir.php" method="POST" style="display: inline;">
-                        <input type="hidden"
-                          name="idExcluir"
-                          value="<?php echo $rota["idRota"]; ?>">
-                        <input type="hidden"
-                          name="tabela"
-                          value="rotas">
-                        <input type="hidden"
-                          name="campoId"
-                          value="idRota">
+                          <form action="services/excluir.php" method="POST" style="display: inline;">
+                            <input type="hidden"
+                              name="idExcluir"
+                              value="<?php echo $rota["idRota"]; ?>">
+                            <input type="hidden"
+                              name="tabela"
+                              value="rotas">
+                            <input type="hidden"
+                              name="campoId"
+                              value="idRota">
 
-                        <button class="botao-imagem" type="submit" onclick="return confirm('Deseja excluir esta rota?')" data-bs-toggle="tooltip" title="Excluir"> 
-                          <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
-                        </button>
-                      </form>
+                            <button class="botao-imagem" type="submit" onclick="return confirm('Deseja excluir esta rota?')" data-bs-toggle="tooltip" title="Excluir">
+                              <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
+                            </button>
+                          </form>
 
-                      <form action="services/ProcessosRotas/editarRota.php" method="POST" style="display: inline;" >
-                        <input type="hidden" name="idRota" value="<?php echo $rota["idRota"]; ?>">
+                          <form action="services/ProcessosRotas/editarRota.php" method="POST" style="display: inline;">
+                            <input type="hidden" name="idRota" value="<?php echo $rota["idRota"]; ?>">
 
-                        <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
-                          <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
-                        </button>
-                      </form>
+                            <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
+                              <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
+                            </button>
+                          </form>
 
 
-                      </div>
-                    </td>
+                        </div>
+                      </td>
+                    <?php } ?>
+                  </tr>
                 <?php } ?>
-              </tr>
-              <?php } ?>
-          </table>
+            </table>
+          </div>
         </div>
-      </div>
-    <?php } ?>
+      <?php } ?>
 
   </main>
 
@@ -186,7 +188,8 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
 
 </body>
 <script>
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-[...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 </script>
+
 </html>

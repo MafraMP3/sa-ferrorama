@@ -63,7 +63,6 @@ if (isset($_POST["idRota"]) && filter_var($_POST["idRota"], FILTER_VALIDATE_INT)
 
                 <div class="d-flex align-items-center">
                     <i class="fa-solid fa-route fa-2x" style="color: rgb(255, 49, 49);"></i>
-
                     <p class="text-cadastrar-novo-sensor h4">
                         EDITAR ROTA
                     </p>

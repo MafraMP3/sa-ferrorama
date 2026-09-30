@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['usuario_nome']) || $_SESSION['usuario_funcao'] !== 'Administrador' ) {
+if (!isset($_SESSION['usuario_nome']) || $_SESSION['usuario_funcao'] !== 'Administrador') {
   header("Location: ../index.php");
   exit;
 }
@@ -141,10 +141,7 @@ $usuarios = $resultado;
         <div class="card div-tabela-sensors">
 
           <div class="d-flex align-items-center">
-            <img class="img-sensor-icon"
-              src="../assets/images/icone-tabela-sensor.png"
-              alt="">
-
+            <i class="fa-solid fa-users fa-2x" style="color: rgb(255, 49, 49);"></i>
             <p class="text-cadastrar-novo-sensor h4">
               USUÁRIOS CADASTRADOS
             </p>
@@ -181,23 +178,23 @@ $usuarios = $resultado;
 
                     <td class="img-tabela  " style="width: 220px;">
                       <div class="d-flex gap-2 justify-content-around align-items-center">
-                      <form action="services/excluir.php" method="POST" style="display: inline;">
-                        <input type="hidden" name="idExcluir" value="<?php echo $usuario["idUsuario"]; ?>">
-                        <input type="hidden" name="tabela" value="usuarios">
-                        <input type="hidden" name="campoId" value="idUsuario">
+                        <form action="services/excluir.php" method="POST" style="display: inline;">
+                          <input type="hidden" name="idExcluir" value="<?php echo $usuario["idUsuario"]; ?>">
+                          <input type="hidden" name="tabela" value="usuarios">
+                          <input type="hidden" name="campoId" value="idUsuario">
 
-                        <button class="botao-imagem" type="submit" onclick="return confirm('Deseja excluir este usuário?')" data-bs-toggle="tooltip" title="Excluir"> 
-                          <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
-                        </button>
-                      </form>
+                          <button class="botao-imagem" type="submit" onclick="return confirm('Deseja excluir este usuário?')" data-bs-toggle="tooltip" title="Excluir">
+                            <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
+                          </button>
+                        </form>
 
-                      <form action="services/ProcessosUsuario/editarUsuario.php" method="POST" style="display: inline;" >
-                        <input type="hidden" name="idUsuario" value="<?php echo $usuario["idUsuario"]; ?>">
+                        <form action="services/ProcessosUsuario/editarUsuario.php" method="POST" style="display: inline;">
+                          <input type="hidden" name="idUsuario" value="<?php echo $usuario["idUsuario"]; ?>">
 
-                        <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
-                          <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
-                        </button>
-                      </form>
+                          <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
+                            <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
+                          </button>
+                        </form>
 
 
                       </div>
@@ -228,7 +225,8 @@ $usuarios = $resultado;
   <script src="../java/script.js"></script>
 </body>
 <script>
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-[...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 </script>
+
 </html>
