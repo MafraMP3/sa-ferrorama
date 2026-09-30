@@ -192,8 +192,8 @@ $trens = $resultado;
                           <input type="hidden" name="tabela" value="trens">
                           <input type="hidden" name="campoId" value="idTrem">
 
-                          <button class="botao-imagem" type="button" data-bs-toggle="modal" data-bs-target="#ModalExcluir<?php echo $trem["idTrem"]; ?>">
-                            <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
+                          <button class="botao-imagem" type="button" data-bs-toggle="modal"  data-bs-target="#ModalExcluir<?php echo $trem["idTrem"]; ?>">
+                            <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"  data-bs-toggle="tooltip" title="Excluir"></i>
                           </button>
 
                           <div class="modal fade" id="ModalExcluir<?php echo $trem["idTrem"]; ?>" tabindex="-1">
