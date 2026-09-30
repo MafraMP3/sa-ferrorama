@@ -68,12 +68,12 @@ if (isset($_POST["idTrem"]) && filter_var($_POST["idTrem"], FILTER_VALIDATE_INT)
 
             <div class="card div-top-sensors">
 
-<div class="d-flex align-items-center">
-    <i class="fa-solid fa-train fa-2x" style="color: rgb(255, 49, 49);"></i>
-    <p class="text-cadastrar-novo-sensor h4">
-        EDITAR TREM: <?php echo $tremEditar["nomeTrem"] ?>
-    </p>
-</div>
+                <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-train fa-2x" style="color: rgb(255, 49, 49);"></i>
+                    <p class="text-cadastrar-novo-sensor h4">
+                        EDITANDO TREM: <?php echo $tremEditar["nomeTrem"] ?>
+                    </p>
+                </div>
 
                 <div id="div-forms-sensors">
                     <form action="atualizarTrem.php" method="POST">
@@ -154,9 +154,14 @@ if (isset($_POST["idTrem"]) && filter_var($_POST["idTrem"], FILTER_VALIDATE_INT)
                                 </select>
                             </div>
 
-                            <button class="d-block btn btn-primary button-form-sensors" type="submit">
-                                Atualizar
-                            </button>
+                            <div class="d-flex flex-column">
+                                <button
+                                    class="d-block btn btn-primary button-form-sensors"
+                                    type="submit">
+                                    Atualizar
+                                </button>
+                                <a id="botao-voltar-editar" class="btn btn-dark mt-1" href="../../trens.php">Voltar</a>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -167,19 +172,6 @@ if (isset($_POST["idTrem"]) && filter_var($_POST["idTrem"], FILTER_VALIDATE_INT)
 
         <!----------------------------------------------------------------------------------------------//-->
 
-        <!---------Tela de deletar Sensor--------->
-
-
-
-        <!---------------------------------------->
-
-        <!---------Tela de nenhum trem cadastrado--------->
-
-
-        <!-------------------------------------------------->
-
-
-        <!-------------------------------------------------->
 
     </main>
 

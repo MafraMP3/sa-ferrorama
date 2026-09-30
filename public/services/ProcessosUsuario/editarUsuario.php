@@ -59,7 +59,7 @@ if (isset($_POST["idUsuario"]) && filter_var($_POST["idUsuario"], FILTER_VALIDAT
                     <i class="fa-solid fa-user-pen fa-2x" style="color: rgb(255, 49, 49);"></i>
 
                     <p class="text-cadastrar-novo-sensor h4">
-                        EDITAR USUÁRIO
+                        EDITANDO USUÁRIO: <?php echo $usuarioEditar["nome"]; ?>
                     </p>
                 </div>
 
