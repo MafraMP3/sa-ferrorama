@@ -195,9 +195,34 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
                         <input type="hidden" name="tabela" value="sensores">
                         <input type="hidden" name="campoId" value="idSensor">
 
-                        <button class="botao-imagem" type="submit" onclick="return confirm('Deseja excluir este sensor?')" data-bs-toggle="tooltip" title="Excluir"> 
-                          <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
-                        </button>
+                        <button class="botao-imagem" type="button" data-bs-toggle="modal" data-bs-target="#ModalExcluir<?php echo $sensor["idSensor"]; ?>">
+                              <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
+                          </button>
+
+                            <div class="modal fade" id="ModalExcluir<?php echo $sensor["idSensor"]; ?>" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5">Confirmar exclusão</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            Deseja realmente excluir o sensor <strong><?php echo $sensor["nome"]; ?></strong>?
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                Cancelar
+                                            </button>
+
+                                            <button type="submit" class="btn btn-danger">
+                                                Confirmar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                       </form>
 
                       <form action="services/ProcessosSensor/editarSensor.php" method="POST" style="display: inline;" >

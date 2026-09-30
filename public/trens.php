@@ -203,10 +203,34 @@ $trens = $resultado;
                         <input type="hidden" name="tabela" value="trens">
                         <input type="hidden" name="campoId" value="idTrem">
 
-                        <button class="botao-imagem" type="submit" onclick="return confirm('Deseja excluir este trem?')" data-bs-toggle="tooltip" title="Excluir"> 
-                          <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
-                        </button>
-                      </form>
+                        <button class="botao-imagem" type="button" data-bs-toggle="modal" data-bs-target="#ModalExcluir<?php echo $trem["idTrem"]; ?>">
+                              <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
+                          </button>
+
+                            <div class="modal fade" id="ModalExcluir<?php echo $trem["idTrem"]; ?>" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5">Confirmar exclusão</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            Deseja realmente excluir o trem <strong><?php echo $trem["nomeTrem"]; ?></strong>?
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                Cancelar
+                                            </button>
+
+                                            <button type="submit" class="btn btn-danger">
+                                                Confirmar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                       <form action="services/ProcessosTrem/editarTrem.php" method="POST" style="display: inline;">
 

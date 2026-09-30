@@ -153,12 +153,37 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
                           name="campoId"
                           value="idRota">
 
-                        <button class="botao-imagem" type="submit" onclick="return confirm('Deseja excluir esta rota?')" data-bs-toggle="tooltip" title="Excluir"> 
-                          <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
-                        </button>
+                        <button class="botao-imagem" type="button" data-bs-toggle="modal" data-bs-target="#ModalExcluir<?php echo $rota["idRota"]; ?>">
+                              <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
+                          </button>
+
+                            <div class="modal fade" id="ModalExcluir<?php echo $rota["idRota"]; ?>" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5">Confirmar exclusão</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            Deseja realmente excluir a rota <strong><?php echo $rota["nomeRota"]; ?></strong>?
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                Cancelar
+                                            </button>
+
+                                            <button type="submit" class="btn btn-danger">
+                                                Confirmar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                       </form>
 
-                      <form action="services/ProcessosRota/editarRota.php" method="POST" style="display: inline;" >
+                      <form action="services/ProcessosRotas/editarRota.php" method="POST" style="display: inline;" >
                         <input type="hidden" name="idRota" value="<?php echo $rota["idRota"]; ?>">
 
                         <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
