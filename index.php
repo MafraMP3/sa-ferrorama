@@ -41,12 +41,12 @@ if (isset($_POST["login"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style.css?v=2">
     <link rel="icon" href="assets/images/icon.png">
     <title>Ferrorama SA</title>
 </head>
 
-<body>
+<body id="body-login-screen">
 
     <header></header>
 
@@ -78,7 +78,7 @@ if (isset($_POST["login"])) {
             </div>
 
             <div>
-                <img class="img-fluid" id="img-footer-login-screen" src="assets/images/footer-image-login-screen.png" alt="">
+        <img class="img-fluid" id="img-footer-login-screen"src="assets/images/footer-image-login-screen.png" alt="">
             </div>
             
 
