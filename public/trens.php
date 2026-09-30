@@ -176,80 +176,56 @@ $trens = $resultado;
               </thead>
 
               <tbody>
-
                 <?php while ($trem = mysqli_fetch_assoc($trens)) { ?>
-
                   <tr>
-
                     <td><?php echo $trem["idTrem"]; ?></td>
-
                     <td><?php echo htmlspecialchars($trem["nomeTrem"]); ?></td>
+                    <td><?php echo htmlspecialchars($trem["tipoCarga"]); ?></td>
+                    <td><?php echo htmlspecialchars($trem["modeloTrem"]); ?></td>
+                    <td><?php echo htmlspecialchars($trem["nomeRota"] ?? "Sem rota"); ?></td>
 
-                    <td><?php echo $trem["tipoCarga"]; ?></td>
-
-                    <td><?php echo $trem["modeloTrem"]; ?></td>
-
-                    <td>
-                      <?php echo $trem["nomeRota"] ?? "Sem rota"; ?>
-                    </td>
-
-                    <td class="img-tabela" style="width: 170px;">
-
-
+                    <td class="img-tabela" style="width: 220px;">
                       <div class="d-flex gap-2 justify-content-around align-items-center">
+
                         <form action="services/excluir.php" method="POST" style="display: inline;">
                           <input type="hidden" name="idExcluir" value="<?php echo $trem["idTrem"]; ?>">
                           <input type="hidden" name="tabela" value="trens">
                           <input type="hidden" name="campoId" value="idTrem">
 
-                        <button class="botao-imagem" type="button" data-bs-toggle="modal" data-bs-target="#ModalExcluir<?php echo $trem["idTrem"]; ?>">
-                              <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
+                          <button class="botao-imagem" type="button" data-bs-toggle="modal" data-bs-target="#ModalExcluir<?php echo $trem["idTrem"]; ?>">
+                            <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
                           </button>
 
-                            <div class="modal fade" id="ModalExcluir<?php echo $trem["idTrem"]; ?>" tabindex="-1">
-                                <div class="modal-dialog modal-dialog-scrollable">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5">Confirmar exclusão</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                        </div>
-
-                                        <div class="modal-body">
-                                            Deseja realmente excluir o trem <strong><?php echo $trem["nomeTrem"]; ?></strong>?
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                                Cancelar
-                                            </button>
-
-                                            <button type="submit" class="btn btn-danger">
-                                                Confirmar
-                                            </button>
-                                        </div>
-                                    </div>
+                          <div class="modal fade" id="ModalExcluir<?php echo $trem["idTrem"]; ?>" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-scrollable">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5">Confirmar exclusão</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                 </div>
+                                <div class="modal-body">
+                                  Deseja realmente excluir o trem <strong><?php echo htmlspecialchars($trem["nomeTrem"]); ?></strong>?
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                  <button type="submit" class="btn btn-danger">Confirmar</button>
+                                </div>
+                              </div>
                             </div>
+                          </div>
+                        </form>
 
                         <form action="services/ProcessosTrem/editarTrem.php" method="POST" style="display: inline;">
-
                           <input type="hidden" name="idTrem" value="<?php echo $trem["idTrem"]; ?>">
-
                           <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
                             <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
                           </button>
                         </form>
 
-
                       </div>
-                      </form>
-
                     </td>
-
                   </tr>
-
                 <?php } ?>
-
               </tbody>
 
             </table>
