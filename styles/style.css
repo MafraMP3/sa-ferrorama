@@ -514,7 +514,6 @@ body {
 
 .btn.active,
 .btn:hover {
-  background-color: #ff2c2c;
   color: white;
 }
 
@@ -687,9 +686,12 @@ body {
 /*--------------------------------------------------------------*/
 
 /*---------------------------Editar usuarios-----------------------------------*/
-#botao-voltar-editar:hover{
-  background-color: #4d4d4d !important;
+#botao-preto-fadecinza:hover {
+    background-color: #4d4d4d !important;
+    border-color: #4d4d4d !important;
+    color: white !important;
 }
+
 /*----------------------------Usuários----------------------------*/
 
 #tabelaSensores tbody tr .dado-restrito {

@@ -12,13 +12,11 @@ if (!empty($_POST["nomePesquisa"])) {
   $nomePesquisa = $_POST["nomePesquisa"];
 
   $sql = "SELECT * FROM usuarios WHERE nome = '$nomePesquisa'";
-}
-else if (!empty($_POST["funcaoPesquisa"])) {
+} else if (!empty($_POST["funcaoPesquisa"])) {
   $funcaoPesquisa = $_POST["funcaoPesquisa"];
 
   $sql = "SELECT * FROM usuarios WHERE funcao = '$funcaoPesquisa'";
-
-}else {
+} else {
   $sql = "SELECT * FROM usuarios";
 }
 
@@ -160,25 +158,43 @@ $usuarios = $resultado;
 
         <div class="card div-tabela-sensors">
 
-          <div class="d-flex align-items-center">
-            <i class="fa-solid fa-users fa-2x" style="color: rgb(255, 49, 49);"></i>
-            <p class="text-cadastrar-novo-sensor h4">
-              USUÁRIOS CADASTRADOS
-            </p>
-            <form action="" method="POST">
-              <input type="text" name="nomePesquisa" placeholder="Pesquisar">
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex">
+              <i class="fa-solid fa-users fa-2x" style="color: rgb(255, 49, 49);"></i>
+              <p class="text-cadastrar-novo-sensor h4">
+                USUÁRIOS CADASTRADOS
+              </p>
+            </div>
 
-              <select name="funcaoPesquisa" id="funcaoPesquisa">
-                  <option selected disabled value="">Selecione a função</option>
-                  <option value="Administrador">Administrador</option>
-                  <option value="Funcionário">Funcionário</option>
-              </select>
+            <div class="d-flex gap-1">
 
-              <button type="submit">Pesquisar</button>
-            </form>
-            <form action="" method="POST">
-              <button type="submit" name="limparPesquisa">Limpar Pesquisa</button>
-            </form>
+              <div>
+                <form class="d-flex gap-1" action="" method="POST">
+                  <div>
+                    <input class="form-control" type="text" name="nomePesquisa" placeholder="Pesquisar">
+                  </div>
+
+                  <div>
+                    <select class="form-select" name="funcaoPesquisa" id="funcaoPesquisa">
+                      <option selected disabled value="">Selecione a função</option>
+                      <option value="Administrador">Administrador</option>
+                      <option value="Funcionário">Funcionário</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <button id="botao-preto-fadecinza" class="btn btn-dark" type="submit">Pesquisar</button>
+                  </div>
+
+                </form>
+              </div>
+
+              <div>
+                <form action="" method="POST">
+                  <button id="botao-preto-fadecinza" class="btn btn-dark" type="submit" name="limparPesquisa">Limpar Pesquisa</button>
+                </form>
+              </div>
+            </div>
 
           </div>
 
@@ -207,7 +223,7 @@ $usuarios = $resultado;
 
                     <td class="dado-restrito"><?php echo htmlspecialchars($usuario["senha"]); ?></td>
 
-                    <td class="dado-restrito"><?php echo htmlspecialchars($usuario["cpf"]) ; ?></td>
+                    <td class="dado-restrito"><?php echo htmlspecialchars($usuario["cpf"]); ?></td>
 
                     <td><?php echo $usuario["funcao"]; ?></td>
 
@@ -219,44 +235,44 @@ $usuarios = $resultado;
                           <input type="hidden" name="campoId" value="idUsuario">
 
                           <button class="botao-imagem" type="button" data-bs-toggle="modal" data-bs-target="#ModalExcluir<?php echo $usuario["idUsuario"]; ?>">
-                              <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"  data-bs-toggle="tooltip" title="Excluir"></i>
+                            <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;" data-bs-toggle="tooltip" title="Excluir"></i>
                           </button>
 
-                            <div class="modal fade" id="ModalExcluir<?php echo $usuario["idUsuario"]; ?>" tabindex="-1">
-                                <div class="modal-dialog modal-dialog-scrollable">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5">Confirmar exclusão</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                        </div>
-
-                                        <div class="modal-body">
-                                            Deseja realmente excluir o usuário <strong><?php echo $usuario["nome"]; ?></strong>?
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                                Cancelar
-                                            </button>
-
-                                            <button type="submit" class="btn btn-danger">
-                                                Confirmar
-                                            </button>
-                                        </div>
-                                    </div>
+                          <div class="modal fade" id="ModalExcluir<?php echo $usuario["idUsuario"]; ?>" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-scrollable">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5">Confirmar exclusão</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                 </div>
-                            </div>
 
-                      </form>
+                                <div class="modal-body">
+                                  Deseja realmente excluir o usuário <strong><?php echo $usuario["nome"]; ?></strong>?
+                                </div>
+
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Cancelar
+                                  </button>
+
+                                  <button type="submit" class="btn btn-danger">
+                                    Confirmar
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </form>
 
                         <form action="services/ProcessosUsuario/editarUsuario.php" method="POST" style="display: inline;">
                           <input type="hidden" name="idUsuario" value="<?php echo $usuario["idUsuario"]; ?>">
 
-                        <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
-                          <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
-                        </button>
+                          <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
+                            <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
+                          </button>
 
-                      </form>
+                        </form>
 
 
                       </div>

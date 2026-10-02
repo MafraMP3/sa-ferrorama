@@ -170,7 +170,7 @@ if (isset($_POST["idSensor"]) && filter_var($_POST["idSensor"], FILTER_VALIDATE_
                                     type="submit">
                                     Atualizar
                                 </button>
-                                <a id="botao-voltar-editar" class="btn btn-dark mt-1" href="../../sensores.php">Voltar</a>
+                                <a id="botao-preto-fadecinza" class="btn btn-dark mt-1" href="../../sensores.php">Voltar</a>
                             </div>
 
                         </div>

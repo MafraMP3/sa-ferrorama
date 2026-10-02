@@ -136,7 +136,7 @@ if (isset($_POST["idRota"]) && filter_var($_POST["idRota"], FILTER_VALIDATE_INT)
                                     type="submit">
                                     Atualizar
                                 </button>
-                                <a id="botao-voltar-editar" class="btn btn-dark mt-1" href="../../rotas.php">Voltar</a>
+                                <a id="botao-preto-fadecinza" class="btn btn-dark mt-1" href="../../rotas.php">Voltar</a>
                             </div>
 
                         </div>

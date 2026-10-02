@@ -175,7 +175,7 @@ if (isset($_POST["idUsuario"]) && filter_var($_POST["idUsuario"], FILTER_VALIDAT
                                     type="submit">
                                     Atualizar
                                 </button>
-                                <a id="botao-voltar-editar" class="btn btn-dark mt-1" href="../../usuarios.php">Voltar</a>
+                                <a id="botao-preto-fadecinza" class="btn btn-dark mt-1" href="../../usuarios.php">Voltar</a>
                             </div>
 
 

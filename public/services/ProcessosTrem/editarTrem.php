@@ -160,7 +160,7 @@ if (isset($_POST["idTrem"]) && filter_var($_POST["idTrem"], FILTER_VALIDATE_INT)
                                     type="submit">
                                     Atualizar
                                 </button>
-                                <a id="botao-voltar-editar" class="btn btn-dark mt-1" href="../../trens.php">Voltar</a>
+                                <a id="botao-preto-fadecinza" class="btn btn-dark mt-1" href="../../trens.php">Voltar</a>
                             </div>
                         </div>
                     </form>
