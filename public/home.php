@@ -1,6 +1,24 @@
-<?php 
-Session_start(); 
-if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit; }
+<?php
+Session_start();
+if (!isset($_SESSION['usuario_nome'])) {
+    header("Location: ../index.php");
+    exit;
+}
+
+
+
+
+include "../infra/database/conn.php";
+
+$sql = "SELECT COUNT(*) AS quantidade FROM sensores";
+
+$resultado = $conn->query($sql);
+
+$dados = $resultado->fetch_assoc();
+
+$quantidadeSensores = $dados["quantidade"];
+
+
 ?>
 
 
@@ -22,25 +40,25 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
 
 
 
-<?php
+    <?php
 
     include "component/navbar.php";
-date_default_timezone_set('America/Sao_Paulo');
-$hora = date("H");
+    date_default_timezone_set('America/Sao_Paulo');
+    $hora = date("H");
 
-if ($hora >= 5 && $hora < 12) {
-    $saudacao = "Bom dia";
-} elseif ($hora >= 12 && $hora < 18) {
-    $saudacao = "Boa tarde";
-} else {
-    $saudacao = "Boa noite";
-}
-?>
-<!---------DADOS--------->
+    if ($hora >= 5 && $hora < 12) {
+        $saudacao = "Bom dia";
+    } elseif ($hora >= 12 && $hora < 18) {
+        $saudacao = "Boa tarde";
+    } else {
+        $saudacao = "Boa noite";
+    }
+    ?>
+    <!---------DADOS--------->
 
 
     <div class="content ">
-     
+
 
         <h3 id="saudacao"><?php echo $saudacao . ", " . $_SESSION['usuario_nome'] ?></h3>
         <p>Gerencie tudo aqui</p>
@@ -55,14 +73,11 @@ if ($hora >= 5 && $hora < 12) {
                             <img src="../assets/images/icon-sensores.png" alt="icone sensores" class="imagem-analise">
                             <div>
                                 <p class="h5 mb-1">
-                                    Sensores ativos
+                                    Sensores ativos:
                                 </p>
-
-                                 
-                                <p class="lead mb-0">
-                                    ?? sensores online
-                                </p>
-
+                                <h2 class=" mb-0">
+                                    <?php echo ($quantidadeSensores) ?>
+                                </h2>
                             </div>
                         </div>
                     </div>
@@ -80,7 +95,7 @@ if ($hora >= 5 && $hora < 12) {
                                     Velocidade atual
                                 </p>
 
-                               
+
 
                                 <p class="lead mb-0">
                                     ?? km/h
@@ -125,7 +140,7 @@ if ($hora >= 5 && $hora < 12) {
                             <div class="text-center">
                                 <i class="fa-solid fa-train fa-3x mb-3"></i>
 
-                                 <!-- ⚠️ ERRO: texto placeholder "aaaa..." esquecido, precisa trocar por conteúdo real -->
+                                <!-- ⚠️ ERRO: texto placeholder "aaaa..." esquecido, precisa trocar por conteúdo real -->
 
                                 <h5>
                                     aaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -152,10 +167,10 @@ if ($hora >= 5 && $hora < 12) {
                             </div>
                             <div class="status-area">
                                 <h2>
-                                    ??????
+                                    ????
                                 </h2>
                                 <p>
-                                    Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                                    sistema ativo
                                 </p>
 
                             </div>
@@ -183,7 +198,7 @@ if ($hora >= 5 && $hora < 12) {
                 </div>
             </div>
 
-<!--------------------------------->
+            <!--------------------------------->
 
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
