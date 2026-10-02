@@ -1,37 +1,41 @@
-<?php 
-  
-  include "../../../infra/database/conn.php";
+<?php
 
-  $nomeTrem = $_POST["nomeTrem"];
-  $rotaTrem = $_POST["idRota"];
-  $tipoCarga = $_POST["tipoCarga"];
-  $modeloTrem = $_POST["modeloTrem"];
- 
+include "../../../infra/database/conn.php";
 
-  if ($nomeTrem == null || $tipoCarga == null || $modeloTrem == null || $rotaTrem == null){
-    echo "<script>
+$nomeTrem = $_POST["nomeTrem"];
+$rotaTrem = $_POST["idRota"];
+$tipoCarga = $_POST["tipoCarga"];
+$modeloTrem = $_POST["modeloTrem"];
+
+
+if ($nomeTrem == null || $tipoCarga == null || $modeloTrem == null || $rotaTrem == null) {
+  echo "<script>
           alert('Erro no cadastro de trens, não é permitido campos vazios');
           window.location.href = '../../trens.php'
           </script>";
-    die();
-  }
+  die();
+}
 
-    $rotas = mysqli_query($conn, "SELECT * FROM rotas");
+$rotas = "SELECT * FROM rotas WHERE idRota = ?";
+$stmt = $conn->prepare("$rotas");
+$stmt->bind_param("i", $rotaTrem);
+$stmt->execute();
+$stmt->store_result();
 
-  if ($rotaTrem > mysqli_num_rows($rotas) || $rotaTrem <= 0){
-        echo "<script>
-          alert('Erro no cadastro de Trens, Rota Inexistente');
-          window.location.href = '../../sensores.php'
+if ($stmt->num_rows == 0) {
+    echo "<script>
+          alert('Erro no cadastro de trens, rota não encontrada');
+          window.location.href = '../../trens.php'
           </script>";
-    die();
-  }
+  die();
+}
 
-  $sql = "INSERT INTO trens (nomeTrem,idRota,tipoCarga,modeloTrem) VALUES (?,?,?,?)";
+$sql = "INSERT INTO trens (nomeTrem,idRota,tipoCarga,modeloTrem) VALUES (?,?,?,?)";
 
-  $stmt = $conn -> prepare($sql);
-  $stmt->bind_param("siss", $nomeTrem, $rotaTrem, $tipoCarga, $modeloTrem);
-  $stmt->execute();
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("siss", $nomeTrem, $rotaTrem, $tipoCarga, $modeloTrem);
+$stmt->execute();
 
-  header("location: ../../trens.php");
+header("location: ../../trens.php");
 
 ?>
