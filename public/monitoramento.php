@@ -21,6 +21,14 @@ if (isset($_POST["editarSensor"])) {
     $sensor = $result->fetch_assoc();
 }
 ?>
+
+<script>
+// Limpa o estado de POST do navegador assim que a página de monitoramento carrega
+if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+}
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 

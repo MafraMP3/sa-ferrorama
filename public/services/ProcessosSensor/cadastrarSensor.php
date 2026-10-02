@@ -16,15 +16,19 @@
     die();
   }
 
-  $trens = mysqli_query($conn, "SELECT * FROM trens");
+$trens = "SELECT * FROM trens WHERE idTrem = ?";
+$stmt = $conn->prepare("$trens");
+$stmt->bind_param("i", $idTrem);
+$stmt->execute();
+$stmt->store_result();
 
-  if ($idTrem > mysqli_num_rows($trens) || $idTrem <= 0){
-        echo "<script>
-          alert('Erro no cadastro de sensores, Trem Inexistente');
+if ($stmt->num_rows == 0) {
+    echo "<script>
+          alert('Erro no cadastro de sensores, trem não encontrado');
           window.location.href = '../../sensores.php'
           </script>";
-    die();
-  }
+  die();
+}
 
   $sql = "INSERT INTO sensores (nome,localizacao,tipo,dataInstalacao,idTrem) VALUES (?,?,?,?,?)";
 
