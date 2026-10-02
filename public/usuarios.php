@@ -184,7 +184,7 @@ $usuarios = $resultado;
                           <input type="hidden" name="campoId" value="idUsuario">
 
                           <button class="botao-imagem" type="button" data-bs-toggle="modal" data-bs-target="#ModalExcluir<?php echo $usuario["idUsuario"]; ?>">
-                              <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
+                              <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"  data-bs-toggle="tooltip" title="Excluir"></i>
                           </button>
 
                             <div class="modal fade" id="ModalExcluir<?php echo $usuario["idUsuario"]; ?>" tabindex="-1">
