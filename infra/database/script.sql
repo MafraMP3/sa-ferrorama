@@ -53,8 +53,13 @@ INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Fix","121.111.111-11
 INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Davi","112.111.111-11","davi_sehnem@estudante.sesisenai.org.br","123","Administrador");
 INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Lucas","111.211.111-11","lucas_schattenberg@estudante.sesisenai.org.br","123","Administrador");
 INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Gustavo","111.121.111-11","gustavo_sena@estudante.sesisenai.org.br","123","Administrador");
+INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Xaea12", "248.731.965-42", "Xaea12@estudante.sesisenai.org.br", "123", "Funcionario");
 
 
 INSERT INTO rotas (nomeRota,origem,destino) VALUES ("Rota Quiriri","Rio da Prata","Estação Quiriri");
 INSERT INTO trens (nomeTrem,tipoCarga,modeloTrem,idRota) VALUES ("Litorina","Passageiros","Diesel",1);
 INSERT INTO sensores (nome,localizacao,tipo,dataInstalacao,ativo,idTrem) VALUES ("Sensor de Temperatura","Estação Quiriri","Temperatura",NOW(),1,1);
+
+INSERT INTO rotas (nomeRota, origem, destino) VALUES ("Rota Serra", "Estação Central", "Serra Quiriri");
+INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota) VALUES ("Expresso Serra", "Carga", "Diesel", 2);
+INSERT INTO sensores (nome, localizacao, tipo, dataInstalacao, ativo, idTrem) VALUES ("Sensor de Velocidade", "Serra Quiriri", "Velocidade", NOW(), 1, 2);

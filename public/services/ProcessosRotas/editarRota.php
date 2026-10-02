@@ -93,7 +93,6 @@ if (isset($_POST["idRota"]) && filter_var($_POST["idRota"], FILTER_VALIDATE_INT)
                                     value="<?php echo $rotaEditar["nomeRota"]; ?>"
                                     maxlength="20"
                                     required>
-
                             </div>
 
                             <div class="div-inputs-label-sensors">
@@ -110,7 +109,6 @@ if (isset($_POST["idRota"]) && filter_var($_POST["idRota"], FILTER_VALIDATE_INT)
                                     value="<?php echo $rotaEditar["origem"]; ?>"
                                     maxlength="20"
                                     required>
-
                             </div>
 
                             <div class="div-inputs-label-sensors">
@@ -127,7 +125,6 @@ if (isset($_POST["idRota"]) && filter_var($_POST["idRota"], FILTER_VALIDATE_INT)
                                     value="<?php echo $rotaEditar["destino"]; ?>"
                                     maxlength="20"
                                     required>
-
                             </div>
 
                             <div class="d-flex flex-column">
