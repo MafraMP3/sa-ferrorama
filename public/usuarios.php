@@ -7,7 +7,27 @@ if (!isset($_SESSION['usuario_nome']) || $_SESSION['usuario_funcao'] !== 'Admini
 
 include("../infra/database/conn.php");
 
-$sql = "SELECT * FROM usuarios";
+// VERIFICAÇÃO DE PESQUISA
+if (!empty($_POST["nomePesquisa"])) {
+  $nomePesquisa = $_POST["nomePesquisa"];
+
+  $sql = "SELECT * FROM usuarios WHERE nome = '$nomePesquisa'";
+}
+else if (!empty($_POST["funcaoPesquisa"])) {
+  $funcaoPesquisa = $_POST["funcaoPesquisa"];
+
+  $sql = "SELECT * FROM usuarios WHERE funcao = '$funcaoPesquisa'";
+
+}else {
+  $sql = "SELECT * FROM usuarios";
+}
+
+//LIMPAR FILTRO
+if (isset($_POST["limparPesquisa"])) {
+  $nomePesquisa = "";
+  $funcaoPesquisa = "";
+}
+
 $resultado = $conn->query($sql);
 $usuarios = $resultado;
 ?>
@@ -66,7 +86,7 @@ $usuarios = $resultado;
               </div>
               <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">CPF</label>
-                <input class="form-control input-form-sensors" name="cpf" type="text" placeholder="EX: 123.456.789-00"
+                <input class="form-control input-form-sensors" name="cpf" type="text" maxlength="14" placeholder="EX: 123.456.789-00"
                   id="cpfUsuario" required>
               </div>
               <div class="div-inputs-label-sensors">
@@ -122,7 +142,7 @@ $usuarios = $resultado;
 
 
     <!---------Tela de nenhum usuario cadastrado--------->
-    <?php if (mysqli_num_rows($usuarios) == 0) { ?>
+    <?php if (mysqli_num_rows($usuarios) == 0 && empty($_POST["nomePesquisa"]) && empty($_POST["funcaoPesquisa"])) { ?>
       <div class="content" id="nenhumSensor">
         <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
           <i class="fa-solid fa-users-slash fa-5x m-4 text-danger opacity-50"></i>
@@ -145,6 +165,21 @@ $usuarios = $resultado;
             <p class="text-cadastrar-novo-sensor h4">
               USUÁRIOS CADASTRADOS
             </p>
+            <form action="" method="POST">
+              <input type="text" name="nomePesquisa" placeholder="Pesquisar">
+
+              <select name="funcaoPesquisa" id="funcaoPesquisa">
+                  <option selected disabled value="">Selecione a função</option>
+                  <option value="Administrador">Administrador</option>
+                  <option value="Funcionário">Funcionário</option>
+              </select>
+
+              <button type="submit">Pesquisar</button>
+            </form>
+            <form action="" method="POST">
+              <button type="submit" name="limparPesquisa">Limpar Pesquisa</button>
+            </form>
+
           </div>
 
           <div class="table-responsive">
