@@ -66,7 +66,7 @@ $usuarios = $resultado;
               </div>
               <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">CPF</label>
-                <input class="form-control input-form-sensors" name="cpf" type="text" placeholder="EX: 123.456.789-00"
+                <input class="form-control input-form-sensors" name="cpf" maxlength="14" type="text" placeholder="EX: 123.456.789-00"
                   id="cpfUsuario" required>
               </div>
               <div class="div-inputs-label-sensors">

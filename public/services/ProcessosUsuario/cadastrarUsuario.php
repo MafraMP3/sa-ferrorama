@@ -6,6 +6,25 @@ $nome = $_POST["nome"];
 $email = $_POST["email"];
 $senha = $_POST["senha"];
 $cpf = $_POST["cpf"];
+
+if (!preg_match('/^\d{3}\.\d{3}\.\d{3}-\d{2}$/', $cpf)) {
+    $cpf = preg_replace('/\D/', '', $cpf);
+
+    if (strlen($cpf) == 11) {
+        $cpf = preg_replace(
+            '/(\d{3})(\d{3})(\d{3})(\d{2})/',
+            '$1.$2.$3-$4',
+            $cpf
+        );
+    } else {
+        echo "<script>
+            alert('CPF inválido');
+            window.location.href = '../../usuarios.php';
+        </script>";
+        die();
+    }
+}
+
 $funcao = $_POST["funcao"];
 
 if (strlen($cpf) < 11) {
@@ -51,7 +70,7 @@ if ($conn->query("SELECT * FROM usuarios WHERE email = '$email' OR cpf = '$cpf'"
 $sql = "INSERT INTO usuarios (nome, email, senha, cpf, funcao) VALUES (?,?,?,?,?)";
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssis", $nome,$email,$senha,$cpf,$funcao);
+$stmt->bind_param("sssss", $nome,$email,$senha,$cpf,$funcao);
 $stmt->execute();
 
 
