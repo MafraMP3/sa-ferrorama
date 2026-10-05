@@ -221,7 +221,6 @@ $usuarios = $resultado;
                 <tr class="table-dark">
                   <th class="ths">Nome</th>
                   <th class="ths">Email</th>
-                  <th class="ths">Senha</th>
                   <th class="ths">CPF</th>
                   <th class="ths">Função</th>
                   <th class="ths">Ações</th>
@@ -237,8 +236,6 @@ $usuarios = $resultado;
                     <td><?php echo htmlspecialchars($usuario["nome"]); ?></td>
 
                     <td><?php echo $usuario["email"]; ?></td>
-
-                    <td class="dado-restrito"><?php echo htmlspecialchars($usuario["senha"]); ?></td>
 
                     <td class="dado-restrito"><?php echo htmlspecialchars($usuario["cpf"]); ?></td>
 

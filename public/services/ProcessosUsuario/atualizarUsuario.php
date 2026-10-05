@@ -5,7 +5,6 @@ include "../../../infra/database/conn.php";
 $idUsuario = $_POST["idUsuario"];
 $nome = $_POST["nome"];
 $email = $_POST["email"];
-$senha = $_POST["senha"];
 $cpf = $_POST["cpf"];
 $funcao = $_POST["funcao"];
 
@@ -14,7 +13,6 @@ if (
     $idUsuario == null ||
     $nome == null ||
     $email == null ||
-    $senha == null ||
     $cpf == null ||
     $funcao == null
 ) {
@@ -27,16 +25,15 @@ if (
 
 
 $sql = "UPDATE usuarios 
-        SET nome = ?, email = ?, senha = ?, cpf = ?, funcao = ?
+        SET nome = ?, email = ?, cpf = ?, funcao = ?
         WHERE idUsuario = ?";
 
 $stmt = $conn->prepare($sql);
 
 $stmt->bind_param(
-    "sssssi",
+    "ssssi",
     $nome,
     $email,
-    $senha,
     $cpf,
     $funcao,
     $idUsuario
