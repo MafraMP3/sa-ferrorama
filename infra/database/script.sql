@@ -10,9 +10,9 @@ CREATE TABLE IF NOT EXISTS rotas(
 
 CREATE TABLE IF NOT EXISTS trens(
     idTrem INT AUTO_INCREMENT PRIMARY KEY,
-    nomeTrem VARCHAR(20) NOT NULL,
+    nomeTrem VARCHAR(40) NOT NULL,
     tipoCarga VARCHAR(20) NOT NULL,
-    modeloTrem VARCHAR(15) NOT NULL,
+    modeloTrem VARCHAR(30) NOT NULL,
     idRota INT,
     FOREIGN KEY (idRota) REFERENCES rotas(idRota)
 );
@@ -53,8 +53,21 @@ INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Fix","121.111.111-11
 INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Davi","112.111.111-11","davi_sehnem@estudante.sesisenai.org.br","123","Administrador");
 INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Lucas","111.211.111-11","lucas_schattenberg@estudante.sesisenai.org.br","123","Administrador");
 INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Gustavo","111.121.111-11","gustavo_sena@estudante.sesisenai.org.br","123","Administrador");
+INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Xaea12", "248.731.965-42", "Xaea12@estudante.sesisenai.org.br", "123", "Funcionario");
 
 
 INSERT INTO rotas (nomeRota,origem,destino) VALUES ("Rota Quiriri","Rio da Prata","Estação Quiriri");
+INSERT INTO rotas (nomeRota, origem, destino) VALUES ("Rota Serra", "Estação Central", "Serra Quiriri");
+INSERT INTO rotas (nomeRota, origem, destino) VALUES ("Rota São Francisco", "Estação de Joinville", "São Francisco do Sul");
+INSERT INTO rotas (nomeRota, origem, destino) VALUES ("Rota Dona Francisca", "Estação de Joinville", "Serra Dona Francisca");
+
+INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota) VALUES ("Expresso Serra", "Carga", "Diesel", 2);
 INSERT INTO trens (nomeTrem,tipoCarga,modeloTrem,idRota) VALUES ("Litorina","Passageiros","Diesel",1);
+INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota) VALUES ("Expresso São Francisco", "Passageiros", "Diesel", 5);
+INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota) VALUES ("Expresso Dona Francisca", "Passageiros", "Diesel", 6);
+
 INSERT INTO sensores (nome,localizacao,tipo,dataInstalacao,ativo,idTrem) VALUES ("Sensor de Temperatura","Estação Quiriri","Temperatura",NOW(),1,1);
+INSERT INTO sensores (nome, localizacao, tipo, dataInstalacao, ativo, idTrem) VALUES ("Sensor de Velocidade", "Serra Quiriri", "Velocidade", NOW(), 1, 2);
+
+
+
