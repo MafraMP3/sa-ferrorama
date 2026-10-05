@@ -50,8 +50,8 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
 
         <div class="w-50">
             <p>
-                A SA (situação de aprendizado) é um projeto iniciado no 3º ano do curso
-                técnico em desenvolvimento de sistemas integrado ao ensino médio,
+                A SA (situação de aprendizagem) é um projeto iniciado no 3º ano do curso
+                técnico de desenvolvimento de sistemas integrado ao ensino médio,
                 realizado na escola SESI SENAI e teve como objetivo sintetizar os
                 conhecimentos adquiridos durante todo o processo de aprendizado do
                 docente em um projeto final. É nesse contexto que se inicia o
@@ -60,12 +60,7 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
                 sensores instalados em um ferrorama.
             </p>
 
-            <p>
-                O processo de seu desenvolvimento passa de etapa em etapa acompanhando
-                as matérias do curso técnico, se iniciando com a modelagem de seu
-                sistema, onde foram descritos e organizados pela equipe seus requisitos
-                funcionais, não funcionais e as regras do sistema.
-            </p>
+
         </div>
 
 
@@ -87,8 +82,12 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
                     data-bs-parent="#accordionFlushExample">
 
                     <div class="accordion-body">
-                        Informações sobre a modelagem do sistema, requisitos
-                        funcionais, requisitos não funcionais e regras do sistema.
+                        <p>
+                            O processo de seu desenvolvimento passa de etapa em etapa acompanhando
+                            as matérias do curso técnico, se iniciando com a modelagem de seu
+                            sistema, onde foram descritos e organizados pela equipe seus requisitos
+                            funcionais, não funcionais e as regras do sistema.
+                        </p>
                     </div>
 
                 </div>
