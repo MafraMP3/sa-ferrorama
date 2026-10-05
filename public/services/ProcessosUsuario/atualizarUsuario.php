@@ -5,7 +5,6 @@ include "../../../infra/database/conn.php";
 $idUsuario = $_POST["idUsuario"];
 $nome = $_POST["nome"];
 $email = $_POST["email"];
-$senha = $_POST["senha"];
 $cpf = $_POST["cpf"];
 
 if (!preg_match('/^\d{3}\.\d{3}\.\d{3}-\d{2}$/', $cpf)) {
@@ -36,7 +35,7 @@ if (strlen($cpf) < 11) {
 
 $funcao = $_POST["funcao"];
 
-if ($nome == null || $email == null || $senha == null || $cpf == null || $funcao == null) {
+if ($nome == null || $email == null || $cpf == null || $funcao == null) {
     echo "<script>
           alert('Erro no cadastro de usuarios, não é permitido campos vazios');
           window.location.href = '../../usuarios.php'
@@ -61,16 +60,15 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 $sql = "UPDATE usuarios 
-        SET nome = ?, email = ?, senha = ?, cpf = ?, funcao = ?
+        SET nome = ?, email = ?, cpf = ?, funcao = ?
         WHERE idUsuario = ?";
 
 $stmt = $conn->prepare($sql);
 
 $stmt->bind_param(
-    "sssssi",
+    "ssssi",
     $nome,
     $email,
-    $senha,
     $cpf,
     $funcao,
     $idUsuario

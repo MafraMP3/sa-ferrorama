@@ -9,10 +9,10 @@ if (isset($_POST["login"])) {
     $email = trim($_POST["email"]);
     $senha = $_POST["senha"];
 
-    $query = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
+    $query = "SELECT * FROM usuarios WHERE email = ?";
 
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("ss", $email, $senha);
+    $stmt->bind_param("s", $email);
     $stmt->execute();
 
     $resultado = $stmt->get_result();
@@ -21,9 +21,13 @@ if (isset($_POST["login"])) {
 
         $usuario = $resultado->fetch_assoc();
 
+        if (!password_verify($senha,$usuario["senha"] )) {
+            die();
+        }
+
         $_SESSION['usuario_nome'] = $usuario['nome'];
         $_SESSION['usuario_funcao'] = $usuario['funcao'];
-        
+
         header("Location: public/home.php");
         exit;
     } else {
@@ -61,30 +65,34 @@ if (isset($_POST["login"])) {
                     <form id="login" method="POST">
                         <div>
                             <label class="d-block label-login" for="">E-mail</label>
-                            <input class="form-control input-login" type="text" id="email" name="email" placeholder="Digite seu email..." autocomplete="email">
+                            <input class="form-control input-login" type="text" id="email" name="email"
+                                placeholder="Digite seu email..." autocomplete="email">
                         </div>
                         <div class="div-inputs">
                             <label class="d-block label-login" for="">Senha</label>
-                            <input class="form-control input-login" type="password" name="senha" id="senha" placeholder="Digite sua senha..." autocomplete="off">
+                            <input class="form-control input-login" type="password" name="senha" id="senha"
+                                placeholder="Digite sua senha..." autocomplete="off">
                         </div>
                         <div class="d-grid gap-2">
-                            <button class="d-block btn btn-primary submit-button" type="submit" name="login">ENTRAR</button>
+                            <button class="d-block btn btn-primary submit-button" type="submit"
+                                name="login">ENTRAR</button>
                         </div>
 
                         <div id="mensagem"></div>
                     </form>
-                    
+
                 </div>
             </div>
 
             <div>
-        <img class="img-fluid" id="img-footer-login-screen"src="assets/images/footer-image-login-screen.png" alt="">
+                <img class="img-fluid" id="img-footer-login-screen" src="assets/images/footer-image-login-screen.png"
+                    alt="">
             </div>
-            
+
 
         </section>
-        
-    </main>        
+
+    </main>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

@@ -106,22 +106,6 @@ if (isset($_POST["idUsuario"]) && filter_var($_POST["idUsuario"], FILTER_VALIDAT
                             <div class="div-inputs-label-sensors">
 
                                 <label class="d-block label-form-sensors">
-                                    SENHA
-                                </label>
-
-                                <input
-                                    class="form-control input-form-sensors"
-                                    value="<?php echo $usuarioEditar["senha"]; ?>"
-                                    name="senha"
-                                    type="text"
-                                    required>
-
-                            </div>
-
-
-                            <div class="div-inputs-label-sensors">
-
-                                <label class="d-block label-form-sensors">
                                     CPF
                                 </label>
 

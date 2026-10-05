@@ -51,6 +51,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     die();
 }
 
+$senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+
   if ($nome == null || $email == null || $senha == null || $cpf == null || $funcao == null){
     echo "<script>
           alert('Erro no cadastro de usuarios, não é permitido campos vazios');
@@ -70,7 +72,7 @@ if ($conn->query("SELECT * FROM usuarios WHERE email = '$email' OR cpf = '$cpf'"
 $sql = "INSERT INTO usuarios (nome, email, senha, cpf, funcao) VALUES (?,?,?,?,?)";
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssss", $nome,$email,$senha,$cpf,$funcao);
+$stmt->bind_param("sssss", $nome,$email,$senhaHash,$cpf,$funcao);
 $stmt->execute();
 
 
