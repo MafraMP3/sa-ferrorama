@@ -63,8 +63,8 @@ INSERT INTO rotas (nomeRota, origem, destino) VALUES ("Rota Dona Francisca", "Es
 
 INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota) VALUES ("Expresso Serra", "Carga", "Diesel", 2);
 INSERT INTO trens (nomeTrem,tipoCarga,modeloTrem,idRota) VALUES ("Litorina","Passageiros","Diesel",1);
-INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota) VALUES ("Expresso São Francisco", "Passageiros", "Diesel", 3);
-INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota) VALUES ("Expresso Dona Francisca", "Passageiros", "Diesel", 4);
+INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota) VALUES ("Expresso São Francisco", "Passageiros", "Diesel", 5);
+INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota) VALUES ("Expresso Dona Francisca", "Passageiros", "Diesel", 6);
 
 INSERT INTO sensores (nome,localizacao,tipo,dataInstalacao,ativo,idTrem) VALUES ("Sensor de Temperatura","Estação Quiriri","Temperatura",NOW(),1,1);
 INSERT INTO sensores (nome, localizacao, tipo, dataInstalacao, ativo, idTrem) VALUES ("Sensor de Velocidade", "Serra Quiriri", "Velocidade", NOW(), 1, 2);
