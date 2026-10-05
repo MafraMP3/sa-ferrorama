@@ -67,9 +67,8 @@ if (window.history.replaceState) {
                 class="rounded-top d-flex justify-content-between align-items-center px-4 py-3">
                 <div>
 
-                    <p class="text-monitor-sensor mb-0">Sobre o projeto</p>
-                    <p class=" small mb-0 ms-3" style="color: rgba(255, 255, 255, 0.767) !important;">Informações sobre
-                        o projeto e seu desenvolvimento.</p>
+                    <p class="text-monitor-sensor mb-0"><?php if (isset($_POST["editarSensor"])) { echo "Sensor: " .     $sensor["nome"]; } else { ?> Monitoramento <?php } ?></p>
+                    <p class=" small mb-0 ms-3" style="color: rgba(255, 255, 255, 0.767) !important;"><?php if (isset($_POST["editarSensor"])) { echo "Informações do sensor " .     $sensor["nome"]; } else { ?> Dados dos sensores <?php } ?></p>
                 </div>
                 <div class="d-flex align-items-center gap-3">
                     <span class="text-muted small" style="color: rgba(255,255,255,0.5) !important;">
