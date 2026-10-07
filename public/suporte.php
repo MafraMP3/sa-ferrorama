@@ -59,13 +59,13 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
                 visualização, monitoramento e gerenciamento de dados captados por
                 sensores instalados em um ferrorama.
             </p>
-
-
+            
         </div>
 
-
+  
+        
         <div class="accordion card accordion-flush w-50" id="accordionFlushExample">
-
+                
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button"
@@ -73,7 +73,7 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
                         data-bs-target="#flush-collapseOne"
                         aria-expanded="false"
                         aria-controls="flush-collapseOne">
-                        Modelagem do sistema
+                        O que fazer caso eu esqueça minha senha?
                     </button>
                 </h2>
 
@@ -83,10 +83,11 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
 
                     <div class="accordion-body">
                         <p>
-                            O processo de seu desenvolvimento passa de etapa em etapa acompanhando
-                            as matérias do curso técnico, se iniciando com a modelagem de seu
-                            sistema, onde foram descritos e organizados pela equipe seus requisitos
-                            funcionais, não funcionais e as regras do sistema.
+                            Caso o usuário esqueça sua senha, é necessário entrar em 
+                            contato como o suporte responsável pelo sistema. Após a 
+                            confirmação da identidade do usuário, o suporte poderá auxiliar 
+                            no processo de recuperação ou redefinição da senha 
+                            para que o acesso ao sistema seja restabelecido.
                         </p>
                     </div>
 
@@ -101,7 +102,7 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
                         data-bs-target="#flush-collapseTwo"
                         aria-expanded="false"
                         aria-controls="flush-collapseTwo">
-                        Mockup
+                        O que fazer caso alguma informação não apareça corretamente?
                     </button>
                 </h2>
 
@@ -110,7 +111,10 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
                     data-bs-parent="#accordionFlushExample">
 
                     <div class="accordion-body">
-                        Informações sobre o desenvolvimento do mockup do projeto.
+                        Caso alguma informação não seja apresentada corretamente ou o sistema
+                         apresente algum comportamento inesperado, recomenda-se verificar a conexão
+                        e atualizar a página. Se o problema persistir, o usuário deve entrar em
+                        contato com o suporte responsável pela Hermes para que a situação possa ser analisada.
                     </div>
 
                 </div>
@@ -124,7 +128,7 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
                         data-bs-target="#flush-collapseThree"
                         aria-expanded="false"
                         aria-controls="flush-collapseThree">
-                        Desenvolvimento
+                        Como entrar em contato com o suporte?
                     </button>
                 </h2>
 
@@ -133,8 +137,10 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
                     data-bs-parent="#accordionFlushExample">
 
                     <div class="accordion-body">
-                        Informações sobre o desenvolvimento e implementação
-                        do sistema SA-FERRORAMA.
+                        Em caso de problemas relacionados ao acesso, funcionamento do sistema 
+                        ou recuperação de credenciais, o usuário deve utilizar o canal de
+                         atendimento disponibilizado pela equipe responsável pela Hermes.
+                        O suporte poderá orientar o usuário e auxiliar na resolução do problema.
                     </div>
 
                 </div>
@@ -143,6 +149,7 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
         </div>
 
     </div>
+
 </div>
   
 
