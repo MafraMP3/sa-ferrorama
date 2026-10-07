@@ -24,6 +24,7 @@ $sql = "SELECT
 $resultado = $conn->query($sql);
 $trens = $resultado;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,7 +56,6 @@ $trens = $resultado;
           <i class="fa-solid fa-circle-plus fa-2x" style="color: rgb(255, 49, 49);"></i>
           <p class="text-cadastrar-novo-sensor h4">CADASTRAR NOVO TREM</p>
         </div>
-
 
 
         <div id="div-forms-sensors">
