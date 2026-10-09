@@ -11,15 +11,22 @@ $sql = "SELECT * FROM rotas";
 $resultado = $conn->query($sql);
 $rotas = $resultado;
 
+$sql = "SELECT * FROM usuarios";
+$resultado = $conn->query($sql);
+$usuarios = $resultado;
+
 
 $sql = "SELECT
             trens.idTrem,
             trens.nomeTrem,
             trens.tipoCarga,
             trens.modeloTrem,
-            rotas.nomeRota
+            rotas.nomeRota,
+            usuarios.nome AS nomeUsuario
         FROM trens
-        LEFT JOIN rotas ON trens.idRota = rotas.idRota";
+        LEFT JOIN rotas ON trens.idRota = rotas.idRota
+        LEFT JOIN usuarios ON trens.idUsuario = usuarios.idUsuario";
+
 
 $resultado = $conn->query($sql);
 $trens = $resultado;
@@ -67,7 +74,7 @@ $trens = $resultado;
                   id="nomeSensor" required>
               </div>
               <div>
-                <label class="form-label" for="id_usuario">Selecione uma rota para cadastrar trens:</label>
+                <label class="form-label" for="id_usuario">ROTA DO TREM</label>
                 <select class="form-select" name="idRota">
                   <option value="" selected disabled>
                     Selecione uma rota
@@ -79,8 +86,21 @@ $trens = $resultado;
                   <?php } ?>
                 </select>
               </div>
+              <div>
+                <label class="form-label" for="id_usuario">USUÁRIO RESPONSÁVEL</label>
+                <select class="form-select" name="idUsuario">
+                  <option value="" selected disabled>
+                    Selecione um usuário
+                  </option>
+                  <?php while ($usuario = mysqli_fetch_assoc($usuarios)) { ?>
+                    <option value="<?php echo $usuario["idUsuario"]; ?>">
+                      <?php echo $usuario["nome"] ?>
+                    </option>
+                  <?php } ?>
+                </select>
+              </div>
               <div class="div-inputs-label-sensors">
-                <label class=" label-form-sensors" for="">Tipo de carga</label>
+                <label class=" label-form-sensors" for="">TIPO DE CARGA</label>
                 <select class="form-select input-form-sensors-select" name="tipoCarga"
                   aria-label="Default select example" id="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
@@ -93,7 +113,7 @@ $trens = $resultado;
                 </select>
               </div>
               <div class="div-inputs-label-sensors">
-                <label class=" label-form-sensors" for="">Modelo do trem</label>
+                <label class=" label-form-sensors" for="">MODELO DO TREM</label>
                 <select class="form-select input-form-sensors-select" name="modeloTrem"
                   aria-label="Default select example" id="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
@@ -171,6 +191,7 @@ $trens = $resultado;
                   <th class="ths">Tipo de Carga</th>
                   <th class="ths">Modelo</th>
                   <th class="ths">Rota</th>
+                  <th class="ths">Usuário</th>
                   <?php if ( $_SESSION['usuario_funcao'] == 'Administrador') { ?>
                   <th class="ths"></th>
                   <?php } ?>
@@ -186,6 +207,7 @@ $trens = $resultado;
                     <td><?php echo htmlspecialchars($trem["tipoCarga"]); ?></td>
                     <td><?php echo htmlspecialchars($trem["modeloTrem"]); ?></td>
                     <td><?php echo htmlspecialchars($trem["nomeRota"] ?? "Sem rota"); ?></td>
+                    <td><?php echo htmlspecialchars($trem["nomeUsuario"] ?? "Sem Usuario"); ?></td>
 
                     <?php if ( $_SESSION['usuario_funcao'] == 'Administrador') { ?>
 
