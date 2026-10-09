@@ -23,6 +23,41 @@ if ($nomeTrem == null || $tipoCarga == null || $modeloTrem == null || $rotaTrem 
   die();
 }
 
+
+$tiposPermitidos = [
+  "Passageiros",
+  "Grãos",
+  "Minério",
+  "Carvão",
+  "Combustível",
+  "Produtos Químicos"
+  ];
+
+if (!in_array($tipoCarga, $tiposPermitidos, true)) {
+    echo "<script>
+          alert('Erro no cadastro de trens, não é permitido valores inválidos');
+          window.location.href = '../../trens.php'
+          </script>";
+  die();
+}
+
+$modelosPermitidos = [
+  "Diesel",
+  "Elétrico",
+  "Diesel-Elétrico",
+  "Híbrido"
+];
+
+if (!in_array($modeloTrem, $modelosPermitidos, true)) {
+      echo "<script>
+          alert('Erro no cadastro de trens, não é permitido valores inválidos');
+          window.location.href = '../../trens.php'
+          </script>";
+  die();
+}
+
+
+
 //Verifica se existe esta Rota e este Usuário:
 
 $rotas = "SELECT * FROM rotas WHERE idRota = ?";
