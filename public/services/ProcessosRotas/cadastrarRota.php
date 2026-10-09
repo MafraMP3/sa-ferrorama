@@ -1,4 +1,10 @@
 <?php 
+
+Session_start();
+if (!isset($_SESSION['usuario_nome'])) {
+  header("Location: ../../../index.php");
+  exit;
+}
   
   include "../../../infra/database/conn.php";
 
