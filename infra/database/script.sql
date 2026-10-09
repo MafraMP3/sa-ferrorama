@@ -13,8 +13,10 @@ CREATE TABLE IF NOT EXISTS trens(
     nomeTrem VARCHAR(40) NOT NULL,
     tipoCarga VARCHAR(20) NOT NULL,
     modeloTrem VARCHAR(30) NOT NULL,
-    idRota INT,
-    FOREIGN KEY (idRota) REFERENCES rotas(idRota)
+    idRota INT NOT NULL,
+    FOREIGN KEY (idRota) REFERENCES rotas(idRota),
+    idUsuario INT NOT NULL,
+    FOREIGN KEY (idUsuario) REFERENCES usuarios (idUsuario)
 );
 
 CREATE TABLE IF NOT EXISTS usuarios (
