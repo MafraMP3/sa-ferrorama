@@ -17,6 +17,7 @@ $usuarios = $resultado;
 
 
 $sql = "SELECT
+            trens.idTrem,
             trens.nomeTrem,
             trens.tipoCarga,
             trens.modeloTrem,
@@ -200,7 +201,6 @@ $trens = $resultado;
               <tbody>
                 <?php while ($trem = mysqli_fetch_assoc($trens)) { ?>
                   <tr>
-                    <td><?php echo $trem["idTrem"]; ?></td>
                     <td><?php echo htmlspecialchars($trem["nomeTrem"]); ?></td>
                     <td><?php echo htmlspecialchars($trem["tipoCarga"]); ?></td>
                     <td><?php echo htmlspecialchars($trem["modeloTrem"]); ?></td>
