@@ -66,11 +66,11 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
               <div>
                 <label class="d-block label-form-sensors" for="duracao">DURAÇÃO</label>
                 <input class="form-control input-form-sensors" name="duracao" id="duracao" type="number"
-                  placeholder="EX: 2 horas">
+                  placeholder="EX: 60 minutos">
               </div>
               <div>
                 <label class="d-block label-form-sensors" for="dataCriacao">DATA DE CRIAÇÃO</label>
-                <input class="form-control input-form-sensors" name="dataCriacao" id="dataCriacao" type="number"
+                <input class="form-control input-form-sensors" name="dataCriacao" id="dataCriacao" type="date"
                   placeholder="EX: 27/01/2009">
               </div>
               <div id="div-button-sensors">
@@ -137,7 +137,7 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
                 <tr class="table-dark">
                   <th class="ths">Nome Rota</th>
                   <th class="ths">Descrição</th>
-                  <th class="ths">Distância (km)</th>
+                  <th class="ths">Distância</th>
                   <th class="ths">Duração (min)</th>
                   <th class="ths">Data de Criação</th>
 
@@ -152,8 +152,8 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
                   <tr>
                     <td><?php echo htmlspecialchars($rota["nomeRota"]); ?></td>
                     <td><?php echo htmlspecialchars($rota["descricao"]); ?></td>
-                    <td><?php echo htmlspecialchars($rota["distancia"]); ?></td>
-                    <td><?php echo htmlspecialchars($rota["duracao"]); ?></td>
+                    <td><?php echo htmlspecialchars($rota["distancia"]); ?> Km</td>
+                    <td><?php echo htmlspecialchars($rota["duracao"]); ?> Minutos</td>
                     <td>
                       <?php echo date("d/m/Y", strtotime($rota["dataCriacao"])); ?>
                     </td>

@@ -43,7 +43,7 @@ $trens = $resultado;
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../styles/style.css">
   <link rel="icon" href="../assets/images/icon.png">
-  <title>Sensores</title>
+  <title>Trens</title>
 </head>
 
 <body>
@@ -209,7 +209,6 @@ unset($_SESSION['erro_trem']);
             <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
               <thead>
                 <tr class="table-dark">
-                  <th class="ths">ID Trem</th>
                   <th class="ths">Nome</th>
                   <th class="ths">Tipo de Carga</th>
                   <th class="ths">Modelo</th>
@@ -225,7 +224,6 @@ unset($_SESSION['erro_trem']);
               <tbody>
                 <?php while ($trem = mysqli_fetch_assoc($trens)) { ?>
                   <tr>
-                    <td><?php echo $trem["idTrem"]; ?></td>
                     <td><?php echo htmlspecialchars($trem["nomeTrem"]); ?></td>
                     <td><?php echo htmlspecialchars($trem["tipoCarga"]); ?></td>
                     <td><?php echo htmlspecialchars($trem["modeloTrem"]); ?></td>
