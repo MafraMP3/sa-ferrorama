@@ -169,6 +169,13 @@ body {
   justify-content: flex-end;
 }
 
+#div-button-sensors:hover {
+  button{
+    background-color: #ff2c2c !important;
+  }
+}
+
+
 @media (max-width: 1292px) {
 
   .div-top-sensors {
