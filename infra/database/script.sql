@@ -10,6 +10,15 @@ CREATE TABLE IF NOT EXISTS rotas(
     dataCriacao DATE NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS usuarios (
+    idUsuario INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    cpf VARCHAR(14) NOT NULL UNIQUE,
+    funcao VARCHAR(20) NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS trens(
     idTrem INT AUTO_INCREMENT PRIMARY KEY,
     nomeTrem VARCHAR(40) NOT NULL,
@@ -19,15 +28,6 @@ CREATE TABLE IF NOT EXISTS trens(
     FOREIGN KEY (idRota) REFERENCES rotas(idRota),
     idUsuario INT NOT NULL,
     FOREIGN KEY (idUsuario) REFERENCES usuarios (idUsuario)
-);
-
-CREATE TABLE IF NOT EXISTS usuarios (
-    idUsuario INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    senha VARCHAR(255) NOT NULL,
-    cpf VARCHAR(14) NOT NULL UNIQUE,
-    funcao VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS sensores (
@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS dados(
     FOREIGN KEY (idSensor) REFERENCES sensores(idSensor)
 );
 
+-- Inserção de Usuários
 INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Admin","111.111.111-11","admin@gmail.com","$2y$10$RmOq8VHQTMBO0c/sOuA89.HfhrgBZ8CwDEH9EctyVtfUX7/H9N.jS","Administrador");
 
 INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Caio","211.111.111-11","caio_a_mafra@estudante.sesisenai.org.br","$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y","Administrador");
@@ -59,17 +60,19 @@ INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Lucas","111.211.111-
 INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Gustavo","111.121.111-11","gustavo_sena@estudante.sesisenai.org.br","$2y$10$4.t/tNGXpLx7Ely8qcsm4OTvX4aEef366Sv/.Tw8m2S2FKw.NhOAq","Administrador");
 INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Xaea12", "248.731.965-42", "Xaea12@estudante.sesisenai.org.br", "$2y$10$ErCNm6c4uVz84N/bSwgsUOv6nVyD3/n8FCAQEM7QpuLK.76DqBRBa", "Funcionario");
 
-
+-- Inserção de Rotas
 INSERT INTO rotas (nomeRota,origem,destino) VALUES ("Rota Quiriri","Rio da Prata","Estação Quiriri");
 INSERT INTO rotas (nomeRota, origem, destino) VALUES ("Rota Serra", "Estação Central", "Serra Quiriri");
 INSERT INTO rotas (nomeRota, origem, destino) VALUES ("Rota São Francisco", "Estação de Joinville", "São Francisco do Sul");
 INSERT INTO rotas (nomeRota, origem, destino) VALUES ("Rota Dona Francisca", "Estação de Joinville", "Serra Dona Francisca");
 
-INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota) VALUES ("Expresso Serra", "Carga", "Diesel", 2);
-INSERT INTO trens (nomeTrem,tipoCarga,modeloTrem,idRota) VALUES ("Litorina","Passageiros","Diesel",1);
-INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota) VALUES ("Expresso São Francisco", "Passageiros", "Diesel", 3);
-INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota) VALUES ("Expresso Dona Francisca", "Passageiros", "Diesel", 4);
+-- Inserção de Trens
+INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota, idUsuario) VALUES ("Expresso Serra", "Carga", "Diesel", 2, 1);
+INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota, idUsuario) VALUES ("Litorina", "Passageiros", "Diesel", 1, 2);
+INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota, idUsuario) VALUES ("Expresso São Francisco", "Passageiros", "Diesel", 3, 3);
+INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota, idUsuario) VALUES ("Expresso Dona Francisca", "Passageiros", "Diesel", 4, 4);
 
+-- Inserção de Sensores
 INSERT INTO sensores (nome,localizacao,tipo,dataInstalacao,ativo,idTrem) VALUES ("Sensor de Temperatura","Estação Quiriri","Temperatura",NOW(),1,1);
 INSERT INTO sensores (nome, localizacao, tipo, dataInstalacao, ativo, idTrem) VALUES ("Sensor de Velocidade", "Serra Quiriri", "Velocidade", NOW(), 1, 2);
 

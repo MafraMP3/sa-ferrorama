@@ -171,7 +171,10 @@ $trens = $resultado;
                   <th class="ths">Tipo de Carga</th>
                   <th class="ths">Modelo</th>
                   <th class="ths">Rota</th>
+                  <?php if ( $_SESSION['usuario_funcao'] == 'Administrador') { ?>
                   <th class="ths"></th>
+                  <?php } ?>
+                  
                 </tr>
               </thead>
 
@@ -183,6 +186,8 @@ $trens = $resultado;
                     <td><?php echo htmlspecialchars($trem["tipoCarga"]); ?></td>
                     <td><?php echo htmlspecialchars($trem["modeloTrem"]); ?></td>
                     <td><?php echo htmlspecialchars($trem["nomeRota"] ?? "Sem rota"); ?></td>
+
+                    <?php if ( $_SESSION['usuario_funcao'] == 'Administrador') { ?>
 
                     <td class="img-tabela" style="width: 220px;">
                       <div class="d-flex gap-2 justify-content-around align-items-center">
@@ -196,6 +201,7 @@ $trens = $resultado;
                             <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"  data-bs-toggle="tooltip" title="Excluir"></i>
                           </button>
 
+                        
                           <div class="modal fade" id="ModalExcluir<?php echo $trem["idTrem"]; ?>" tabindex="-1">
                             <div class="modal-dialog modal-dialog-scrollable">
                               <div class="modal-content">
@@ -224,6 +230,7 @@ $trens = $resultado;
 
                       </div>
                     </td>
+                    <?php } ?>
                   </tr>
                 <?php } ?>
               </tbody>
