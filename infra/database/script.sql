@@ -4,8 +4,10 @@ USE sa_ferrorama_ds2;
 CREATE TABLE IF NOT EXISTS rotas(
     idRota INT AUTO_INCREMENT PRIMARY KEY,
     nomeRota VARCHAR(20) NOT NULL,
-    origem VARCHAR(20) NOT NULL,
-    destino VARCHAR(20) NOT NULL
+    descricao VARCHAR(255) NOT NULL,
+    distancia INT NOT NULL,
+    duracao INT NOT NULL,
+    dataCriacao DATE NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS trens(
