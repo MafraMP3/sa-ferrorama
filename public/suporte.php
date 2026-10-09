@@ -139,7 +139,7 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
                     <div class="accordion-body">
                         Em caso de problemas relacionados ao acesso, funcionamento do sistema 
                         ou recuperação de credenciais, o usuário deve utilizar o canal de
-                         atendimento disponibilizado pela equipe responsável pela Hermes.
+                         atendimento hermes.conecta@gmail.com.
                         O suporte poderá orientar o usuário e auxiliar na resolução do problema.
                     </div>
 
