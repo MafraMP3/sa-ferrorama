@@ -2,28 +2,47 @@
 
 include "../../../infra/database/conn.php";
 
-$idTrem = $_POST["idTrem"];
-$nomeTrem = $_POST["nomeTrem"];
-$rotaTrem = $_POST["idRota"];
-$tipoCarga = $_POST["tipoCarga"];
-$modeloTrem = $_POST["modeloTrem"];
-
-if ($idTrem == null || $nomeTrem == null || $tipoCarga == null || $modeloTrem == null ||$rotaTrem == null
+if (
+    !isset($_POST["idTrem"], $_POST["nomeTrem"], $_POST["idRota"], $_POST["tipoCarga"], $_POST["modeloTrem"], $_POST["idUsuario"]) ||
+    filter_var($_POST["idTrem"], FILTER_VALIDATE_INT) === false ||
+    filter_var($_POST["idRota"], FILTER_VALIDATE_INT) === false ||
+    filter_var($_POST["idUsuario"], FILTER_VALIDATE_INT) === false ||
+    trim($_POST["nomeTrem"]) === "" ||
+    trim($_POST["tipoCarga"]) === "" ||
+    trim($_POST["modeloTrem"]) === ""
 ) {
     echo "<script>
-        alert('Erro na atualização do trem, não é permitido campos vazios');
+        alert('Erro na atualização do trem. Verifique os campos preenchidos.');
         window.location.href = '../../trens.php';
     </script>";
-    die();
+    exit;
 }
 
-$sql = "UPDATE trens SET nomeTrem = ?, idRota = ?, tipoCarga = ?, modeloTrem = ? WHERE idTrem = ?";
+$idTrem = (int) $_POST["idTrem"];
+$nomeTrem = trim($_POST["nomeTrem"]);
+$idRota = (int) $_POST["idRota"];
+$tipoCarga = trim($_POST["tipoCarga"]);
+$modeloTrem = trim($_POST["modeloTrem"]);
+$idUsuario = (int) $_POST["idUsuario"];
+
+$sql = "UPDATE trens SET nomeTrem = ?, idRota = ?, tipoCarga = ?, modeloTrem = ?, idUsuario = ? WHERE idTrem = ?";
 
 $stmt = $conn->prepare($sql);
+$stmt->bind_param("sissii", $nomeTrem, $idRota, $tipoCarga, $modeloTrem, $idUsuario, $idTrem);
 
-$stmt->bind_param("sissi",$nomeTrem,$rotaTrem,$tipoCarga,$modeloTrem,$idTrem);
+if ($stmt->execute()) {
+    $stmt->close();
+    $conn->close();
+    header("Location: ../../trens.php");
+    exit;
+}
 
-$stmt->execute();
+$stmt->close();
+$conn->close();
 
-header("Location: ../../trens.php");
+echo "<script>
+    alert('Erro ao atualizar o trem.');
+    window.location.href = '../../trens.php';
+</script>";
 exit;
+?>
