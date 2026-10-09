@@ -186,7 +186,6 @@ $trens = $resultado;
             <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
               <thead>
                 <tr class="table-dark">
-                  <th class="ths">ID Trem</th>
                   <th class="ths">Nome</th>
                   <th class="ths">Tipo de Carga</th>
                   <th class="ths">Modelo</th>
@@ -202,7 +201,6 @@ $trens = $resultado;
               <tbody>
                 <?php while ($trem = mysqli_fetch_assoc($trens)) { ?>
                   <tr>
-                    <td><?php echo $trem["idTrem"]; ?></td>
                     <td><?php echo htmlspecialchars($trem["nomeTrem"]); ?></td>
                     <td><?php echo htmlspecialchars($trem["tipoCarga"]); ?></td>
                     <td><?php echo htmlspecialchars($trem["modeloTrem"]); ?></td>

@@ -61,10 +61,10 @@ INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Gustavo","111.121.11
 INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Xaea12", "248.731.965-42", "Xaea12@estudante.sesisenai.org.br", "$2y$10$ErCNm6c4uVz84N/bSwgsUOv6nVyD3/n8FCAQEM7QpuLK.76DqBRBa", "Funcionario");
 
 -- Inserção de Rotas
-INSERT INTO rotas (nomeRota,origem,destino) VALUES ("Rota Quiriri","Rio da Prata","Estação Quiriri");
-INSERT INTO rotas (nomeRota, origem, destino) VALUES ("Rota Serra", "Estação Central", "Serra Quiriri");
-INSERT INTO rotas (nomeRota, origem, destino) VALUES ("Rota São Francisco", "Estação de Joinville", "São Francisco do Sul");
-INSERT INTO rotas (nomeRota, origem, destino) VALUES ("Rota Dona Francisca", "Estação de Joinville", "Serra Dona Francisca");
+INSERT INTO rotas (nomeRota, descricao, distancia, duracao, dataCriacao) VALUES ("Rota Quiriri", "Trajeto entre Rio da Prata e Estação Quiriri", 15, 30, "2026-01-10");
+INSERT INTO rotas (nomeRota, descricao, distancia, duracao, dataCriacao) VALUES ("Rota Serra", "Trajeto entre Estação Central e Serra Quiriri", 20, 45, "2026-01-12");
+INSERT INTO rotas (nomeRota, descricao, distancia, duracao, dataCriacao) VALUES ("Rota São Francisco", "Trajeto entre Estação de Joinville e São Francisco do Sul", 40, 60, "2026-01-15");
+INSERT INTO rotas (nomeRota, descricao, distancia, duracao, dataCriacao) VALUES ("Rota Dona Francisca", "Trajeto entre Estação de Joinville e Serra Dona Francisca", 25, 50, "2026-01-20");
 
 -- Inserção de Trens
 INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota, idUsuario) VALUES ("Expresso Serra", "Carga", "Diesel", 2, 1);
