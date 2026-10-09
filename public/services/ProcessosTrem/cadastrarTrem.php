@@ -8,22 +8,18 @@ if (!isset($_SESSION['usuario_nome']) || $_SESSION['usuario_funcao'] !== 'Admini
 
 include "../../../infra/database/conn.php";
 
-$nomeTrem = $_POST["nomeTrem"];
-$rotaTrem = $_POST["idRota"];
-$tipoCarga = $_POST["tipoCarga"];
-$modeloTrem = $_POST["modeloTrem"];
-$usuarioTrem = $_POST["idUsuario"];
+$nomeTrem = $_POST["nomeTrem"]  ?? null;
+$rotaTrem = $_POST["idRota"]  ?? null;
+$tipoCarga = $_POST["tipoCarga"]  ?? null;
+$modeloTrem = $_POST["modeloTrem"]  ?? null;
+$usuarioTrem = $_POST["idUsuario"]  ?? null;
 
 
-if ($nomeTrem == null || $tipoCarga == null || $modeloTrem == null || $rotaTrem == null || $usuarioTrem == null) {
-  echo "<script>
-          alert('Erro no cadastro de trens, não é permitido campos vazios');
-          window.location.href = '../../trens.php'
-          </script>";
-  die();
+if (empty($nomeTrem) || empty($tipoCarga) || empty($modeloTrem) || empty($idRota) || empty($idUsuario)) {
+    $_SESSION['erro_trem'] = "Não é possível enviar com campos vazios.";
+    header("Location: ../../trens.php");
+    exit;
 }
-
-//Verifica se existe esta Rota e este Usuário:
 
 $rotas = "SELECT * FROM rotas WHERE idRota = ?";
 $stmt = $conn->prepare("$rotas");

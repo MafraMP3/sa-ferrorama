@@ -54,6 +54,29 @@ $trens = $resultado;
     include "component/navbar.php";
     ?>
 
+<?php
+$erroTrem = $_SESSION['erro_trem'] ?? null;
+unset($_SESSION['erro_trem']);
+?>
+
+    <?php if ($erroTrem) { ?>
+        <div class="modal fade" id="ModalErroVazio" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Erro</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <?php echo htmlspecialchars($erroTrem); ?>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
 
     <div class="content">
 
@@ -235,7 +258,6 @@ $trens = $resultado;
                                   Deseja realmente excluir o trem <strong><?php echo htmlspecialchars($trem["nomeTrem"]); ?></strong>?
                                 </div>
                                 <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                                   <button type="submit" class="btn btn-danger">Confirmar</button>
                                 </div>
                               </div>
@@ -276,8 +298,14 @@ $trens = $resultado;
 
 </body>
 <script>
-  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-  [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 </script>
+
+<?php if ($erroTrem) { ?>
+    <script>
+        new bootstrap.Modal(document.getElementById('ModalErroVazio')).show();
+    </script>
+<?php } ?>
 
 </html>
