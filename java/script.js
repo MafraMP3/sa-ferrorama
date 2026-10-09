@@ -32,7 +32,7 @@ if (window.location.pathname.includes("public/home.php")) {
 //======================================================SENSORES.php=======================================================================================//
 
 if (window.location.pathname.includes("public/sensores.php")) {
-    const dataAtual = new Date();
+    let dataAtual = new Date();
 
     let diaAtual = String(dataAtual.getDate());
     diaAtual = diaAtual.padStart(2, '0');
@@ -46,13 +46,33 @@ if (window.location.pathname.includes("public/sensores.php")) {
 
     if (inputData) {
         inputData.value = `${anoAtual}-${mesAtual}-${diaAtual}`;
-        console.log(`${anoAtual}-${mesAtual}-${diaAtual}`);
+        console.log(`${anoAtual}-${mesAtual}-${diaAtual}`); 
+
     }
 
 }
 
 //======================================================USUARIOS.php=======================================================================================//
 
+//======================================================ROTAS.php=======================================================================================//
+if (window.location.pathname.includes("public/rotas.php")) {
+    let dataAtual = new Date();
+
+    let diaAtual = String(dataAtual.getDate());
+    diaAtual = diaAtual.padStart(2, '0');
+
+    let mesAtual = String(dataAtual.getMonth() + 1);
+    mesAtual = mesAtual.padStart(2, '0');
+
+    let anoAtual = dataAtual.getFullYear();
+
+    let inputData = document.getElementById("dataCriacao");
+
+    if (inputData) {
+        inputData.value = `${anoAtual}-${mesAtual}-${diaAtual}`;
+        console.log(`${anoAtual}-${mesAtual}-${diaAtual}`);
+    }
+}
 
 //======================================================MONITORAMENTO.php=======================================================================================//
 
