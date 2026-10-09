@@ -14,6 +14,17 @@ $email = $_POST["email"];
 $senha = $_POST["senha"];
 $cpf = $_POST["cpf"];
 
+$nomeUnico = trim($_POST["nome"] ?? "");
+$nomeSobrenome = preg_split('/\s+/', $nomeUnico);
+
+if (count($nomeSobrenome) < 2) {
+    echo "<script>
+            alert('Insira nome e sobrenome');
+            window.location.href = '../../usuarios.php';
+        </script>";
+        die();
+}
+
 if (!preg_match('/^\d{3}\.\d{3}\.\d{3}-\d{2}$/', $cpf)) {
     $cpf = preg_replace('/\D/', '', $cpf);
 

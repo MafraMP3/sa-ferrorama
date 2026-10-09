@@ -91,7 +91,7 @@ $usuarios = $resultado;
             <div id="div-form-cadastrarsensor" class="d-flex">
               <div class="div-inputs-label-sensors">
                 <label class="d-block label-form-sensors" for="">NOME COMPLETO</label>
-                <input class="form-control input-form-sensors" name="nome" type="text" placeholder="EX: Carlos" id="nomeUsuario"
+                <input class="form-control input-form-sensors" name="nome" type="text" placeholder="EX: Carlos Almeida" id="nomeUsuario"
                   required>
               </div>
               <div class="div-inputs-label-sensors">
