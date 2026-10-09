@@ -17,7 +17,6 @@ $usuarios = $resultado;
 
 
 $sql = "SELECT
-            trens.idTrem,
             trens.nomeTrem,
             trens.tipoCarga,
             trens.modeloTrem,
@@ -186,7 +185,6 @@ $trens = $resultado;
             <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
               <thead>
                 <tr class="table-dark">
-                  <th class="ths">ID Trem</th>
                   <th class="ths">Nome</th>
                   <th class="ths">Tipo de Carga</th>
                   <th class="ths">Modelo</th>
