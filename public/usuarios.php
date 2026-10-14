@@ -76,50 +76,47 @@ $usuarios = $resultado;
 
     <div class="content">
 
-      <div class="card div-top-sensors">
+      <div class="card div-top">
 
         <div class="d-flex align-items-center">
           <i class="fa-solid fa-circle-plus fa-2x" style="color: rgb(255, 49, 49);"></i>
-          <p class="text-cadastrar-novo-sensor h4">CADASTRAR NOVO USUÁRIO</p>
+          <p class="title-text-form h4">CADASTRAR NOVO USUÁRIO</p>
         </div>
 
-
-
-
-        <div id="div-forms-sensors">
-          <form method="POST" action="services/ProcessosUsuario/cadastrarUsuario.php" id="formUsuarios">
-            <div id="div-form-cadastrarsensor" class="d-flex">
-              <div class="div-inputs-label-sensors">
-                <label class="d-block label-form-sensors" for="">NOME COMPLETO</label>
+        <div class="div-forms">
+          <form method="POST" action="services/ProcessosUsuario/cadastrarUsuario.php" id="">
+            <div class="div-form-cadastrar d-flex">
+              <div class="div-inputs-label">
+                <label class="d-block label-form" for="">NOME COMPLETO</label>
                 <input class="form-control input-form-sensors" name="nome" type="text" placeholder="EX: Carlos" id="nomeUsuario"
                   required>
               </div>
-              <div class="div-inputs-label-sensors">
-                <label class="d-block label-form-sensors" for="">EMAIL</label>
-                <input class="form-control input-form-sensors" name="email" type="text" placeholder="EX: Carlos@gmail.com"
+              <div class="div-inputs-label">
+                <label class="d-block label-form" for="">EMAIL</label>
+                <input class="form-control input-form" name="email" type="text" placeholder="EX: Carlos@gmail.com"
                   id="emailUsuario" required>
               </div>
-              <div class="div-inputs-label-sensors">
-                <label class="d-block label-form-sensors" for="">CPF</label>
-                <input class="form-control input-form-sensors" name="cpf" maxlength="14" type="text" placeholder="EX: 123.456.789-00"
+              <div class="div-inputs-label">
+                <label class="d-block label-form" for="">CPF</label>
+                <input class="form-control input-form" name="cpf" maxlength="14" type="text" placeholder="EX: 123.456.789-00"
                   id="cpfUsuario" required>
               </div>
-              <div class="div-inputs-label-sensors">
-                <label class="d-block label-form-sensors" for="">SENHA</label>
-                <input class="form-control input-form-sensors" name="senha" type="password" placeholder="EX: 1234" id="senhaUsuario"
+              <div class="div-inputs-label">
+                <label class="d-block label-form" for="">SENHA</label>
+                <input class="form-control input-form" name="senha" type="password" placeholder="EX: 1234" id="senhaUsuario"
                   required>
               </div>
-              <div class="div-inputs-label-sensors">
-                <label class=" label-form-sensors" for="">CARGO</label>
-                <select class="form-select input-form-sensors-select" name="funcao" aria-label="Default select example"
+              <div class="div-inputs-label">
+                <label class=" label-form" for="">CARGO</label>
+                <select class="form-select input-form-select" name="funcao" aria-label="Default select example"
                   id="tipoSensor">
                   <option selected disabled value="">Selecione o tipo</option>
                   <option value="Administrador">Administrador</option>
                   <option value="Funcionário">Funcionário</option>
                 </select>
               </div>
-              <div id="div-button-sensors">
-                <button class="d-block btn btn-primary button-form-sensors" type="submit">Cadastrar</button>
+              <div class="div-button">
+                <button class="d-block btn btn-primary button-form" type="submit">Cadastrar</button>
               </div>
             </div>
           </form>
@@ -132,34 +129,12 @@ $usuarios = $resultado;
     <!------------------------------------------------------------------------------------------------------------->
 
 
-    <!---------Tela de deletar Sensor--------->
-
-    <div class="container content card" id="delete-sensor-part">
-      <div class="d-flex">
-        <div id="div-img-delete-sensors redbg">
-          <img id="img-delete-sensors" src="../assets/images/Lixo.png" alt="">
-        </div>
-        <div class="mt-4">
-
-
-
-          <p class="h4" id="text-delete-sensor"> Deseja Excluir o usuário?</p>
-          <div class="d-flex  align-items-center justify-content-center">
-            <button class="btn btn-lg"
-              onclick="document.getElementById('delete-sensor-part').style.display = 'none'">Não</button>
-            <button class="btn  btn-lg" onclick="excluirLinha()">Sim</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!---------------------------------------->
 
 
     <!---------Tela de nenhum usuario cadastrado--------->
     <?php if (mysqli_num_rows($usuarios) == 0 && empty($_POST["nomePesquisa"]) && empty($_POST["funcaoPesquisa"])) { ?>
-      <div class="content" id="nenhumSensor">
-        <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
+      <div class="div-none-form-info content">
+        <div class="card div-top-form none-form d-flex align-items-center justify-content-center ">
           <i class="fa-solid fa-users-slash fa-5x m-4 text-danger opacity-50"></i>
           <h4 class="text-secondary">
             Nenhum usuário cadastrado ainda.
@@ -170,15 +145,15 @@ $usuarios = $resultado;
     <?php } else { ?>
       <!-------------------------------------------------->
 
-      <div class="content" id="nenhumUsuario">
+      <div class="div-form-list content">
 
 
-        <div class="card div-tabela-sensors">
+        <div class="card div-table-form">
 
           <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex">
               <i class="fa-solid fa-users fa-2x" style="color: rgb(255, 49, 49);"></i>
-              <p class="text-cadastrar-novo-sensor h4">
+              <p class="title-text-form h4">
                 USUÁRIOS CADASTRADOS
               </p>
             </div>

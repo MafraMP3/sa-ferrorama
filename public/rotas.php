@@ -27,84 +27,60 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
 <body>
   <main>
 
+    <!------------------------------------Sidebar---------------------------------------//-->
 
     <?php
     include "component/navbar.php";
     ?>
 
-
+    <!------------------------------------------------------------------------------------//-->
 
     <div class="content">
-
-      <div class="card div-top-sensors">
-
+      <div class="card div-top">
         <div class="d-flex align-items-center">
           <i class="fa-solid fa-circle-plus fa-2x" style="color: rgb(255, 49, 49);"></i>
-          <p class="text-cadastrar-novo-sensor h4">CADASTRAR NOVA ROTA</p>
+          <p class="title-text-form h4">CADASTRAR NOVA ROTA</p>
         </div>
 
-
-
-        <div id="div-forms-sensors">
+        <div class="div-forms">
           <form action="services/ProcessosRotas/cadastrarRota.php" method="POST" id="formSensor">
-            <div id="div-form-cadastrarsensor" class="d-flex">
-              <div class="div-inputs-label-sensors">
-                <label class="d-block label-form-sensors" for="nomeRota">NOME DA ROTA</label>
-                <input class="form-control input-form-sensors" name="nomeRota" type="text"
-                  placeholder="EX: caminho das águas" id="nomeRota" required>
+            <div class="div-form-cadastrar d-flex">
+              <div class="div-inputs-label">
+                <label class="d-block label-form" for="nomeRota">NOME DA ROTA</label>
+                <input class="form-control input-form-sensors" name="nomeRota" type="text" placeholder="EX: caminho das águas" id="nomeRota" required>
               </div>
-              <div>
-                <label class="d-block label-form-sensors" for="descricao">DESCRICÃO</label>
-                <input class="form-control input-form-sensors" name="descricao" id="descricao" type="text"
-                  placeholder="EX: Muito demorada">
+
+              <div class="div-inputs-label">
+                <label class="d-block label-form" for="descricao">DESCRIÇÃO</label>
+                <input class="form-control input-form-sensors" name="descricao" id="descricao" type="text" placeholder="EX: Muito demorada">
               </div>
-              <div>
-                <label class="d-block label-form-sensors" for="distancia">DISTÂNCIA</label>
-                <input class="form-control input-form-sensors" name="distancia" id="distancia" type="number"
-                  placeholder="EX: 20km">
+
+              <div class="div-inputs-label">
+                <label class="d-block label-form" for="distancia">DISTÂNCIA (KM)</label>
+                <input class="form-control input-form-sensors" name="distancia" id="distancia" type="number" placeholder="EX: 20" min="0">
               </div>
-              <div>
-                <label class="d-block label-form-sensors" for="duracao">DURAÇÃO</label>
-                <input class="form-control input-form-sensors" name="duracao" id="duracao" type="number"
-                  placeholder="EX: 60 minutos">
+
+              <div class="div-inputs-label">
+                <label class="d-block label-form" for="duracao">DURAÇÃO (MINUTOS)</label>
+                <input class="form-control input-form-sensors" name="duracao" id="duracao" type="number" placeholder="EX: 60" min="0">
               </div>
-              <div>
-                <label class="d-block label-form-sensors" for="dataCriacao">DATA DE CRIAÇÃO</label>
-                <input class="form-control input-form-sensors" name="dataCriacao" id="dataCriacao" type="date"
-                  placeholder="EX: 27/01/2009">
+
+              <div class="div-inputs-label">
+                <label class="d-block label-form" for="dataCriacao">DATA DE CRIAÇÃO</label>
+                <input class="form-control input-form-sensors" name="dataCriacao" id="dataCriacao" type="date">
               </div>
-              <div id="div-button-sensors">
-                <button class="d-block btn btn-primary button-form-sensors" type="submit">Cadastrar</button>
+
+              <div class="div-button">
+                <button class="d-block btn btn-primary button-form" type="submit">Cadastrar</button>
               </div>
             </div>
           </form>
         </div>
-
       </div>
-
     </div>
 
     <!----------------------------------------------------------------------------------------------//-->
 
-    <!---------Tela de deletar Sensor--------->
-
-    <div class="container content card" id="delete-sensor-part">
-      <div class="d-flex">
-        <div id="div-img-delete-sensors redbg">
-          <img id="img-delete-sensors" src="../assets/images/Lixo.png" alt="">
-        </div>
-        <div class="mt-4">
-          <p class="h4" id="text-delete-sensor"> Deseja Excluir o sensor?</p>
-          <div class="d-flex  align-items-center justify-content-center">
-            <button class="btn btn-lg"
-              onclick="document.getElementById('delete-sensor-part').style.display = 'none'">Não</button>
-            <button class="btn btn-lg" onclick="excluirLinha()">Sim</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!---------------------------------------->
 
     <!---------Tela de nenhuma rota cadastrada--------->
 
@@ -121,14 +97,13 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
     <?php } else { ?>
       <!-------------------------------------------------->
 
-      <div class="content" id="todaTabela">
-        <div class="card div-tabela-sensors">
-
-          <div class="d-flex align-items-center">
-            <i class="fa-solid fa-route fa-2x" style="color: rgb(255, 49, 49);"></i>
-            <p class="text-cadastrar-novo-sensor h4">
-              ROTAS CADASTRADAS
-            </p>
+      <div class="div-form-list content" id="todaTabela">
+        <div class="card div-table-form">
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+              <i class="fa-solid fa-route fa-2x" style="color: rgb(255, 49, 49);"></i>
+              <p class="title-text-form h4">ROTAS CADASTRADAS</p>
+            </div>
           </div>
 
           <div class="table-responsive">
@@ -140,9 +115,8 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
                   <th class="ths">Distância</th>
                   <th class="ths">Duração (min)</th>
                   <th class="ths">Data de Criação</th>
-
                   <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
-                    <th></th>
+                    <th class="ths">Ações</th>
                   <?php } ?>
                 </tr>
               </thead>
@@ -154,71 +128,46 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
                     <td><?php echo htmlspecialchars($rota["descricao"]); ?></td>
                     <td><?php echo htmlspecialchars($rota["distancia"]); ?> Km</td>
                     <td><?php echo htmlspecialchars($rota["duracao"]); ?> Minutos</td>
-                    <td>
-                      <?php echo date("d/m/Y", strtotime($rota["dataCriacao"])); ?>
-                    </td>
+                    <td><?php echo date("d/m/Y", strtotime($rota["dataCriacao"])); ?></td>
 
                     <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
                       <td class="img-tabela" style="width: 170px;">
                         <div class="d-flex gap-2 justify-content-around align-items-center">
-
                           <form action="services/excluir.php" method="POST" style="display: inline;">
-                            <input type="hidden" name="idExcluir"
-                              value="<?php echo $rota["idRota"]; ?>">
+                            <input type="hidden" name="idExcluir" value="<?php echo $rota["idRota"]; ?>">
                             <input type="hidden" name="tabela" value="rotas">
                             <input type="hidden" name="campoId" value="idRota">
 
-                            <button class="botao-imagem" type="button"
-                              data-bs-toggle="modal"
-                              data-bs-target="#ModalExcluir<?php echo $rota["idRota"]; ?>">
+                            <button class="botao-imagem" type="button" data-bs-toggle="modal" data-bs-target="#ModalExcluir<?php echo $rota["idRota"]; ?>">
                               <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"></i>
                             </button>
 
-                            <div class="modal fade"
-                              id="ModalExcluir<?php echo $rota["idRota"]; ?>"
-                              tabindex="-1">
+                            <div class="modal fade" id="ModalExcluir<?php echo $rota["idRota"]; ?>" tabindex="-1">
                               <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal-content">
-
                                   <div class="modal-header">
                                     <h1 class="modal-title fs-5">Confirmar exclusão</h1>
-                                    <button type="button" class="btn-close"
-                                      data-bs-dismiss="modal"></button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                   </div>
-
                                   <div class="modal-body">
                                     Deseja realmente excluir a rota
                                     <strong><?php echo htmlspecialchars($rota["nomeRota"]); ?></strong>?
                                   </div>
-
                                   <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                      data-bs-dismiss="modal">
-                                      Cancelar
-                                    </button>
-
-                                    <button type="submit" class="btn btn-danger">
-                                      Confirmar
-                                    </button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-danger">Confirmar</button>
                                   </div>
-
                                 </div>
                               </div>
                             </div>
                           </form>
 
-                          <form action="services/ProcessosRotas/editarRota.php"
-                            method="POST" style="display: inline;">
-                            <input type="hidden" name="idRota"
-                              value="<?php echo $rota["idRota"]; ?>">
-
-                            <button class="botao-imagem" type="submit"
-                              data-bs-toggle="tooltip" title="Editar">
-                              <i class="fa-solid fa-pen-to-square fa-xl"
-                                style="color: #392d29;"></i>
+                          <form action="services/ProcessosRotas/editarRota.php" method="POST" style="display: inline;">
+                            <input type="hidden" name="idRota" value="<?php echo $rota["idRota"]; ?>">
+                            <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
+                              <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
                             </button>
                           </form>
-
                         </div>
                       </td>
                     <?php } ?>
@@ -228,7 +177,8 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
             </table>
           </div>
         </div>
-      <?php } ?>
+      </div>
+    <?php } ?>
 
   </main>
 

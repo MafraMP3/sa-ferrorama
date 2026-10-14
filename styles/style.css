@@ -104,38 +104,38 @@ body {
 
 /*--------------------------------------------------------------*/
 
-/*------------------------------sensores--------------------------------*/
+/*------------------------------forms global--------------------------------*/
 
+ .div-top {
+    margin-top: 10px !important;
+    padding: 10px !important;
+  }
 
-.div-top-sensors {
-  border-radius: 10px;
-  margin-top: 10px;
-  padding: 10px;
+.div-forms{
+  margin: 27px;
+  margin-top: 40px;
+  margin-bottom: 30px;
 }
 
-.img-sensor-icon {
-  max-height: 45px !important;
+.div-form-cadastrar{
+  justify-content: space-between !important;
 }
 
-.text-cadastrar-novo-sensor {
-  color: var(--hermes-red);
-  margin: 0px;
-  padding: 0px;
-  margin-bottom: 3px;
-  margin-left: 10px;
+.div-inputs-label {
+  margin: 0px 10px;
 }
 
-.label-form-sensors {
+.label-form {
   white-space: nowrap;
 }
 
-.input-form-sensors {
+.input-form {
   padding: 10px;
   border-radius: 10px;
   background-color: white;
 }
 
-.input-form-sensors-select{
+.input-form-select{
   padding: 10px 40px !important;
   padding-left: 9px !important;
   border-radius: 10px !important;
@@ -143,31 +143,73 @@ body {
   color: #2c2c2c;
 }
 
-.button-form-sensors {
+.div-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.button-form {
   background-color: var(--hermes-red);
   font-size: 30px;
   padding: 10px 55px;
 }
 
-#div-forms-sensors {
-  margin: 27px;
-  margin-top: 40px;
-  margin-bottom: 30px;
+.div-none-form-info{
+  margin-top: 10px !important;
+  padding-top: 0px !important;
 }
 
-#div-form-cadastrarsensor {
-  justify-content: space-between !important;
+.div-top-form {
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px;
 }
 
-.div-inputs-label-sensors {
-  margin: 0px 10px;
+  .none-form{
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+  }
+
+  .div-form-list{
+    margin-top: 10px !important;
+    padding-top: 0px !important;
+  }
+
+.div-table-form {
+  margin-top: 10px;
+  padding: 10px;
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 
-#div-button-sensors {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+.title-text-form {
+  color: var(--hermes-red);
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 3px;
+  margin-left: 10px;
 }
+
+
+
+
+
+
+.img-sensor-icon {
+  max-height: 45px !important;
+}
+
+
+
+
+
+
+
+
+
+
 
 #div-button-sensors:hover {
   button{
@@ -178,10 +220,7 @@ body {
 
 @media (max-width: 1292px) {
 
-  .div-top-sensors {
-    margin-top: 10px;
-    padding: 10px;
-  }
+ 
 
   #div-forms-sensors {
     margin: 7px;
@@ -202,26 +241,10 @@ body {
 }
 
 
-#delete-sensor-part {
-  font-family: 'Cagliostro' , sans-serif;
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-40%, -50%);
-  z-index: 100;
-  padding: 30px;
-  border-radius: 10px;
-  justify-content: center;
-  margin: 0px 36px;
-  max-width: 600px;
-}
 
 
-#img-delete-sensors{
-  width: 160px;
-  height:160px;
-}
+
+
 
 @media (max-width: 1292px) {
   #delete-sensor-part {
@@ -292,15 +315,6 @@ body {
   flex-direction: column;
 }
 
-#text-delete-sensor{
-  color: var(--hermes-red);
-  margin: 0px;
-  padding: 0px;
-  margin-bottom: 3px;
-  margin-left: 10px;
-  font-size: 30px;
-  margin-left: 20px;
-}
 
 
 
@@ -327,11 +341,7 @@ body {
   outline: inherit;
 }
 
-.div-tabela-sensors{
 
-  margin-top: 10px;
-  padding: 10px;
-}
 
 #tabelaSensores {
   margin-top: 20px;
@@ -483,20 +493,10 @@ body {
     padding-top: 60px;
   }
 
-  .none-sensors{
-    margin-top: 0px !important;
-    padding-top: 0px !important;
-  }
 
-  #nenhumSensor{
-    margin-top: 10px !important;
-    padding-top: 0px !important;
-  }
 
-  #nenhumUsuario{
-    margin-top: 10px !important;
-    padding-top: 0px !important;
-  }
+
+
 
 }
 
