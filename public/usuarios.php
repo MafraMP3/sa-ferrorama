@@ -21,21 +21,18 @@ if (!empty($_POST["nomePesquisa"]) && !empty($_POST["funcaoPesquisa"])) {
   $sql = "SELECT * FROM usuarios WHERE nome = ? AND funcao = ?";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("ss", $nomePesquisa, $funcaoPesquisa);
-}
-else if (!empty($_POST["nomePesquisa"])) {
+} else if (!empty($_POST["nomePesquisa"])) {
   $nomePesquisa = $_POST["nomePesquisa"];
 
   $sql = "SELECT * FROM usuarios WHERE nome = ?";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("s", $nomePesquisa);
-}
-else if (!empty($_POST["funcaoPesquisa"])) {
+} else if (!empty($_POST["funcaoPesquisa"])) {
   $funcaoPesquisa = $_POST["funcaoPesquisa"];
 
   $sql = "SELECT * FROM usuarios WHERE funcao = ?";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("s", $funcaoPesquisa);
-
 } else {
   $sql = "SELECT * FROM usuarios";
   $stmt = $conn->prepare($sql);
@@ -88,7 +85,7 @@ $usuarios = $resultado;
             <div class="div-form-cadastrar d-flex">
               <div class="div-inputs-label">
                 <label class="d-block label-form" for="">NOME COMPLETO</label>
-                <input class="form-control input-form-sensors" name="nome" type="text" placeholder="EX: Carlos" id="nomeUsuario"
+                <input class="form-control input-form-sensors" name="nome" type="text" placeholder="EX: Carlos Almeida" id="nomeUsuario"
                   required>
               </div>
               <div class="div-inputs-label">
