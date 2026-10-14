@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS dados(
     FOREIGN KEY (idSensor) REFERENCES sensores(idSensor)
 );
 
+-- Inserção de Usuários
 INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Admin","111.111.111-11","admin@gmail.com","$2y$10$RmOq8VHQTMBO0c/sOuA89.HfhrgBZ8CwDEH9EctyVtfUX7/H9N.jS","Administrador");
 
 INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Caio","211.111.111-11","caio_a_mafra@estudante.sesisenai.org.br","$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y","Administrador");
@@ -59,18 +60,52 @@ INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Lucas","111.211.111-
 INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Gustavo","111.121.111-11","gustavo_sena@estudante.sesisenai.org.br","$2y$10$4.t/tNGXpLx7Ely8qcsm4OTvX4aEef366Sv/.Tw8m2S2FKw.NhOAq","Administrador");
 INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Xaea12", "248.731.965-42", "Xaea12@estudante.sesisenai.org.br", "$2y$10$ErCNm6c4uVz84N/bSwgsUOv6nVyD3/n8FCAQEM7QpuLK.76DqBRBa", "Funcionario");
 
+INSERT INTO usuarios (nome, cpf, email, senha, funcao) VALUES
+("Pedro Henrique", "321.456.789-01", "pedro_henrique@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Matheus Oliveira", "432.567.890-12", "matheus_oliveira@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Joao Vitor", "543.678.901-23", "joao_vitor@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Rafael Martins", "654.789.012-34", "rafael_martins@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Bruno Almeida", "765.890.123-45", "bruno_almeida@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Felipe Costa", "876.901.234-56", "felipe_costa@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Gabriel Souza", "987.012.345-67", "gabriel_souza@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Thiago Rodrigues", "198.123.456-78", "thiago_rodrigues@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Vinicius Ferreira", "219.234.567-89", "vinicius_ferreira@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Eduardo Lima", "310.345.678-90", "eduardo_lima@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Henrique Gomes", "421.567.890-13", "henrique_gomes@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Leonardo Ribeiro", "532.678.901-24", "leonardo_ribeiro@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Anderson Melo", "643.789.012-35", "anderson_melo@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Daniel Carvalho", "754.890.123-46", "daniel_carvalho@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Samuel Barbosa", "865.901.234-57", "samuel_barbosa@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Guilherme Nunes", "976.012.345-68", "guilherme_nunes@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Igor Teixeira", "187.123.456-79", "igor_teixeira@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Murilo Cardoso", "298.234.567-80", "murilo_cardoso@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Enzo Moreira", "319.345.678-91", "enzo_moreira@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Arthur Mendes", "420.456.789-02", "arthur_mendes@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Caue Batista", "531.567.890-14", "caue_batista@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Vitor Hugo", "642.678.901-25", "vitor_hugo@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Diego Fernandes", "753.789.012-36", "diego_fernandes@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Alexandre Dias", "864.890.123-47", "alexandre_dias@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Nicolas Ramos", "975.901.234-58", "nicolas_ramos@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Marcos Vinicius", "186.012.345-79", "marcos_vinicius@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Renan Lopes", "297.123.456-80", "renan_lopes@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Otavio Pires", "318.234.567-92", "otavio_pires@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Alex Silva", "429.345.678-03", "alex_silva@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Roberto Freitas", "540.456.789-14", "roberto_freitas@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario"),
+("Cesar Augusto", "651.567.890-25", "cesar_augusto@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Funcionario");
 
+-- Inserção de Rotas
 INSERT INTO rotas (nomeRota, descricao, distancia, duracao, dataCriacao) VALUES ("Rota Quiriri", "Trajeto entre Rio da Prata e Estação Quiriri", 15, 30, "2026-01-10");
 INSERT INTO rotas (nomeRota, descricao, distancia, duracao, dataCriacao) VALUES ("Rota Serra", "Trajeto entre Estação Central e Serra Quiriri", 20, 45, "2026-01-12");
 INSERT INTO rotas (nomeRota, descricao, distancia, duracao, dataCriacao) VALUES ("Rota São Francisco", "Trajeto entre Estação de Joinville e São Francisco do Sul", 40, 60, "2026-01-15");
 INSERT INTO rotas (nomeRota, descricao, distancia, duracao, dataCriacao) VALUES ("Rota Dona Francisca", "Trajeto entre Estação de Joinville e Serra Dona Francisca", 25, 50, "2026-01-20");
 
+-- Inserção de Trens
 INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota, idUsuario) VALUES ("Expresso Serra", "Carga", "Diesel", 2, 1);
 INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota, idUsuario) VALUES ("Litorina", "Passageiros", "Diesel", 1, 2);
 INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota, idUsuario) VALUES ("Expresso São Francisco", "Passageiros", "Diesel", 3, 3);
 INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota, idUsuario) VALUES ("Expresso Dona Francisca", "Passageiros", "Diesel", 4, 4);
 
-
+-- Inserção de Sensores
 INSERT INTO sensores (nome,localizacao,tipo,dataInstalacao,ativo,idTrem) VALUES ("Sensor de Temperatura","Estação Quiriri","Temperatura",NOW(),1,1);
 INSERT INTO sensores (nome, localizacao, tipo, dataInstalacao, ativo, idTrem) VALUES ("Sensor de Velocidade", "Serra Quiriri", "Velocidade", NOW(), 1, 2);
 
