@@ -7,12 +7,21 @@ if (!isset($_SESSION['usuario_nome'])) {
 
 include("../infra/database/conn.php");
 
-$sql = "SELECT * FROM trens";
-$resultado = $conn->query($sql);
-$trens = $resultado;
+$sensor = null;
 
-$sensores = mysqli_query($conn, "SELECT * FROM sensores");
+if (isset($_POST["editarSensor"], $_POST["idSensor"])) {
+    $idSensor = filter_input(INPUT_POST, "idSensor", FILTER_VALIDATE_INT);
 
+    if ($idSensor) {
+        $sql = "SELECT * FROM sensores WHERE idSensor = ? AND ativo = 1";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $idSensor);
+        $stmt->execute();
+
+        $resultado = $stmt->get_result();
+        $sensor = $resultado->fetch_assoc();
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
