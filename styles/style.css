@@ -5,7 +5,6 @@
   
 }
 
-
 body {
   background-color: var(--hermes-white) !important;
   align-items: center;
@@ -16,6 +15,30 @@ body {
   background-color: var(--hermes-grey) !important;
 }
 
+@font-face {
+  font-family: 'brixton';
+  src: url('../assets/fonts/brixton-sans-rg.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Cagliostro';
+  src: url('../assets/fonts/Cagliostro-Regular.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Sawarabi';
+  src: url('../assets/fonts/SawarabiMincho-Regular.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Gatwick';
+  src: url('../assets/fonts/._Gatwick-Regular.otf') format('opentype')
+}
+
+@font-face {
+  font-family: 'Rasputin';
+  src: url('../assets/fonts/Rasputin.otf') format('opentype')
+}
 
 /*----------------------login screen------------------------*/
 
@@ -104,7 +127,7 @@ body {
 
 /*--------------------------------------------------------------*/
 
-/*------------------------------forms global--------------------------------*/
+/*------------------------------forms global CRUD--------------------------------*/
 
  .div-top {
     margin-top: 10px !important;
@@ -184,153 +207,16 @@ body {
   overflow-x: auto;
 }
 
+.table-forms {
+  margin-top: 20px !important;
+}
+
 .title-text-form {
   color: var(--hermes-red);
   margin: 0px;
   padding: 0px;
   margin-bottom: 3px;
   margin-left: 10px;
-}
-
-
-
-
-
-
-.img-sensor-icon {
-  max-height: 45px !important;
-}
-
-
-
-
-
-
-
-
-
-
-
-#div-button-sensors:hover {
-  button{
-    background-color: #ff2c2c !important;
-  }
-}
-
-
-@media (max-width: 1292px) {
-
- 
-
-  #div-forms-sensors {
-    margin: 7px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-  }
-
-  .input-form-sensors {
-    padding: 10px 0px;
-    border-radius: 10px;
-  }
-
-  #div-form-cadastrarsensor {
-    flex-direction: column !important;
-    gap: 15px;
-  }
-
-}
-
-
-
-
-
-
-
-@media (max-width: 1292px) {
-  #delete-sensor-part {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-40%, -50%);
-  z-index: 100;
-  padding: 20px 0px;
-  border-radius: 10px;
-
-}
-
-#img-delete-sensors{
-  width: 140px;
-  height:140px;
-}
-#text-delete-sensor{
-  margin: 0px;
-  padding: 0px;
-  margin-bottom: 3px;
-  margin-left: 0px !important;
-  font-size: 30px;
-  margin-left: 14px !important;
-}
-}
-
-@media (max-width: 766px) {
-  #delete-sensor-part {
-  display: none;
-  position: fixed;
-  margin: 0px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-  padding: 20px 0px;
-  border-radius: 10px;
-
-  max-width: 440px;
-}
-
-#img-delete-sensors{
-  width: 90px;
-  height:90px;
-  margin-top: 5px;
-  align-items: center;
-}
-
-#text-delete-sensor{
-  margin: 0px;
-  padding: 0px;
-  margin-bottom: 3px;
-  margin-left: 0px !important;
-  font-size: 30px;
-  margin-left: 18px !important;
-}
-
-#nenhumSensor{
-    margin-top: 0px !important;
-  }
-}
-
-
-#div-context-delete-sensor{
-  display: flex;
-  flex-direction: column;
-}
-
-
-
-
-
-/*-------------------*/
-
-/* parte do davip */
-
-.icone-olho {
-  height: 50px;
-  width: 70px;
-}
-
-.icone-lixo {
-  height: 50px;
-  width: 50px;
 }
 
 .botao-imagem {
@@ -341,45 +227,12 @@ body {
   outline: inherit;
 }
 
-
-
-#tabelaSensores {
-  margin-top: 20px;
-}
-
 .table-bordered th,
 .table-bordered td {
   border-width: 2px !important; 
 }
 
-/*--------------------------------------------------------------*/
-
-@font-face {
-  font-family: 'brixton';
-  src: url('../assets/fonts/brixton-sans-rg.ttf') format('truetype')
-}
-
-@font-face {
-  font-family: 'Cagliostro';
-  src: url('../assets/fonts/Cagliostro-Regular.ttf') format('truetype')
-}
-
-@font-face {
-  font-family: 'Sawarabi';
-  src: url('../assets/fonts/SawarabiMincho-Regular.ttf') format('truetype')
-}
-
-@font-face {
-  font-family: 'Gatwick';
-  src: url('../assets/fonts/._Gatwick-Regular.otf') format('opentype')
-}
-
-@font-face {
-  font-family: 'Rasputin';
-  src: url('../assets/fonts/Rasputin.otf') format('opentype')
-}
-
-
+/*-----------------------------SIDEBAR GLOBAL---------------------------------*/
 
 .sidebar {
   width: 250px;
@@ -398,8 +251,6 @@ body {
   margin-right: 0 !important;
   font-family: 'Cagliostro', sans-serif;
 }
-
-
 
 .sidebar img {
   width: 100%;
@@ -430,9 +281,6 @@ body {
   text-align: center;
 }
 
-
-
-
 #logocontainer {
   background-color: var(--hermes-white);
   border-radius: 10px;
@@ -440,8 +288,7 @@ body {
   margin-bottom: 10px;
 }
 
-
-.hamburger {
+.button-responsive-navbar {
   display: none;
   position: fixed;
   top: 15px;
@@ -452,14 +299,15 @@ body {
   border-radius: 8px;
   padding: 10px 12px;
   cursor: pointer;
+  color: white;
+  font-size: 20px;
 }
 
-.hamburger i {
+.button-responsive-navbar i {
   color: white;
   font-size: 20px;
 
 }
-
 
 .sidebar-overlay {
   display: none;
@@ -474,7 +322,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .hamburger {
+  .button-responsive-navbar {
     display: block;
   }
 
@@ -492,11 +340,6 @@ body {
     margin-left: 0 !important;
     padding-top: 60px;
   }
-
-
-
-
-
 
 }
 
@@ -525,7 +368,6 @@ body {
 }
 
 .btn:active {
-
   transform: scale(0.95); 
   background-color: rgb(0, 0, 0) !important;
 }
@@ -698,14 +540,13 @@ body {
     border-color: #4d4d4d !important;
     color: white !important;
 }
-
 /*----------------------------Usuários----------------------------*/
 
-#tabelaSensores tbody tr .dado-restrito {
+.div-table-form tbody tr .dado-restrito {
   color: white;
   transition: color 0.3s ease;
 }
 
-#tabelaSensores tbody tr:hover .dado-restrito {
+.div-table-form tbody tr:hover .dado-restrito {
   color: var(--hermes-grey) !important; 
 }

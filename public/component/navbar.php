@@ -9,7 +9,7 @@ $projectUrl = str_replace($documentRoot, '', $projectPath);
 
 <div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
 
-<button class="hamburger" onclick="toggleSidebar()">
+<button class="button-responsive-navbar" onclick="toggleSidebar()">
     <i class="fa-solid fa-bars"></i>
 </button>
 

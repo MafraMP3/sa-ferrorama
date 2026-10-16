@@ -107,7 +107,7 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
           </div>
 
           <div class="table-responsive">
-            <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark">
+            <table class="table-forms table table-bordered align-middle rounded overflow-hidden border-dark ">
               <thead>
                 <tr class="table-dark">
                   <th class="ths">Nome Rota</th>
