@@ -52,125 +52,48 @@ if (isset($_POST["idUsuario"]) && filter_var($_POST["idUsuario"], FILTER_VALIDAT
         ?>
 
         <div class="content">
-
-            <div class="card div-top-sensors">
-
+            <div class="card div-top">
                 <div class="d-flex align-items-center">
                     <i class="fa-solid fa-user-pen fa-2x" style="color: rgb(255, 49, 49);"></i>
-
-                    <p class="text-cadastrar-novo-sensor h4">
-                        EDITANDO USUÁRIO: <?php echo $usuarioEditar["nome"]; ?>
-                    </p>
+                    <p class="title-text-form h4">EDITANDO USUÁRIO: <?php echo htmlspecialchars($usuarioEditar["nome"]); ?></p>
                 </div>
 
-                <div id="div-forms-sensors">
-
+                <div class="div-forms">
                     <form action="atualizarUsuario.php" method="POST">
-
-                        <div id="div-form-cadastrarsensor" class="d-flex">
-
+                        <div class="div-form-cadastrar d-flex">
                             <input type="hidden" name="idUsuario" value="<?php echo $usuarioEditar["idUsuario"]; ?>">
 
-                            <div class="div-inputs-label-sensors">
-
-                                <label class="d-block label-form-sensors">
-                                    NOME
-                                </label>
-
-                                <input
-                                    class="form-control input-form-sensors"
-                                    value="<?php echo $usuarioEditar["nome"]; ?>"
-                                    name="nome"
-                                    type="text"
-                                    required>
-
+                            <div class="div-inputs-label">
+                                <label class="d-block label-form" for="nome">NOME</label>
+                                <input class="form-control input-form-sensors" value="<?php echo htmlspecialchars($usuarioEditar["nome"]); ?>" name="nome" id="nome" type="text" required>
                             </div>
 
-
-                            <div class="div-inputs-label-sensors">
-
-                                <label class="d-block label-form-sensors">
-                                    E-MAIL
-                                </label>
-
-                                <input
-                                    class="form-control input-form-sensors"
-                                    value="<?php echo $usuarioEditar["email"]; ?>"
-                                    name="email"
-                                    type="email"
-                                    required>
-
+                            <div class="div-inputs-label">
+                                <label class="d-block label-form" for="email">E-MAIL</label>
+                                <input class="form-control input-form-sensors" value="<?php echo htmlspecialchars($usuarioEditar["email"]); ?>" name="email" id="email" type="email" required>
                             </div>
 
-
-                            <div class="div-inputs-label-sensors">
-
-                                <label class="d-block label-form-sensors">
-                                    CPF
-                                </label>
-
-                                <input
-                                    class="form-control input-form-sensors"
-                                    value="<?php echo $usuarioEditar["cpf"]; ?>"
-                                    name="cpf"
-                                    type="text"
-                                    required>
-
+                            <div class="div-inputs-label">
+                                <label class="d-block label-form" for="cpf">CPF</label>
+                                <input class="form-control input-form-sensors" value="<?php echo htmlspecialchars($usuarioEditar["cpf"]); ?>" name="cpf" id="cpf" type="text" required>
                             </div>
 
-
-                            <div class="div-inputs-label-sensors">
-
-                                <label class="label-form-sensors">
-                                    FUNÇÃO
-                                </label>
-
-                                <select
-                                    class="form-select input-form-sensors-select"
-                                    name="funcao">
-
-                                    <option selected value="<?php echo $usuarioEditar["funcao"]; ?>">
-                                        <?php echo $usuarioEditar["funcao"]; ?>
-                                    </option>
-
-                                    <?php
-                                    $funcoes = ["Administrador", "Funcionário"];
-
-                                    foreach ($funcoes as $funcao) {
-                                        if ($funcao != $usuarioEditar["funcao"]) {
-                                    ?>
-
-                                            <option value="<?php echo $funcao; ?>">
-                                                <?php echo $funcao; ?>
-                                            </option>
-
-                                    <?php
-                                        }
-                                    }
-                                    ?>
-
+                            <div class="div-inputs-label">
+                                <label class="d-block label-form" for="funcao">FUNÇÃO</label>
+                                <select class="form-select input-form-sensors-select" name="funcao" id="funcao" required>
+                                    <option value="Administrador" <?php echo $usuarioEditar["funcao"] == "Administrador" ? "selected" : ""; ?>>Administrador</option>
+                                    <option value="Funcionário" <?php echo $usuarioEditar["funcao"] == "Funcionário" ? "selected" : ""; ?>>Funcionário</option>
                                 </select>
-
                             </div>
 
-                            <div class="d-flex flex-column">
-                                <button
-                                    class="d-block btn btn-primary button-form-sensors"
-                                    type="submit">
-                                    Atualizar
-                                </button>
+                            <div class="div-button d-flex flex-column">
+                                <button class="btn btn-primary button-form" type="submit">Atualizar</button>
                                 <a id="botao-preto-fadecinza" class="btn btn-dark mt-1" href="../../usuarios.php">Voltar</a>
                             </div>
-
-
                         </div>
-
                     </form>
-
                 </div>
-
             </div>
-
         </div>
 
     </main>

@@ -33,6 +33,7 @@ $usuarios = $conn->query("SELECT idUsuario, nome FROM usuarios");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,31 +43,32 @@ $usuarios = $conn->query("SELECT idUsuario, nome FROM usuarios");
     <link rel="icon" href="../../../assets/images/icon.png">
     <title>Editar Trem</title>
 </head>
+
 <body>
     <main>
         <?php include "../../component/navbar.php"; ?>
 
         <div class="content">
-            <div class="card div-top-sensors">
+            <div class="card div-top">
                 <div class="d-flex align-items-center">
                     <i class="fa-solid fa-train fa-2x" style="color: rgb(255, 49, 49);"></i>
-                    <p class="text-cadastrar-novo-sensor h4">
+                    <p class="title-text-form h4">
                         EDITANDO TREM: <?= htmlspecialchars($tremEditar["nomeTrem"]) ?>
                     </p>
                 </div>
 
-                <div id="div-forms-sensors">
+                <div class="div-forms">
                     <form action="atualizarTrem.php" method="POST">
-                        <div id="div-form-cadastrarsensor" class="d-flex">
+                        <div class="div-form-cadastrar d-flex">
                             <input type="hidden" name="idTrem" value="<?= $tremEditar["idTrem"] ?>">
 
-                            <div class="div-inputs-label-sensors">
-                                <label class="d-block label-form-sensors" for="nomeTrem">NOME DO TREM</label>
+                            <div class="div-inputs-label">
+                                <label class="d-block label-form" for="nomeTrem">NOME DO TREM</label>
                                 <input class="form-control input-form-sensors" value="<?= htmlspecialchars($tremEditar["nomeTrem"]) ?>" name="nomeTrem" type="text" placeholder="EX: Trem 2" id="nomeTrem" maxlength="40" required>
                             </div>
 
-                            <div class="div-inputs-label-sensors">
-                                <label class="label-form-sensors" for="idRota">ROTA</label>
+                            <div class="div-inputs-label">
+                                <label class="d-block label-form" for="idRota">ROTA</label>
                                 <select class="form-select input-form-sensors-select" name="idRota" id="idRota" required>
                                     <?php while ($rota = $rotas->fetch_assoc()) { ?>
                                         <option value="<?= $rota["idRota"] ?>" <?= $rota["idRota"] == $tremEditar["idRota"] ? "selected" : "" ?>>
@@ -76,8 +78,8 @@ $usuarios = $conn->query("SELECT idUsuario, nome FROM usuarios");
                                 </select>
                             </div>
 
-                            <div class="div-inputs-label-sensors">
-                                <label class="label-form-sensors" for="tipoCarga">TIPO DE CARGA</label>
+                            <div class="div-inputs-label">
+                                <label class="d-block label-form" for="tipoCarga">TIPO DE CARGA</label>
                                 <select class="form-select input-form-sensors-select" name="tipoCarga" id="tipoCarga" required>
                                     <?php
                                     $tiposCarga = ["Carga", "Passageiros", "Grãos", "Minério", "Carvão", "Combustível", "Produtos Químicos"];
@@ -90,8 +92,8 @@ $usuarios = $conn->query("SELECT idUsuario, nome FROM usuarios");
                                 </select>
                             </div>
 
-                            <div class="div-inputs-label-sensors">
-                                <label class="label-form-sensors" for="modeloTrem">MODELO DO TREM</label>
+                            <div class="div-inputs-label">
+                                <label class="d-block label-form" for="modeloTrem">MODELO DO TREM</label>
                                 <select class="form-select input-form-sensors-select" name="modeloTrem" id="modeloTrem" required>
                                     <?php
                                     $modelos = ["Diesel", "Elétrico", "Diesel-Elétrico", "Híbrido"];
@@ -104,8 +106,8 @@ $usuarios = $conn->query("SELECT idUsuario, nome FROM usuarios");
                                 </select>
                             </div>
 
-                            <div class="div-inputs-label-sensors">
-                                <label class="label-form-sensors" for="idUsuario">USUÁRIO RESPONSÁVEL</label>
+                            <div class="div-inputs-label">
+                                <label class="d-block label-form" for="idUsuario">USUÁRIO RESPONSÁVEL</label>
                                 <select class="form-select input-form-sensors-select" name="idUsuario" id="idUsuario" required>
                                     <?php while ($usuario = $usuarios->fetch_assoc()) { ?>
                                         <option value="<?= $usuario["idUsuario"] ?>" <?= $usuario["idUsuario"] == $tremEditar["idUsuario"] ? "selected" : "" ?>>
@@ -115,8 +117,8 @@ $usuarios = $conn->query("SELECT idUsuario, nome FROM usuarios");
                                 </select>
                             </div>
 
-                            <div class="d-flex flex-column">
-                                <button class="d-block btn btn-primary button-form-sensors" type="submit">Atualizar</button>
+                            <div class="div-button d-flex flex-column">
+                                <button class="d-block btn btn-primary button-form" type="submit">Atualizar</button>
                                 <a id="botao-preto-fadecinza" class="btn btn-dark mt-1" href="../../trens.php">Voltar</a>
                             </div>
                         </div>
@@ -129,4 +131,5 @@ $usuarios = $conn->query("SELECT idUsuario, nome FROM usuarios");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../java/script.js"></script>
 </body>
+
 </html>

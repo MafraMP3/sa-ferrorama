@@ -49,6 +49,7 @@ $trens = $resultado;
 <body>
   <main>
 
+    <!------------------------------------Sidebar---------------------------------------//-->
 
     <?php
     include "component/navbar.php";
@@ -79,53 +80,47 @@ unset($_SESSION['erro_trem']);
     <?php } ?>
 
     <div class="content">
-
-      <div class="card div-top-sensors">
-
+      <div class="card div-top">
         <div class="d-flex align-items-center">
           <i class="fa-solid fa-circle-plus fa-2x" style="color: rgb(255, 49, 49);"></i>
-          <p class="text-cadastrar-novo-sensor h4">CADASTRAR NOVO TREM</p>
+          <p class="title-text-form h4">CADASTRAR NOVO TREM</p>
         </div>
 
-
-        <div id="div-forms-sensors">
+        <div class="div-forms">
           <form action="services/ProcessosTrem/cadastrarTrem.php" method="POST" id="formSensor">
-            <div id="div-form-cadastrarsensor" class="d-flex">
-              <div class="div-inputs-label-sensors">
-                <label class="d-block label-form-sensors" for="">NOME DO TREM</label>
-                <input class="form-control input-form-sensors" name="nomeTrem" type="text" placeholder="EX: Trem 2"
-                  id="nomeSensor" required>
+            <div class="div-form-cadastrar d-flex">
+              <div class="div-inputs-label">
+                <label class="d-block label-form" for="nomeSensor">NOME DO TREM</label>
+                <input class="form-control input-form-sensors" name="nomeTrem" type="text" placeholder="EX: Trem 2" id="nomeSensor" required>
               </div>
-              <div>
-                <label class="form-label" for="id_usuario">ROTA DO TREM</label>
-                <select class="form-select" name="idRota">
-                  <option value="" selected disabled>
-                    Selecione uma rota
-                  </option>
+
+              <div class="div-inputs-label">
+                <label class="d-block label-form" for="idRota">ROTA DO TREM</label>
+                <select class="form-select input-form-select" name="idRota" id="idRota" required>
+                  <option value="" selected disabled>Selecione uma rota</option>
                   <?php while ($rota = mysqli_fetch_assoc($rotas)) { ?>
                     <option value="<?php echo $rota["idRota"]; ?>">
-                      <?php echo $rota["nomeRota"] ?>
+                      <?php echo htmlspecialchars($rota["nomeRota"]); ?>
                     </option>
                   <?php } ?>
                 </select>
               </div>
-              <div>
-                <label class="form-label" for="id_usuario">USUÁRIO RESPONSÁVEL</label>
-                <select class="form-select" name="idUsuario">
-                  <option value="" selected disabled>
-                    Selecione um usuário
-                  </option>
+
+              <div class="div-inputs-label">
+                <label class="d-block label-form" for="idUsuario">USUÁRIO RESPONSÁVEL</label>
+                <select class="form-select input-form-select" name="idUsuario" id="idUsuario" required>
+                  <option value="" selected disabled>Selecione um usuário</option>
                   <?php while ($usuario = mysqli_fetch_assoc($usuarios)) { ?>
                     <option value="<?php echo $usuario["idUsuario"]; ?>">
-                      <?php echo $usuario["nome"] ?>
+                      <?php echo htmlspecialchars($usuario["nome"]); ?>
                     </option>
                   <?php } ?>
                 </select>
               </div>
-              <div class="div-inputs-label-sensors">
-                <label class=" label-form-sensors" for="">TIPO DE CARGA</label>
-                <select class="form-select input-form-sensors-select" name="tipoCarga"
-                  aria-label="Default select example" id="tipoSensor">
+
+              <div class="div-inputs-label">
+                <label class="d-block label-form" for="tipoSensor">TIPO DE CARGA</label>
+                <select class="form-select input-form-select" name="tipoCarga" aria-label="Tipo de carga" id="tipoSensor" required>
                   <option selected disabled value="">Selecione o tipo</option>
                   <option value="Passageiros">Passageiros</option>
                   <option value="Grãos">Grãos</option>
@@ -135,50 +130,28 @@ unset($_SESSION['erro_trem']);
                   <option value="Produtos Químicos">Produtos Químicos</option>
                 </select>
               </div>
-              <div class="div-inputs-label-sensors">
-                <label class=" label-form-sensors" for="">MODELO DO TREM</label>
-                <select class="form-select input-form-sensors-select" name="modeloTrem"
-                  aria-label="Default select example" id="tipoSensor">
-                  <option selected disabled value="">Selecione o tipo</option>
+
+              <div class="div-inputs-label">
+                <label class="d-block label-form" for="modeloTrem">MODELO DO TREM</label>
+                <select class="form-select input-form-select" name="modeloTrem" aria-label="Modelo do trem" id="modeloTrem" required>
+                  <option selected disabled value="">Selecione o modelo</option>
                   <option value="Diesel">Diesel</option>
                   <option value="Elétrico">Elétrico</option>
                   <option value="Diesel-Elétrico">Diesel-Elétrico</option>
                   <option value="Híbrido">Híbrido</option>
                 </select>
               </div>
-              <div id="div-button-sensors">
-                <button class="d-block btn btn-primary button-form-sensors" type="submit">Cadastrar</button>
+
+              <div class="div-button">
+                <button class="d-block btn btn-primary button-form" type="submit">Cadastrar</button>
               </div>
             </div>
           </form>
         </div>
-
       </div>
-
     </div>
 
     <!----------------------------------------------------------------------------------------------//-->
-
-    <!---------Tela de deletar Sensor--------->
-
-    <div class="container content card" id="delete-sensor-part">
-      <div class="d-flex">
-        <div id="div-img-delete-sensors redbg">
-          <img id="img-delete-sensors" src="../assets/images/Lixo.png" alt="">
-        </div>
-        <div class="mt-4">
-
-          <p class="h4" id="text-delete-sensor"> Deseja Excluir o trem?</p>
-          <div class="d-flex  align-items-center justify-content-center">
-            <button class="btn btn-lg"
-              onclick="document.getElementById('delete-sensor-part').style.display = 'none'">Não</button>
-            <button class="btn btn-lg" onclick="excluirLinha()">Sim</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!---------------------------------------->
 
     <!---------Tela de nenhum trem cadastrado--------->
 
@@ -195,18 +168,20 @@ unset($_SESSION['erro_trem']);
     <?php } else { ?>
       <!-------------------------------------------------->
 
-      <div class="content" id="todaTabela">
-        <div class="card div-tabela-sensors">
+      <div class="div-form-list content" id="todaTabela">
+        <div class="card div-table-form">
 
-          <div class="d-flex align-items-center">
-            <i class="fa-solid fa-train fa-2x" style="color: rgb(255, 49, 49);"></i>
-            <p class="text-cadastrar-novo-sensor h4">
-              TRENS CADASTRADOS
-            </p>
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+              <i class="fa-solid fa-train fa-2x" style="color: rgb(255, 49, 49);"></i>
+              <p class="title-text-form h4">
+                TRENS CADASTRADOS
+              </p>
+            </div>
           </div>
 
           <div class="table-responsive">
-            <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark ">
+            <table id="tabelaSensores" class="table table-bordered align-middle rounded overflow-hidden border-dark">
               <thead>
                 <tr class="table-dark">
                   <th class="ths">Nome</th>
@@ -214,10 +189,9 @@ unset($_SESSION['erro_trem']);
                   <th class="ths">Modelo</th>
                   <th class="ths">Rota</th>
                   <th class="ths">Usuário</th>
-                  <?php if ( $_SESSION['usuario_funcao'] == 'Administrador') { ?>
-                  <th class="ths"></th>
+                  <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
+                    <th class="ths">Ações</th>
                   <?php } ?>
-                  
                 </tr>
               </thead>
 
@@ -228,22 +202,39 @@ unset($_SESSION['erro_trem']);
                     <td><?php echo htmlspecialchars($trem["tipoCarga"]); ?></td>
                     <td><?php echo htmlspecialchars($trem["modeloTrem"]); ?></td>
                     <td><?php echo htmlspecialchars($trem["nomeRota"] ?? "Sem rota"); ?></td>
-                    <td><?php echo htmlspecialchars($trem["nomeUsuario"] ?? "Sem Usuario"); ?></td>
+                    <td><?php echo htmlspecialchars($trem["nomeUsuario"] ?? "Sem usuário"); ?></td>
 
-                    <?php if ( $_SESSION['usuario_funcao'] == 'Administrador') { ?>
+                    <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
+                      <td class="img-tabela" style="width: 220px;">
+                        <div class="d-flex gap-2 justify-content-around align-items-center">
 
-                    <td class="img-tabela" style="width: 220px;">
-                      <div class="d-flex gap-2 justify-content-around align-items-center">
+                          <form action="services/excluir.php" method="POST" style="display: inline;">
+                            <input type="hidden" name="idExcluir" value="<?php echo $trem["idTrem"]; ?>">
+                            <input type="hidden" name="tabela" value="trens">
+                            <input type="hidden" name="campoId" value="idTrem">
 
-                        <form action="services/excluir.php" method="POST" style="display: inline;">
-                          <input type="hidden" name="idExcluir" value="<?php echo $trem["idTrem"]; ?>">
-                          <input type="hidden" name="tabela" value="trens">
-                          <input type="hidden" name="campoId" value="idTrem">
+                            <button class="botao-imagem" type="button" data-bs-toggle="modal" data-bs-target="#ModalExcluir<?php echo $trem["idTrem"]; ?>">
+                              <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;" data-bs-toggle="tooltip" title="Excluir"></i>
+                            </button>
 
-                          <button class="botao-imagem" type="button" data-bs-toggle="modal"  data-bs-target="#ModalExcluir<?php echo $trem["idTrem"]; ?>">
-                            <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;"  data-bs-toggle="tooltip" title="Excluir"></i>
-                          </button>
+                            <div class="modal fade" id="ModalExcluir<?php echo $trem["idTrem"]; ?>" tabindex="-1">
+                              <div class="modal-dialog modal-dialog-scrollable">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h1 class="modal-title fs-5">Confirmar exclusão</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                  </div>
 
+<<<<<<< HEAD
+                                  <div class="modal-body">
+                                    Deseja realmente excluir o trem <strong><?php echo htmlspecialchars($trem["nomeTrem"]); ?></strong>?
+                                  </div>
+
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-danger">Confirmar</button>
+                                  </div>
+=======
                         
                           <div class="modal fade" id="ModalExcluir<?php echo $trem["idTrem"]; ?>" tabindex="-1">
                             <div class="modal-dialog modal-dialog-scrollable">
@@ -257,32 +248,30 @@ unset($_SESSION['erro_trem']);
                                 </div>
                                 <div class="modal-footer">
                                   <button type="submit" class="btn btn-danger">Confirmar</button>
+>>>>>>> 5c7c0a051a4d14a041805cee64060a6ec9d65813
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        </form>
+                          </form>
 
-                        <form action="services/ProcessosTrem/editarTrem.php" method="POST" style="display: inline;">
-                          <input type="hidden" name="idTrem" value="<?php echo $trem["idTrem"]; ?>">
-                          <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
-                            <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
-                          </button>
-                        </form>
+                          <form action="services/ProcessosTrem/editarTrem.php" method="POST" style="display: inline;">
+                            <input type="hidden" name="idTrem" value="<?php echo $trem["idTrem"]; ?>">
 
-                      </div>
-                    </td>
+                            <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
+                              <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
+                            </button>
+                          </form>
+
+                        </div>
+                      </td>
                     <?php } ?>
                   </tr>
                 <?php } ?>
               </tbody>
-
             </table>
-
           </div>
 
         </div>
-
       </div>
     <?php } ?>
     <!-------------------------------------------------->
