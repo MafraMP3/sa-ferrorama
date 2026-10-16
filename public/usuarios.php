@@ -8,43 +8,66 @@ if (!isset($_SESSION['usuario_nome']) || $_SESSION['usuario_funcao'] !== 'Admini
 include("../infra/database/conn.php");
 
 
-// LIMPAR FILTRO
+
+$nomePesquisa = "";
+$funcaoPesquisa = "";
+
 if (isset($_POST["limparPesquisa"])) {
-    $_POST["nomePesquisa"] = "";
-    $_POST["funcaoPesquisa"] = "";
-}
-
-// VERIFICAÇÃO DE PESQUISA
-if (!empty($_POST["nomePesquisa"]) && !empty($_POST["funcaoPesquisa"])) {
-    $nomePesquisa = "%" . $_POST["nomePesquisa"] . "%";
-    $funcaoPesquisa = "%" . $_POST["funcaoPesquisa"] . "%";
-
-    $sql = "SELECT * FROM usuarios WHERE nome LIKE ? AND funcao LIKE ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $nomePesquisa, $funcaoPesquisa);
-
-} else if (!empty($_POST["nomePesquisa"])) {
-    $nomePesquisa = "%" . $_POST["nomePesquisa"] . "%";
-
-    $sql = "SELECT * FROM usuarios WHERE nome LIKE ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $nomePesquisa);
-
-} else if (!empty($_POST["funcaoPesquisa"])) {
-    $funcaoPesquisa = "%" . $_POST["funcaoPesquisa"] . "%";
-
-    $sql = "SELECT * FROM usuarios WHERE funcao LIKE ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $funcaoPesquisa);
-
+  $nomePesquisa = "";
+  $funcaoPesquisa = "";
 } else {
-    $sql = "SELECT * FROM usuarios";
-    $stmt = $conn->prepare($sql);
+  $nomePesquisa = $_POST["nomePesquisa"] ?? "";
+  $funcaoPesquisa = $_POST["funcaoPesquisa"] ?? "";
 }
 
+
+$limite = 10;
+$pagina = max(1, (int) ($_GET["pagina"] ?? 1));
+$inicio = ($pagina - 1) * $limite;
+
+
+$sql = "SELECT * FROM usuarios WHERE 1=1";
+$tipos = "";
+$valores = [];
+
+if ($nomePesquisa !== "") {
+  $sql .= " AND nome = ?";
+  $tipos .= "s";
+  $valores[] = $nomePesquisa;
+}
+
+if ($funcaoPesquisa !== "") {
+  $sql .= " AND funcao = ?";
+  $tipos .= "s";
+  $valores[] = $funcaoPesquisa;
+}
+
+
+$sqlContagem = str_replace("SELECT *", "SELECT COUNT(*) AS total", $sql);
+$stmtContagem = $conn->prepare($sqlContagem);
+
+if ($tipos !== "") {
+  $stmtContagem->bind_param($tipos, ...$valores);
+}
+
+$stmtContagem->execute();
+$totalUsuarios = $stmtContagem->get_result()->fetch_assoc()["total"];
+
+$totalPaginas = max(1, ceil($totalUsuarios / $limite));
+$pagina = min($pagina, $totalPaginas);
+$inicio = ($pagina - 1) * $limite;
+
+$sql .= " LIMIT ? OFFSET ?";
+$stmt = $conn->prepare($sql);
+
+$tiposConsulta = $tipos . "ii";
+$valoresConsulta = array_merge($valores, [$limite, $inicio]);
+
+$stmt->bind_param($tiposConsulta, ...$valoresConsulta);
 $stmt->execute();
-$resultado = $stmt->get_result();
-$usuarios = $resultado;
+
+$usuarios = $stmt->get_result();
+
 ?>
 
 <!DOCTYPE html>
@@ -68,6 +91,13 @@ $usuarios = $resultado;
     <!------------------------------------Sidebar---------------------------------------//-->
 
     <?php
+    $parametros = http_build_query([
+    "nomePesquisa" => $nomePesquisa,
+    "funcaoPesquisa" => $funcaoPesquisa
+    ]);
+
+    $sufixo = $parametros !== "" ? "&" . $parametros : "";
+
     include "component/navbar.php";
     ?>
 
@@ -275,6 +305,47 @@ $usuarios = $resultado;
               </tbody>
 
             </table>
+          
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mt-3">
+
+                <p class="text-secondary mb-0">
+                  Página <?php echo $pagina; ?> de <?php echo $totalPaginas; ?>
+                  — <?php echo $totalUsuarios; ?> usuários encontrados
+                </p>
+
+                <nav aria-label="Navegação das páginas">
+                  <ul class="pagination mb-0">
+
+                    <li class="page-item <?php echo $pagina <= 1 ? 'disabled' : ''; ?>">
+                      <a class="page-link text-dark"
+                        href="?pagina=<?php echo $pagina - 1; ?>&<?php echo $parametros; ?>">
+                        Anterior
+                      </a>
+                    </li>
+
+                    <?php for ($i = 1; $i <= $totalPaginas; $i++) { ?>
+
+                    <li class="page-item <?php echo $pagina == $i ? 'active' : ''; ?>">
+                        <a class="page-link text-dark bg-light "
+                          style="<?php echo $pagina == $i ? 'border: 1px solid #ff3131 !important;' : ''; ?>"
+                          href="?pagina=<?php echo $i; ?>&<?php echo $parametros; ?>">
+                            <?php echo $i; ?>
+                        </a>
+                    </li>
+
+                    <?php } ?>
+
+                    <li class="page-item text-dark bg-light  <?php echo $pagina >= $totalPaginas ? 'disabled' : ''; ?>">
+                      <a class="page-link text-dark"
+                        href="?pagina=<?php echo $pagina + 1; ?>&<?php echo $parametros; ?>">
+                        Próxima
+                      </a>
+                    </li>
+
+                  </ul>
+                </nav>
+
+              </div>
 
           </div>
 
