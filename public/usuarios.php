@@ -7,42 +7,46 @@ if (!isset($_SESSION['usuario_nome']) || $_SESSION['usuario_funcao'] !== 'Admini
 
 include("../infra/database/conn.php");
 
-//LIMPAR FILTRO
+
+// LIMPAR FILTRO
 if (isset($_POST["limparPesquisa"])) {
-  $_POST["nomePesquisa"] = "";
-  $_POST["funcaoPesquisa"] = "";
+    $_POST["nomePesquisa"] = "";
+    $_POST["funcaoPesquisa"] = "";
 }
 
 // VERIFICAÇÃO DE PESQUISA
 if (!empty($_POST["nomePesquisa"]) && !empty($_POST["funcaoPesquisa"])) {
-  $nomePesquisa = $_POST["nomePesquisa"];
-  $funcaoPesquisa = $_POST["funcaoPesquisa"];
+    $nomePesquisa = "%" . $_POST["nomePesquisa"] . "%";
+    $funcaoPesquisa = "%" . $_POST["funcaoPesquisa"] . "%";
 
-  $sql = "SELECT * FROM usuarios WHERE nome = ? AND funcao = ?";
-  $stmt = $conn->prepare($sql);
-  $stmt->bind_param("ss", $nomePesquisa, $funcaoPesquisa);
+    $sql = "SELECT * FROM usuarios WHERE nome LIKE ? AND funcao LIKE ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $nomePesquisa, $funcaoPesquisa);
+
 } else if (!empty($_POST["nomePesquisa"])) {
-  $nomePesquisa = $_POST["nomePesquisa"];
+    $nomePesquisa = "%" . $_POST["nomePesquisa"] . "%";
 
-  $sql = "SELECT * FROM usuarios WHERE nome = ?";
-  $stmt = $conn->prepare($sql);
-  $stmt->bind_param("s", $nomePesquisa);
+    $sql = "SELECT * FROM usuarios WHERE nome LIKE ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $nomePesquisa);
+
 } else if (!empty($_POST["funcaoPesquisa"])) {
-  $funcaoPesquisa = $_POST["funcaoPesquisa"];
+    $funcaoPesquisa = "%" . $_POST["funcaoPesquisa"] . "%";
 
-  $sql = "SELECT * FROM usuarios WHERE funcao = ?";
-  $stmt = $conn->prepare($sql);
-  $stmt->bind_param("s", $funcaoPesquisa);
+    $sql = "SELECT * FROM usuarios WHERE funcao LIKE ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $funcaoPesquisa);
+
 } else {
-  $sql = "SELECT * FROM usuarios";
-  $stmt = $conn->prepare($sql);
+    $sql = "SELECT * FROM usuarios";
+    $stmt = $conn->prepare($sql);
 }
-
 
 $stmt->execute();
 $resultado = $stmt->get_result();
 $usuarios = $resultado;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
