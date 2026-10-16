@@ -124,7 +124,7 @@ INSERT INTO trens (nomeTrem, tipoCarga, modeloTrem, idRota, idUsuario) VALUES ("
 -- Inserção de Sensores
 INSERT INTO sensores (nome, localizacao, tipo, dataInstalacao, ativo, idTrem) VALUES
 ("Sensor de Temperatura","Estação Quiriri","Temperatura",NOW(),1,1),
-("Sensor de Velocidade", "Serra Quiriri", "Velocidade", NOW(), 1, 2)
+("Sensor de Velocidade", "Serra Quiriri", "Velocidade", NOW(), 1, 2),
 ("Sensor de Temperatura 2", "Estação Central", "Temperatura", NOW(), 1, 3),
 ("Sensor de Velocidade 2", "Baía da Babitonga", "Velocidade", NOW(), 1, 4),
 ("Sensor de Energia", "Estação de Araquari", "Energia", NOW(), 1, 5),

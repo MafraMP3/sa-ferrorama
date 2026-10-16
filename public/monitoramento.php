@@ -185,9 +185,70 @@ if (window.history.replaceState) {
             </section>
 
         </div>
-
-
+<div class="card div-top d-flex align-items-center">
+    <div class="d-flex align-items-center m-4">
+        <button type="button" class="btn p-0 border-0 bg-transparent"
+                data-bs-toggle="modal" data-bs-target="#ModalAdicionarSensor">
+            <i class="fa-solid fa-circle-plus fa-4x" style="color: rgb(208, 208, 208);"></i>
+        </button>
     </div>
+</div>
+
+<div class="modal fade" id="ModalAdicionarSensor" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Adicionar sensor ao monitoramento</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <form action="monitoramento.php" method="POST">
+                <div class="modal-body">
+                    <label for="idSensor" class="form-label">Selecione um sensor ativo:</label>
+
+                    <select class="form-select" name="idSensor" id="idSensor" required>
+                        <?php
+                        $sensoresAtivos = $conn->query(
+                            "SELECT idSensor, nome, tipo
+                             FROM sensores
+                             WHERE ativo = 1
+                             ORDER BY nome"
+                        );
+
+                        if ($sensoresAtivos && $sensoresAtivos->num_rows > 0) {
+                            while ($opcao = $sensoresAtivos->fetch_assoc()) {
+                        ?>
+                                <option value="<?php echo $opcao['idSensor']; ?>">
+                                    <?php echo htmlspecialchars($opcao['nome']); ?>
+                                    - <?php echo htmlspecialchars($opcao['tipo']); ?>
+                                </option>
+                        <?php
+                            }
+                        } else {
+                        ?>
+                            <option value="" disabled selected>
+                                Nenhum sensor ativo disponível
+                            </option>
+                        <?php } ?>
+                    </select>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" name="editarSensor" class="btn btn-danger"
+                        <?php echo (!$sensoresAtivos || $sensoresAtivos->num_rows === 0) ? 'disabled' : ''; ?>>
+                        Monitorar
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
 
     <!----------------------------------------------------------------------------------------------//-->
 
@@ -195,6 +256,10 @@ if (window.history.replaceState) {
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <script src="../java/script.js"></script>
+    <script>
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+</script>
 
 </body>
 
