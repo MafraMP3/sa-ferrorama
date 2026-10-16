@@ -53,12 +53,12 @@ CREATE TABLE IF NOT EXISTS dados(
 -- Inserção de Usuários
 INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Admin","111.111.111-11","admin@gmail.com","$2y$10$RmOq8VHQTMBO0c/sOuA89.HfhrgBZ8CwDEH9EctyVtfUX7/H9N.jS","Administrador");
 
-INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Caio","211.111.111-11","caio_a_mafra@estudante.sesisenai.org.br","$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y","Administrador");
-INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Fix","121.111.111-11","kauan_fix@estudante.sesisenai.org.br","$2y$10$wY8I89gEcYL9ngDOMsb1XeDgGoLIwuUZyehDGCIhDETXhDQlesU3q","Administrador");
-INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Davi","112.111.111-11","davi_sehnem@estudante.sesisenai.org.br","$2y$10$Rw5p4mrHLA2da5w2guxG4e/8VsvNPrAeiuc3TGfzhXHe4D0GMz/AO","Administrador");
-INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Lucas","111.211.111-11","lucas_schattenberg@estudante.sesisenai.org.br","$2y$10$6O2GPjoh8GMRuhhFmCbmR..K0jSGrlw0faMPAlLMvZRD6V.nK6cCe","Administrador");
-INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Gustavo","111.121.111-11","gustavo_sena@estudante.sesisenai.org.br","$2y$10$4.t/tNGXpLx7Ely8qcsm4OTvX4aEef366Sv/.Tw8m2S2FKw.NhOAq","Administrador");
-INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Xaea12", "248.731.965-42", "Xaea12@estudante.sesisenai.org.br", "$2y$10$ErCNm6c4uVz84N/bSwgsUOv6nVyD3/n8FCAQEM7QpuLK.76DqBRBa", "Funcionario");
+INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Caio Mafra","211.111.111-11","caio_a_mafra@estudante.sesisenai.org.br","$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y","Administrador");
+INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Kauan Fix","121.111.111-11","kauan_fix@estudante.sesisenai.org.br","$2y$10$wY8I89gEcYL9ngDOMsb1XeDgGoLIwuUZyehDGCIhDETXhDQlesU3q","Administrador");
+INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Davi Sehnem","112.111.111-11","davi_sehnem@estudante.sesisenai.org.br","$2y$10$Rw5p4mrHLA2da5w2guxG4e/8VsvNPrAeiuc3TGfzhXHe4D0GMz/AO","Administrador");
+INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Lucas Schattenberg","111.211.111-11","lucas_schattenberg@estudante.sesisenai.org.br","$2y$10$6O2GPjoh8GMRuhhFmCbmR..K0jSGrlw0faMPAlLMvZRD6V.nK6cCe","Administrador");
+INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Gustavo de Sena","111.121.111-11","gustavo_sena@estudante.sesisenai.org.br","$2y$10$4.t/tNGXpLx7Ely8qcsm4OTvX4aEef366Sv/.Tw8m2S2FKw.NhOAq","Administrador");
+INSERT INTO usuarios (nome,cpf,email,senha,funcao) VALUES ("Xaea12 da Silva", "248.731.965-42", "Xaea12@estudante.sesisenai.org.br", "$2y$10$ErCNm6c4uVz84N/bSwgsUOv6nVyD3/n8FCAQEM7QpuLK.76DqBRBa", "Funcionario");
 
 INSERT INTO usuarios (nome, cpf, email, senha, funcao) VALUES
 ("Davi Batista Caetano", "000.000.000-01", "davi_caetano@estudante.sesisenai.org.br", "$2y$10$7qRXKuT7iCoe/iQF/jABFOKjB4FnArCOYPQUGdOkbvblKWO/7wR7y", "Administrador"),
