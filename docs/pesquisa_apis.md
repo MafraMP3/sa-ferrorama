@@ -103,7 +103,7 @@ Cuidados importantes:
 - Não deixar senhas e chaves de acesso expostas no código.
 
 
-## 5. Exemplos de APIs nas empresas
+## Exemplos de APIs nas empresas
 
 - **Lojas virtuais:** para atualizar produtos e estoques.
 - **Pagamentos:** para realizar pagamentos por Pix e cartão.
