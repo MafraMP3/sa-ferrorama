@@ -217,24 +217,7 @@ $trens = $resultado;
                               <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;" data-bs-toggle="tooltip" title="Excluir"></i>
                             </button>
 
-                            <div class="modal fade" id="ModalExcluir<?php echo $trem["idTrem"]; ?>" tabindex="-1">
-                              <div class="modal-dialog modal-dialog-scrollable">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h1 class="modal-title fs-5">Confirmar exclusão</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                  </div>
-
-                                  <<<<<<< HEAD
-                                    <div class="modal-body">
-                                    Deseja realmente excluir o trem <strong><?php echo htmlspecialchars($trem["nomeTrem"]); ?></strong>?
-                                </div>
-
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                  <button type="submit" class="btn btn-danger">Confirmar</button>
-                                </div>
-                                =======
+      
 
                                 <div class="modal fade" id="ModalExcluir<?php echo $trem["idTrem"]; ?>" tabindex="-1">
                                   <div class="modal-dialog modal-dialog-scrollable">
@@ -248,10 +231,10 @@ $trens = $resultado;
                                       </div>
                                       <div class="modal-footer">
                                         <button type="submit" class="btn btn-danger">Confirmar</button>
-                                        >>>>>>> 5c7c0a051a4d14a041805cee64060a6ec9d65813
                                       </div>
                                     </div>
                                   </div>
+                                </div>
                           </form>
 
                           <form action="services/ProcessosTrem/editarTrem.php" method="POST" style="display: inline;">
