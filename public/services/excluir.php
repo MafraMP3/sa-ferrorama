@@ -2,6 +2,12 @@
 
 include "../../infra/database/conn.php";
 
+if (!isset($_POST["tabela"]) || !isset( $_POST["campoId"]) || !isset($_POST["idExcluir"])) {
+header("Location: ../../index.php");   
+die("Operação inválida.");
+
+}
+
 $tabela = $_POST["tabela"];
 $campoId = $_POST["campoId"];
 $idExcluir = $_POST["idExcluir"];
