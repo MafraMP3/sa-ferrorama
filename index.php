@@ -22,7 +22,8 @@ if (isset($_POST["login"])) {
         $usuario = $resultado->fetch_assoc();
 
         if (!password_verify($senha,$usuario["senha"] )) {
-            die();
+            header("Location: index.php");
+            exit;
         }
 
         $_SESSION['usuario_nome'] = $usuario['nome'];
