@@ -40,6 +40,7 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
     <!------------------------------------------------------------------------------------//-->
 
     <!---------------------------------------CADASTRAR NOVO SENSOR--------------------------------------------//-->
+    <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
 
     <div class="content">
 
@@ -105,6 +106,8 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
       </div>
 
     </div>
+    <?php } ?>
+
 
     <!----------------------------------------------------------------------------------------------//-->
 

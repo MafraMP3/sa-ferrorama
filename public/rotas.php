@@ -34,6 +34,7 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
     ?>
 
     <!------------------------------------------------------------------------------------//-->
+    <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
 
     <div class="content">
       <div class="card div-top">
@@ -78,7 +79,7 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
         </div>
       </div>
     </div>
-
+<?php } ?>
     <!----------------------------------------------------------------------------------------------//-->
 
 
