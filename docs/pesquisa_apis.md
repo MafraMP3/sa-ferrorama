@@ -1,7 +1,5 @@
 
-# Pesquisa: APIs e integração entre sistemas
-
-## 1. O que são APIs?
+## O que são APIs?
 
 **O que é e para que serve?**
 
@@ -23,7 +21,7 @@ tem foco na parte visual.
 Envia e receba dados.
 Tem foco na troca de informações.
 
-## 2. REST e HTTP
+## REST e HTTP
 
 **O que é uma API REST?**
 
@@ -53,7 +51,7 @@ Existem códigos que mostram se algo deu certo ou errado:
 
 São os endereços usados para acessar as funções de uma API.
 
-Por exemplo, `GET /produtos` mostra os produtos cadastrados, enquanto `GET /produtos/15` mostra apenas o produto de número 15.
+Por exemplo, "GET /produtos" mostra os produtos cadastrados, enquanto "GET /produtos/15" mostra apenas o produto de número 15.
 
 **O que é JSON?**
 
@@ -69,15 +67,15 @@ Exemplo:
 }
 ```
 
-## 3. Como usar APIs com PHP
+## Como usar APIs com PHP
 
 **Como usar uma API no PHP?**
 
 O PHP pode acessar uma API para buscar informações de outro sistema. Para isso, pode usar ferramentas como cURL.
 
-Quando recebe os dados, o PHP pode usar `json_decode()` para transformar o JSON em informações que consegue trabalhar.
+Quando recebe os dados, o PHP pode usar "json_decode()" para transformar o JSON em informações que consegue trabalhar.
 
-Também é possível usar `json_encode()` para transformar dados em JSON e enviá-los para outro sistema.
+Também é possível usar "json_encode()" para transformar dados em JSON e enviá-los para outro sistema.
 
 **Como criar uma API com PHP?**
 
@@ -87,9 +85,8 @@ Por exemplo, uma API de uma loja pode mostrar os produtos cadastrados no banco d
 
 É importante organizar os endereços da API e cuidar da segurança das informações.
 
----
 
-## 4. Segurança das APIs
+## Segurança das APIs
 
 As APIs precisam de segurança para evitar que pessoas sem permissão acessem informações.
 
@@ -97,7 +94,7 @@ As APIs precisam de segurança para evitar que pessoas sem permissão acessem in
 
 **Autorização:** verifica o que essa pessoa pode fazer dentro do sistema.
 
-Alguns cuidados importantes são:
+Cuidados importantes:
 
 - Usar HTTPS para proteger a comunicação.
 - Conferir os dados recebidos.
@@ -105,13 +102,8 @@ Alguns cuidados importantes são:
 - Limitar o número de acessos em pouco tempo.
 - Não deixar senhas e chaves de acesso expostas no código.
 
-Esses cuidados ajudam a evitar invasões e o vazamento de informações.
-
----
 
 ## 5. Exemplos de APIs nas empresas
-
-As APIs são usadas em várias áreas. Alguns exemplos são:
 
 - **Lojas virtuais:** para atualizar produtos e estoques.
 - **Pagamentos:** para realizar pagamentos por Pix e cartão.
@@ -122,7 +114,6 @@ As APIs são usadas em várias áreas. Alguns exemplos são:
 - **Consultas:** para buscar CEP, CNPJ e cotação de moedas.
 - **Aplicativos:** para buscar informações de um sistema e mostrá-las no celular.
 
----
 
 ## Fontes
 
