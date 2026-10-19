@@ -7,11 +7,11 @@ if (!isset($_SESSION['usuario_nome']) || $_SESSION['usuario_funcao'] !== 'Admini
 
 include("../infra/database/conn.php");
 
-// 1. DEFINIR OS FILTROS
+
 $nomePesquisa = "";
 $funcaoPesquisa = "";
 
-// 2. VERIFICAR SE O BOTÃO DE LIMPAR FOI CLICADO
+
 if (isset($_POST["limparPesquisa"])) {
     $nomePesquisa = "";
     $funcaoPesquisa = "";
@@ -20,33 +20,33 @@ if (isset($_POST["limparPesquisa"])) {
     $funcaoPesquisa = $_POST["funcaoPesquisa"] ?? "";
 }
 
-// 3. CONFIGURAR A PAGINAÇÃO
+
 $limite = 10;
 
-// Descobrir qual página está sendo acessada
+
 $pagina = max(1, (int) ($_GET["pagina"] ?? 1));
 
-// 4. MONTAR A CONSULTA SQL
+
 $sql = "SELECT * FROM usuarios WHERE 1=1";
 
 $tipos = "";
 $valores = [];
 
-// Pesquisar pelo nome, mesmo que seja apenas uma parte dele
+
 if ($nomePesquisa !== "") {
     $sql .= " AND nome LIKE ?";
     $tipos .= "s";
     $valores[] = "%" . $nomePesquisa . "%";
 }
 
-// Filtrar pela função
+
 if ($funcaoPesquisa !== "") {
     $sql .= " AND funcao = ?";
     $tipos .= "s";
     $valores[] = $funcaoPesquisa;
 }
 
-// 5. CONTAR QUANTOS USUÁRIOS CORRESPONDEM À PESQUISA
+
 $sqlContagem = "SELECT COUNT(*) AS total FROM usuarios WHERE 1=1";
 
 if ($nomePesquisa !== "") {
@@ -68,16 +68,14 @@ $stmtContagem->execute();
 $resultadoContagem = $stmtContagem->get_result();
 $totalUsuarios = $resultadoContagem->fetch_assoc()["total"];
 
-// 6. CALCULAR O TOTAL DE PÁGINAS
 $totalPaginas = max(1, (int) ceil($totalUsuarios / $limite));
 
-// Impedir que a página ultrapasse o limite
 $pagina = min($pagina, $totalPaginas);
 
-// Calcular a posição inicial dos registros
+
 $inicio = ($pagina - 1) * $limite;
 
-// 7. BUSCAR OS USUÁRIOS DA PÁGINA ATUAL
+
 $sql .= " LIMIT ? OFFSET ?";
 
 $stmt = $conn->prepare($sql);
