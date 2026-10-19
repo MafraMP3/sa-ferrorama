@@ -15,8 +15,8 @@ $sql = "SELECT * FROM usuarios";
 $resultado = $conn->query($sql);
 $usuarios = $resultado;
 
-
-$sql = "SELECT
+  if ($_SESSION['usuario_funcao'] == 'Administrador') { 
+      $sql = "SELECT
             trens.idTrem,
             trens.nomeTrem,
             trens.tipoCarga,
@@ -26,10 +26,30 @@ $sql = "SELECT
         FROM trens
         LEFT JOIN rotas ON trens.idRota = rotas.idRota
         LEFT JOIN usuarios ON trens.idUsuario = usuarios.idUsuario";
+        
+      $resultado = $conn->query($sql);
 
+    } else{
+      $sql = "SELECT
+            trens.idTrem,
+            trens.nomeTrem,
+            trens.tipoCarga,
+            trens.modeloTrem,
+            rotas.nomeRota,
+            usuarios.nome AS nomeUsuario
+        FROM trens
+        LEFT JOIN rotas ON trens.idRota = rotas.idRota
+        LEFT JOIN usuarios ON trens.idUsuario = usuarios.idUsuario
+        WHERE usuarios.nome = ? ";
 
-$resultado = $conn->query($sql);
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $_SESSION["usuario_nome"]);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+    }
+
 $trens = $resultado;
+
 ?>
 
 <!DOCTYPE html>
