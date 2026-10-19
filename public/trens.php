@@ -79,6 +79,9 @@ $trens = $resultado;
       </div>
     <?php } ?>
 
+    <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
+
+
     <div class="content">
       <div class="card div-top">
         <div class="d-flex align-items-center">
@@ -150,6 +153,8 @@ $trens = $resultado;
         </div>
       </div>
     </div>
+
+    <?php } ?>
 
     <!----------------------------------------------------------------------------------------------//-->
 
