@@ -3,11 +3,11 @@
 
 **O que é e para que serve?**
 
-API é uma ferramenta que permite que dois sistemas se comuniquem e troquem informações. Por exemplo, um aplicativo pode usar uma API para consultar a previsão do tempo.
+API é um recurso que possibilita a comunicação e a troca de informações entre dois sistemas. Por exemplo, um aplicativo pode utilizar uma API para obter informações sobre a previsão do tempo.
 
 **Como funciona a comunicação?**
 
-Um sistema faz um pedido para outro sistema, e ele responde com as informações solicitadas. Assim, eles conseguem trocar dados sem precisar acessar a tela um do outro.
+Um sistema solicita informações a outro sistema, que responde fornecendo os dados requisitados. Dessa forma, eles podem compartilhar informações sem precisar olhar para a tela um do outro.
 
 **Diferença entre sistema web e API**
 
@@ -25,7 +25,7 @@ Tem foco na troca de informações.
 
 **O que é uma API REST?**
 
-REST é um modelo usado para organizar APIs que se comunicam pela internet. Ele ajuda os sistemas a trocar informações de forma organizada.
+REST é um padrão utilizado para estruturar APIs que se comunicam por meio da internet. Ele auxilia os sistemas na troca de informações de maneira estruturada.
 
 **Métodos HTTP**
 
@@ -71,19 +71,19 @@ Exemplo:
 
 **Como usar uma API no PHP?**
 
-O PHP pode acessar uma API para buscar informações de outro sistema. Para isso, pode usar ferramentas como cURL.
+Uma API pode ser acessada pelo PHP para obter dados de um sistema diferente. Para isso, é possível utilizar ferramentas como o cURL.
 
-Quando recebe os dados, o PHP pode usar "json_decode()" para transformar o JSON em informações que consegue trabalhar.
+Ao receber os dados, o PHP pode utilizar a função "json_decode()" para converter o JSON em um formato com o qual pode manipular.
 
-Também é possível usar "json_encode()" para transformar dados em JSON e enviá-los para outro sistema.
+Também é viável utilizar a função "json_encode()" para converter dados em JSON e transmiti-los para outro sistema.
 
 **Como criar uma API com PHP?**
 
-Também podemos criar uma API usando PHP. Ela recebe pedidos, consulta o banco de dados e devolve as informações solicitadas.
+Também é possível desenvolver uma API utilizando PHP. Ela recebe solicitações, verifica o banco de dados e fornece as informações requisitadas.
 
-Por exemplo, uma API de uma loja pode mostrar os produtos cadastrados no banco de dados para outros sistemas.
+Por exemplo, uma API de uma loja pode disponibilizar a outros sistemas a lista de produtos registrados no banco de dados.
 
-É importante organizar os endereços da API e cuidar da segurança das informações.
+É fundamental estruturar os endereços da API e proteger os dados.
 
 
 ## Segurança das APIs
