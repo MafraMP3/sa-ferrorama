@@ -79,9 +79,6 @@ if (isset($_POST["login"])) {
                             <input class="form-control input-login" type="email" id="email" name="email"
                                 placeholder="Digite seu email..." autocomplete="email" required>
 
-                            <div class="invalid-feedback">
-                                Digite um e-mail válido.
-                            </div>
                         </div>
 
                         <div class="div-inputs">
@@ -90,18 +87,15 @@ if (isset($_POST["login"])) {
                             <input class="form-control input-login" type="password" name="senha" id="senha"
                                 placeholder="Digite sua senha..." autocomplete="current-password" required>
 
-                            <div class="invalid-feedback">
-                                Preencha este campo.
-                            </div>
                         </div>
 
                         <?php if ($erroLogin): ?>
-                            <div class="text-danger mt-3" role="alert">
-                                E-mail ou senha incorretos.
+                            <div class="text-danger mt-3 d-flex justify-content-center" role="alert">
+                                <h6 class="error-message-login">E-mail ou senha incorretos.</h6>
                             </div>
                         <?php endif; ?>
 
-                        <div class="d-grid gap-2 mt-3">
+                        <div class="d-grid gap-2">
                             <button class="d-block btn btn-primary submit-button" type="submit" name="login">
                                 ENTRAR
                             </button>
