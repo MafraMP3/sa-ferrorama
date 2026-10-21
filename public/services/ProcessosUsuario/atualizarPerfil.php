@@ -7,7 +7,7 @@ if (!isset($_SESSION['usuario_id'])) {
     exit;
 }
 
-include("../../infra/database/conn.php");
+include("../../../infra/database/conn.php");
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     header("Location: ../../conta.php");
@@ -78,7 +78,7 @@ if (!mysqli_stmt_execute($stmt)) {
     exit("Não foi possível atualizar a foto.");
 }
 
-$_SESSION["usuario_foto"] = "../../" . $caminhoBanco;
+$_SESSION["usuario_foto"] = $caminhoBanco;
 
 mysqli_stmt_close($stmt);
 
