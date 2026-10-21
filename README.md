@@ -71,11 +71,12 @@ Abra o painel de controle do XAMPP e inicie os serviços Apache e MySQL.
 │   └── images/
 │
 ├── docs/
-│   ├── pesquisa Sobre APIs.md
-│   ├── pesquisa Sobre Xampp.md
-│   ├── pesquisa_sobre_php_e_crud.md
-│   ├── pesquisa_sobre_scrum.md
-│   └── requisitos_de_sistema_da_sa.md
+│   ├── pesquisa_sobre_APIs.md
+│   ├── pesquisa Sobre PDO.md
+│   ├── pesquisa Sobre PHP e CRUD.mdd
+│   ├── pesquisa sobre SCRUM.md
+│   ├── pesquisa sobre XAMPP.md
+│   └── requisitos do sistema.md
 │
 ├── infra/
 │   └── database/
