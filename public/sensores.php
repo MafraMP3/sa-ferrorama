@@ -40,74 +40,75 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
     <!------------------------------------------------------------------------------------//-->
 
     <!---------------------------------------CADASTRAR NOVO SENSOR--------------------------------------------//-->
-    <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
 
     <div class="content">
 
-      <div class="card div-top">
+      <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
 
-        <div class="d-flex align-items-center">
-          <i class="fa-solid fa-circle-plus fa-2x" style="color: rgb(255, 49, 49);"></i>
-          <p class="title-text-form h4">CADASTRAR NOVO SENSOR</p>
+        <div class="card div-top">
+
+          <div class="d-flex align-items-center">
+            <i class="fa-solid fa-circle-plus fa-2x" style="color: rgb(255, 49, 49);"></i>
+            <p class="title-text-form h4">CADASTRAR NOVO SENSOR</p>
+          </div>
+
+          <div class="div-forms">
+            <form action="services/ProcessosSensor/cadastrarSensor.php" id="formSensor" method="POST">
+              <div class="div-form-cadastrar d-flex">
+
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="nomeSensor">NOME DO SENSOR</label>
+                  <input class="form-control input-form-sensors" type="text" placeholder="EX: Sensor KL-I32"
+                    id="nomeSensor" name="nomeSensor" required>
+                </div>
+
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="idTrem">TREM DO SENSOR</label>
+                  <select class="form-select input-form-select" name="idTrem" id="idTrem" required>
+                    <option value="" selected disabled>Selecione um trem</option>
+                    <?php while ($trem = mysqli_fetch_assoc($trens)) { ?>
+                      <option value="<?php echo $trem["idTrem"]; ?>">
+                        <?php echo htmlspecialchars($trem["nomeTrem"]); ?>
+                      </option>
+                    <?php } ?>
+                  </select>
+                </div>
+
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="dataInstalacao">DATA DE INSTALAÇÃO</label>
+                  <input class="form-control input-form" type="date" id="dataInstalacao"
+                    name="dataInstalacao" required>
+                </div>
+
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="localSensor">LOCALIZAÇÃO</label>
+                  <input class="form-control input-form" type="text" placeholder="EX: Km 67"
+                    id="localSensor" name="localSensor" required>
+                </div>
+
+                <div class="div-inputs-label">
+                  <label class="label-form" for="tipoSensor">TIPO DE DADO</label>
+                  <select class="form-select input-form-select" id="tipoSensor" name="tipoSensor" required>
+                    <option value="" selected disabled>Selecione o tipo</option>
+                    <option value="Velocidade">Velocidade</option>
+                    <option value="Temperatura">Temperatura</option>
+                    <option value="Energia">Energia</option>
+                  </select>
+                </div>
+
+                <div class="div-button">
+                  <button class="d-block btn btn-primary button-form" type="submit">Cadastrar</button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+
         </div>
 
-        <div class="div-forms">
-          <form action="services/ProcessosSensor/cadastrarSensor.php" id="formSensor" method="POST">
-            <div class="div-form-cadastrar d-flex">
-
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="nomeSensor">NOME DO SENSOR</label>
-                <input class="form-control input-form-sensors" type="text" placeholder="EX: Sensor KL-I32"
-                  id="nomeSensor" name="nomeSensor" required>
-              </div>
-
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="idTrem">TREM DO SENSOR</label>
-                <select class="form-select input-form-select" name="idTrem" id="idTrem" required>
-                  <option value="" selected disabled>Selecione um trem</option>
-                  <?php while ($trem = mysqli_fetch_assoc($trens)) { ?>
-                    <option value="<?php echo $trem["idTrem"]; ?>">
-                      <?php echo htmlspecialchars($trem["nomeTrem"]); ?>
-                    </option>
-                  <?php } ?>
-                </select>
-              </div>
-
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="dataInstalacao">DATA DE INSTALAÇÃO</label>
-                <input class="form-control input-form" type="date" id="dataInstalacao"
-                  name="dataInstalacao" required>
-              </div>
-
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="localSensor">LOCALIZAÇÃO</label>
-                <input class="form-control input-form" type="text" placeholder="EX: Km 67"
-                  id="localSensor" name="localSensor" required>
-              </div>
-
-              <div class="div-inputs-label">
-                <label class="label-form" for="tipoSensor">TIPO DE DADO</label>
-                <select class="form-select input-form-select" id="tipoSensor" name="tipoSensor" required>
-                  <option value="" selected disabled>Selecione o tipo</option>
-                  <option value="Velocidade">Velocidade</option>
-                  <option value="Temperatura">Temperatura</option>
-                  <option value="Energia">Energia</option>
-                </select>
-              </div>
-
-              <div class="div-button">
-                <button class="d-block btn btn-primary button-form" type="submit">Cadastrar</button>
-              </div>
-
-            </div>
-          </form>
-        </div>
-
-      </div>
+      <?php } ?>
 
     </div>
-    <?php } ?>
-
 
     <!----------------------------------------------------------------------------------------------//-->
 
@@ -140,7 +141,7 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
           </div>
 
           <div class="table-responsive">
-           <table class="table-forms table table-bordered align-middle rounded overflow-hidden border-dark ">
+            <table class="table-forms table table-bordered align-middle rounded overflow-hidden border-dark ">
               <thead>
                 <tr class="table-dark">
                   <th class="ths">Nome Sensor</th>
