@@ -7,21 +7,21 @@ function toggleSidebar() {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const pagina = window.location.href;
-    const paginaAtual = pagina.split('/').pop();
+    const paginaAtual = window.location.pathname.split('/').pop();
 
     const links = document.querySelectorAll(".sidebar-link");
 
     links.forEach(function (link) {
 
-        const paginaLink = link.getAttribute("href").split('/').pop();
+        const paginaLink = new URL(link.href).pathname.split('/').pop();
 
         if (paginaLink === paginaAtual) {
             link.classList.add("active");
         } else {
             link.classList.remove("active");
         }
-    })
+    });
+
 });
 
 //======================================================HOME.php=======================================================================================//
@@ -53,6 +53,21 @@ if (window.location.pathname.includes("public/sensores.php")) {
 }
 
 //======================================================USUARIOS.php=======================================================================================//
+
+if (window.location.pathname.includes("public/usuarios.php")) {
+    let cadastroUsuario = document.getElementById("cadastroUsuario");
+    cadastroUsuario.addEventListener("submit", function(e) {
+
+        let nomeUsuario = document.getElementById("nomeUsuario").value.trim();
+
+        let nomeSeparado = nomeUsuario.split(/\s+/);
+
+        if (nomeSeparado.length < 2) {
+            e.preventDefault();
+            alert("Digite Nome e Sobrenome");
+        }
+    });
+}
 
 //======================================================ROTAS.php=======================================================================================//
 if (window.location.pathname.includes("public/rotas.php")) {
