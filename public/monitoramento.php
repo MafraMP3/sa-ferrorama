@@ -19,6 +19,8 @@ if (isset($_POST["editarSensor"])) {
 
     $result = $stmt->get_result();
     $sensor = $result->fetch_assoc();
+
+    $tipoSensor = $sensor["tipo"];
 }
 ?>
 
@@ -99,23 +101,59 @@ if (window.history.replaceState) {
                         <div class="row g-3 div-father-monitor-data">
                             <div class="col-6 div-monitor-data">
                                 <div class="card p-3 div-monitor-data">
-                                    <p class="text-muted mb-1">Velocidade Atual</p>
+                                    <p class="text-muted mb-1"><?php if (isset($_POST["editarSensor"])){echo $tipoSensor;} else{ echo "Velocidade"; } ?></p>
                                     <h3 class="mb-2 fw-bold" id="velAtual">—</h3>
-                                    <span class="text-muted" style="font-size: 11px;">km/h</span>
+                                    <span class="text-muted" style="font-size: 11px;"><?php
+                                    if (isset($tipoSensor)) {
+                                    switch($tipoSensor){
+                                        case "Energia":
+                                            echo "Litros";
+                                            break;
+                                        case "Temperatura":
+                                            echo "°C";
+                                            break;
+                                        default:
+                                        echo "km/h";
+                                        break;
+                                    }}else{ echo "km/h";} ?></span>
                                 </div>
                             </div>
                             <div class="col-6 div-monitor-data">
                                 <div class="card p-3 div-monitor-data">
-                                    <p class="text-muted mb-1">Velocidade Máxima</p>
+                                    <p class="text-muted mb-1"><?php if (isset($_POST["editarSensor"])){echo $tipoSensor;} else{ echo "Velocidade"; } ?> Máxima</p>
                                     <h3 class="mb-2 fw-bold" id="velMax">—</h3>
-                                    <span class="text-muted" style="font-size: 11px;">km/h</span>
+                                    <span class="text-muted" style="font-size: 11px;"><?php
+                                    if (isset($tipoSensor)) {
+                                    switch($tipoSensor){
+                                        case "Energia":
+                                            echo "Litros";
+                                            break;
+                                        case "Temperatura":
+                                            echo "°C";
+                                            break;
+                                        default:
+                                        echo "km/h";
+                                        break;
+                                    }}else{ echo "km/h";} ?></span>
                                 </div>
                             </div>
                             <div class="col-6 div-monitor-data">
                                 <div class="card p-3 div-monitor-data">
-                                    <p class="text-muted mb-1">Velocidade Média</p>
+                                    <p class="text-muted mb-1"><?php if (isset($_POST["editarSensor"])){echo $tipoSensor;} else{ echo "Velocidade"; } ?> Média</p>
                                     <h3 class="mb-2 fw-bold" id="mediaSensores">—</h3>
-                                    <span class="text-muted" style="font-size: 11px;">km/h</span>
+                                    <span class="text-muted" style="font-size: 11px;"><?php
+                                    if (isset($tipoSensor)) {
+                                    switch($tipoSensor){
+                                        case "Energia":
+                                            echo "Litros";
+                                            break;
+                                        case "Temperatura":
+                                            echo "°C";
+                                            break;
+                                        default:
+                                        echo "km/h";
+                                        break;
+                                    }}else{ echo "km/h";} ?></span>
                                 </div>
                             </div>
                             <div class="col-6 div-monitor-data">

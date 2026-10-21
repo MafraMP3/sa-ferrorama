@@ -15,8 +15,8 @@ $sql = "SELECT * FROM usuarios";
 $resultado = $conn->query($sql);
 $usuarios = $resultado;
 
-  if ($_SESSION['usuario_funcao'] == 'Administrador') { 
-      $sql = "SELECT
+if ($_SESSION['usuario_funcao'] == 'Administrador') {
+  $sql = "SELECT
             trens.idTrem,
             trens.nomeTrem,
             trens.tipoCarga,
@@ -26,11 +26,10 @@ $usuarios = $resultado;
         FROM trens
         LEFT JOIN rotas ON trens.idRota = rotas.idRota
         LEFT JOIN usuarios ON trens.idUsuario = usuarios.idUsuario";
-        
-      $resultado = $conn->query($sql);
 
-    } else{
-      $sql = "SELECT
+  $resultado = $conn->query($sql);
+} else {
+  $sql = "SELECT
             trens.idTrem,
             trens.nomeTrem,
             trens.tipoCarga,
@@ -42,11 +41,11 @@ $usuarios = $resultado;
         LEFT JOIN usuarios ON trens.idUsuario = usuarios.idUsuario
         WHERE usuarios.nome = ? ";
 
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $_SESSION["usuario_nome"]);
-        $stmt->execute();
-        $resultado = $stmt->get_result();
-    }
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("s", $_SESSION["usuario_nome"]);
+  $stmt->execute();
+  $resultado = $stmt->get_result();
+}
 
 $trens = $resultado;
 
@@ -99,82 +98,86 @@ $trens = $resultado;
       </div>
     <?php } ?>
 
-    <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
+
+    <!------------------------------------cadastro de usuarios---------------------------------------//-->
+
 
 
     <div class="content">
-      <div class="card div-top">
-        <div class="d-flex align-items-center">
-          <i class="fa-solid fa-circle-plus fa-2x" style="color: rgb(255, 49, 49);"></i>
-          <p class="title-text-form h4">CADASTRAR NOVO TREM</p>
+      <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
+        <div class="card div-top">
+          <div class="d-flex align-items-center">
+            <i class="fa-solid fa-circle-plus fa-2x" style="color: rgb(255, 49, 49);"></i>
+            <p class="title-text-form h4">CADASTRAR NOVO TREM</p>
+          </div>
+
+          <div class="div-forms">
+            <form action="services/ProcessosTrem/cadastrarTrem.php" method="POST" id="formSensor">
+              <div class="div-form-cadastrar d-flex">
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="nomeSensor">NOME DO TREM</label>
+                  <input class="form-control input-form-sensors" name="nomeTrem" type="text" placeholder="EX: Trem 2" id="nomeSensor" required>
+                </div>
+
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="idRota">ROTA DO TREM</label>
+                  <select class="form-select input-form-select" name="idRota" id="idRota" required>
+                    <option value="" selected disabled>Selecione uma rota</option>
+                    <?php while ($rota = mysqli_fetch_assoc($rotas)) { ?>
+                      <option value="<?php echo $rota["idRota"]; ?>">
+                        <?php echo htmlspecialchars($rota["nomeRota"]); ?>
+                      </option>
+                    <?php } ?>
+                  </select>
+                </div>
+
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="idUsuario">USUÁRIO RESPONSÁVEL</label>
+                  <select class="form-select input-form-select" name="idUsuario" id="idUsuario" required>
+                    <option value="" selected disabled>Selecione um usuário</option>
+                    <?php while ($usuario = mysqli_fetch_assoc($usuarios)) { ?>
+                      <option value="<?php echo $usuario["idUsuario"]; ?>">
+                        <?php echo htmlspecialchars($usuario["nome"]); ?>
+                      </option>
+                    <?php } ?>
+                  </select>
+                </div>
+
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="tipoSensor">TIPO DE CARGA</label>
+                  <select class="form-select input-form-select" name="tipoCarga" aria-label="Tipo de carga" id="tipoSensor" required>
+                    <option selected disabled value="">Selecione o tipo</option>
+                    <option value="Passageiros">Passageiros</option>
+                    <option value="Grãos">Grãos</option>
+                    <option value="Minério">Minério</option>
+                    <option value="Carvão">Carvão</option>
+                    <option value="Combustível">Combustível</option>
+                    <option value="Produtos Químicos">Produtos Químicos</option>
+                  </select>
+                </div>
+
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="modeloTrem">MODELO DO TREM</label>
+                  <select class="form-select input-form-select" name="modeloTrem" aria-label="Modelo do trem" id="modeloTrem" required>
+                    <option selected disabled value="">Selecione o modelo</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Elétrico">Elétrico</option>
+                    <option value="Diesel-Elétrico">Diesel-Elétrico</option>
+                    <option value="Híbrido">Híbrido</option>
+                  </select>
+                </div>
+
+                <div class="div-button">
+                  <button class="d-block btn btn-primary button-form" type="submit">Cadastrar</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-
-        <div class="div-forms">
-          <form action="services/ProcessosTrem/cadastrarTrem.php" method="POST" id="formSensor">
-            <div class="div-form-cadastrar d-flex">
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="nomeSensor">NOME DO TREM</label>
-                <input class="form-control input-form-sensors" name="nomeTrem" type="text" placeholder="EX: Trem 2" id="nomeSensor" required>
-              </div>
-
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="idRota">ROTA DO TREM</label>
-                <select class="form-select input-form-select" name="idRota" id="idRota" required>
-                  <option value="" selected disabled>Selecione uma rota</option>
-                  <?php while ($rota = mysqli_fetch_assoc($rotas)) { ?>
-                    <option value="<?php echo $rota["idRota"]; ?>">
-                      <?php echo htmlspecialchars($rota["nomeRota"]); ?>
-                    </option>
-                  <?php } ?>
-                </select>
-              </div>
-
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="idUsuario">USUÁRIO RESPONSÁVEL</label>
-                <select class="form-select input-form-select" name="idUsuario" id="idUsuario" required>
-                  <option value="" selected disabled>Selecione um usuário</option>
-                  <?php while ($usuario = mysqli_fetch_assoc($usuarios)) { ?>
-                    <option value="<?php echo $usuario["idUsuario"]; ?>">
-                      <?php echo htmlspecialchars($usuario["nome"]); ?>
-                    </option>
-                  <?php } ?>
-                </select>
-              </div>
-
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="tipoSensor">TIPO DE CARGA</label>
-                <select class="form-select input-form-select" name="tipoCarga" aria-label="Tipo de carga" id="tipoSensor" required>
-                  <option selected disabled value="">Selecione o tipo</option>
-                  <option value="Passageiros">Passageiros</option>
-                  <option value="Grãos">Grãos</option>
-                  <option value="Minério">Minério</option>
-                  <option value="Carvão">Carvão</option>
-                  <option value="Combustível">Combustível</option>
-                  <option value="Produtos Químicos">Produtos Químicos</option>
-                </select>
-              </div>
-
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="modeloTrem">MODELO DO TREM</label>
-                <select class="form-select input-form-select" name="modeloTrem" aria-label="Modelo do trem" id="modeloTrem" required>
-                  <option selected disabled value="">Selecione o modelo</option>
-                  <option value="Diesel">Diesel</option>
-                  <option value="Elétrico">Elétrico</option>
-                  <option value="Diesel-Elétrico">Diesel-Elétrico</option>
-                  <option value="Híbrido">Híbrido</option>
-                </select>
-              </div>
-
-              <div class="div-button">
-                <button class="d-block btn btn-primary button-form" type="submit">Cadastrar</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
+      <?php } ?>
     </div>
 
-    <?php } ?>
+
 
     <!----------------------------------------------------------------------------------------------//-->
 
@@ -242,24 +245,24 @@ $trens = $resultado;
                               <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;" data-bs-toggle="tooltip" title="Excluir"></i>
                             </button>
 
-      
 
-                                <div class="modal fade" id="ModalExcluir<?php echo $trem["idTrem"]; ?>" tabindex="-1">
-                                  <div class="modal-dialog modal-dialog-scrollable">
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <h1 class="modal-title fs-5">Confirmar exclusão</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                      </div>
-                                      <div class="modal-body">
-                                        Deseja realmente excluir o trem <strong><?php echo htmlspecialchars($trem["nomeTrem"]); ?></strong>?
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="submit" class="btn btn-danger">Confirmar</button>
-                                      </div>
-                                    </div>
+
+                            <div class="modal fade" id="ModalExcluir<?php echo $trem["idTrem"]; ?>" tabindex="-1">
+                              <div class="modal-dialog modal-dialog-scrollable">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h1 class="modal-title fs-5">Confirmar exclusão</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    Deseja realmente excluir o trem <strong><?php echo htmlspecialchars($trem["nomeTrem"]); ?></strong>?
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="submit" class="btn btn-danger">Confirmar</button>
                                   </div>
                                 </div>
+                              </div>
+                            </div>
                           </form>
 
                           <form action="services/ProcessosTrem/editarTrem.php" method="POST" style="display: inline;">

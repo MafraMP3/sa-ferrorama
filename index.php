@@ -90,12 +90,12 @@ if (isset($_POST["login"])) {
                         </div>
 
                         <?php if ($erroLogin): ?>
-                            <div class="text-danger mt-3" role="alert">
-                                E-mail ou senha incorretos.
+                            <div class="text-danger mt-3 d-flex justify-content-center" role="alert">
+                                <h6 class="error-message-login">E-mail ou senha incorretos.</h6>
                             </div>
                         <?php endif; ?>
 
-                        <div class="d-grid gap-2 mt-3">
+                        <div class="d-grid gap-2">
                             <button class="d-block btn btn-primary submit-button" type="submit" name="login">
                                 ENTRAR
                             </button>

@@ -34,52 +34,57 @@ $rotas = mysqli_query($conn, "SELECT * FROM rotas");
     ?>
 
     <!------------------------------------------------------------------------------------//-->
-    <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
 
     <div class="content">
-      <div class="card div-top">
-        <div class="d-flex align-items-center">
-          <i class="fa-solid fa-circle-plus fa-2x" style="color: rgb(255, 49, 49);"></i>
-          <p class="title-text-form h4">CADASTRAR NOVA ROTA</p>
+
+      <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
+
+        <div class="card div-top">
+          <div class="d-flex align-items-center">
+            <i class="fa-solid fa-circle-plus fa-2x" style="color: rgb(255, 49, 49);"></i>
+            <p class="title-text-form h4">CADASTRAR NOVA ROTA</p>
+          </div>
+
+          <div class="div-forms">
+            <form action="services/ProcessosRotas/cadastrarRota.php" method="POST" id="formSensor">
+              <div class="div-form-cadastrar d-flex">
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="nomeRota">NOME DA ROTA</label>
+                  <input class="form-control input-form-sensors" name="nomeRota" type="text" placeholder="EX: caminho das águas" id="nomeRota" required>
+                </div>
+
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="descricao">DESCRIÇÃO</label>
+                  <input class="form-control input-form-sensors" name="descricao" id="descricao" type="text" placeholder="EX: Muito demorada">
+                </div>
+
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="distancia">DISTÂNCIA (KM)</label>
+                  <input class="form-control input-form-sensors" name="distancia" id="distancia" type="number" placeholder="EX: 20" min="0">
+                </div>
+
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="duracao">DURAÇÃO (MINUTOS)</label>
+                  <input class="form-control input-form-sensors" name="duracao" id="duracao" type="number" placeholder="EX: 60" min="0">
+                </div>
+
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="dataCriacao">DATA DE CRIAÇÃO</label>
+                  <input class="form-control input-form-sensors" name="dataCriacao" id="dataCriacao" type="date">
+                </div>
+
+                <div class="div-button">
+                  <button class="d-block btn btn-primary button-form" type="submit">Cadastrar</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
 
-        <div class="div-forms">
-          <form action="services/ProcessosRotas/cadastrarRota.php" method="POST" id="formSensor">
-            <div class="div-form-cadastrar d-flex">
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="nomeRota">NOME DA ROTA</label>
-                <input class="form-control input-form-sensors" name="nomeRota" type="text" placeholder="EX: caminho das águas" id="nomeRota" required>
-              </div>
+      <?php } ?>
 
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="descricao">DESCRIÇÃO</label>
-                <input class="form-control input-form-sensors" name="descricao" id="descricao" type="text" placeholder="EX: Muito demorada">
-              </div>
-
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="distancia">DISTÂNCIA (KM)</label>
-                <input class="form-control input-form-sensors" name="distancia" id="distancia" type="number" placeholder="EX: 20" min="0">
-              </div>
-
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="duracao">DURAÇÃO (MINUTOS)</label>
-                <input class="form-control input-form-sensors" name="duracao" id="duracao" type="number" placeholder="EX: 60" min="0">
-              </div>
-
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="dataCriacao">DATA DE CRIAÇÃO</label>
-                <input class="form-control input-form-sensors" name="dataCriacao" id="dataCriacao" type="date">
-              </div>
-
-              <div class="div-button">
-                <button class="d-block btn btn-primary button-form" type="submit">Cadastrar</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
-<?php } ?>
+
     <!----------------------------------------------------------------------------------------------//-->
 
 
