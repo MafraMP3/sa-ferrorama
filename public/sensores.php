@@ -7,11 +7,35 @@ if (!isset($_SESSION['usuario_nome'])) {
 
 include("../infra/database/conn.php");
 
-$sql = "SELECT * FROM trens";
-$resultado = $conn->query($sql);
+if (isset($_POST["filtro"])) {
+  $tipoFiltro = $_POST["filtrar"];
+
+  switch ($tipoFiltro) {
+    case "nomeSensor":
+      $sqlSensor = "SELECT * FROM sensores ORDER BY nome ASC";
+      break;
+    case "tremSensor":
+      $sqlSensor = "SELECT * FROM sensores ORDER BY idTrem ASC";
+      break;
+    case "dataInstalacao":
+      $sqlSensor = "SELECT * FROM sensores ORDER BY dataInstalacao ASC";
+      break;
+    case "tipoDado":
+      $sqlSensor = "SELECT * FROM sensores ORDER BY tipo ASC";
+      break;
+    default:
+      $sqlSensor = "SELECT * FROM sensores";
+      break;
+  }
+}else{
+  $sqlSensor = "SELECT * FROM sensores";
+}
+
+$sqlTrem = "SELECT * FROM trens";
+$resultado = $conn->query($sqlTrem);
 $trens = $resultado;
 
-$sensores = mysqli_query($conn, "SELECT * FROM sensores");
+$sensores = mysqli_query($conn, $sqlSensor);
 
 ?>
 <!DOCTYPE html>
@@ -76,14 +100,13 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
 
                 <div class="div-inputs-label">
                   <label class="d-block label-form" for="dataInstalacao">DATA DE INSTALAÇÃO</label>
-                  <input class="form-control input-form" type="date" id="dataInstalacao"
-                    name="dataInstalacao" required>
+                  <input class="form-control input-form" type="date" id="dataInstalacao" name="dataInstalacao" required>
                 </div>
 
                 <div class="div-inputs-label">
                   <label class="d-block label-form" for="localSensor">LOCALIZAÇÃO</label>
-                  <input class="form-control input-form" type="text" placeholder="EX: Km 67"
-                    id="localSensor" name="localSensor" required>
+                  <input class="form-control input-form" type="text" placeholder="EX: Km 67" id="localSensor"
+                    name="localSensor" required>
                 </div>
 
                 <div class="div-inputs-label">
@@ -116,17 +139,17 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
     <!---------Tela de nenhum sensor cadastrado--------->
 
     <?php if (mysqli_num_rows($sensores) == 0) { ?>
-      <div class="content" id="nenhumSensor">
-        <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
-          <i class="fa-solid fa-tower-broadcast fa-5x m-4 text-danger opacity-50"></i>
-          <h4 class="text-secondary">
-            Nenhum sensor cadastrada ainda.
-          </h4>
-          <p class="text-secondary mb-4">Cadastre um novo sensor para começar.</p>
-        </div>
+    <div class="content" id="nenhumSensor">
+      <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
+        <i class="fa-solid fa-tower-broadcast fa-5x m-4 text-danger opacity-50"></i>
+        <h4 class="text-secondary">
+          Nenhum sensor cadastrada ainda.
+        </h4>
+        <p class="text-secondary mb-4">Cadastre um novo sensor para começar.</p>
       </div>
-    <?php } else {  ?>
-      <!-------------------------------------------------->
+    </div>
+    <?php } else { ?>
+    <!-------------------------------------------------->
 
       <div class="div-form-list content" id="todaTabela">
         <div class="card div-table-form">
@@ -137,6 +160,17 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
               <p class="title-text-form h4">
                 SENSORES CADASTRADOS
               </p>
+            </div>
+            <div>
+              <form action="" method="POST">
+                <select name="filtrar" id="filtrar">
+                  <option value="nomeSensor">Nome Sensor</option>
+                  <option value="tremSensor">Trem do Sensor</option>
+                  <option value="dataInstalacao">Data de Instalação</option>
+                  <option value="tipoDado">Tipo de Dado</option>
+                </select>
+                <button type="submit" name="filtro">Filtrar</button>
+              </form>
             </div>
           </div>
 
@@ -184,8 +218,10 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
                             <input type="hidden" name="tabela" value="sensores">
                             <input type="hidden" name="campoId" value="idSensor">
 
-                            <button class="botao-imagem" type="button" data-bs-toggle="modal" data-bs-target="#ModalExcluir<?php echo $sensor["idSensor"]; ?>">
-                              <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;" data-bs-toggle="tooltip" title="Excluir"></i>
+                            <button class="botao-imagem" type="button" data-bs-toggle="modal"
+                              data-bs-target="#ModalExcluir<?php echo $sensor["idSensor"]; ?>">
+                              <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;" data-bs-toggle="tooltip"
+                                title="Excluir"></i>
                             </button>
 
                             <div class="modal fade" id="ModalExcluir<?php echo $sensor["idSensor"]; ?>" tabindex="-1">
@@ -197,7 +233,8 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
                                   </div>
 
                                   <div class="modal-body">
-                                    Deseja realmente excluir o sensor <strong><?php echo htmlspecialchars($sensor["nome"]); ?></strong>?
+                                    Deseja realmente excluir o sensor
+                                    <strong><?php echo htmlspecialchars($sensor["nome"]); ?></strong>?
                                   </div>
 
                                   <div class="modal-footer">
@@ -218,7 +255,8 @@ $sensores = mysqli_query($conn, "SELECT * FROM sensores");
 
                           <form action="monitoramento.php" method="POST" style="display: inline;">
                             <input type="hidden" name="idSensor" value="<?php echo $sensor["idSensor"]; ?>">
-                            <button class="botao-imagem" type="submit" name="editarSensor" data-bs-toggle="tooltip" title="Visualizar">
+                            <button class="botao-imagem" type="submit" name="editarSensor" data-bs-toggle="tooltip"
+                              title="Visualizar">
                               <i class="fa-solid fa-eye fa-xl" style="color: #392d29;"></i>
                             </button>
                           </form>
