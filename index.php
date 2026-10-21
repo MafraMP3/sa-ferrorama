@@ -26,8 +26,11 @@ if (isset($_POST["login"])) {
 
         if (password_verify($senha, $usuario["senha"])) {
 
+            $_SESSION['usuario_id'] = $usuario['idUsuario'];
             $_SESSION['usuario_nome'] = $usuario['nome'];
+            $_SESSION['usuario_email'] = $usuario['email'];
             $_SESSION['usuario_funcao'] = $usuario['funcao'];
+            $_SESSION['usuario_foto'] = $usuario['usuarioFoto'] ?? '';
 
             header("Location: public/home.php");
             exit;

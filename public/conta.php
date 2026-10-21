@@ -154,6 +154,65 @@ $trens = $resultado;
     </section>
 
 
+<div class="modal fade" id="modalEditarPerfil" tabindex="-1"
+    aria-labelledby="tituloEditarPerfil" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="tituloEditarPerfil">
+                    Editar usuário
+                </h5>
+
+                <button type="button" class="btn-close"
+                    data-bs-dismiss="modal" aria-label="Fechar">
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <form action="services/ProcessosUsuario/atualizarPerfil.php" method="POST" enctype="multipart/form-data">
+
+
+                <div class="mb-3">
+                    <label for="usuarioFoto" class="form-label">Foto de perfil</label>
+                    <input
+                        type="file"
+                        class="form-control"
+                        id="usuarioFoto"
+                        name="usuarioFoto"
+                        accept="image/png, image/jpeg, image/webp"
+                    >
+                    <div class="form-text">
+                        Formatos aceitos: JPG, PNG e WEBP.
+                    </div>
+                </div>
+                    
+
+                    <div class="modal-footer px-0 pb-0">
+                        <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">
+                            Cancelar
+                        </button>
+
+                        <button type="submit" name="editarUsuario"
+                            class="btn btn-danger">
+                            <i class="fa-solid fa-floppy-disk me-2"></i>
+                            Salvar alterações
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
     <?php if (mysqli_num_rows($trens) == 0) { ?>
       <div  id="nenhumSensor">
         <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
