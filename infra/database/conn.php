@@ -5,7 +5,11 @@ $password = "";
 $user = "root";
 $database = "sa_ferrorama_ds2";
 
+<<<<<<< HEAD
 $conn = new mysqli($host,$user,$password,$database, 6608);
+=======
+$conn = new mysqli($host,$user,$password,$database, 3393);
+>>>>>>> 09d56b3f2c3f1b0a161c2fde8e94f74c8caa148f
 
 if ($conn->connect_error){
     die("Erro de conexão");

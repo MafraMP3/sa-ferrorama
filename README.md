@@ -63,6 +63,29 @@ Abra o painel de controle do XAMPP e inicie os serviços Apache e MySQL.
 
 ---
 
+## Requisitos do Sistema
+
+### Principais requisitos funcionais
+
+- **RF01:** Autenticação de usuários por e-mail e senha.
+- **RF02:** Cadastro e gerenciamento de trens e sensores.
+- **RF03:** Visualização de informações dos sensores, como velocidade, localização e status operacional.
+- **RF04:** Proteção contra a exclusão de sensores com dados associados.
+- **RF05:** Visualização de gráficos de desempenho e tendências.
+- **RF06:** Recebimento e registro de dados dos sensores IoT.
+- **RF07:** Disponibilização de uma seção de Suporte.
+
+### Principais requisitos não funcionais
+
+- **RNF01:** Tempo de resposta da tela de login de até 3 segundos em condições normais.
+- **RNF02:** Segurança na autenticação e no controle de acesso.
+- **RNF03:** Interface responsiva para diferentes dispositivos.
+- **RNF04:** Proteção das operações realizadas no banco de dados.
+
+Documento contendo todos os requisitos do sistema: [`docs/requisitos_de_sistema.md`](docs/requisitos_de_sistema.md).
+
+---
+
 ## Estrutura do Projeto
 
 ```text
