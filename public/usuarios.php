@@ -13,11 +13,11 @@ $funcaoPesquisa = "";
 
 
 if (isset($_POST["limparPesquisa"])) {
-    $nomePesquisa = "";
-    $funcaoPesquisa = "";
+  $nomePesquisa = "";
+  $funcaoPesquisa = "";
 } else {
-    $nomePesquisa = $_POST["nomePesquisa"] ?? "";
-    $funcaoPesquisa = $_POST["funcaoPesquisa"] ?? "";
+  $nomePesquisa = $_POST["nomePesquisa"] ?? "";
+  $funcaoPesquisa = $_POST["funcaoPesquisa"] ?? "";
 }
 
 
@@ -34,33 +34,33 @@ $valores = [];
 
 
 if ($nomePesquisa !== "") {
-    $sql .= " AND nome LIKE ?";
-    $tipos .= "s";
-    $valores[] = "%" . $nomePesquisa . "%";
+  $sql .= " AND nome LIKE ?";
+  $tipos .= "s";
+  $valores[] = "%" . $nomePesquisa . "%";
 }
 
 
 if ($funcaoPesquisa !== "") {
-    $sql .= " AND funcao = ?";
-    $tipos .= "s";
-    $valores[] = $funcaoPesquisa;
+  $sql .= " AND funcao = ?";
+  $tipos .= "s";
+  $valores[] = $funcaoPesquisa;
 }
 
 
 $sqlContagem = "SELECT COUNT(*) AS total FROM usuarios WHERE 1=1";
 
 if ($nomePesquisa !== "") {
-    $sqlContagem .= " AND nome LIKE ?";
+  $sqlContagem .= " AND nome LIKE ?";
 }
 
 if ($funcaoPesquisa !== "") {
-    $sqlContagem .= " AND funcao = ?";
+  $sqlContagem .= " AND funcao = ?";
 }
 
 $stmtContagem = $conn->prepare($sqlContagem);
 
 if ($tipos !== "") {
-    $stmtContagem->bind_param($tipos, ...$valores);
+  $stmtContagem->bind_param($tipos, ...$valores);
 }
 
 $stmtContagem->execute();
@@ -114,8 +114,8 @@ $usuarios = $stmt->get_result();
 
     <?php
     $parametros = http_build_query([
-    "nomePesquisa" => $nomePesquisa,
-    "funcaoPesquisa" => $funcaoPesquisa
+      "nomePesquisa" => $nomePesquisa,
+      "funcaoPesquisa" => $funcaoPesquisa
     ]);
 
     $sufixo = $parametros !== "" ? "&" . $parametros : "";
@@ -126,60 +126,62 @@ $usuarios = $stmt->get_result();
     <!------------------------------------------------------------------------------------//-->
 
     <!---------------------------------------CADASTRAR NOVO USUARIO--------------------------------------------//-->
-    <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
 
     <div class="content">
 
-      <div class="card div-top">
+      <?php if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
 
-        <div class="d-flex align-items-center">
-          <i class="fa-solid fa-circle-plus fa-2x" style="color: rgb(255, 49, 49);"></i>
-          <p class="title-text-form h4">CADASTRAR NOVO USUÁRIO</p>
+        <div class="card div-top">
+
+          <div class="d-flex align-items-center">
+            <i class="fa-solid fa-circle-plus fa-2x" style="color: rgb(255, 49, 49);"></i>
+            <p class="title-text-form h4">CADASTRAR NOVO USUÁRIO</p>
+          </div>
+
+          <div class="div-forms">
+            <form method="POST" action="services/ProcessosUsuario/cadastrarUsuario.php" id="cadastroUsuario">
+              <div class="div-form-cadastrar d-flex">
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="">NOME COMPLETO</label>
+                  <input class="form-control input-form-sensors" name="nome" type="text" placeholder="EX: Carlos Almeida" id="nomeUsuario"
+                    required>
+                </div>
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="">EMAIL</label>
+                  <input class="form-control input-form" name="email" type="text" placeholder="EX: Carlos@gmail.com"
+                    id="emailUsuario" required>
+                </div>
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="">CPF</label>
+                  <input class="form-control input-form" name="cpf" maxlength="14" type="text" placeholder="EX: 123.456.789-00"
+                    id="cpfUsuario" required>
+                </div>
+                <div class="div-inputs-label">
+                  <label class="d-block label-form" for="">SENHA</label>
+                  <input class="form-control input-form" name="senha" type="password" placeholder="EX: 1234" id="senhaUsuario"
+                    required>
+                </div>
+                <div class="div-inputs-label">
+                  <label class=" label-form" for="">CARGO</label>
+                  <select class="form-select input-form-select" name="funcao" aria-label="Default select example"
+                    id="tipoSensor">
+                    <option selected disabled value="">Selecione o tipo</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Funcionário">Funcionário</option>
+                  </select>
+                </div>
+                <div class="div-button">
+                  <button class="d-block btn btn-primary button-form" type="submit">Cadastrar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
         </div>
 
-        <div class="div-forms">
-          <form method="POST" action="services/ProcessosUsuario/cadastrarUsuario.php" id="cadastroUsuario">
-            <div class="div-form-cadastrar d-flex">
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="">NOME COMPLETO</label>
-                <input class="form-control input-form-sensors" name="nome" type="text" placeholder="EX: Carlos Almeida" id="nomeUsuario"
-                  required>
-              </div>
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="">EMAIL</label>
-                <input class="form-control input-form" name="email" type="text" placeholder="EX: Carlos@gmail.com"
-                  id="emailUsuario" required>
-              </div>
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="">CPF</label>
-                <input class="form-control input-form" name="cpf" maxlength="14" type="text" placeholder="EX: 123.456.789-00"
-                  id="cpfUsuario" required>
-              </div>
-              <div class="div-inputs-label">
-                <label class="d-block label-form" for="">SENHA</label>
-                <input class="form-control input-form" name="senha" type="password" placeholder="EX: 1234" id="senhaUsuario"
-                  required>
-              </div>
-              <div class="div-inputs-label">
-                <label class=" label-form" for="">CARGO</label>
-                <select class="form-select input-form-select" name="funcao" aria-label="Default select example"
-                  id="tipoSensor">
-                  <option selected disabled value="">Selecione o tipo</option>
-                  <option value="Administrador">Administrador</option>
-                  <option value="Funcionário">Funcionário</option>
-                </select>
-              </div>
-              <div class="div-button">
-                <button class="d-block btn btn-primary button-form" type="submit">Cadastrar</button>
-              </div>
-            </div>
-          </form>
-        </div>
-
-      </div>
+      <?php } ?>
 
     </div>
-    <?php } ?>
 
     <!------------------------------------------------------------------------------------------------------------->
 
@@ -201,8 +203,6 @@ $usuarios = $stmt->get_result();
       <!-------------------------------------------------->
 
       <div class="div-form-list content">
-
-
         <div class="card div-table-form">
 
           <div class="d-flex align-items-center justify-content-between">
@@ -329,47 +329,47 @@ $usuarios = $stmt->get_result();
               </tbody>
 
             </table>
-          
-              <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mt-3">
 
-                <p class="text-secondary mb-0">
-                  Página <?php echo $pagina; ?> de <?php echo $totalPaginas; ?>
-                  — <?php echo $totalUsuarios; ?> usuários encontrados
-                </p>
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mt-3">
 
-                <nav aria-label="Navegação das páginas">
-                  <ul class="pagination mb-0">
+              <p class="text-secondary mb-0">
+                Página <?php echo $pagina; ?> de <?php echo $totalPaginas; ?>
+                — <?php echo $totalUsuarios; ?> usuários encontrados
+              </p>
 
-                    <li class="page-item <?php echo $pagina <= 1 ? 'disabled' : ''; ?>">
-                      <a class="page-link text-dark"
-                        href="?pagina=<?php echo $pagina - 1; ?>&<?php echo $parametros; ?>">
-                        Anterior
-                      </a>
-                    </li>
+              <nav aria-label="Navegação das páginas">
+                <ul class="pagination mb-0">
 
-                    <?php for ($i = 1; $i <= $totalPaginas; $i++) { ?>
+                  <li class="page-item <?php echo $pagina <= 1 ? 'disabled' : ''; ?>">
+                    <a class="page-link text-dark"
+                      href="?pagina=<?php echo $pagina - 1; ?>&<?php echo $parametros; ?>">
+                      Anterior
+                    </a>
+                  </li>
+
+                  <?php for ($i = 1; $i <= $totalPaginas; $i++) { ?>
 
                     <li class="page-item <?php echo $pagina == $i ? 'active' : ''; ?>">
-                        <a class="page-link text-dark bg-light "
-                          style="<?php echo $pagina == $i ? 'border: 1px solid #ff3131 !important;' : ''; ?>"
-                          href="?pagina=<?php echo $i; ?>&<?php echo $parametros; ?>">
-                            <?php echo $i; ?>
-                        </a>
-                    </li>
-
-                    <?php } ?>
-
-                    <li class="page-item text-dark bg-light  <?php echo $pagina >= $totalPaginas ? 'disabled' : ''; ?>">
-                      <a class="page-link text-dark"
-                        href="?pagina=<?php echo $pagina + 1; ?>&<?php echo $parametros; ?>">
-                        Próxima
+                      <a class="page-link text-dark bg-light "
+                        style="<?php echo $pagina == $i ? 'border: 1px solid #ff3131 !important;' : ''; ?>"
+                        href="?pagina=<?php echo $i; ?>&<?php echo $parametros; ?>">
+                        <?php echo $i; ?>
                       </a>
                     </li>
 
-                  </ul>
-                </nav>
+                  <?php } ?>
 
-              </div>
+                  <li class="page-item text-dark bg-light  <?php echo $pagina >= $totalPaginas ? 'disabled' : ''; ?>">
+                    <a class="page-link text-dark"
+                      href="?pagina=<?php echo $pagina + 1; ?>&<?php echo $parametros; ?>">
+                      Próxima
+                    </a>
+                  </li>
+
+                </ul>
+              </nav>
+
+            </div>
 
           </div>
 
