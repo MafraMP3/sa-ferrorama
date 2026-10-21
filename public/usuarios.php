@@ -138,7 +138,7 @@ $usuarios = $stmt->get_result();
         </div>
 
         <div class="div-forms">
-          <form method="POST" action="services/ProcessosUsuario/cadastrarUsuario.php" id="">
+          <form method="POST" action="services/ProcessosUsuario/cadastrarUsuario.php" id="cadastroUsuario">
             <div class="div-form-cadastrar d-flex">
               <div class="div-inputs-label">
                 <label class="d-block label-form" for="">NOME COMPLETO</label>
