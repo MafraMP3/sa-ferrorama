@@ -47,6 +47,26 @@ $projectUrl = str_replace($documentRoot, '', $projectPath);
     </div>
 
     <div>
+
+        <a href="<?php echo $publicUrl; ?>/conta.php" class="sidebar-link" id="linkContaN">
+            <i ><div class="col-auto">
+                    <?php if (!empty($foto)): ?>
+                        <img
+                            src="<?= htmlspecialchars($foto) ?>"
+                            alt="Foto do perfil"
+                            class="rounded-circle img-thumbnail"
+                            width="110"
+                            height="110"
+                        >
+                    <?php else: ?>
+                        <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center"
+                             style="width: 110px; height: 110px;">
+                            <i class="fa-solid fa-user fa-3x"></i>
+                        </div>
+                    <?php endif; ?>
+                </div></i> Conta
+        </a>
+
         <a href="<?php echo $publicUrl; ?>/suporte.php" class="sidebar-link" id="linkSuporte">
             <i class="fa-solid fa-headset" style="color: #fff;"></i> Suporte
         </a>
