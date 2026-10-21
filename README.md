@@ -2,31 +2,64 @@
 
 ## Resumo
 
-*O SA-FERRORAMA é um sistema desenvolvido para a visualização, monitoramento e gerenciamento de dados provenientes de sensores instalados em um ferrorama. Esses sensores são responsáveis por coletar informações relacionadas aos trens que circulam no ferrorama. Os dados coletados são posteriormente enviados ao sistema, onde são processados, organizados e apresentados ao usuário de forma clara e intuitiva.*
+O SA-FERRORAMA é um sistema desenvolvido para a visualização, o monitoramento e o gerenciamento de dados provenientes de sensores instalados em um Ferrorama. Esses sensores coletam informações relacionadas aos trens que circulam na maquete ferroviária. Os dados são enviados ao sistema, onde podem ser organizados e apresentados ao usuário de forma clara e intuitiva.
 
 ---
-
 
 ## Proposta
 
-A principal proposta do projeto é centralizar as informações coletadas pelos sensores em uma única plataforma, facilitando o acompanhamento dos dados e permitindo uma melhor administração dos dispositivos ferroviários. Através da interface do sistema, o usuário poderá visualizar as informações coletadas, acompanhar o comportamento dos sensores e utilizar gráficos e indicadores para interpretar os dados de maneira mais rápida e eficiente.
+A principal proposta do projeto é centralizar as informações coletadas pelos sensores em uma única plataforma, facilitando o acompanhamento dos dados e permitindo uma melhor administração dos dispositivos ferroviários.
 
-Para o desenvolvimento da aplicação serão utilizadas tecnologias como XAMPP, PHP, HTML, CSS e JavaScript, responsáveis pela estrutura, funcionamento e interação do sistema. O Bootstrap será utilizado para auxiliar na construção de uma interface moderna, organizada e responsiva, proporcionando uma melhor experiência de uso em diferentes tamanhos de tela. Além disso, serão utilizados gráficos (Chart.js) para representar visualmente os dados dos sensores, facilitando a análise e a identificação de possíveis alterações ou comportamentos nos dispositivos monitorados.
+Por meio da interface do sistema, o usuário poderá visualizar informações coletadas, acompanhar o comportamento dos sensores e utilizar gráficos e indicadores para interpretar os dados de maneira mais rápida e eficiente.
 
-O projeto também busca seguir boas práticas de desenvolvimento de software, mantendo o código organizado, estruturado e de fácil manutenção. Serão considerados princípios de organização de arquivos, separação de responsabilidades, validação de dados, segurança nas operações com o banco de dados e desenvolvimento de uma interface consistente e intuitiva. Além disso, o desenvolvimento do SA-FERRORAMA utiliza metodologias ágeis, com a aplicação regular de Scrum e Kanban para organizar as atividades, acompanhar o andamento do projeto, definir prioridades e facilitar a divisão das tarefas entre os integrantes da equipe.
+Para o desenvolvimento da aplicação, serão utilizadas tecnologias como PHP, HTML, CSS e JavaScript, com o XAMPP como ambiente de desenvolvimento local. O Bootstrap auxiliará na construção de uma interface moderna, organizada e responsiva. O Chart.js será utilizado para representar visualmente os dados dos sensores, facilitando a análise das informações.
+
+O projeto também busca seguir boas práticas de desenvolvimento de software, priorizando a organização dos arquivos, a separação de responsabilidades, a validação dos dados e a segurança nas operações com o banco de dados.
+
+Além disso, o desenvolvimento utiliza práticas de Scrum e Kanban para organizar as atividades, acompanhar o andamento do projeto, definir prioridades e facilitar a divisão das tarefas entre os integrantes da equipe.
 
 ---
 
-## O Sistema conterá:
-* Login de usuários
-* Cadastro de usuários
-* Visualização dos Dados dos Sensores em tempo real
-* Edição de informações dos sensores
-* Gerenciamento dos dados recebidos
-* Edição de Sensores
-* Edição de Trens
-* Associação entre trens e sensores
-* Autenticação
+## Funcionalidades
+
+- Login e autenticação de usuários.
+- Cadastro de usuários.
+- Cadastro, consulta e edição de sensores.
+- Cadastro, consulta e edição de trens.
+- Associação entre trens e sensores.
+- Visualização e gerenciamento dos dados recebidos.
+- Monitoramento dos dados dos sensores.
+- Representação dos dados por meio de gráficos e indicadores.
+- Acompanhamento das informações ferroviárias.
+
+---
+
+## Pré-requisitos
+
+- XAMPP.
+- PHP.
+- MySQL ou MariaDB.
+- Navegador web.
+- Git, caso o projeto seja clonado pelo terminal.
+
+---
+
+## Instalação e Execução
+
+### 1. Clonar pasta
+
+Clone o repositório dentro da pasta _htdocs_ do XAMPP.
+
+### 2. Iniciar Apache e MySQL
+
+Abra o painel de controle do XAMPP e inicie os serviços Apache e MySQL.
+
+### 3. Configurar o banco de dados
+
+1. Acesse o phpMyAdmin no navegador.
+2. Importe o arquivo _infra/database/script.sql_.
+3. Verifique se o banco de dados foi criado corretamente.
+4. Configure as credenciais e portas segundo o arquivo _infra/database/conn.php_.
 
 ---
 
@@ -38,19 +71,32 @@ O projeto também busca seguir boas práticas de desenvolvimento de software, ma
 │   └── images/
 │
 ├── docs/
+│   ├── pesquisa Sobre APIs.md
 │   ├── pesquisa Sobre Xampp.md
 │   ├── pesquisa_sobre_php_e_crud.md
 │   ├── pesquisa_sobre_scrum.md
 │   └── requisitos_de_sistema_da_sa.md
 │
-├── public/
-│   ├── home.html
-│   ├── monitoramento.html
-│   ├── sensores.html
-│   └── usuarios.html
+├── infra/
+│   └── database/
+│       ├── conn.php
+│       └── script.sql
 │
-├── scripts/
+├── java/
 │   └── script.js
+│
+├── public/
+│   ├── component/
+│   ├── services/
+│   ├── erro.php
+│   ├── home.php
+│   ├── logout.php
+│   ├── monitoramento.php
+│   ├── rotas.php
+│   ├── sensores.php
+│   ├── suporte.php
+│   ├── trens.php
+│   └── usuarios.php
 │
 ├── styles/
 │   └── style.css
@@ -60,12 +106,14 @@ O projeto também busca seguir boas práticas de desenvolvimento de software, ma
 └── README.md
 ```
 
-## Tecnologias Utilizadas:
+---
+
+## Tecnologias Utilizadas
 
 <p align="center">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
-  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
   <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
   <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
   <img src="https://img.shields.io/badge/XAMPP-FB7A24?style=for-the-badge&logo=xampp&logoColor=white" alt="XAMPP">
@@ -74,40 +122,36 @@ O projeto também busca seguir boas práticas de desenvolvimento de software, ma
   <img src="https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white" alt="Chart.js">
 </p>
 
+---
 
-
-### Diagrama de Contexto
+## Diagrama de Contexto
 
 ```mermaid
-flowchart TB 
-    Admin(["Administrador"]) 
-    Sensores(["Sensores Ferroviários"]) 
-    Trem(["Trem"]) 
- 
-    SA["SA - Sistema Ferroviário 
-    visualização, monitoramento 
-    e gerenciamento de dados"] 
- 
-    Banco[("Banco de Dados 
-    MySQL")] 
- 
-    Admin -- "Realiza login, cadastra sensores e trens, 
-    acompanha o monitoramento e gera relatórios (HTTPS)" --> SA 
- 
-    Sensores -- "Envia dados de velocidade, 
-    localização e status operacional" --> SA 
- 
-    Trem -- "Possui sensores vinculados 
-    para coleta de dados" --> Sensores 
- 
-    SA -- "Armazena dados de 
-    usuários, sensores, trens e relatórios" --> Banco
+flowchart TB
+    Admin(["Administrador"])
+    Sensores(["Sensores ferroviários"])
+    Trem(["Trem"])
+    SA["SA-FERRORAMA<br/>Visualização, monitoramento<br/>e gerenciamento de dados"]
+    Banco[("Banco de dados<br/>MySQL")]
 
+    Admin -->|"Realiza login, cadastra e gerencia dispositivos"| SA
+    Sensores -->|"Enviam dados coletados"| SA
+    Trem -->|"Possui sensores vinculados"| Sensores
+    SA -->|"Armazena usuários, sensores, trens e dados"| Banco
 ```
+
+---
+
 ## Conclusão
 
-O SA-FERRORAMA tem como objetivo unir a coleta de dados dos sensores ferroviários a uma plataforma de monitoramento acessível e visualmente organizada, permitindo que as informações captadas pelo Ferrorama sejam transformadas em dados úteis para o acompanhamento, análise e gerenciamento dos equipamentos.
+O SA-FERRORAMA tem como objetivo integrar a coleta de dados dos sensores ferroviários a uma plataforma de monitoramento acessível e organizada. Dessa forma, as informações captadas pelo Ferrorama podem ser transformadas em dados úteis para o acompanhamento, a análise e o gerenciamento dos equipamentos.
+
+O projeto busca aplicar conhecimentos de desenvolvimento web, integração com banco de dados, organização de software e metodologias ágeis na construção de uma solução voltada ao monitoramento ferroviário.
+
+---
 
 ## Licença
-Este projeto está sob a licença MIT.  
-Consulte o arquivo `LICENSE` para mais informações.
+
+Este projeto está sob a licença MIT.
+
+Consulte o arquivo `LICENSE` para obter mais informações sobre os termos de utilização, modificação e distribuição do software.
