@@ -82,7 +82,7 @@ Abra o painel de controle do XAMPP e inicie os serviços Apache e MySQL.
 - **RNF03:** Interface responsiva para diferentes dispositivos.
 - **RNF04:** Proteção das operações realizadas no banco de dados.
 
-Documeto contemdo todos os requisitos do sistema: [`docs/requisitos_de_sistema_da_sa.md`](docs/requisitos_de_sistema_da_sa.md).
+Documeto contendo todos os requisitos do sistema: [`docs/requisitos_de_sistema_da_sa.md`](docs/requisitos_de_sistema_da_sa.md).
 
 
 ## Estrutura do Projeto
