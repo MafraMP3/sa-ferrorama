@@ -84,6 +84,7 @@ Abra o painel de controle do XAMPP e inicie os serviços Apache e MySQL.
 
 Documento contendo todos os requisitos do sistema: [`docs/requisitos_de_sistema.md`](docs/requisitos_de_sistema.md).
 
+---
 
 ## Estrutura do Projeto
 
