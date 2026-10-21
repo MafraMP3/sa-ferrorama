@@ -5,6 +5,7 @@ $documentRoot = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']);
 
 $publicUrl = str_replace($documentRoot, '', $publicPath);
 $projectUrl = str_replace($documentRoot, '', $projectPath);
+$foto = $_SESSION['usuario_foto'] ?? '';
 ?>
 
 <div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
@@ -49,22 +50,21 @@ $projectUrl = str_replace($documentRoot, '', $projectPath);
     <div>
 
         <a href="<?php echo $publicUrl; ?>/conta.php" class="sidebar-link" id="linkContaN">
-            <i ><div class="col-auto">
-                    <?php if (!empty($foto)): ?>
-                        <img
-                            src="<?= htmlspecialchars($foto) ?>"
-                            alt="Foto do perfil"
-                            class="rounded-circle img-thumbnail"
-                            width="110"
-                            height="110"
-                        >
-                    <?php else: ?>
-                        <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center"
-                             style="width: 110px; height: 110px;">
-                            <i class="fa-solid fa-user fa-3x"></i>
-                        </div>
-                    <?php endif; ?>
-                </div></i> Conta
+
+            <?php if (!empty($foto)): ?>
+                <img
+                    src="<?php echo htmlspecialchars($publicUrl . '/' . ltrim($foto, '/')); ?>"
+                    alt="Foto do perfil"
+                    class="rounded-circle"
+                    width="35"
+                    height="35"
+                    style="object-fit: cover;"
+                >
+            <?php else: ?>
+                <i class="fa-solid fa-user" style="color: #fff;"></i>
+            <?php endif; ?>
+
+            Conta
         </a>
 
         <a href="<?php echo $publicUrl; ?>/suporte.php" class="sidebar-link" id="linkSuporte">
