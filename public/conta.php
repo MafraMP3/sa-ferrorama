@@ -5,7 +5,6 @@ if (!isset($_SESSION['usuario_nome'])) {
   exit;
 }
 
-
 $nome = $_SESSION['usuario_nome'] ?? 'Usuário';
 $email = $_SESSION['usuario_email'] ?? 'E-mail não informado';
 $funcao = $_SESSION['usuario_funcao'] ?? 'Usuário';

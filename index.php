@@ -28,6 +28,7 @@ if (isset($_POST["login"])) {
 
             $_SESSION['usuario_nome'] = $usuario['nome'];
             $_SESSION['usuario_funcao'] = $usuario['funcao'];
+            $_SESSION['usuario_email'] = $usuario['email'];
 
             header("Location: public/home.php");
             exit;
