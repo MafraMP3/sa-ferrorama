@@ -30,15 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
 //======================================================HOME.php=======================================================================================//
 
 if (window.location.pathname.includes("public/home.php")) {
-
-}
-
-
-
-
-//======================================================pesquisa por cep API=======================================================================================//
-
-
   document.getElementById('buscar').addEventListener('click', buscarCep);
 
         async function buscarCep() {
@@ -83,6 +74,15 @@ if (window.location.pathname.includes("public/home.php")) {
             document.getElementById('localidade').value = '';
             document.getElementById('uf').value = '';
         }
+}
+
+
+
+
+//======================================================pesquisa por cep API=======================================================================================//
+
+
+
 
 
 //======================================================SENSORES.php=======================================================================================//
