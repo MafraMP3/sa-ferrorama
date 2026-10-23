@@ -554,3 +554,27 @@ body {
 .div-table-form tbody tr:hover .dado-restrito {
   color: var(--hermes-grey) !important; 
 }
+
+/*Previsão do Tempo*/
+.previsao-horas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.card-previsao {
+    flex: 1;
+    min-width: 130px;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #f8f9fa;
+}
+
+.card-previsao h4 {
+    margin-top: 0;
+}
+
+.card-previsao p {
+    margin-bottom: 8px;
+}

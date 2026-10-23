@@ -74,16 +74,131 @@ if (window.location.pathname.includes("public/home.php")) {
             document.getElementById('localidade').value = '';
             document.getElementById('uf').value = '';
         }
+
+        
+const formularioClima = document.getElementById('formClima');
+
+if (formularioClima) {
+    formularioClima.addEventListener('submit', consultarClima);
+
+    // Consulta Joinville automaticamente ao abrir a página
+    consultarClima(new Event('submit'));
 }
 
+async function consultarClima(evento) {
+    evento.preventDefault();
+
+    const latitude = Number(
+        document.getElementById('latitudeClima').value
+    );
+
+    const longitude = Number(
+        document.getElementById('longitudeClima').value
+    );
+
+    const resultado = document.getElementById('resultadoClima');
+
+    if (
+        !Number.isFinite(latitude) ||
+        !Number.isFinite(longitude) ||
+        latitude < -90 || latitude > 90 ||
+        longitude < -180 || longitude > 180
+    ) {
+        resultado.textContent = 'Informe coordenadas válidas.';
+        return;
+    }
+
+    resultado.textContent = 'Consultando informações meteorológicas...';
+
+    const parametros = new URLSearchParams({
+        latitude: latitude,
+        longitude: longitude,
+        hourly: 'temperature_2m,precipitation,rain,precipitation_probability',
+        current: 'temperature_2m,is_day,weather_code',
+        timezone: 'auto'
+    });
+
+    const url = `https://api.open-meteo.com/v1/forecast?${parametros}`;
+
+    try {
+        const resposta = await fetch(url);
+
+        if (!resposta.ok) {
+            throw new Error(`Erro HTTP: ${resposta.status}`);
+        }
+
+        const dados = await resposta.json();
+
+        const atual = dados.current;
+        const horarioConsulta = new Date().toLocaleString('pt-BR');
+
+        function interpretarClima(codigo, dia) {
+            if (codigo === 0) return dia ? 'Ensolarado' : 'Céu limpo';
+            if (codigo === 1) return 'Predominantemente limpo';
+            if (codigo === 2) return 'Parcialmente nublado';
+            if (codigo === 3) return 'Nublado';
+            if ([45, 48].includes(codigo)) return 'Neblina';
+            if ([51, 53, 55, 56, 57].includes(codigo)) return 'Garoa';
+            if ([61, 63, 65, 66, 67, 80, 81, 82].includes(codigo)) return 'Chuva';
+            if ([71, 73, 75, 77, 85, 86].includes(codigo)) return 'Neve';
+            if ([95, 96, 99].includes(codigo)) return 'Tempestade';
+            return 'Condição desconhecida';
+        }
+
+        const condicao = interpretarClima(
+            atual.weather_code,
+            atual.is_day === 1
+        );
 
 
+        let html = `
+            <h3>Clima atual</h3>
+            <p><strong>Temperatura:</strong> ${atual.temperature_2m} ${dados.current_units.temperature_2m}</p>
+            <p><strong>Condição:</strong> ${condicao}</p>
+            <p><strong>Dia ou noite:</strong> ${atual.is_day === 1 ? 'Dia' : 'Noite'}</p>
 
-//======================================================pesquisa por cep API=======================================================================================//
+            <h3>Localização consultada</h3>
+            <p><strong>Latitude:</strong> ${latitude}</p>
+            <p><strong>Longitude:</strong> ${longitude}</p>
 
+            <h3>Horários</h3>
+            <p><strong>Horário dos dados:</strong> ${atual.time.replace('T', ' ')}</p>
+            <p><strong>Última consulta:</strong> ${horarioConsulta}</p>
 
+            <h3>Previsão para as próximas 3 horas</h3>
+            <div class="previsao-horas">
+        `;
 
+        const horaAtual = new Date();
 
+        const proximasHoras = dados.hourly.time
+            .map((horario, i) => ({ horario, i }))
+            .filter(item => new Date(item.horario) > horaAtual)
+            .slice(0, 3);
+
+        proximasHoras.forEach(({ horario, i }) => {
+            html += `
+                <div class="card-previsao">
+                    <h4>${horario.split('T')[1]}</h4>
+                    <p>🌡️ ${dados.hourly.temperature_2m[i]} °C</p>
+                    <p>🌧️ ${dados.hourly.precipitation_probability[i]}% de chance de chuva</p>
+                    <p>💧 ${dados.hourly.rain[i]} mm de chuva</p>
+                </div>
+            `;
+        });
+
+        html += `</div>`;
+
+        resultado.innerHTML = html;
+
+    } catch (erro) {
+        console.error('Erro ao consultar o clima:', erro);
+        resultado.textContent =
+            'Não foi possível consultar o clima. Verifique sua conexão e o Console (F12).';
+    }
+}
+
+}
 
 //======================================================SENSORES.php=======================================================================================//
 
