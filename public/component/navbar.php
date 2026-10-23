@@ -64,7 +64,9 @@ $foto = $_SESSION['usuario_foto'] ?? '';
                 <i class="fa-solid fa-user" style="color: #fff;"></i>
             <?php endif; ?>
 
-            Conta
+             
+            <?php echo $_SESSION['usuario_nome'] ?>
+
         </a>
 
         <a href="<?php echo $publicUrl; ?>/suporte.php" class="sidebar-link" id="linkSuporte">
