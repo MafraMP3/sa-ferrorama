@@ -58,7 +58,7 @@ $foto = $_SESSION['usuario_foto'] ?? '';
                     class="rounded-circle"
                     width="35"
                     height="35"
-                    style="object-fit: cover;"
+                    style="width: 35px; height: 35px; min-width: 35px; object-fit: cover; aspect-ratio: 1 / 1;"
                 >
             <?php else: ?>
                 <i class="fa-solid fa-user" style="color: #fff;"></i>

@@ -78,7 +78,7 @@ if (!mysqli_stmt_execute($stmt)) {
     exit("Não foi possível atualizar a foto.");
 }
 
-$_SESSION["usuario_foto"] = "/caio_a_mafra_2026/sa-ferrorama/public/" . $caminhoBanco;
+$_SESSION["usuario_foto"] = $caminhoBanco;
 
 mysqli_stmt_close($stmt);
 
