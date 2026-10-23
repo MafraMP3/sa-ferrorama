@@ -91,15 +91,40 @@ $quantidadeSensores = $dados["quantidade"];
                             <img src="../assets/images/icon-velocidade.png" alt="imagem velocimetro"
                                 class="imagem-analise">
                             <div>
-                                <p class="h5 mb-1">
-                                    Velocidade atual
-                                </p>
+                         
+                            
+
+
+ <h2>Formulário de Endereço</h2>
+
+    <form id="formEndereco">
+        <label for="cep">CEP:</label>
+        <input type="text" id="cep" placeholder="00000-000" maxlength="9">
+        <button type="button" id="buscar">Buscar CEP</button>
+
+        <br><br>
+
+        <label for="logradouro">Rua:</label>
+        <input type="text" id="logradouro" readonly>
+
+        <br><br>
+
+        <label for="bairro">Bairro:</label>
+        <input type="text" id="bairro" readonly>
+
+        <br><br>
+
+        <label for="localidade">Cidade:</label>
+        <input type="text" id="localidade" readonly>
+
+        <br><br>
+
+        <label for="uf">Estado (UF):</label>
+        <input type="text" id="uf" readonly>
+    </form>
 
 
 
-                                <p class="lead mb-0">
-                                    ?? km/h
-                                </p>
                             </div>
                         </div>
                     </div>
@@ -205,6 +230,7 @@ $quantidadeSensores = $dados["quantidade"];
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
             crossorigin="anonymous"></script>
         <script src="../java/script.js"></script>
+
 </body>
 
 </html>

@@ -73,7 +73,7 @@ $trens = $resultado;
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../styles/style.css">
   <link rel="icon" href="../assets/images/icon.png">
-  <title>Home</title>
+  <title>Perfil</title>
 </head>
 
 <body>
@@ -234,8 +234,6 @@ $trens = $resultado;
                               title="Excluir"></i>
                           </button>
 
-
-
                           <div class="modal fade" id="ModalExcluir<?php echo $trem["idTrem"]; ?>" tabindex="-1">
                             <div class="modal-dialog modal-dialog-scrollable">
                               <div class="modal-content">
@@ -255,7 +253,7 @@ $trens = $resultado;
                           </div>
                         </form>
 
-                        <form action="services/ProcessosTrem/editarTrem.php" method="POST" style="display: inline;">
+                        <form action="" method="POST" style="display: inline;">
                           <input type="hidden" name="idTrem" value="<?php echo $trem["idTrem"]; ?>">
 
                           <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
@@ -275,17 +273,11 @@ $trens = $resultado;
       </div>
     </div>
 
-
     </main>
 
-
-
   </div>
 
-
-
   </div>
-
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

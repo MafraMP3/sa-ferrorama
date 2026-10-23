@@ -32,6 +32,59 @@ document.addEventListener("DOMContentLoaded", function () {
 if (window.location.pathname.includes("public/home.php")) {
 
 }
+
+
+
+
+//======================================================pesquisa por cep API=======================================================================================//
+
+
+  document.getElementById('buscar').addEventListener('click', buscarCep);
+
+        async function buscarCep() {
+            const cep = document.getElementById('cep').value.replace(/\D/g, '');
+
+            if (cep.length !== 8) {
+                alert('Digite um CEP com 8 números.');
+                return;
+            }
+
+            try {
+                const resposta = await fetch(
+                    `https://viacep.com.br/ws/${cep}/json/`
+                );
+
+                if (!resposta.ok) {
+                    throw new Error(`Erro HTTP: ${resposta.status}`);
+                }
+
+                const dados = await resposta.json();
+
+                if (dados.erro) {
+                    alert('CEP não encontrado.');
+                    limparFormulario();
+                    return;
+                }
+
+                document.getElementById('logradouro').value = dados.logradouro || '';
+                document.getElementById('bairro').value = dados.bairro || '';
+                document.getElementById('localidade').value = dados.localidade || '';
+                document.getElementById('uf').value = dados.uf || '';
+
+            } catch (erro) {
+                console.error('Erro ao buscar CEP:', erro);
+                alert('Falha na consulta. Abra o console (F12) para ver o erro.');
+            }
+        }
+
+        function limparFormulario() {
+            document.getElementById('logradouro').value = '';
+            document.getElementById('bairro').value = '';
+            document.getElementById('localidade').value = '';
+            document.getElementById('uf').value = '';
+        }
+
+
 //======================================================SENSORES.php=======================================================================================//
 
 if (window.location.pathname.includes("public/sensores.php")) {
