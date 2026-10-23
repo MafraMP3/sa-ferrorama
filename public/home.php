@@ -123,6 +123,16 @@ $quantidadeSensores = $dados["quantidade"];
 
                                     <label for="uf">Estado (UF):</label>
                                     <input type="text" id="uf" readonly>
+
+                                    <br><br>
+
+                                    <label for="latitudeClima">Latitude:</label>
+                                    <input type="number" id="latitudeClima" step="any" readonly>
+
+                                    <br><br>
+
+                                    <label for="longitudeClima">Longitude:</label>
+                                    <input type="number" id="longitudeClima" step="any" readonly>
                                 </form>
 
 
@@ -147,11 +157,6 @@ $quantidadeSensores = $dados["quantidade"];
                                     <h2>Monitoramento Climático</h2>
 
                                     <form id="formClima">
-                                        <label for="latitudeClima">Latitude:</label>
-                                        <input type="number" id="latitudeClima" step="any" value="-26.3044" required>
-
-                                        <label for="longitudeClima">Longitude:</label>
-                                        <input type="number" id="longitudeClima" step="any" value="-48.8456" required>
 
                                         <button type="submit">Consultar clima</button>
                                     </form>

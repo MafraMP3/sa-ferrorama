@@ -30,98 +30,24 @@ document.addEventListener("DOMContentLoaded", function () {
 //======================================================HOME.php=======================================================================================//
 
 if (window.location.pathname.includes("public/home.php")) {
-  document.getElementById('buscar').addEventListener('click', buscarCep);
 
-        async function buscarCep() {
-            const cep = document.getElementById('cep').value.replace(/\D/g, '');
+    // BUSCAR CEP
 
-            if (cep.length !== 8) {
-                alert('Digite um CEP com 8 números.');
-                return;
-            }
+document.getElementById('buscar').addEventListener('click', buscarCep);
 
-            try {
-                const resposta = await fetch(
-                    `https://viacep.com.br/ws/${cep}/json/`
-                );
+async function buscarCep() {
+    const cep = document.getElementById('cep').value.replace(/\D/g, '');
 
-                if (!resposta.ok) {
-                    throw new Error(`Erro HTTP: ${resposta.status}`);
-                }
-
-                const dados = await resposta.json();
-
-                if (dados.erro) {
-                    alert('CEP não encontrado.');
-                    limparFormulario();
-                    return;
-                }
-
-                document.getElementById('logradouro').value = dados.logradouro || '';
-                document.getElementById('bairro').value = dados.bairro || '';
-                document.getElementById('localidade').value = dados.localidade || '';
-                document.getElementById('uf').value = dados.uf || '';
-
-            } catch (erro) {
-                console.error('Erro ao buscar CEP:', erro);
-                alert('Falha na consulta. Abra o console (F12) para ver o erro.');
-            }
-        }
-
-        function limparFormulario() {
-            document.getElementById('logradouro').value = '';
-            document.getElementById('bairro').value = '';
-            document.getElementById('localidade').value = '';
-            document.getElementById('uf').value = '';
-        }
-
-        
-const formularioClima = document.getElementById('formClima');
-
-if (formularioClima) {
-    formularioClima.addEventListener('submit', consultarClima);
-
-    // Consulta Joinville automaticamente ao abrir a página
-    consultarClima(new Event('submit'));
-}
-
-async function consultarClima(evento) {
-    evento.preventDefault();
-
-    const latitude = Number(
-        document.getElementById('latitudeClima').value
-    );
-
-    const longitude = Number(
-        document.getElementById('longitudeClima').value
-    );
-
-    const resultado = document.getElementById('resultadoClima');
-
-    if (
-        !Number.isFinite(latitude) ||
-        !Number.isFinite(longitude) ||
-        latitude < -90 || latitude > 90 ||
-        longitude < -180 || longitude > 180
-    ) {
-        resultado.textContent = 'Informe coordenadas válidas.';
+    if (cep.length !== 8) {
+        alert('Digite um CEP com 8 números.');
         return;
     }
 
-    resultado.textContent = 'Consultando informações meteorológicas...';
-
-    const parametros = new URLSearchParams({
-        latitude: latitude,
-        longitude: longitude,
-        hourly: 'temperature_2m,precipitation,rain,precipitation_probability',
-        current: 'temperature_2m,is_day,weather_code',
-        timezone: 'auto'
-    });
-
-    const url = `https://api.open-meteo.com/v1/forecast?${parametros}`;
-
     try {
-        const resposta = await fetch(url);
+        // PARTE 1: Buscar endereço pelo CEP
+        const resposta = await fetch(
+            `https://viacep.com.br/ws/${cep}/json/`
+        );
 
         if (!resposta.ok) {
             throw new Error(`Erro HTTP: ${resposta.status}`);
@@ -129,11 +55,69 @@ async function consultarClima(evento) {
 
         const dados = await resposta.json();
 
-        const atual = dados.current;
-        const horarioConsulta = new Date().toLocaleString('pt-BR');
+        if (dados.erro) {
+            alert('CEP não encontrado.');
+            limparFormulario();
+            return;
+        }
 
-        function interpretarClima(codigo, dia) {
-            if (codigo === 0) return dia ? 'Ensolarado' : 'Céu limpo';
+        document.getElementById('logradouro').value = dados.logradouro || '';
+        document.getElementById('bairro').value = dados.bairro || '';
+        document.getElementById('localidade').value = dados.localidade || '';
+        document.getElementById('uf').value = dados.uf || '';
+
+        // PARTE 2: Buscar latitude e longitude da cidade
+        const parametrosGeo = new URLSearchParams({
+            name: `${dados.localidade}, ${dados.uf}, Brasil`,
+            count: 10,
+            language: 'pt',
+            format: 'json'
+        });
+
+        const respostaGeo = await fetch(
+            `https://geocoding-api.open-meteo.com/v1/search?${parametrosGeo}`
+        );
+
+        if (!respostaGeo.ok) {
+            throw new Error('Falha ao buscar as coordenadas.');
+        }
+
+        const dadosGeo = await respostaGeo.json();
+
+        if (!dadosGeo.results || dadosGeo.results.length === 0) {
+            throw new Error('Não foi possível localizar a cidade.');
+        }
+
+        const cidade = dadosGeo.results.find(local =>
+            local.name.toLowerCase() === dados.localidade.toLowerCase()
+        ) || dadosGeo.results[0];
+
+        const latitude = cidade.latitude;
+        const longitude = cidade.longitude;
+
+        // PARTE 3: Consultar o clima com as coordenadas
+        const parametrosClima = new URLSearchParams({
+            latitude: latitude,
+            longitude: longitude,
+            hourly: 'temperature_2m,precipitation,rain,precipitation_probability',
+            current: 'temperature_2m,is_day,weather_code',
+            timezone: 'auto'
+        });
+
+        const respostaClima = await fetch(
+            `https://api.open-meteo.com/v1/forecast?${parametrosClima}`
+        );
+
+        if (!respostaClima.ok) {
+            throw new Error('Falha ao consultar o clima.');
+        }
+
+        const clima = await respostaClima.json();
+        const atual = clima.current;
+
+        // PARTE 4: Interpretar a condição meteorológica
+        function interpretarClima(codigo) {
+            if (codigo === 0) return 'Céu limpo';
             if (codigo === 1) return 'Predominantemente limpo';
             if (codigo === 2) return 'Parcialmente nublado';
             if (codigo === 3) return 'Nublado';
@@ -145,56 +129,70 @@ async function consultarClima(evento) {
             return 'Condição desconhecida';
         }
 
-        const condicao = interpretarClima(
-            atual.weather_code,
-            atual.is_day === 1
-        );
-
+        // PARTE 5: Montar os cards e a tabela
+        const resultado = document.getElementById('resultadoClima');
 
         let html = `
-            <h3>Clima atual</h3>
-            <p><strong>Temperatura:</strong> ${atual.temperature_2m} ${dados.current_units.temperature_2m}</p>
-            <p><strong>Condição:</strong> ${condicao}</p>
-            <p><strong>Dia ou noite:</strong> ${atual.is_day === 1 ? 'Dia' : 'Noite'}</p>
+            <h3>Clima em ${dados.localidade} - ${dados.uf}</h3>
 
-            <h3>Localização consultada</h3>
+            <p><strong>Temperatura atual:</strong>
+                ${atual.temperature_2m} ${clima.current_units.temperature_2m}
+            </p>
+
+            <p><strong>Condição:</strong>
+                ${interpretarClima(atual.weather_code)}
+            </p>
+
+            <p><strong>Período:</strong>
+                ${atual.is_day === 1 ? 'Dia' : 'Noite'}
+            </p>
+
+            <p><strong>Horário dos dados:</strong>
+                ${atual.time.replace('T', ' ')}
+            </p>
+
             <p><strong>Latitude:</strong> ${latitude}</p>
             <p><strong>Longitude:</strong> ${longitude}</p>
-
-            <h3>Horários</h3>
-            <p><strong>Horário dos dados:</strong> ${atual.time.replace('T', ' ')}</p>
-            <p><strong>Última consulta:</strong> ${horarioConsulta}</p>
 
             <h3>Previsão para as próximas 3 horas</h3>
             <div class="previsao-horas">
         `;
 
-        const horaAtual = new Date();
-
-        const proximasHoras = dados.hourly.time
+        const proximasHoras = clima.hourly.time
             .map((horario, i) => ({ horario, i }))
-            .filter(item => new Date(item.horario) > horaAtual)
+            .filter(item => item.horario > atual.time)
             .slice(0, 3);
 
         proximasHoras.forEach(({ horario, i }) => {
             html += `
                 <div class="card-previsao">
                     <h4>${horario.split('T')[1]}</h4>
-                    <p>🌡️ ${dados.hourly.temperature_2m[i]} °C</p>
-                    <p>🌧️ ${dados.hourly.precipitation_probability[i]}% de chance de chuva</p>
-                    <p>💧 ${dados.hourly.rain[i]} mm de chuva</p>
+                    <p>🌡️ ${clima.hourly.temperature_2m[i]} °C</p>
+                    <p>🌧️ ${clima.hourly.precipitation_probability[i] ?? '—'}% de chance de chuva</p>
+                    <p>💧 ${clima.hourly.rain[i] ?? 0} mm de chuva</p>
                 </div>
             `;
         });
+html += `</div>`;
 
-        html += `</div>`;
-
-        resultado.innerHTML = html;
+resultado.innerHTML = html;
 
     } catch (erro) {
-        console.error('Erro ao consultar o clima:', erro);
-        resultado.textContent =
-            'Não foi possível consultar o clima. Verifique sua conexão e o Console (F12).';
+        console.error('Erro na consulta:', erro);
+        alert('Falha na consulta. Abra o console (F12) para ver o erro.');
+    }
+}
+
+function limparFormulario() {
+    document.getElementById('logradouro').value = '';
+    document.getElementById('bairro').value = '';
+    document.getElementById('localidade').value = '';
+    document.getElementById('uf').value = '';
+
+    const resultado = document.getElementById('resultadoClima');
+
+    if (resultado) {
+        resultado.innerHTML = '';
     }
 }
 
@@ -217,7 +215,7 @@ if (window.location.pathname.includes("public/sensores.php")) {
 
     if (inputData) {
         inputData.value = `${anoAtual}-${mesAtual}-${diaAtual}`;
-        console.log(`${anoAtual}-${mesAtual}-${diaAtual}`); 
+        console.log(`${anoAtual}-${mesAtual}-${diaAtual}`);
 
     }
 
@@ -227,7 +225,7 @@ if (window.location.pathname.includes("public/sensores.php")) {
 
 if (window.location.pathname.includes("public/usuarios.php")) {
     let cadastroUsuario = document.getElementById("cadastroUsuario");
-    cadastroUsuario.addEventListener("submit", function(e) {
+    cadastroUsuario.addEventListener("submit", function (e) {
 
         let nomeUsuario = document.getElementById("nomeUsuario").value.trim();
 
