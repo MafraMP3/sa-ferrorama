@@ -1,5 +1,8 @@
 //======================================================TODAS AS PÁGINAS=======================================================================================//
 
+const API_KEY = 'f21c4ced94b130da1602ed5e53b05aa3';
+
+
 function toggleSidebar() {
     document.querySelector('.sidebar').classList.toggle('open');
     document.getElementById('overlay').classList.toggle('active');
