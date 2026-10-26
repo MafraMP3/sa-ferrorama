@@ -2,9 +2,7 @@
 
 ## 1. Ferramenta ou agente de IA utilizado
 
-| Ferramenta | Uso |
-|---|---|---|
-| Claude (Anthropic) | Geração e revisão de código e explicação de conceitos. |
+Ferramenta: ClaudeAI.
 
 ---
 
