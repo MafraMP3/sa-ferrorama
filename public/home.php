@@ -119,15 +119,7 @@ $quantidadeSensores = $dados["quantidade"];
                                 </p>
 
 
-                                <section id="consultaClima">
-                                    <h2>Monitoramento Climático</h2>
 
-
-
-                                    <div id="resultadoClima">
-                                        <p>Informe as coordenadas e consulte o clima.</p>
-                                    </div>
-                                </section>
 
 
                             </div>
@@ -181,6 +173,13 @@ $quantidadeSensores = $dados["quantidade"];
                         </div>
 
                         <i class="fa-solid fa-cloud-sun text-danger opacity-50 fa-xl"></i>
+                    </div>
+                    <div>
+                                <section id="consultaClima">
+                                    <div id="resultadoClima">
+                                        <p>Informe as coordenadas e consulte o clima.</p>
+                                    </div>
+                                </section>
                     </div>
 
                 </div>

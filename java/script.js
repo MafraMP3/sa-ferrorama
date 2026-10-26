@@ -154,52 +154,74 @@ if (window.location.pathname.includes("public/home.php")) {
 
 
             let html = `
-            <h3>Clima em ${dados.localidade} - ${dados.uf}</h3>
+                <div class="mb-3">
+                    <h5 class="mb-1">${dados.localidade} - ${dados.uf}</h5>
+                    <small class="text-muted">${atual.time.replace('T', ' ')}</small>
+                </div>
 
-            <p><strong>Cidade:</strong> ${dados.localidade}</p>
-            <p><strong>Estado:</strong> ${dados.uf}</p>
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <i class="fa-solid fa-temperature-half text-danger fa-2x"></i>
+                    <div>
+                        <h2 class="mb-0">
+                            ${atual.temperature_2m} ${clima.current_units.temperature_2m}
+                        </h2>
+                        <span class="text-muted">
+                            ${interpretarClima(atual.weather_code)}
+                        </span>
+                    </div>
+                </div>
 
-            <p><strong>Temperatura atual:</strong>
-                ${atual.temperature_2m} ${clima.current_units.temperature_2m}
-            </p>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Período</span>
+                    <span class="badge text-bg-danger">
+                        ${atual.is_day === 1 ? 'Dia' : 'Noite'}
+                    </span>
+                </div>
 
-            <p><strong>Condição:</strong>
-                ${interpretarClima(atual.weather_code)}
-            </p>
+                <hr>
 
-            <p><strong>Período:</strong>
-                ${atual.is_day === 1 ? 'Dia' : 'Noite'}
-            </p>
+                <h6 class="mb-3">Previsão para as próximas 3 horas</h6>
 
-            <p><strong>Horário dos dados:</strong>
-                ${atual.time.replace('T', ' ')}
-            </p>
-
-            <p><strong>Latitude:</strong> ${latitude}</p>
-            <p><strong>Longitude:</strong> ${longitude}</p>
-
-            <h3>Previsão para as próximas 3 horas</h3>
-            <div class="previsao-horas">
-        `;
+                <div class="row g-2">
+            `;
 
             const proximasHoras = clima.hourly.time
                 .map((horario, i) => ({ horario, i }))
                 .filter(item => item.horario > atual.time)
                 .slice(0, 3);
 
-            proximasHoras.forEach(({ horario, i }) => {
-                html += `
-                <div class="card-previsao">
-                    <h4>${horario.split('T')[1]}</h4>
-                    <p>🌡️ ${clima.hourly.temperature_2m[i]} °C</p>
-                    <p>🌧️ ${clima.hourly.precipitation_probability[i] ?? '—'}% de chance de chuva</p>
-                    <p>💧 ${clima.hourly.rain[i] ?? 0} mm de chuva</p>
-                </div>
-            `;
-            });
-            html += `</div>`;
+proximasHoras.forEach(({ horario, i }) => {
+    html += `
+        <div class="col-12">
+            <div class="card border-0 bg-body-secondary">
+                <div class="card-body p-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h6 class="mb-0">${horario.split('T')[1]}</h6>
+                        <span class="fw-semibold">
+                            ${clima.hourly.temperature_2m[i]} °C
+                        </span>
+                    </div>
 
-            resultado.innerHTML = html;
+                    <div class="d-flex justify-content-between small text-muted">
+                        <span>
+                            <i class="fa-solid fa-cloud-rain me-1"></i>
+                            ${clima.hourly.precipitation_probability[i] ?? '—'}%
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-droplet me-1"></i>
+                            ${clima.hourly.rain[i] ?? 0} mm
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+});
+
+html += `</div>`;
+
+resultado.innerHTML = html;
 
         } catch (erro) {
             console.error('Erro na consulta:', erro);
