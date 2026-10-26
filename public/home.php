@@ -103,36 +103,6 @@ $quantidadeSensores = $dados["quantidade"];
                                     <label for="cep">CEP:</label>
                                     <input type="text" id="cep" placeholder="00000-000" maxlength="9">
                                     <button type="button" id="buscar">Buscar CEP</button>
-
-                                    <br><br>
-
-                                    <label for="logradouro">Rua:</label>
-                                    <input type="text" id="logradouro" readonly>
-
-                                    <br><br>
-
-                                    <label for="bairro">Bairro:</label>
-                                    <input type="text" id="bairro" readonly>
-
-                                    <br><br>
-
-                                    <label for="localidade">Cidade:</label>
-                                    <input type="text" id="localidade" readonly>
-
-                                    <br><br>
-
-                                    <label for="uf">Estado (UF):</label>
-                                    <input type="text" id="uf" readonly>
-
-                                    <br><br>
-
-                                    <label for="latitudeClima">Latitude:</label>
-                                    <input type="number" id="latitudeClima" step="any" readonly>
-
-                                    <br><br>
-
-                                    <label for="longitudeClima">Longitude:</label>
-                                    <input type="number" id="longitudeClima" step="any" readonly>
                                 </form>
 
 
@@ -156,10 +126,7 @@ $quantidadeSensores = $dados["quantidade"];
                                 <section id="consultaClima">
                                     <h2>Monitoramento Climático</h2>
 
-                                    <form id="formClima">
 
-                                        <button type="submit">Consultar clima</button>
-                                    </form>
 
                                     <div id="resultadoClima">
                                         <p>Informe as coordenadas e consulte o clima.</p>
