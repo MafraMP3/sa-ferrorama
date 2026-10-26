@@ -65,10 +65,6 @@ if (window.location.pathname.includes("public/home.php")) {
                 return;
             }
 
-            document.getElementById('logradouro').value = dados.logradouro || '';
-            document.getElementById('bairro').value = dados.bairro || '';
-            document.getElementById('localidade').value = dados.localidade || '';
-            document.getElementById('uf').value = dados.uf || '';
 
             // PARTE 2: Buscar latitude e longitude da cidade
             const parametrosGeo = new URLSearchParams({
@@ -134,10 +130,13 @@ if (window.location.pathname.includes("public/home.php")) {
             }
 
             // PARTE 5: Montar os cards e a tabela
-            const resultado = document.getElementById('resultadoClima');
+
 
             let html = `
             <h3>Clima em ${dados.localidade} - ${dados.uf}</h3>
+
+            <p><strong>Cidade:</strong> ${dados.localidade}</p>
+            <p><strong>Estado:</strong> ${dados.uf}</p>
 
             <p><strong>Temperatura atual:</strong>
                 ${atual.temperature_2m} ${clima.current_units.temperature_2m}
@@ -188,14 +187,8 @@ if (window.location.pathname.includes("public/home.php")) {
     }
 
     function limparFormulario() {
-        document.getElementById('logradouro').value = '';
-        document.getElementById('bairro').value = '';
-        document.getElementById('localidade').value = '';
-        document.getElementById('uf').value = '';
-
-        if (resultado) {
-            resultado.innerHTML = '';
-        }
+        document.getElementById('resultadoClima').innerHTML =
+            '<p>Informe o CEP para consultar o clima.</p>';
     }
 
 }
