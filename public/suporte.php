@@ -15,7 +15,7 @@ if (!isset($_SESSION['usuario_nome'])) { header("Location: ../index.php"); exit;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="icon" href="../assets/images/icon.png">
-    <title>Home</title>
+    <title>Suporte</title>
 </head>
 
 <body>
