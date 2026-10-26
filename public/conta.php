@@ -37,7 +37,6 @@ if ($_SESSION['usuario_funcao'] == 'Administrador' && !$filtroAtivo) {
             LEFT JOIN usuarios ON trens.idUsuario = usuarios.idUsuario";
 
   $resultado = $conn->query($sql);
-
 } else {
   $sql = "SELECT
                 trens.idTrem,
@@ -113,13 +112,13 @@ $trens = $resultado;
 
           <div class="col-auto">
             <?php if (!empty($foto)): ?>
-            <img src="<?= htmlspecialchars($foto) ?>" alt="Foto do perfil" class="rounded-circle img-thumbnail"
-              width="110" height="110">
+              <img src="<?= htmlspecialchars($foto) ?>" alt="Foto do perfil" class="rounded-circle img-thumbnail"
+                width="110" height="110">
             <?php else: ?>
-            <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center"
-              style="width: 110px; height: 110px;">
-              <i class="fa-solid fa-user fa-3x"></i>
-            </div>
+              <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center"
+                style="width: 110px; height: 110px;">
+                <i class="fa-solid fa-user fa-3x"></i>
+              </div>
             <?php endif; ?>
           </div>
 
@@ -151,179 +150,190 @@ $trens = $resultado;
     </section>
 
 
-<div class="modal fade" id="modalEditarPerfil" tabindex="-1"
-    aria-labelledby="tituloEditarPerfil" aria-hidden="true">
+    <div class="modal fade" id="modalEditarPerfil" tabindex="-1"
+      aria-labelledby="tituloEditarPerfil" aria-hidden="true">
 
-    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
-            <div class="modal-header">
-                <h5 class="modal-title fw-bold" id="tituloEditarPerfil">
-                    Editar usuário
-                </h5>
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold" id="tituloEditarPerfil">
+              Editar usuário
+            </h5>
 
-                <button type="button" class="btn-close"
-                    data-bs-dismiss="modal" aria-label="Fechar">
-                </button>
-            </div>
+            <button type="button" class="btn-close"
+              data-bs-dismiss="modal" aria-label="Fechar">
+            </button>
+          </div>
 
-            <div class="modal-body">
+          <div class="modal-body">
 
-                <form action="services/ProcessosUsuario/atualizarPerfil.php" method="POST" enctype="multipart/form-data">
+            <form action="services/ProcessosUsuario/atualizarPerfil.php" method="POST" enctype="multipart/form-data">
 
 
-                <div class="mb-3">
-                    <label for="usuarioFoto" class="form-label">Foto de perfil</label>
-                    <input
-                        type="file"
-                        class="form-control"
-                        id="usuarioFoto"
-                        name="usuarioFoto"
-                        accept="image/png, image/jpeg, image/webp"
-                    >
-                    <div class="form-text">
-                        Formatos aceitos: JPG, PNG e WEBP.
-                    </div>
+              <div class="mb-3">
+                <label for="usuarioFoto" class="form-label">Foto de perfil</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="usuarioFoto"
+                  name="usuarioFoto"
+                  accept="image/png, image/jpeg, image/webp">
+                <div class="form-text">
+                  Formatos aceitos: JPG, PNG e WEBP.
                 </div>
-                    
+              </div>
 
-                    <div class="modal-footer px-0 pb-0">
-                        <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">
-                            Cancelar
-                        </button>
 
-                        <button type="submit" name="editarUsuario"
-                            class="btn btn-danger">
-                            <i class="fa-solid fa-floppy-disk me-2"></i>
-                            Salvar alterações
-                        </button>
-                    </div>
+              <div class="modal-footer px-0 pb-0">
+                <button type="button" class="btn btn-secondary"
+                  data-bs-dismiss="modal">
+                  Cancelar
+                </button>
 
-                </form>
+                <button type="submit" name="editarUsuario"
+                  class="btn btn-danger">
+                  <i class="fa-solid fa-floppy-disk me-2"></i>
+                  Salvar alterações
+                </button>
+              </div>
 
-            </div>
+            </form>
+
+          </div>
 
         </div>
+      </div>
     </div>
-</div>
 
 
 
     <?php if (mysqli_num_rows($trens) == 0) { ?>
-    <div id="nenhumSensor">
-      <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
-        <i class="fa-solid fa-train fa-5x m-4 text-danger opacity-50"></i>
-        <h4 class="text-secondary">
-          Nenhum trem cadastrado ainda.
-        </h4>
-        <p class="text-secondary mb-4">Cadastre um novo trem para começar.</p>
+      <div id="nenhumSensor">
+        <div class="card div-top-sensors none-sensors d-flex align-items-center justify-content-center ">
+          <i class="fa-solid fa-train fa-5x m-4 text-danger opacity-50"></i>
+          <h4 class="text-secondary">
+            Nenhum trem cadastrado ainda.
+          </h4>
+          <p class="text-secondary mb-4">Cadastre um novo trem para começar.</p>
+        </div>
       </div>
-    </div>
     <?php } else { ?>
-    <!-------------------------------------------------->
+      <!-------------------------------------------------->
 
       <div class="div-form-list" id="todaTabela">
         <div class="card div-table-form">
-
-          <div class="d-flex align-items-center justify-content-between">
+          <div class="d-flex justify-content-between">
             <div class="d-flex align-items-center">
-              <i class="fa-solid fa-train fa-2x" style="color: rgb(255, 49, 49);"></i>
-              <p class="title-text-form h4">
-                TRENS CADASTRADOS
-              </p>
+              <div class="d-flex align-items-center">
+                <i class="fa-solid fa-train fa-2x" style="color: rgb(255, 49, 49);"></i>
+                <p class="title-text-form h4">
+                  TRENS CADASTRADOS
+                </p>
+              </div>
             </div>
 
-            <!-- Botão Limpar Filtro -->
-            <?php
-            if ($_SESSION['usuario_funcao'] == 'Administrador' && isset($_POST["filtrar"])) { ?>
+            <div class="d-flex gap-2">
+              <!-- Botão Limpar Filtro -->
               <div>
-                <form action="" method="POST">
-                  <button type="submit" name="limparFiltro">Limpar Filtro</button>
-                </form>
+                <?php
+                if ($_SESSION['usuario_funcao'] == 'Administrador' && isset($_POST["filtrar"])) { ?>
+                  <div>
+                    <form action="" method="POST">
+                      <button id="botao-preto-fadecinza" class="btn btn-dark" type="submit" name="limparFiltro">Limpar Filtro</button>
+                    </form>
+                  </div>
+                <?php } ?>
               </div>
-            <?php } ?>
 
-            <!-- Botão Filtrar Trens -->
-            <?php
-            if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
+
+              <!-- Botão Filtrar Trens -->
               <div>
+                <?php
+                if ($_SESSION['usuario_funcao'] == 'Administrador') { ?>
+                  <div>
 
-                <form action="" method="POST">
-                  <button type="submit" name="filtrar">Apenas meus trens</button>
-                </form>
+                    <form action="" method="POST">
+                      <button id="botao-preto-fadecinza" class="btn btn-dark" type="submit" name="filtrar">Apenas meus trens</button>
+                    </form>
+                  </div>
+                <?php } ?>
               </div>
-            <?php } ?>
 
+            </div>
           </div>
 
-          <div class="table-responsive">
-            <table class="table-forms table table-bordered align-middle rounded overflow-hidden border-dark ">
-              <thead>
-                <tr class="table-dark">
-                  <th class="ths">Nome</th>
-                  <th class="ths">Tipo de Carga</th>
-                  <th class="ths">Modelo</th>
-                  <th class="ths">Rota</th>
-                  <th class="ths">Usuário</th>
-                  <th class="ths">Ações</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <?php while ($trem = mysqli_fetch_assoc($trens)) { ?>
-                  <tr>
-                    <td><?php echo htmlspecialchars($trem["nomeTrem"]); ?></td>
-                    <td><?php echo htmlspecialchars($trem["tipoCarga"]); ?></td>
-                    <td><?php echo htmlspecialchars($trem["modeloTrem"]); ?></td>
-                    <td><?php echo htmlspecialchars($trem["nomeRota"] ?? "Sem rota"); ?></td>
-                    <td><?php echo htmlspecialchars($trem["nomeUsuario"] ?? "Sem usuário"); ?></td>
 
 
-                    <td class="img-tabela" style="width: 220px;">
-                      <div class="d-flex gap-2 justify-content-around align-items-center">
+       
 
-                        <form action="services/excluir.php" method="POST" style="display: inline;">
-                          <input type="hidden" name="idExcluir" value="<?php echo $trem["idTrem"]; ?>">
-                          <input type="hidden" name="tabela" value="trens">
-                          <input type="hidden" name="campoId" value="idTrem">
+        <div class="table-responsive">
+          <table class="table-forms table table-bordered align-middle rounded overflow-hidden border-dark ">
+            <thead>
+              <tr class="table-dark">
+                <th class="ths">Nome</th>
+                <th class="ths">Tipo de Carga</th>
+                <th class="ths">Modelo</th>
+                <th class="ths">Rota</th>
+                <th class="ths">Usuário</th>
+                <th class="ths">Ações</th>
+              </tr>
+            </thead>
 
-                          <button class="botao-imagem" type="button" data-bs-toggle="modal"
-                            data-bs-target="#ModalExcluir<?php echo $trem["idTrem"]; ?>">
-                            <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;" data-bs-toggle="tooltip"
-                              title="Excluir"></i>
-                          </button>
+            <tbody>
+              <?php while ($trem = mysqli_fetch_assoc($trens)) { ?>
+                <tr>
+                  <td><?php echo htmlspecialchars($trem["nomeTrem"]); ?></td>
+                  <td><?php echo htmlspecialchars($trem["tipoCarga"]); ?></td>
+                  <td><?php echo htmlspecialchars($trem["modeloTrem"]); ?></td>
+                  <td><?php echo htmlspecialchars($trem["nomeRota"] ?? "Sem rota"); ?></td>
+                  <td><?php echo htmlspecialchars($trem["nomeUsuario"] ?? "Sem usuário"); ?></td>
 
-                          <div class="modal fade" id="ModalExcluir<?php echo $trem["idTrem"]; ?>" tabindex="-1">
-                            <div class="modal-dialog modal-dialog-scrollable">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h1 class="modal-title fs-5">Confirmar exclusão</h1>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                </div>
-                                <div class="modal-body">
-                                  Deseja realmente excluir o trem
-                                  <strong><?php echo htmlspecialchars($trem["nomeTrem"]); ?></strong>?
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="submit" class="btn btn-danger">Confirmar</button>
-                                </div>
+
+                  <td class="img-tabela" style="width: 220px;">
+                    <div class="d-flex gap-2 justify-content-around align-items-center">
+
+                      <form action="services/excluir.php" method="POST" style="display: inline;">
+                        <input type="hidden" name="idExcluir" value="<?php echo $trem["idTrem"]; ?>">
+                        <input type="hidden" name="tabela" value="trens">
+                        <input type="hidden" name="campoId" value="idTrem">
+
+                        <button class="botao-imagem" type="button" data-bs-toggle="modal"
+                          data-bs-target="#ModalExcluir<?php echo $trem["idTrem"]; ?>">
+                          <i class="fa-solid fa-trash fa-xl" style="color: #ff3131;" data-bs-toggle="tooltip"
+                            title="Excluir"></i>
+                        </button>
+
+                        <div class="modal fade" id="ModalExcluir<?php echo $trem["idTrem"]; ?>" tabindex="-1">
+                          <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h1 class="modal-title fs-5">Confirmar exclusão</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                              </div>
+                              <div class="modal-body">
+                                Deseja realmente excluir o trem
+                                <strong><?php echo htmlspecialchars($trem["nomeTrem"]); ?></strong>?
+                              </div>
+                              <div class="modal-footer">
+                                <button type="submit" class="btn btn-danger">Confirmar</button>
                               </div>
                             </div>
                           </div>
-                        </form>
+                        </div>
+                      </form>
 
-                        <form action="" method="POST" style="display: inline;">
-                          <input type="hidden" name="idTrem" value="<?php echo $trem["idTrem"]; ?>">
+                      <form action="" method="POST" style="display: inline;">
+                        <input type="hidden" name="idTrem" value="<?php echo $trem["idTrem"]; ?>">
 
-                          <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
-                            <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
-                          </button>
-                        </form>
+                        <button class="botao-imagem" type="submit" data-bs-toggle="tooltip" title="Editar">
+                          <i class="fa-solid fa-pen-to-square fa-xl" style="color: #392d29;"></i>
+                        </button>
+                      </form>
 
-                      </div>
-                    </td>
-                  <?php } ?>
+                    </div>
+                  </td>
+                <?php } ?>
                 </tr>
               <?php } ?>
             </tbody>
@@ -331,9 +341,9 @@ $trens = $resultado;
         </div>
 
       </div>
-    </div>
+  </div>
 
-    </main>
+  </main>
 
   </div>
 
