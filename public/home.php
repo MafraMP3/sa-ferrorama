@@ -99,11 +99,7 @@ $quantidadeSensores = $dados["quantidade"];
 
                                 <h2>Formulário de Endereço</h2>
 
-                                <form id="formEndereco">
-                                    <label for="cep">CEP:</label>
-                                    <input type="text" id="cep" placeholder="00000-000" maxlength="9">
-                                    <button type="button" id="buscar">Buscar CEP</button>
-                                </form>
+  
 
 
 
@@ -153,8 +149,6 @@ $quantidadeSensores = $dados["quantidade"];
                             <div class="text-center">
                                 <i class="fa-solid fa-train fa-3x mb-3"></i>
 
-                                <!-- ⚠️ ERRO: texto placeholder "aaaa..." esquecido, precisa trocar por conteúdo real -->
-
                                 <h5>
                                     aaaaaaaaaaaaaaaaaaaaaaaaaaaa
                                 </h5>
@@ -169,46 +163,49 @@ $quantidadeSensores = $dados["quantidade"];
                 </div>
 
 
-                <div class="col-12 col-xl-4">
-                    <div class="d-flex flex-column gap-4 h-100">
-                        <div class="card dashboard-card p-4 flex-fill">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h5>
-                                    Status do Sistema
-                                </h5>
-                                <i class="fa-solid fa-circle-check text-danger opacity-50"></i>
-                            </div>
-                            <div class="status-area">
-                                <h2>
-                                    ????
-                                </h2>
-                                <p>
-                                    sistema ativo
-                                </p>
+            <div class="col-12 col-xl-4">
+                <div class="card dashboard-card p-4 h-100">
 
-                            </div>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div class="d-flex align-items-center gap-2">
+                        <h4 class="mb-0">Clima</h4>
 
-                        </div>
-                        <div class="card dashboard-card p-4 flex-fill">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
+                        <button type="button" class="btn btn-outline-danger btn-sm py-0 px-2"
+                            id="btnPesquisar">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
 
-                                <h5>
-                                    Alertas
-                                </h5>
-
-                                <i class="fa-solid fa-triangle-exclamation text-danger opacity-50"></i>
-
-                            </div>
-                            <div class="alerta-area">
-                                <h2>
-                                    0
-                                </h2>
-
-
-                            </div>
+                        <div id="formEndereco" class="d-none">
+                            <input type="text" class="form-control form-control-sm"
+                                id="cep" placeholder="Insira o CEP" maxlength="9"
+                                style="width: 110px;">
                         </div>
                     </div>
+
+                    <i class="fa-solid fa-cloud-sun text-danger opacity-50 fa-xl"></i>
                 </div>
+
+                <div id="formEndereco" class="d-none mb-3">
+                    <label for="cep" class="form-label">CEP:</label>
+
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="cep"
+                            placeholder="00000-000" maxlength="9">
+
+                        <button type="button" class="btn btn-danger" id="buscar">
+                            Buscar
+                        </button>
+                    </div>
+                </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
             </div>
 
             <!--------------------------------->
