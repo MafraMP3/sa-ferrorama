@@ -31,9 +31,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
 if (window.location.pathname.includes("public/home.php")) {
 
-    // BUSCAR CEP
+    const btnPesquisar = document.getElementById('btnPesquisar');
+    const inputCep = document.getElementById('cep');
 
-    document.getElementById('buscar').addEventListener('click', buscarCep);
+    btnPesquisar.addEventListener('click', function () {
+        inputCep.classList.toggle('d-none');
+
+        if (!inputCep.classList.contains('d-none')) {
+            inputCep.focus();
+        }
+    });
+
+
+    inputCep.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') buscarCep();
+    });
+
+   
+    inputCep.addEventListener('input', function () {
+        let v = inputCep.value.replace(/\D/g, '').slice(0, 8);
+        if (v.length > 5) v = v.slice(0, 5) + '-' + v.slice(5);
+        inputCep.value = v;
+    });
+
+
 
     async function buscarCep() {
         const cep = document.getElementById('cep').value.replace(/\D/g, '');
