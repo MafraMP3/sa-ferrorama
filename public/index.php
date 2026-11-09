@@ -3,7 +3,7 @@
 
 session_start();
 
-include("infra/database/conn.php");
+include("../infra/database/conn.php");
 
 $erroLogin = false;
 
@@ -32,7 +32,7 @@ if (isset($_POST["login"])) {
             $_SESSION['usuario_funcao'] = $usuario['funcao'];
             $_SESSION['usuario_foto'] = $usuario['usuarioFoto'] ?? '';
 
-            header("Location: public/home.php");
+            header("Location: home.php");
             exit;
         }
     }
@@ -52,8 +52,8 @@ if (isset($_POST["login"])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="styles/style.css?v=2">
-    <link rel="icon" href="assets/images/icon.png">
+    <link rel="stylesheet" href="../styles/style.css?v=2">
+    <link rel="icon" href="../assets/images/icon.png">
 
     <title>Ferrorama SA</title>
 </head>
@@ -69,7 +69,7 @@ if (isset($_POST["login"])) {
             <div>
                 <div class="d-flex justify-content-center">
                     <img id="img-login-screen" class="img-fluid"
-                        src="assets/images/icon-image-login-screen.png" alt="">
+                        src="../assets/images/icon-image-login-screen.png" alt="">
                 </div>
 
                 <div id="div-login-screen" class="container-xxl">
@@ -113,7 +113,7 @@ if (isset($_POST["login"])) {
 
             <div>
                 <img class="img-fluid" id="img-footer-login-screen"
-                    src="assets/images/footer-image-login-screen.png" alt="">
+                    src="../assets/images/footer-image-login-screen.png" alt="">
             </div>
 
         </section>
