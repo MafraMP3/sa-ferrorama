@@ -162,14 +162,14 @@ $sensores = mysqli_query($conn, $sqlSensor);
               </p>
             </div>
             <div>
-              <form action="" method="POST">
-                <select name="filtrar" id="filtrar">
+              <form class="d-flex gap-2" action="" method="POST">
+                <select class="form-select" name="filtrar" id="filtrar">
                   <option value="nomeSensor">Nome Sensor</option>
                   <option value="tremSensor">Trem do Sensor</option>
                   <option value="dataInstalacao">Data de Instalação</option>
                   <option value="tipoDado">Tipo de Dado</option>
                 </select>
-                <button type="submit" name="filtro">Filtrar</button>
+                  <button id="botao-preto-fadecinza" class="btn btn-dark" type="submit" name="filtro">Filtrar</button>
               </form>
             </div>
           </div>
