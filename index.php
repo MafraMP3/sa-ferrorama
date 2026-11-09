@@ -46,7 +46,7 @@
 
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3">
-                    <div class="border-top border-danger border-2 pt-4 h-100">
+                    <div class=" border-2 pt-4 h-100">
                         <i class="fa-solid fa-tower-broadcast fs-2 text-danger"></i>
                         <h5 class="fw-bold mt-4">Sensores</h5>
                         <p class="text-white-50">Cadastro e gerenciamento dos sensores.</p>
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="col-md-6 col-lg-3">
-                    <div class="border-top border-danger border-2 pt-4 h-100">
+                    <div class=" border-2 pt-4 h-100">
                         <i class="fa-solid fa-train fs-2 text-danger"></i>
                         <h5 class="fw-bold mt-4">Trens</h5>
                         <p class="text-white-50">Cadastro e gerenciamento dos trens.</p>
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="col-md-6 col-lg-3">
-                    <div class="border-top border-danger border-2 pt-4 h-100">
+                    <div class=" border-2 pt-4 h-100">
                         <i class="fa-solid fa-route fs-2 text-danger"></i>
                         <h5 class="fw-bold mt-4">Rotas</h5>
                         <p class="text-white-50">Cadastro e gerenciamento das rotas.</p>
@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="col-md-6 col-lg-3">
-                    <div class="border-top border-danger border-2 pt-4 h-100">
+                    <div class=" border-2 pt-4 h-100">
                         <i class="fa-solid fa-chart-line fs-2 text-danger"></i>
                         <h5 class="fw-bold mt-4">Monitoramento</h5>
                         <p class="text-white-50">Visualização dos dados dos sensores.</p>
