@@ -142,11 +142,11 @@ $quantidadeSensores = $dados["quantidade"];
                                 <i class="fa-solid fa-train fa-3x mb-3"></i>
 
                                 <h5>
-                                    aaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                                    Mapa da ferrovia
                                 </h5>
 
                                 <p>
-                                    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                                    nenhuma rota mapeada
                                 </p>
 
                             </div>
