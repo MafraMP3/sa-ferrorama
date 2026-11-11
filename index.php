@@ -24,7 +24,7 @@
             <div class="navbar-nav ms-auto align-items-lg-center gap-lg-3 py-3 py-lg-0">
                 <a href="#funcionalidades" class="nav-link">Recursos</a>
                 <a href="#projeto" class="nav-link">O projeto</a>
-                <a href="public/index.php" class="btn btn-danger rounded-3 px-4 py-2">Acessar sistema <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></a>
+                <a href="public/index.php" id="button-sistem-acess-secundary" class="btn btn-danger rounded-3 px-4 py-2">Acessar sistema <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></a>
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
                     <span class="badge bg-danger rounded-pill px-3 py-2 mb-3">SA-FERRORAMA · SENAI SC</span>
                     <img src="assets/images/logo_escrita.png" class="img-fluid w-75 d-block" alt="HERMES">
                     <p class="fs-5 mt-4" style="color: #51413b;">Sistema de monitoramento e gerenciamento ferroviário.</p>
-                    <a href="public/index.php" class="btn btn-danger rounded-3 px-4 py-3 mt-3">
+                    <a href="public/index.php" id="button-sistem-acess" class="btn btn-danger rounded-3 px-4 py-3 mt-3">
                         Acessar sistema <i class="fa-solid fa-arrow-right ms-2"></i>
                     </a>
                 </div>
