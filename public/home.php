@@ -94,14 +94,9 @@ $quantidadeSensores = $dados["quantidade"];
                                 class="imagem-analise">
                             <div>
 
-
-
-
-                                <h2>Formulário de Endereço</h2>
-
-  
-
-
+                                <p class="h5 mb-1">
+                                    Velocidade
+                                </p>
 
                             </div>
                         </div>
