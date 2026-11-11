@@ -182,6 +182,12 @@ body {
   padding: 10px 55px;
 }
 
+.button-form:hover{
+  background-color: var(--hermes-red);
+  font-size: 30px;
+  padding: 10px 55px;
+}
+
 .div-none-form-info{
   margin-top: 10px !important;
   padding-top: 0px !important;
