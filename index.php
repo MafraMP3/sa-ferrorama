@@ -8,6 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" href="assets/images/icon.png">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body style="background-color: #f9f9ee !important;">
