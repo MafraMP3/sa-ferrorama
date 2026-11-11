@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <link rel="icon" href="assets/images/icon.png">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body class="bg-light">
 
@@ -21,7 +22,7 @@
         </button>
         <div class="collapse navbar-collapse" id="menu">
             <div class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
-                <a href="public/index.php" class="btn btn-danger rounded-0 px-4">Acessar sistema ↗</a>
+                <a href="public/index.php" id="button-sistem-acess-secundary" class="btn btn-danger rounded-0 px-4">Acessar sistema ↗</a>
             </div>
         </div>
     </div>
@@ -35,7 +36,7 @@
                 <div class="col-lg-5">
                     <img src="assets/images/logo_escrita.png" class="img-fluid w-75" alt="HERMES">
                     <p class="fs-5 mt-3" style="color: #51413b;">Sistema de monitoramento e gerenciamento ferroviário.</p>
-                    <a href="public/index.php" class="btn btn-danger rounded-0 px-4 py-3 mt-3">Acessar sistema ↗</a>
+                    <a href="public/index.php" id="button-sistem-acess" class="btn btn-danger rounded-0 px-4 py-3 mt-3">Acessar sistema ↗</a>
                 </div>
             </div>
         </div>
