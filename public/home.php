@@ -95,7 +95,7 @@ $quantidadeSensores = $dados["quantidade"];
                             <div>
 
                                 <p class="h5 mb-1">
-                                    Velocidade
+                                    Velocidade atual
                                 </p>
 
                             </div>
