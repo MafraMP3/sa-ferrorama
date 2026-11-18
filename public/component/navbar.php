@@ -1,8 +1,11 @@
 <?php
-$publicPath = str_replace('\\', '/', dirname(__DIR__));
+
+//Caminhos universais
+$publicPath = str_replace('\\', '/', dirname(__DIR__)); 
 $projectPath = str_replace('\\', '/', dirname($publicPath));
 $documentRoot = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']);
 
+//URLs Universais
 $publicUrl = str_replace($documentRoot, '', $publicPath);
 $projectUrl = str_replace($documentRoot, '', $projectPath);
 $foto = $_SESSION['usuario_foto'] ?? '';

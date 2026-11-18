@@ -1,13 +1,15 @@
 //======================================================TODAS AS PÁGINAS=======================================================================================//
 
+//Chave da API
 const API_KEY = 'f21c4ced94b130da1602ed5e53b05aa3';
 
-
+//Função para esconder a sidebar
 function toggleSidebar() {
     document.querySelector('.sidebar').classList.toggle('open');
     document.getElementById('overlay').classList.toggle('active');
 }
 
+//Função para classe "active" na navbar
 document.addEventListener("DOMContentLoaded", function () {
 
     const paginaAtual = window.location.pathname.split('/').pop();
@@ -239,6 +241,7 @@ resultado.innerHTML = html;
 //======================================================SENSORES.php=======================================================================================//
 
 if (window.location.pathname.includes("public/sensores.php")) {
+    //Pega a data atual e coloca no input da Data de Instalação
     let dataAtual = new Date();
 
     let diaAtual = String(dataAtual.getDate());
@@ -263,7 +266,9 @@ if (window.location.pathname.includes("public/sensores.php")) {
 
 if (window.location.pathname.includes("public/usuarios.php")) {
     let cadastroUsuario = document.getElementById("cadastroUsuario");
-    cadastroUsuario.addEventListener("submit", function (e) {
+
+    //Função para evitar a limpeza de formulário sem nome completo
+    cadastroUsuario.addEventListener("submit", function (e) { 
 
         let nomeUsuario = document.getElementById("nomeUsuario").value.trim();
 
@@ -459,8 +464,5 @@ if (window.location.pathname.includes("public/monitoramento.php")) {
 
         setInterval(atualizarGrafico, velAtualizacao) //atualiza tudo a cada (velAtualizacao)
     }, velAtualizacao / 5) //insere o 2º dado e inicia a atualização acima após 1/5 do tempo
-
-
-
 
 }
