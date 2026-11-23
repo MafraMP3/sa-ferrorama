@@ -15,7 +15,7 @@ $modeloTrem = $_POST["modeloTrem"]  ?? null;
 $usuarioTrem = $_POST["idUsuario"]  ?? null;
 
 
-if (empty($nomeTrem) || empty($tipoCarga) || empty($modeloTrem) || empty($idRota) || empty($idUsuario)) {
+if (empty($nomeTrem) || empty($tipoCarga) || empty($modeloTrem) || empty($rotaTrem) || empty($usuarioTrem)) {
     $_SESSION['erro_trem'] = "Não é possível enviar com campos vazios.";
     header("Location: ../../trens.php");
     exit;
