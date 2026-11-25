@@ -64,23 +64,23 @@ if (!move_uploaded_file($foto["tmp_name"], $caminhoCompleto)) {
 $idUsuario = $_SESSION["usuario_id"];
 
 $sql = "UPDATE usuarios SET usuarioFoto = ? WHERE idUsuario = ?";
-$stmt = mysqli_prepare($conn, $sql);
+$stmt = $conn->prepare($sql);
 
 if (!$stmt) {
     unlink($caminhoCompleto);
     exit("Erro ao preparar a atualização.");
 }
 
-mysqli_stmt_bind_param($stmt, "si", $caminhoBanco, $idUsuario);
+$stmt->bind_param("si", $caminhoBanco, $idUsuario);
 
-if (!mysqli_stmt_execute($stmt)) {
+if (!$stmt->execute()) {
     unlink($caminhoCompleto);
     exit("Não foi possível atualizar a foto.");
 }
 
 $_SESSION["usuario_foto"] = $caminhoBanco;
 
-mysqli_stmt_close($stmt);
+$stmt->close();
 
 header("Location: ../../conta.php");
 exit;
